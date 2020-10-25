@@ -4,20 +4,26 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     private float x = 0;
     private float y = 0;
+    private float previous_X = 0;
+    private float previous_Y = 0;
+
 
     private float time = 0;
-    private float attackSpeed = 0.1f;
+    public float attackSpeed = 0.1f;
+    public float movingSpeed = 5f;
 
+    private Animator anim;
     public GameObject Projectile;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.SetParent(GameObject.Find("Canvas").transform, false);
+       // transform.SetParent(GameObject.Find("Canvas").transform, false);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,17 +31,26 @@ public class CharacterScript : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-            x -= 0.5f;
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+            x -= movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.RightArrow))
-            x += 0.5f;
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            x += movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.UpArrow))
-            y += 0.5f;
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z))
+            y += movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.DownArrow))
-            y -= 0.5f;
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            y -= movingSpeed * Time.deltaTime;
+
+        {
+            float x_move = (x - previous_X) * 100;
+            float y_move = (y - previous_Y) * 100;
+
+            anim.SetFloat("X_speed", x_move);
+            anim.SetFloat("Y_speed", y_move);
+        }
+        
 
         if (Input.GetMouseButton(0) && time > attackSpeed)
         {
@@ -44,6 +59,9 @@ public class CharacterScript : MonoBehaviour
         }
 
         transform.localPosition = new Vector3(x, y, 0);
+        previous_X = x;
+        previous_Y = y;
+        
     }
 
     public void FireProjectile()

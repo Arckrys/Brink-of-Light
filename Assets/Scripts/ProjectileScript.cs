@@ -17,7 +17,7 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.SetParent(GameObject.Find("Canvas").transform, false);
+        //transform.SetParent(GameObject.Find("Canvas").transform, false);
 
         sprite = transform.GetChild(0).gameObject;
         sprite.GetComponent<ProjectileCollisionScript>().SetParentGameObject(gameObject);
