@@ -4,10 +4,13 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     private float x = 0;
     private float y = 0;
+    private float previous_X = 0;
+    private float previous_Y = 0;
+
 
     private float time = 0;
     public float attackSpeed = 0.1f;
@@ -28,23 +31,24 @@ public class CharacterScript : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
             x -= movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             x += movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z))
             y += movingSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             y -= movingSpeed * Time.deltaTime;
 
         {
-            float x_speed = Input.GetAxis("Horizontal");
-            float y_speed = Input.GetAxis("Vertical");
-            anim.SetFloat("X_speed", x_speed);
-            anim.SetFloat("Y_speed", y_speed);
+            float x_move = (x - previous_X) * 100;
+            float y_move = (y - previous_Y) * 100;
+
+            anim.SetFloat("X_speed", x_move);
+            anim.SetFloat("Y_speed", y_move);
         }
         
 
@@ -55,6 +59,9 @@ public class CharacterScript : MonoBehaviour
         }
 
         transform.localPosition = new Vector3(x, y, 0);
+        previous_X = x;
+        previous_Y = y;
+        
     }
 
     public void FireProjectile()
