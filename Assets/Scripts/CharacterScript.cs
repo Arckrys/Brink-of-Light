@@ -10,14 +10,17 @@ public class CharacterScript : MonoBehaviour
     private float y = 0;
 
     private float time = 0;
-    private float attackSpeed = 0.1f;
+    public float attackSpeed = 0.1f;
+    public float movingSpeed = 5f;
 
+    private Animator anim;
     public GameObject Projectile;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.SetParent(GameObject.Find("Canvas").transform, false);
+       // transform.SetParent(GameObject.Find("Canvas").transform, false);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,16 +29,24 @@ public class CharacterScript : MonoBehaviour
         time += Time.deltaTime;
 
         if (Input.GetKey(KeyCode.LeftArrow))
-            x -= 0.5f;
+            x -= movingSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.RightArrow))
-            x += 0.5f;
+            x += movingSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.UpArrow))
-            y += 0.5f;
+            y += movingSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.DownArrow))
-            y -= 0.5f;
+            y -= movingSpeed * Time.deltaTime;
+
+        {
+            float x_speed = Input.GetAxis("Horizontal");
+            float y_speed = Input.GetAxis("Vertical");
+            anim.SetFloat("X_speed", x_speed);
+            anim.SetFloat("Y_speed", y_speed);
+        }
+        
 
         if (Input.GetMouseButton(0) && time > attackSpeed)
         {
