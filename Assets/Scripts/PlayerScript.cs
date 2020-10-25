@@ -44,8 +44,8 @@ public class PlayerScript : MonoBehaviour
             y -= movingSpeed * Time.deltaTime;
 
         {
-            float x_move = (x - previous_X) * 100;
-            float y_move = (y - previous_Y) * 100;
+            float x_move = (x - previous_X) * 1000;
+            float y_move = (y - previous_Y) * 1000;
 
             anim.SetFloat("X_speed", x_move);
             anim.SetFloat("Y_speed", y_move);
