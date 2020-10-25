@@ -4,14 +4,18 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField] private float speed = .0f;
+    [SerializeField] protected Stat life;
+
+    [SerializeField] private float initLife;
+
+    [SerializeField] private float speed;
 
     protected Vector2 direction;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        life.Initialized(initLife, initLife);
     }
 
     // Update is called once per frame
