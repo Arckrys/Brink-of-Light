@@ -12,8 +12,8 @@ public class PlayerScript : MonoBehaviour
     private float previous_Y = 0;
 
 
-    private float time = 0;
-    public float attackSpeed = 0.1f;
+    private float timeSinceLastAttack = 0;
+    public float nextAttackDelay = 0.1f;
     public float movingSpeed = 5f;
 
     private Animator anim;
@@ -29,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        timeSinceLastAttack += Time.deltaTime;
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
             x -= movingSpeed * Time.deltaTime;
@@ -52,10 +52,10 @@ public class PlayerScript : MonoBehaviour
         }
         
 
-        if (Input.GetMouseButton(0) && time > attackSpeed)
+        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
-            time = 0;
+            timeSinceLastAttack = 0;
         }
 
         transform.localPosition = new Vector3(x, y, 0);
