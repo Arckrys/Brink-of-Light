@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasicEnemyController : Character
 {
@@ -30,7 +31,7 @@ public class BasicEnemyController : Character
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
             {
                 direction = player.position - transform.position;
-                print(direction);
+                //print(direction);
 
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 if ( angle < 40 && angle > -40)
@@ -73,6 +74,32 @@ public class BasicEnemyController : Character
             }
         }
 
+        UpdateLifeBar();
+
         base.Update();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Spell"))
+        {
+            life.MyCurrentValue -= 1;
+        }
+    }
+
+    private void UpdateLifeBar()
+    {
+        Image content = life.GetComponent<Image>();
+
+        if (life.MyCurrentValue == life.MyMaxValue)
+        {
+            life.transform.parent.gameObject.SetActive(false);
+        }
+        else if (content.fillAmount != life.MyCurrentValue / life.MyMaxValue)
+        {
+            life.transform.parent.gameObject.SetActive(true);
+
+            content.fillAmount = Mathf.Lerp(content.fillAmount, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
+        }
     }
 }

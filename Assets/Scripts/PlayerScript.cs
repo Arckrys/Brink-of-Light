@@ -50,15 +50,6 @@ public class PlayerScript : Character
     {
         direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.O))
-        {
-            life.MyCurrentValue -= 1;
-        }
-        if (Input.GetKey(KeyCode.I))
-        {
-            life.MyCurrentValue += 1;
-        }
-
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
         {
             direction += Vector2.up;
@@ -88,10 +79,10 @@ public class PlayerScript : Character
     private void FireProjectile()
     {
         //get mouse position in world space
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 screenPosition = Input.mousePosition;
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         //substract character position to change the origin of the projectile direction
-        worldPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
+        worldPosition -= new Vector2(transform.position.x, transform.position.y);
 
         //create projectile
         GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
