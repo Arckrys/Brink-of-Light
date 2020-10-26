@@ -5,6 +5,9 @@ using UnityEngine;
 public class ItemsScript : MonoBehaviour
 {
     public GameObject itemGameObject;
+    public GameObject player;
+
+    private PlayerScript playerScript;
 
     private List<string> possessedItems = new List<string>();
 
@@ -19,6 +22,11 @@ public class ItemsScript : MonoBehaviour
         "Sauce piquante"
     };
 
+    private void Start()
+    {
+        playerScript = player.GetComponent<PlayerScript>();
+    }
+
     public string SelectRandomItem()
     {
         string randomItem = itemsList[Random.Range(0, itemsList.Count)];
@@ -26,10 +34,11 @@ public class ItemsScript : MonoBehaviour
         return randomItem;
     }
 
-    public void CreateItem(Vector3 position)
+    public void CreateItem(Vector3 position, string item)
     {
         GameObject newItem = Instantiate(itemGameObject, position, Quaternion.identity);
-        newItem.GetComponent<SpriteRenderer>();
+        newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + item);
+        print("Images/Items/Equipment/" + item);
     }
 
     public void ApplyItemModifications(string item)
@@ -44,7 +53,7 @@ public class ItemsScript : MonoBehaviour
 
                 else
                 {
-
+                    //playerScript.
                 }
                 break;
 

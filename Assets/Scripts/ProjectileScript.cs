@@ -111,6 +111,7 @@ public class ProjectileScript : MonoBehaviour
         xDirection = direction.x;
         yDirection = direction.y;
 
+        /*
         //change the projectile's rotation to match the direction
         Vector2 baseVector = new Vector2(0, 1);
         float directionAngle = Vector2.Angle(baseVector, direction);
@@ -118,7 +119,7 @@ public class ProjectileScript : MonoBehaviour
         if (xDirection > 0)
             directionAngle = -directionAngle;
 
-        transform.Rotate(Vector3.forward * directionAngle);
+        transform.Rotate(Vector3.forward * directionAngle);*/
     }
 
     public void DestroyProjectile()

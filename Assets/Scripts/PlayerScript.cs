@@ -8,9 +8,6 @@ public class PlayerScript : Character
 {
     private Animator lifeAnimator;
 
-    private float x = 0;
-    private float y = 0;
-
     private float timeSinceLastAttack = 0;
     public float nextAttackDelay = 0.1f;
 
