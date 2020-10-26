@@ -26,16 +26,24 @@ public class PlayerScript : Character
     {
         GetInput();
 
-        //lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
-
         HandleLayers();
+
+        UpdateLifeImage();
 
         base.Update();
     }
 
-    private void UpdateLife()
+    private void UpdateLifeImage()
     {
-        
+        Vector3 scale = life.transform.localScale;
+
+        if (scale.x != life.MyCurrentValue / life.MyMaxValue && scale.y != life.MyCurrentValue / life.MyMaxValue)
+        {
+            scale.x = Mathf.Lerp(scale.x, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
+            scale.y = Mathf.Lerp(scale.y, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
+
+            life.transform.localScale = scale;
+        }
     }
 
     private void GetInput()
