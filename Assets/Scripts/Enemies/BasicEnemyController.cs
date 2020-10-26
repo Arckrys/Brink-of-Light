@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemyController : MonoBehaviour
+public class BasicEnemyController : Character
 {
     public float speed;
     public float stoppingDistance;
     public float detectionRadius;
-    private GameObject gfx;
     public Transform player;
     private Animator gfxAnim;
     private bool playerDetected;
@@ -16,10 +15,10 @@ public class BasicEnemyController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        gfx = transform.Find("EnemyGFX").gameObject;
         stoppingDistance = 0;
-        gfxAnim = gfx.GetComponent<Animator>();
+        gfxAnim = transform.GetComponent<Animator>();
         playerDetected = false;
+        base.Start();
     }
 
     // Update is called once per frame
@@ -29,8 +28,8 @@ public class BasicEnemyController : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
             {
-                Vector2 direction = player.position - transform.position;
-                
+                direction = (Vector2)(player.position - transform.position);
+                print(direction);
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 if ( angle < 40 & angle > -40)
                 {
@@ -60,7 +59,7 @@ public class BasicEnemyController : MonoBehaviour
                     gfxAnim.SetBool("FacingDown", true);
                     gfxAnim.SetBool("FacingUp", false);
                 }
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime); ;
+                //transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime) ;
 
             }
         }
@@ -71,5 +70,6 @@ public class BasicEnemyController : MonoBehaviour
                 playerDetected = true;
             }
         }
+        base.Update();
     }
 }
