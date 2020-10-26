@@ -4,7 +4,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : Character
 {
     private float x = 0;
     private float y = 0;
@@ -20,48 +20,51 @@ public class PlayerScript : MonoBehaviour
     public GameObject Projectile;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
        // transform.SetParent(GameObject.Find("Canvas").transform, false);
         anim = GetComponent<Animator>();
+
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
+        //timeSinceLastAttack += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
-            x -= movingSpeed * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            x += movingSpeed * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z))
-            y += movingSpeed * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            y -= movingSpeed * Time.deltaTime;
-
-        {
-            float x_move = (x - previous_X) * 1000;
-            float y_move = (y - previous_Y) * 1000;
-
-            anim.SetFloat("X_speed", x_move);
-            anim.SetFloat("Y_speed", y_move);
-        }
+        GetInput();
         
 
-        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+        /*if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
             timeSinceLastAttack = 0;
-        }
+        }*/
 
-        transform.localPosition = new Vector3(x, y, 0);
-        previous_X = x;
-        previous_Y = y;
-        
+        base.Update();
+    }
+
+    public void GetInput()
+    {
+        direction = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+        {
+            direction += Vector2.up;
+        }
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            direction += Vector2.left;
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            direction += Vector2.down;
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            direction += Vector2.right;
+        }
     }
 
     public void FireProjectile()

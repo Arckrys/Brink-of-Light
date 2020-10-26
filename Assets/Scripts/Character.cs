@@ -10,22 +10,74 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    private Animator animator;
+
+    private Rigidbody2D rigidbody;
+
     protected Vector2 direction;
+
+    public bool IsMoving
+    {
+        get
+        {
+            return direction.x != 0 || direction.y != 0;
+        }
+    }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        life.Initialized(initLife, initLife);
+        rigidbody = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
+
+        //life.Initialized(initLife, initLife);
     }
 
     // Update is called once per frame
     protected virtual void Update()
+    {
+        HandleLayers();
+    }
+
+    private void FixedUpdate()
     {
         Move();
     }
 
     public void Move()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        rigidbody.velocity = direction.normalized * speed;
+    }
+
+    private void HandleLayers()
+    {
+        if (IsMoving)
+        {
+            ActivateLayer("Walk Layer");
+
+            animator.SetFloat("X_speed", direction.x);
+            animator.SetFloat("Y_speed", direction.y);
+
+            //StopCast();
+        }
+        /*else if (isCasting)
+        {
+            ActivateLayer("Cast Layer");
+        }
+        else
+        {
+            ActivateLayer("Idle Layer");
+        }*/
+    }
+
+    public void ActivateLayer(string layerName)
+    {
+        for (int i = 0; i < animator.layerCount; i++)
+        {
+            animator.SetLayerWeight(i, 0);
+        }
+
+        animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
     }
 }
