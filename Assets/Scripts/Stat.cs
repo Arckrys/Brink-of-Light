@@ -7,6 +7,8 @@ public class Stat : MonoBehaviour
 {
     private Image content;
 
+    [SerializeField] private float lerpSpeed;
+
     private float currentFill;
 
     public float MyMaxValue { get; set; }
@@ -48,7 +50,10 @@ public class Stat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        content.fillAmount = currentFill;
+        if (currentFill != content.fillAmount)
+        {
+            content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
+        }
     }
 
     public void Initialized(float currentValue, float maxValue)
