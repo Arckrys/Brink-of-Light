@@ -8,24 +8,19 @@ public class ProjectileScript : MonoBehaviour
     private float x, y, spriteScaleX, spriteScaleY, timeTemp = 0;
     private float xDirection, yDirection;
 
-    private float projectileShrinkSpeed = 3f;
+    public float projectileShrinkSpeed = 0.05f;
+    public float projectileSpeed = 10f;
 
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
-    private GameObject sprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        //transform.SetParent(GameObject.Find("Canvas").transform, false);
-
-        sprite = transform.GetChild(0).gameObject;
-        sprite.GetComponent<ProjectileCollisionScript>().SetParentGameObject(gameObject);
-
-        spriteRenderer = sprite.GetComponent<SpriteRenderer>() as SpriteRenderer;
+        spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
         spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
-        boxCollider = sprite.GetComponent<BoxCollider2D>() as BoxCollider2D;
+        boxCollider = GetComponent<BoxCollider2D>() as BoxCollider2D;
 
         Vector3 newSize = new Vector3(spriteRenderer.bounds.size.x, spriteRenderer.bounds.size.y, 0);
         boxCollider.size = newSize;
@@ -36,8 +31,8 @@ public class ProjectileScript : MonoBehaviour
     void Update()
     {
         //update position variables
-        x += xDirection;
-        y += yDirection;
+        x += xDirection * Time.deltaTime * projectileSpeed;
+        y += yDirection * Time.deltaTime * projectileSpeed;
 
         //update physical position
         transform.localPosition = new Vector3(x, y, 0);
@@ -46,8 +41,8 @@ public class ProjectileScript : MonoBehaviour
 
         if (timeTemp > 0.05f)
         {
-            spriteScaleX = sprite.transform.localScale.x;
-            spriteScaleY = sprite.transform.localScale.y;
+            spriteScaleX = transform.localScale.x;
+            spriteScaleY = transform.localScale.y;
 
             /*myHeight = GetComponent<RectTransform>().rect.height - 1;
             myWidth = GetComponent<RectTransform>().rect.width - 1;*/
@@ -55,7 +50,7 @@ public class ProjectileScript : MonoBehaviour
             if (spriteScaleX > 0 && spriteScaleY > 0)
             {
                 Vector3 newScale = new Vector3(spriteScaleX - projectileShrinkSpeed, spriteScaleY - projectileShrinkSpeed, 0);
-                sprite.transform.localScale = newScale;
+                transform.localScale = newScale;
 
                 Vector3 newSize = new Vector3(spriteRenderer.bounds.size.x, spriteRenderer.bounds.size.y, 0);
                 boxCollider.size = newSize;
