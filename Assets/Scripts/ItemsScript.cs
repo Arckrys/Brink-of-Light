@@ -5,6 +5,9 @@ using UnityEngine;
 public class ItemsScript : MonoBehaviour
 {
     public GameObject itemGameObject;
+    public GameObject player;
+
+    private PlayerScript playerScript;
 
     private List<string> possessedItems = new List<string>();
 
@@ -18,6 +21,11 @@ public class ItemsScript : MonoBehaviour
         "Lampe à huile d'Hotavius",
         "Sauce piquante"
     };
+
+    private void Start()
+    {
+        playerScript = player.GetComponent<PlayerScript>();
+    }
 
     public string SelectRandomItem()
     {
@@ -45,7 +53,7 @@ public class ItemsScript : MonoBehaviour
 
                 else
                 {
-
+                    //playerScript.
                 }
                 break;
 
