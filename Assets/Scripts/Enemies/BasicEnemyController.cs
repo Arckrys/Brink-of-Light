@@ -12,47 +12,49 @@ public class BasicEnemyController : Character
     private bool playerDetected;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         stoppingDistance = 0;
         gfxAnim = transform.GetComponent<Animator>();
         playerDetected = false;
+
         base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (playerDetected)
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
             {
-                direction = (Vector2)(player.position - transform.position);
+                direction = player.position - transform.position;
                 print(direction);
+
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                if ( angle < 40 & angle > -40)
+                if ( angle < 40 && angle > -40)
                 {
                     gfxAnim.SetBool("FacingRight", true);
                     gfxAnim.SetBool("FacingLeft", false);
                     gfxAnim.SetBool("FacingDown", false);
                     gfxAnim.SetBool("FacingUp", false);
                 }
-                if (angle < 130 & angle > 50)
+                if (angle < 130 && angle > 50)
                 {
                     gfxAnim.SetBool("FacingRight", false);
                     gfxAnim.SetBool("FacingLeft", false);
                     gfxAnim.SetBool("FacingDown", false);
                     gfxAnim.SetBool("FacingUp", true);
                 }
-                if (angle < -140 | angle > 140)
+                if (angle < -140 || angle > 140)
                 {
                     gfxAnim.SetBool("FacingRight", false);
                     gfxAnim.SetBool("FacingLeft", true);
                     gfxAnim.SetBool("FacingDown", false);
                     gfxAnim.SetBool("FacingUp", false);
                 }
-                if (angle < -50 & angle > -130)
+                if (angle < -50 && angle > -130)
                 {
                     gfxAnim.SetBool("FacingRight", false);
                     gfxAnim.SetBool("FacingLeft", false);
@@ -70,6 +72,7 @@ public class BasicEnemyController : Character
                 playerDetected = true;
             }
         }
+
         base.Update();
     }
 }

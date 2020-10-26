@@ -602,19 +602,19 @@ AnimatorStateMachine:
     m_Position: {x: 10, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2516106093153609137}
-    m_Position: {x: -110, y: -60, z: 0}
+    m_Position: {x: -70, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7528604388796489645}
-    m_Position: {x: 710, y: -60, z: 0}
+    m_Position: {x: 650, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6390769686022590884}
-    m_Position: {x: 270, y: -180, z: 0}
+    m_Position: {x: 280, y: -180, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 490, y: -120, z: 0}
+  m_AnyStatePosition: {x: 540, y: -120, z: 0}
   m_EntryPosition: {x: 300, y: 320, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
