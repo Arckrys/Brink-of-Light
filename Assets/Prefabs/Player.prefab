@@ -117,4 +117,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextAttackDelay: 0.1
   movingSpeed: 5
-  Projectile: {fileID: 863493972323287509, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
+  Projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
