@@ -6,7 +6,7 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] protected Stat life;
 
-    [SerializeField] protected float initLife;
+    [SerializeField] private float initLife;
 
     [SerializeField] private float mouvementSpeed;
 
@@ -41,7 +41,7 @@ public abstract class Character : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         rigidbody.velocity = direction.normalized * mouvementSpeed;
     }
