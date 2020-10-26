@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class PlayerScript : Character
 {
     private Animator lifeAnimator;
+    private Animator mouvementAnimator;
+    private float x = 0;
+    private float y = 0;
 
     private float timeSinceLastAttack = 0;
     public float nextAttackDelay = 0.1f;
@@ -17,7 +20,9 @@ public class PlayerScript : Character
     protected override void Start()
     {
         lifeAnimator = life.GetComponent<Animator>();
+        mouvementAnimator = GetComponent<Animator>();
 
+        
         base.Start();
     }
 
@@ -28,13 +33,14 @@ public class PlayerScript : Character
 
         GetInput();
 
-        lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
+        //lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
 
         if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
             timeSinceLastAttack = 0;
         }
+        HandleLayers();
 
         base.Update();
     }
@@ -81,5 +87,29 @@ public class PlayerScript : Character
         //create projectile
         GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
+    }
+    private void HandleLayers()
+    {
+        if (IsMoving)
+        {
+            ActivateLayer("Walk Layer");
+
+            mouvementAnimator.SetFloat("X_speed", direction.x);
+            mouvementAnimator.SetFloat("Y_speed", direction.y);
+        }
+        else
+        {
+            ActivateLayer("Idle Layer");
+        }
+    }
+
+    public void ActivateLayer(string layerName)
+    {
+        for (int i = 0; i < mouvementAnimator.layerCount; i++)
+        {
+            mouvementAnimator.SetLayerWeight(i, 0);
+        }
+
+        mouvementAnimator.SetLayerWeight(mouvementAnimator.GetLayerIndex(layerName), 1);
     }
 }

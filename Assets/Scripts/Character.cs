@@ -6,11 +6,11 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] protected Stat life;
 
-    [SerializeField] private float initLife;
+    [SerializeField] protected float initLife;
 
     [SerializeField] private float mouvementSpeed;
 
-    private Animator mouvementAnimator;
+    
 
     private Rigidbody2D rigidbody;
 
@@ -28,16 +28,14 @@ public abstract class Character : MonoBehaviour
     protected virtual void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        //life.Initialized(initLife, initLife);
 
-        mouvementAnimator = GetComponent<Animator>();
-
-        life.Initialized(initLife, initLife);
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        HandleLayers();
+        
     }
 
     private void FixedUpdate()
@@ -50,28 +48,5 @@ public abstract class Character : MonoBehaviour
         rigidbody.velocity = direction.normalized * mouvementSpeed;
     }
 
-    private void HandleLayers()
-    {
-        if (IsMoving)
-        {
-            ActivateLayer("Walk Layer");
-
-            mouvementAnimator.SetFloat("X_speed", direction.x);
-            mouvementAnimator.SetFloat("Y_speed", direction.y);
-        }
-        else
-        {
-            ActivateLayer("Idle Layer");
-        }
-    }
-
-    public void ActivateLayer(string layerName)
-    {
-        for (int i = 0; i < mouvementAnimator.layerCount; i++)
-        {
-            mouvementAnimator.SetLayerWeight(i, 0);
-        }
-
-        mouvementAnimator.SetLayerWeight(mouvementAnimator.GetLayerIndex(layerName), 1);
-    }
+    
 }
