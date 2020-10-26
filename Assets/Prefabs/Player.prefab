@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8502234294414699537}
   - component: {fileID: 8502234294414699536}
   - component: {fileID: 8502234294414699551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490e340bc0b8d3d4badcf784a50d3a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: {fileID: 0}
+  initLife: 0
+  mouvementSpeed: 0
   nextAttackDelay: 0.1
-  movingSpeed: 5
   Projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}

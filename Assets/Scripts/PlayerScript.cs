@@ -27,17 +27,17 @@ public class PlayerScript : Character
     // Update is called once per frame
     protected override void Update()
     {
-        //timeSinceLastAttack += Time.deltaTime;
+        timeSinceLastAttack += Time.deltaTime;
 
         GetInput();
 
         lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
 
-        /*if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
             timeSinceLastAttack = 0;
-        }*/
+        }
 
         base.Update();
     }
@@ -73,7 +73,7 @@ public class PlayerScript : Character
         }
     }
 
-    /*public void FireProjectile()
+    public void FireProjectile()
     {
         //get mouse position in world space
         Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -82,7 +82,7 @@ public class PlayerScript : Character
         worldPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
 
         //create projectile
-        GameObject projectile = Instantiate(Projectile, new Vector3(x, y, 0), Quaternion.identity);
-        projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, x, y);
-    }*/
+        GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
+        projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
+    }
 }
