@@ -58,17 +58,11 @@ public abstract class Character : MonoBehaviour
 
             animator.SetFloat("X_speed", direction.x);
             animator.SetFloat("Y_speed", direction.y);
-
-            //StopCast();
-        }
-        /*else if (isCasting)
-        {
-            ActivateLayer("Cast Layer");
         }
         else
         {
             ActivateLayer("Idle Layer");
-        }*/
+        }
     }
 
     public void ActivateLayer(string layerName)

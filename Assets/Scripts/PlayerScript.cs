@@ -8,39 +8,30 @@ public class PlayerScript : Character
 {
     private float x = 0;
     private float y = 0;
-    private float previous_X = 0;
-    private float previous_Y = 0;
-
 
     private float timeSinceLastAttack = 0;
     public float nextAttackDelay = 0.1f;
-    public float movingSpeed = 5f;
 
-    private Animator anim;
     public GameObject Projectile;
 
     // Start is called before the first frame update
     protected override void Start()
     {
-       // transform.SetParent(GameObject.Find("Canvas").transform, false);
-        anim = GetComponent<Animator>();
-
         base.Start();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        //timeSinceLastAttack += Time.deltaTime;
+        timeSinceLastAttack += Time.deltaTime;
 
         GetInput();
         
-
-        /*if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
             timeSinceLastAttack = 0;
-        }*/
+        }
 
         base.Update();
     }
