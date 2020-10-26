@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : Character
 {
+    private Animator lifeAnimator;
+
     private float x = 0;
     private float y = 0;
 
@@ -17,21 +19,25 @@ public class PlayerScript : Character
     // Start is called before the first frame update
     protected override void Start()
     {
+        lifeAnimator = life.GetComponent<Animator>();
+
         base.Start();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
+        //timeSinceLastAttack += Time.deltaTime;
 
         GetInput();
-        
-        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+
+        lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
+
+        /*if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
         {
             FireProjectile();
             timeSinceLastAttack = 0;
-        }
+        }*/
 
         base.Update();
     }
@@ -39,6 +45,15 @@ public class PlayerScript : Character
     public void GetInput()
     {
         direction = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.O))
+        {
+            life.MyCurrentValue -= 1;
+        }
+        if (Input.GetKey(KeyCode.I))
+        {
+            life.MyCurrentValue += 1;
+        }
 
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -58,7 +73,7 @@ public class PlayerScript : Character
         }
     }
 
-    public void FireProjectile()
+    /*public void FireProjectile()
     {
         //get mouse position in world space
         Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -69,5 +84,5 @@ public class PlayerScript : Character
         //create projectile
         GameObject projectile = Instantiate(Projectile, new Vector3(x, y, 0), Quaternion.identity);
         projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, x, y);
-    }
+    }*/
 }

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class Stat : MonoBehaviour
 {
-    private Image content;
+    //private Image content;
 
-    [SerializeField] private float lerpSpeed;
+    //[SerializeField] private float lerpSpeed;
 
-    private float currentFill;
+    //private float currentFill;
 
     public float MyMaxValue { get; set; }
 
@@ -35,7 +35,7 @@ public class Stat : MonoBehaviour
                 currentValue = value;
             }
 
-            currentFill = currentValue / MyMaxValue;
+            //currentFill = currentValue / MyMaxValue;
         }
     }
 
@@ -44,16 +44,16 @@ public class Stat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        content = GetComponent<Image>();
+        //content = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentFill != content.fillAmount)
+        /*if (currentFill != content.fillAmount)
         {
             content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
-        }
+        }*/
     }
 
     public void Initialized(float currentValue, float maxValue)

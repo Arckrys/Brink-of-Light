@@ -8,9 +8,9 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private float initLife;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float mouvementSpeed;
 
-    private Animator animator;
+    private Animator mouvementAnimator;
 
     private Rigidbody2D rigidbody;
 
@@ -29,9 +29,9 @@ public abstract class Character : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
 
-        animator = GetComponent<Animator>();
+        mouvementAnimator = GetComponent<Animator>();
 
-        //life.Initialized(initLife, initLife);
+        life.Initialized(initLife, initLife);
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public abstract class Character : MonoBehaviour
 
     public void Move()
     {
-        rigidbody.velocity = direction.normalized * speed;
+        rigidbody.velocity = direction.normalized * mouvementSpeed;
     }
 
     private void HandleLayers()
@@ -56,8 +56,8 @@ public abstract class Character : MonoBehaviour
         {
             ActivateLayer("Walk Layer");
 
-            animator.SetFloat("X_speed", direction.x);
-            animator.SetFloat("Y_speed", direction.y);
+            mouvementAnimator.SetFloat("X_speed", direction.x);
+            mouvementAnimator.SetFloat("Y_speed", direction.y);
         }
         else
         {
@@ -67,11 +67,11 @@ public abstract class Character : MonoBehaviour
 
     public void ActivateLayer(string layerName)
     {
-        for (int i = 0; i < animator.layerCount; i++)
+        for (int i = 0; i < mouvementAnimator.layerCount; i++)
         {
-            animator.SetLayerWeight(i, 0);
+            mouvementAnimator.SetLayerWeight(i, 0);
         }
 
-        animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
+        mouvementAnimator.SetLayerWeight(mouvementAnimator.GetLayerIndex(layerName), 1);
     }
 }
