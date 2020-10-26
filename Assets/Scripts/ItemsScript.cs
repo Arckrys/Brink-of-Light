@@ -26,10 +26,11 @@ public class ItemsScript : MonoBehaviour
         return randomItem;
     }
 
-    public void CreateItem(Vector3 position)
+    public void CreateItem(Vector3 position, string item)
     {
         GameObject newItem = Instantiate(itemGameObject, position, Quaternion.identity);
-        newItem.GetComponent<SpriteRenderer>();
+        newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + item);
+        print("Images/Items/Equipment/" + item);
     }
 
     public void ApplyItemModifications(string item)
