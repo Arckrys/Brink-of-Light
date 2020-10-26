@@ -938,10 +938,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8502234294414699537, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d91cf6c164c5ea54f9162d2e6a4b4a79, type: 2}
     - target: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1240,7 +1236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemGameObject: {fileID: 4900422906043604832, guid: f286b5d24a7bc814c9c1a2e4e1ae338f, type: 3}
-  player: {fileID: 0}
 --- !u!1 &1963938935
 GameObject:
   m_ObjectHideFlags: 0
