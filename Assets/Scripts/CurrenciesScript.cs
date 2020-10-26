@@ -34,7 +34,7 @@ public class CurrenciesScript : MonoBehaviour
         soulsNumber += soulsToAdd;
     }
 
-    public void setGoldValue(int soulsNumber)
+    public void setGoldValue(int goldValue)
     {
         this.goldValue = goldValue;
     }
