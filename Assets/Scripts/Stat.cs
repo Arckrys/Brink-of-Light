@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Stat : MonoBehaviour
 {
+    [SerializeField] private Text statValue;
+
     public float MyMaxValue { get; set; }
 
     public float MyCurrentValue
@@ -27,6 +29,11 @@ public class Stat : MonoBehaviour
             else
             {
                 currentValue = value;
+            }
+
+            if (statValue)
+            {
+                statValue.text = currentValue.ToString();
             }
         }
     }
