@@ -24,11 +24,19 @@ public class ItemsManagerScript : MonoBehaviour
         "Sauce piquante"
     };
 
-    private void Start()
+    void Start()
     {
         playerScript = player.GetComponent<PlayerScript>();
 
+        ItemsTest();
+    }
+
+    private void ItemsTest()
+    {
         CreateItem(new Vector3(3, 3, 0), SelectRandomItem());
+        CreateItem(new Vector3(-3, 3, 0), SelectRandomItem());
+        CreateItem(new Vector3(3, -3, 0), SelectRandomItem());
+        CreateItem(new Vector3(-3, -3, 0), SelectRandomItem());
     }
 
     public string SelectRandomItem()

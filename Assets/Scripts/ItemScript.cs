@@ -25,7 +25,7 @@ public class ItemScript : MonoBehaviour
             Destroy(gameObject);
         }*/
 
-        GameObject.Find("EventSystem").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
+        GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
         Destroy(gameObject);
     }
 }

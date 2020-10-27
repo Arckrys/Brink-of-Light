@@ -938,6 +938,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8502234294414699537, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: edf197874a52fee4ebd3cc8c6ecd35ae, type: 2}
     - target: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1171,7 +1175,6 @@ GameObject:
   - component: {fileID: 1959360947}
   - component: {fileID: 1959360946}
   - component: {fileID: 1959360945}
-  - component: {fileID: 1959360948}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1227,20 +1230,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1959360948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959360944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4294c6bed5d995448a890798ce44fe38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemGameObject: {fileID: 4900422906043604832, guid: f286b5d24a7bc814c9c1a2e4e1ae338f, type: 3}
-  player: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
 --- !u!1 &1963938935
 GameObject:
   m_ObjectHideFlags: 0
