@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemsScript : MonoBehaviour
+public class ItemsManagerScript : MonoBehaviour
 {
     public GameObject itemGameObject;
     public GameObject player;
 
     private PlayerScript playerScript;
 
+    //à mettre sur le personnage
     private List<string> possessedItems = new List<string>();
 
+    //available items
     private List<string> itemsList = new List<string> {        
         "Allumettes",
         "Amulette du dragon",
         "Anneau du dragon",
         "Anneau du forgeron",
         "Bottes d'Hotavius",
-        "Cape du vampire",
+        "Cape de vampire",
         "Lampe à huile d'Hotavius",
         "Sauce piquante"
     };
@@ -25,6 +27,8 @@ public class ItemsScript : MonoBehaviour
     private void Start()
     {
         playerScript = player.GetComponent<PlayerScript>();
+
+        CreateItem(new Vector3(3, 3, 0), SelectRandomItem());
     }
 
     public string SelectRandomItem()
@@ -34,19 +38,33 @@ public class ItemsScript : MonoBehaviour
         return randomItem;
     }
 
-    public void CreateItem(Vector3 position, string item)
+    public void CreateItem(Vector3 position, string itemName)
     {
         GameObject newItem = Instantiate(itemGameObject, position, Quaternion.identity);
-        newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + item);
-        print("Images/Items/Equipment/" + item);
+        newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
+        print("Images/Items/Equipment/" + itemName);
+
+        newItem.GetComponent<ItemScript>().SetName(itemName);
     }
 
-    public void ApplyItemModifications(string item)
+    public bool IsItemPossessed(string name)
     {
-        switch (item)
+        bool isPossesed = false;
+
+        if (possessedItems.Contains(name))
+            isPossesed = true;
+
+        return isPossesed;
+    }
+
+    public void ApplyItemModifications(string itemName)
+    {
+        bool alreadyPossesed = IsItemPossessed(itemName);
+
+        switch (itemName)
         {
             case "Allumettes":
-                if(possessedItems.Contains(item))
+                if(alreadyPossesed)
                 {
 
                 }
@@ -58,7 +76,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Amulette du dragon":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -70,7 +88,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Anneau du dragon":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -82,7 +100,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Anneau du forgeron":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -94,7 +112,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Bottes d'Hotavius":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -106,7 +124,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Cape du vampire":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -118,7 +136,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Lampe à huile d'Hotavius":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -130,7 +148,7 @@ public class ItemsScript : MonoBehaviour
                 break;
 
             case "Sauce piquante":
-                if (possessedItems.Contains(item))
+                if (alreadyPossesed)
                 {
 
                 }
@@ -145,6 +163,8 @@ public class ItemsScript : MonoBehaviour
                 break;
         }
 
-        possessedItems.Add(item);
+        print("changes applied");
+
+        possessedItems.Add(itemName);
     }
 }
