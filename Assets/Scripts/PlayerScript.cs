@@ -6,10 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : Character
 {
-    private Animator lifeAnimator;
     private Animator mouvementAnimator;
-    private float x = 0;
-    private float y = 0;
 
     private float timeSinceLastAttack = 0;
     public float nextAttackDelay = 0.1f;
@@ -19,9 +16,7 @@ public class PlayerScript : Character
     // Start is called before the first frame update
     protected override void Start()
     {
-        lifeAnimator = life.GetComponent<Animator>();
         mouvementAnimator = GetComponent<Animator>();
-
         
         base.Start();
     }
@@ -29,34 +24,31 @@ public class PlayerScript : Character
     // Update is called once per frame
     protected override void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
-
         GetInput();
 
-        //lifeAnimator.SetFloat("life", life.MyCurrentValue / life.MyMaxValue);
-
-        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
-        {
-            FireProjectile();
-            timeSinceLastAttack = 0;
-        }
         HandleLayers();
+
+        UpdateLifeImage();
 
         base.Update();
     }
 
-    public void GetInput()
+    private void UpdateLifeImage()
+    {
+        Vector3 scale = life.transform.localScale;
+
+        if (scale.x != life.MyCurrentValue / life.MyMaxValue && scale.y != life.MyCurrentValue / life.MyMaxValue)
+        {
+            scale.x = Mathf.Lerp(scale.x, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
+            scale.y = Mathf.Lerp(scale.y, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
+
+            life.transform.localScale = scale;
+        }
+    }
+
+    private void GetInput()
     {
         direction = Vector2.zero;
-
-        if (Input.GetKey(KeyCode.O))
-        {
-            life.MyCurrentValue -= 1;
-        }
-        if (Input.GetKey(KeyCode.I))
-        {
-            life.MyCurrentValue += 1;
-        }
 
         if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -74,20 +66,29 @@ public class PlayerScript : Character
         {
             direction += Vector2.right;
         }
+
+        timeSinceLastAttack += Time.deltaTime;
+
+        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+        {
+            FireProjectile();
+            timeSinceLastAttack = 0;
+        }
     }
 
-    public void FireProjectile()
+    private void FireProjectile()
     {
         //get mouse position in world space
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 screenPosition = Input.mousePosition;
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         //substract character position to change the origin of the projectile direction
-        worldPosition = worldPosition - new Vector2(transform.position.x, transform.position.y);
+        worldPosition -= new Vector2(transform.position.x, transform.position.y);
 
         //create projectile
         GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
     }
+
     private void HandleLayers()
     {
         if (IsMoving)
@@ -103,7 +104,7 @@ public class PlayerScript : Character
         }
     }
 
-    public void ActivateLayer(string layerName)
+    private void ActivateLayer(string layerName)
     {
         for (int i = 0; i < mouvementAnimator.layerCount; i++)
         {

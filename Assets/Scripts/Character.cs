@@ -6,11 +6,9 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] protected Stat life;
 
-    [SerializeField] protected float initLife;
+    [SerializeField] private float initLife;
 
     [SerializeField] private float mouvementSpeed;
-
-    
 
     private Rigidbody2D rigidbody;
 
@@ -28,8 +26,8 @@ public abstract class Character : MonoBehaviour
     protected virtual void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        //life.Initialized(initLife, initLife);
 
+        life.Initialized(initLife, initLife);
     }
 
     // Update is called once per frame
@@ -43,10 +41,8 @@ public abstract class Character : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         rigidbody.velocity = direction.normalized * mouvementSpeed;
     }
-
-    
 }
