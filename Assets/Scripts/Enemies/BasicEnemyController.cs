@@ -62,8 +62,7 @@ public class BasicEnemyController : Character
                     gfxAnim.SetBool("FacingDown", true);
                     gfxAnim.SetBool("FacingUp", false);
                 }
-                //transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime) ;
-
+                //transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
         }
         else
@@ -73,6 +72,8 @@ public class BasicEnemyController : Character
                 playerDetected = true;
             }
         }
+
+        UpdatePolygonCollider();
 
         UpdateLifeBar();
 
@@ -85,6 +86,12 @@ public class BasicEnemyController : Character
         {
             life.MyCurrentValue -= 1;
         }
+    }
+
+    private void UpdatePolygonCollider()
+    {
+        Destroy(GetComponent<PolygonCollider2D>());
+        gameObject.AddComponent<PolygonCollider2D>();
     }
 
     private void UpdateLifeBar()

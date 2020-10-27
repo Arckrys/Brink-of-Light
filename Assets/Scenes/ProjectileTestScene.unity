@@ -378,6 +378,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7051779137392460431, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051779137392460431, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
+      propertyPath: m_AutoTiling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7051779137392460656, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.54
@@ -438,7 +446,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7051779137392460431, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
 --- !u!1 &367773188
 GameObject:
@@ -742,6 +751,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52192e2fb8552c4d860cf903077e20e, type: 3}
+--- !u!1 &631143837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051779137392460659, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
+  m_PrefabInstance: {fileID: 334429644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &631143843
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631143837}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.0625, y: 4.125}
+    newSize: {x: 4.0625, y: 4.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.53125, y: 0.5}
+      - {x: -0.96875, y: 0}
+      - {x: -0.96875, y: -2}
+      - {x: -0.90625, y: -2.0625}
+      - {x: 0.59375, y: -2.0625}
+      - {x: 0.59375, y: 0}
+      - {x: 0.40625, y: 0.5}
 --- !u!1 &759250546
 GameObject:
   m_ObjectHideFlags: 0
