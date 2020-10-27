@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileShrinkSpeed: 0.07
-  projectileSpeed: 10
+  projectileSpeed: 7
 --- !u!95 &6846747907792633501
 Animator:
   serializedVersion: 3

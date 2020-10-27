@@ -18,14 +18,10 @@ public class ItemScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player")
         {
-            GameObject.Find("EventSystem").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
-
+            GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
             Destroy(gameObject);
-        }*/
-
-        GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
-        Destroy(gameObject);
+        }
     }
 }
