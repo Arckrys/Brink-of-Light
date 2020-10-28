@@ -33,7 +33,7 @@ public class ItemsManagerScript : MonoBehaviour
 
     private void ItemsTest()
     {
-        CreateItem(new Vector3(3, 3, 0), SelectRandomItem());
+        CreateItem(new Vector3(3, 3, 0), "Allumettes");
         CreateItem(new Vector3(-3, 3, 0), SelectRandomItem());
         CreateItem(new Vector3(3, -3, 0), SelectRandomItem());
         CreateItem(new Vector3(-3, -3, 0), SelectRandomItem());
@@ -71,15 +71,7 @@ public class ItemsManagerScript : MonoBehaviour
         switch (itemName)
         {
             case "Allumettes":
-                if(alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-                    //playerScript.
-                }
+                playerScript.nextAttackDelay *= 0.5f;
                 break;
 
             case "Amulette du dragon":

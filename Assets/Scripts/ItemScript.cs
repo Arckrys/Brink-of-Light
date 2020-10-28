@@ -20,8 +20,12 @@ public class ItemScript : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
-            Destroy(gameObject);
+            Destroy(gameObject);                        
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
     }
 }
