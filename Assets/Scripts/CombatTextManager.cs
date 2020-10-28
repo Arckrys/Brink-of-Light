@@ -23,9 +23,9 @@ public class CombatTextManager : MonoBehaviour
 
     [SerializeField] private GameObject combatTextPrefab;
 
-    public void CreateText(Vector2 position, string text, DamageType type)
+    public void CreateText(Vector2 position, string text, DamageType type, float offset, bool crit)
     {
-        position.y += 1.0f;
+        position.y += offset;
 
         Text temp = Instantiate(combatTextPrefab, transform).GetComponent<Text>();
         temp.transform.position = position;
@@ -45,5 +45,12 @@ public class CombatTextManager : MonoBehaviour
         }
 
         temp.text = operation + text;
+
+        if (crit)
+        {
+            temp.color = Color.yellow;
+
+            temp.GetComponent<Animator>().SetBool("crit", crit);
+        }
     }
 }

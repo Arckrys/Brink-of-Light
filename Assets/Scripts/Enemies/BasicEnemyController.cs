@@ -86,7 +86,7 @@ public class BasicEnemyController : Character
         {
             life.MyCurrentValue -= 1;
 
-            CombatTextManager.MyInstance.CreateText(transform.position, 1.0f.ToString(), DamageType.DAMAGE);
+            CombatTextManager.MyInstance.CreateText(transform.position, 1.0f.ToString(), DamageType.DAMAGE, 1.0f, false);
         }
     }
 
