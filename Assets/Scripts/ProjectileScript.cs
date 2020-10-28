@@ -82,7 +82,7 @@ public class ProjectileScript : MonoBehaviour
                 spriteScaleX = transform.localScale.x;
                 spriteScaleY = transform.localScale.y;
 
-                if (spriteScaleX > 0 && spriteScaleY > 0)
+                if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
                     Vector3 newScale = new Vector3(spriteScaleX - projectileShrinkSpeed, spriteScaleY - projectileShrinkSpeed * heightWidthRatio, 0);
                     transform.localScale = newScale;

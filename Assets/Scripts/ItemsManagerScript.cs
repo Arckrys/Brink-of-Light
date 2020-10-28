@@ -50,7 +50,6 @@ public class ItemsManagerScript : MonoBehaviour
     {
         GameObject newItem = Instantiate(itemGameObject, position, Quaternion.identity);
         newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
-        print("Images/Items/Equipment/" + itemName);
 
         newItem.GetComponent<ItemScript>().SetName(itemName);
     }
