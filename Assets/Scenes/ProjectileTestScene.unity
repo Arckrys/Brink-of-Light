@@ -711,7 +711,7 @@ PrefabInstance:
       objectReference: {fileID: 66926750}
     - target: {fileID: 7051779137392460657, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
       propertyPath: initLife
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7051779137392460657, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
       propertyPath: initMouvementSpeed
@@ -2511,7 +2511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initRange
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4755587524226460368, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}

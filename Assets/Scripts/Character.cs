@@ -54,7 +54,7 @@ public abstract class Character : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         Move();
     }
