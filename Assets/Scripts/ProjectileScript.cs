@@ -10,6 +10,7 @@ public class ProjectileScript : MonoBehaviour
 
     public float projectileShrinkSpeed = 0.05f;
     public float projectileSpeed = 10f;
+    public float projectileShrinkFrequency = 0.05f;
 
     private float initialZ;
 
@@ -77,7 +78,7 @@ public class ProjectileScript : MonoBehaviour
 
             timeTemp += Time.deltaTime;
 
-            if (timeTemp > 0.05f)
+            if (timeTemp > projectileShrinkFrequency)
             {
                 spriteScaleX = transform.localScale.x;
                 spriteScaleY = transform.localScale.y;
@@ -88,6 +89,7 @@ public class ProjectileScript : MonoBehaviour
                     transform.localScale = newScale;
 
                     timeTemp = 0;
+                    projectileShrinkSpeed *= 1.1f;
                 }
 
                 else

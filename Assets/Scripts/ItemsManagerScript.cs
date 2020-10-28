@@ -33,10 +33,10 @@ public class ItemsManagerScript : MonoBehaviour
 
     private void ItemsTest()
     {
-        CreateItem(new Vector3(3, 3, 0), "Allumettes");
-        CreateItem(new Vector3(-3, 3, 0), SelectRandomItem());
-        CreateItem(new Vector3(3, -3, 0), SelectRandomItem());
-        CreateItem(new Vector3(-3, -3, 0), SelectRandomItem());
+        CreateItem(new Vector3(4, 3, 0), "Allumettes");
+        CreateItem(new Vector3(-2, 3, 0), SelectRandomItem());
+        CreateItem(new Vector3(4, -3, 0), SelectRandomItem());
+        CreateItem(new Vector3(-2, -3, 0), SelectRandomItem());
     }
 
     public string SelectRandomItem()
@@ -72,6 +72,7 @@ public class ItemsManagerScript : MonoBehaviour
         {
             case "Allumettes":
                 playerScript.nextAttackDelay *= 0.5f;
+                print("attack speed doublée");
                 break;
 
             case "Amulette du dragon":
@@ -161,8 +162,6 @@ public class ItemsManagerScript : MonoBehaviour
             default:
                 break;
         }
-
-        print("changes applied");
 
         possessedItems.Add(itemName);
     }

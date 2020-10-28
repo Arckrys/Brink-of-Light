@@ -158,8 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14910368717f3ec429fd4bbd512846ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileShrinkSpeed: 0.07
+  projectileShrinkSpeed: 0.05
   projectileSpeed: 7
+  projectileShrinkFrequency: 0.05
 --- !u!95 &6846747907792633501
 Animator:
   serializedVersion: 3

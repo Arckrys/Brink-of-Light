@@ -26,6 +26,7 @@ public class ItemScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
+        if (GameObject.Find("ItemManager"))
+            GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
     }
 }
