@@ -162,7 +162,7 @@ MonoBehaviour:
   projectileShrinkSpeed: 0.05
   projectileSpeed: 7
   projectileShrinkFrequency: 0.05
-  projectileShrinkAcceleration: 1.1
+  projectileShrinkAcceleration: 1
   impactClip: {fileID: 8300000, guid: d6367d5c17e6d78429e5c34cb3122080, type: 3}
 --- !u!95 &6846747907792633501
 Animator:

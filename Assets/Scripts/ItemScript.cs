@@ -11,7 +11,7 @@ public class ItemScript : MonoBehaviour
         this.itemName = itemName;
     }
 
-    public string SetName()
+    public string GetName()
     {
         return itemName;
     }

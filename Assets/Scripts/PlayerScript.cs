@@ -9,9 +9,10 @@ public class PlayerScript : Character
     private Animator mouvementAnimator;
 
     private float timeSinceLastAttack = 0;
-    public float nextAttackDelay = 0.1f;
 
     public GameObject Projectile;
+
+    private static PlayerScript instance;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -32,6 +33,19 @@ public class PlayerScript : Character
 
         base.Update();
     }
+
+    public static PlayerScript MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<PlayerScript>();
+            }
+            return instance;
+        }
+    }
+
 
     private void UpdateLifeImage()
     {
@@ -69,7 +83,7 @@ public class PlayerScript : Character
 
         timeSinceLastAttack += Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && timeSinceLastAttack > nextAttackDelay)
+        if (Input.GetMouseButton(0) && timeSinceLastAttack > attackSpeed.MyCurrentValue)
         {
             FireProjectile();
             timeSinceLastAttack = 0;

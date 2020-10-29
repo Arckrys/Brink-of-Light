@@ -10,7 +10,9 @@ public class ItemsManagerScript : MonoBehaviour
     private PlayerScript playerScript;
     private AudioSource audio;
 
-    //à mettre sur le personnage
+    private static ItemsManagerScript instance;
+
+    //à mettre sur playerscript
     private List<string> possessedItems = new List<string>();
 
     //available items
@@ -31,7 +33,7 @@ public class ItemsManagerScript : MonoBehaviour
 
         audio = GetComponent<AudioSource>();
 
-        ItemsTest();
+        ItemsTest();        
     }
 
     private void ItemsTest()
@@ -74,32 +76,16 @@ public class ItemsManagerScript : MonoBehaviour
         switch (itemName)
         {
             case "Allumettes":
-                playerScript.nextAttackDelay *= 0.5f;
+                PlayerScript.MyInstance.AttackSpeedMaxValue *= 0.5f;
                 print("attack speed doublée");
                 break;
 
             case "Amulette du dragon":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                PlayerScript.MyInstance.AttackMaxValue += 1;
                 break;
 
             case "Anneau du dragon":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                PlayerScript.MyInstance.AttackMaxValue += 0.5f;
                 break;
 
             case "Anneau du forgeron":
