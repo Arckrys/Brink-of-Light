@@ -11,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     public float projectileShrinkSpeed = 0.05f;
     public float projectileSpeed = 10f;
     public float projectileShrinkFrequency = 0.05f;
+    public float projectileShrinkAcceleration = 1.1f;
 
     private float initialZ;
 
@@ -21,6 +22,9 @@ public class ProjectileScript : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidbody;
     private Animator animator;
+    private AudioSource audio;
+
+    public AudioClip impactClip;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,8 @@ public class ProjectileScript : MonoBehaviour
         spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
         boxCollider = GetComponent<BoxCollider2D>() as BoxCollider2D;
+
+        audio = GetComponent<AudioSource>();
 
         initialZ = transform.position.z;
 
@@ -53,7 +59,7 @@ public class ProjectileScript : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (GetComponent<ProjectileCollisionScript>().IsCollisionDetected() && rigidbody)
         {
@@ -65,6 +71,10 @@ public class ProjectileScript : MonoBehaviour
 
             Destroy(rigidbody);
             Destroy(boxCollider);
+
+            audio.clip = impactClip;
+            audio.volume /= 2;
+            audio.Play();
         }
 
         else if (!GetComponent<ProjectileCollisionScript>().IsCollisionDetected())
@@ -85,22 +95,23 @@ public class ProjectileScript : MonoBehaviour
 
                 if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
-                    Vector3 newScale = new Vector3(spriteScaleX - projectileShrinkSpeed, spriteScaleY - projectileShrinkSpeed * heightWidthRatio, 0);
+                    float newX, newY;
+                    newX = spriteScaleX - projectileShrinkSpeed < 0 ? 0 : spriteScaleX - projectileShrinkSpeed;
+                    newY = spriteScaleY - projectileShrinkSpeed * heightWidthRatio < 0 ? 0 : spriteScaleX - projectileShrinkSpeed * heightWidthRatio;
+
+                    Vector3 newScale = new Vector3(newX, newY, 0);
                     transform.localScale = newScale;
 
                     timeTemp = 0;
-                    projectileShrinkSpeed *= 1.1f;
+                    projectileShrinkSpeed *= projectileShrinkAcceleration;
                 }
-
-                else
-                    Destroy(gameObject);
             }
 
             //destroy projectile if out of screen
             Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
             if (screenPosition.x < 0 || screenPosition.x > Screen.width || screenPosition.y < 0 || screenPosition.y > Screen.height)
                 Destroy(gameObject);
-        }        
+        }  
     }
 
     public void SetDirection(Vector2 direction, float initialX, float initialY)
