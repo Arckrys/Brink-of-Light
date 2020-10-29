@@ -8,6 +8,7 @@ public class ItemsManagerScript : MonoBehaviour
     public GameObject player;
 
     private PlayerScript playerScript;
+    private AudioSource audio;
 
     //à mettre sur le personnage
     private List<string> possessedItems = new List<string>();
@@ -27,6 +28,8 @@ public class ItemsManagerScript : MonoBehaviour
     void Start()
     {
         playerScript = player.GetComponent<PlayerScript>();
+
+        audio = GetComponent<AudioSource>();
 
         ItemsTest();
     }
@@ -162,6 +165,8 @@ public class ItemsManagerScript : MonoBehaviour
             default:
                 break;
         }
+
+        audio.Play();
 
         possessedItems.Add(itemName);
     }
