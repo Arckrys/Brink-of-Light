@@ -745,6 +745,10 @@ PrefabInstance:
       propertyPath: range
       value: 
       objectReference: {fileID: 1399605555}
+    - target: {fileID: 7051779137392460657, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
+      propertyPath: attackSpeed
+      value: 
+      objectReference: {fileID: 1399605555}
     - target: {fileID: 7051779137392460659, guid: 399834f8900a81e4582880ec6ea743a1, type: 3}
       propertyPath: m_Name
       value: Enemy1 (1)
@@ -1555,6 +1559,7 @@ GameObject:
   - component: {fileID: 759250550}
   - component: {fileID: 759250549}
   - component: {fileID: 759250548}
+  - component: {fileID: 759250551}
   m_Layer: 0
   m_Name: LifeCanvas
   m_TagString: Untagged
@@ -1642,6 +1647,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &759250551
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759250546}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &828502749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2529,14 @@ PrefabInstance:
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: attackSpeed
+      value: 
+      objectReference: {fileID: 609530026}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: initAttackSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4755587524226460368, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}

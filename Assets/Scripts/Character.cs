@@ -143,7 +143,7 @@ public abstract class Character : MonoBehaviour
         
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
