@@ -11,9 +11,15 @@ public class ProjectileScript : MonoBehaviour
     public float projectileShrinkSpeed = 0.05f;
     public float projectileSpeed = 10f;
     public float projectileShrinkFrequency = 0.05f;
+
+    //variable used to change range
     public float projectileShrinkAcceleration = 1.1f;
 
     private float initialZ;
+
+    private float projectileDamage = 1f;
+    private float projectileKnockback = 2f;
+    private float projectileCritChance = 5f;
 
     //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
@@ -67,11 +73,12 @@ public class ProjectileScript : MonoBehaviour
             float explosionScale = 0.7f;
             transform.localScale = new Vector3(transform.localScale.x * explosionScale, transform.localScale.x * explosionScale, 0); ;
 
-            animator.SetBool("CollisionDetected", true);
-
+            //remove the projectile collisions and trigger the blast animation
+            animator.SetBool("CollisionDetected", true);            
             Destroy(rigidbody);
             Destroy(boxCollider);
 
+            //play the blast audio clip
             audio.clip = impactClip;
             audio.volume /= 2;
             audio.Play();
@@ -96,14 +103,19 @@ public class ProjectileScript : MonoBehaviour
                 if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
                     float newX, newY;
-                    newX = spriteScaleX - projectileShrinkSpeed < 0 ? 0 : spriteScaleX - projectileShrinkSpeed;
-                    newY = spriteScaleY - projectileShrinkSpeed * heightWidthRatio < 0 ? 0 : spriteScaleX - projectileShrinkSpeed * heightWidthRatio;
+                    newX = spriteScaleX - projectileShrinkSpeed < 0 ? 0.01f : spriteScaleX - projectileShrinkSpeed;
+                    newY = spriteScaleY - projectileShrinkSpeed * heightWidthRatio < 0 ? 0.01f : spriteScaleX - projectileShrinkSpeed * heightWidthRatio;
 
                     Vector3 newScale = new Vector3(newX, newY, 0);
                     transform.localScale = newScale;
 
                     timeTemp = 0;
                     projectileShrinkSpeed *= projectileShrinkAcceleration;
+                }
+
+                else
+                {
+                    Destroy(gameObject);
                 }
             }
 
@@ -133,6 +145,57 @@ public class ProjectileScript : MonoBehaviour
             directionAngle = -directionAngle;
 
         transform.Rotate(Vector3.forward * directionAngle);*/
+    }
+
+    public float MyDamage
+    {
+        get
+        {
+            return projectileDamage;
+        }
+
+        set
+        {
+            if (value < 0)
+                projectileDamage = 1;
+
+            else
+                projectileDamage = value;
+        }
+    }
+
+    public float MyKnockback
+    {
+        get
+        {
+            return projectileKnockback;
+        }
+
+        set
+        {
+            if (value < 0)
+                projectileKnockback = 2;
+
+            else
+                projectileKnockback = value;
+        }
+    }
+
+    public float MyRange
+    {
+        get
+        {
+            return projectileShrinkAcceleration;
+        }
+
+        set
+        {
+            if (value < 0)
+                projectileShrinkAcceleration = 1.1f;
+
+            else
+                projectileShrinkAcceleration = value;
+        }
     }
 
     public void DestroyProjectile()

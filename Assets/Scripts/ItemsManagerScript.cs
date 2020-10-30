@@ -75,9 +75,9 @@ public class ItemsManagerScript : MonoBehaviour
 
         switch (itemName)
         {
+            //stat modifying items
             case "Allumettes":
                 PlayerScript.MyInstance.AttackSpeedMaxValue *= 0.5f;
-                print("attack speed doublée");
                 break;
 
             case "Amulette du dragon":
@@ -86,66 +86,30 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Anneau du dragon":
                 PlayerScript.MyInstance.AttackMaxValue += 0.5f;
+                PlayerScript.MyInstance.KnockbackMaxValue += 2f;
                 break;
 
             case "Anneau du forgeron":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                PlayerScript.MyInstance.AttackMaxValue += 0.5f;
+                PlayerScript.MyInstance.MovementSpeedMaxValue += 0.5f;
+                PlayerScript.MyInstance.LifeMaxValue += 10f;
+                PlayerScript.MyInstance.LifeCurrentValue += 10f;
                 break;
 
             case "Bottes d'Hotavius":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                PlayerScript.MyInstance.MovementSpeedMaxValue += 1f;
                 break;
 
             case "Cape du vampire":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                
                 break;
 
             case "Lampe à huile d'Hotavius":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
+                PlayerScript.MyInstance.LifeMaxValue += 25f;
+                PlayerScript.MyInstance.LifeCurrentValue += 25f;
                 break;
 
             case "Sauce piquante":
-                if (alreadyPossesed)
-                {
-
-                }
-
-                else
-                {
-
-                }
                 break;
 
             default:

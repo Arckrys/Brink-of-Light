@@ -27,6 +27,10 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected Stat attackSpeed;
 
     [SerializeField] private float initAttackSpeed;
+    
+    [SerializeField] protected Stat knockback;
+
+    [SerializeField] private float initKnockback;
 
     private Rigidbody2D rigidbody;
 
@@ -50,6 +54,19 @@ public abstract class Character : MonoBehaviour
         set
         {
             life.MyMaxValue = value;
+        }
+    }
+
+    public float LifeCurrentValue
+    {
+        get
+        {
+            return life.MyCurrentValue;
+        }
+
+        set
+        {
+            life.MyCurrentValue = value;
         }
     }
 
@@ -123,6 +140,19 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public float KnockbackMaxValue
+    {
+        get
+        {
+            return knockback.MyMaxValue;
+        }
+
+        set
+        {
+            knockback.MyMaxValue = value;
+            knockback.MyCurrentValue = value;
+        }
+    }
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -135,6 +165,7 @@ public abstract class Character : MonoBehaviour
         critChance.Initialized(initCritChance, initCritChance);
         range.Initialized(initRange, initRange);
         attackSpeed.Initialized(initAttackSpeed, initAttackSpeed);
+        knockback.Initialized(initKnockback, initKnockback);
     }
 
     // Update is called once per frame

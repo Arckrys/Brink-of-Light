@@ -8,7 +8,7 @@ public class BasicEnemyController : Character
 {
     public float stoppingDistance;
     public float detectionRadius;
-    public float knockbackIntesity;
+    public float knockbackIntensity;
     public Transform player;
     private Animator gfxAnim;
     private bool playerDetected;
@@ -23,7 +23,7 @@ public class BasicEnemyController : Character
         gfxAnim = transform.GetComponent<Animator>();
         playerDetected = false;
         knockbackTimer = 0;
-        knockbackIntesity = 1;
+        knockbackIntensity = 1;
         wanderTimer = 0;
         randomDirection = new Vector2();
 
@@ -61,8 +61,8 @@ public class BasicEnemyController : Character
         }
         if (gfxAnim.GetBool("Knockback")){
             knockbackTimer += 1;
-            direction = -1 * knockbackIntesity * (player.position - transform.position);
-            if (knockbackTimer > 10)
+            direction = -1 * (player.position - transform.position);
+            if (knockbackTimer > knockbackIntensity)
             {
                 gfxAnim.SetBool("Knockback", false);
             }
@@ -74,8 +74,10 @@ public class BasicEnemyController : Character
     {
         if (collision.gameObject.tag.Equals("Spell") && !(gfxAnim.GetBool("Knockback")))
         {
-            life.MyCurrentValue -= 1;
-            CombatTextManager.MyInstance.CreateText(transform.position, 1.0f.ToString(), DamageType.DAMAGE, 1.0f, false);
+            knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
+            float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
+            life.MyCurrentValue -= damageReceived;
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, damageReceived, false);
             playerDetected = true;
             gfxAnim.SetBool("Knockback", true);
             knockbackTimer = 0;
