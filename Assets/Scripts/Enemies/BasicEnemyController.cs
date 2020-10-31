@@ -15,6 +15,11 @@ public class BasicEnemyController : Character
     private int knockbackTimer;
     private int wanderTimer;
     private Vector2 randomDirection;
+
+    private CanvasGroup canvasGroupLifeBar;
+    private Coroutine lifeBarCoroutine;
+    private Animator lifeBarAnimator;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -27,14 +32,15 @@ public class BasicEnemyController : Character
         wanderTimer = 0;
         randomDirection = new Vector2();
 
+        canvasGroupLifeBar = transform.Find("LifeCanvas").GetComponent<CanvasGroup>();
+        lifeBarAnimator = transform.Find("LifeCanvas").GetComponent<Animator>();
+
         base.Start();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        
-
         UpdatePolygonCollider();
 
         UpdateLifeBar();
@@ -42,7 +48,7 @@ public class BasicEnemyController : Character
         base.Update();
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         if (playerDetected)
         {
@@ -52,7 +58,7 @@ public class BasicEnemyController : Character
                 //print(direction);
                 Vector2 facingDirection = player.position - transform.position;
                 FaceDirection(facingDirection);
-                
+
             }
         }
         else
@@ -77,7 +83,10 @@ public class BasicEnemyController : Character
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
             life.MyCurrentValue -= damageReceived;
-            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, damageReceived, false);
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
+
+            ShowLifeBar();
+
             playerDetected = true;
             gfxAnim.SetBool("Knockback", true);
             knockbackTimer = 0;
@@ -87,6 +96,40 @@ public class BasicEnemyController : Character
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void ShowLifeBar()
+    {
+        if (lifeBarCoroutine != null)
+        {
+            StopCoroutine(lifeBarCoroutine);
+        }
+
+        lifeBarCoroutine = StartCoroutine(FadeOutLifeBar());
+    }
+
+    public IEnumerator FadeOutLifeBar()
+    {
+        float startAlpha = 1.0f;
+
+        canvasGroupLifeBar.alpha = startAlpha;
+
+        yield return new WaitForSeconds(3.0f);
+
+        float rate = 2.5f;
+
+        float progress = 0.0f;
+
+        while (progress < 1.0)
+        {
+            canvasGroupLifeBar.alpha = Mathf.Lerp(startAlpha, 0, progress);
+
+            progress += rate * Time.deltaTime;
+
+            yield return null;
+        }
+
+        StopCoroutine(lifeBarCoroutine);
     }
 
     private void Wander()
@@ -121,14 +164,8 @@ public class BasicEnemyController : Character
     {
         Image content = life.GetComponent<Image>();
 
-        if (life.MyCurrentValue == life.MyMaxValue)
+        if (content.fillAmount != life.MyCurrentValue / life.MyMaxValue)
         {
-            life.transform.parent.gameObject.SetActive(false);
-        }
-        else if (content.fillAmount != life.MyCurrentValue / life.MyMaxValue)
-        {
-            life.transform.parent.gameObject.SetActive(true);
-
             content.fillAmount = life.MyCurrentValue / life.MyMaxValue;
         }
     }
