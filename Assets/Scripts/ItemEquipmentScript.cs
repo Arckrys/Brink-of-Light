@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemScript : MonoBehaviour
+public class ItemEquipmentScript : Item
 {
-    private string itemName;
-
-    public void SetName(string itemName)
+    public override void SetName(string itemName)
     {
-        this.itemName = itemName;
-    }
-
-    public string GetName()
-    {
-        return itemName;
+        base.SetName(itemName);
+        itemSprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
+        GetComponent<SpriteRenderer>().sprite = itemSprite;
     }
 
     void OnTriggerEnter2D(Collider2D other)

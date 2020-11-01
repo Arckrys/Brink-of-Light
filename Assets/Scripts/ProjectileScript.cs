@@ -30,7 +30,7 @@ public class ProjectileScript : MonoBehaviour
     private Animator animator;
     private AudioSource audio;
 
-    public AudioClip impactClip;
+    [SerializeField] private AudioClip impactClip;
 
     // Start is called before the first frame update
     void Start()

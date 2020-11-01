@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemsManagerScript : MonoBehaviour
 {
-    public GameObject itemGameObject;
+    public GameObject itemEquipmentGameObject;
+    public GameObject itemConsumableGameObject;
     public GameObject player;
 
     private PlayerScript playerScript;
     private AudioSource audio;
 
+    [SerializeField] private AudioClip equipmentPickupClip, consumableTriggerClip;
+
     private static ItemsManagerScript instance;
 
     //à mettre sur playerscript
     private List<string> possessedItems = new List<string>();
+    private string consumableItem = null;
+
 
     //available items
-    private List<string> itemsList = new List<string> {        
+    private List<string> itemsEquipmentList = new List<string> {        
         "Allumettes",
         "Amulette du dragon",
         "Anneau du dragon",
@@ -25,6 +31,12 @@ public class ItemsManagerScript : MonoBehaviour
         "Cape de vampire",
         "Lampe à huile d'Hotavius",
         "Sauce piquante"
+    };
+
+    private List<string> itemsConsumableList = new List<string> {
+        "Potion de vitesse",
+        "Potion de force",
+        "Potion de lumière"
     };
 
     void Start()
@@ -36,27 +48,39 @@ public class ItemsManagerScript : MonoBehaviour
         ItemsTest();        
     }
 
-    private void ItemsTest()
+    void Update()
     {
-        CreateItem(new Vector3(4, 3, 0), "Allumettes");
-        CreateItem(new Vector3(-2, 3, 0), SelectRandomItem());
-        CreateItem(new Vector3(4, -3, 0), SelectRandomItem());
-        CreateItem(new Vector3(-2, -3, 0), SelectRandomItem());
+        if (Input.GetKeyDown(KeyCode.Space))
+            UseConsumableItem();
     }
 
-    public string SelectRandomItem()
+    private void ItemsTest()
     {
-        string randomItem = itemsList[Random.Range(0, itemsList.Count)];
+        CreateEquipmentItem(new Vector3(4, 3, 0), "Allumettes");
+        CreateEquipmentItem(new Vector3(-2, 3, 0), SelectRandomItem(itemsEquipmentList));
+        CreateEquipmentItem(new Vector3(4, -3, 0), SelectRandomItem(itemsEquipmentList));
+        CreateEquipmentItem(new Vector3(-2, -3, 0), SelectRandomItem(itemsEquipmentList));
+        CreateConsumableItem(new Vector3(1, 3, 0), "Potion de vitesse");
+        CreateConsumableItem(new Vector3(1, -3, 0), "Potion de force");
+    }
+
+    public string SelectRandomItem(List<string> itemList)
+    {
+        string randomItem = itemList[Random.Range(0, itemList.Count)];
 
         return randomItem;
     }
 
-    public void CreateItem(Vector3 position, string itemName)
+    public void CreateEquipmentItem(Vector3 position, string itemName)
     {
-        GameObject newItem = Instantiate(itemGameObject, position, Quaternion.identity);
-        newItem.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
-
-        newItem.GetComponent<ItemScript>().SetName(itemName);
+        GameObject newItem = Instantiate(itemEquipmentGameObject, position, Quaternion.identity);
+        newItem.GetComponent<ItemEquipmentScript>().SetName(itemName);
+    }
+    
+    public void CreateConsumableItem(Vector3 position, string itemName)
+    {
+        GameObject newItem = Instantiate(itemConsumableGameObject, position, Quaternion.identity);
+        newItem.GetComponent<ItemConsumableScript>().SetName(itemName);
     }
 
     public bool IsItemPossessed(string name)
@@ -116,8 +140,57 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
         }
 
+        audio.clip = equipmentPickupClip;
         audio.Play();
 
         possessedItems.Add(itemName);
+    }
+
+    public string PlayerConsumableItem
+    {
+        get
+        {
+            return consumableItem;
+        }
+
+        set
+        {
+            consumableItem = value;
+        }
+    }
+
+    public void UseConsumableItem()
+    {      
+        if (consumableItem != null)
+        {
+            switch (consumableItem)
+            {               
+                case "Potion de vitesse":
+                    PlayerScript.MyInstance.AttackSpeedMaxValue *= 0.75f;
+                    PlayerScript.MyInstance.MovementSpeedMaxValue += 0.5f;
+                    break;
+
+                case "Potion de force":
+                    PlayerScript.MyInstance.AttackMaxValue += 0.5f;
+                    break;
+
+                case "Potion de lumière":
+                    PlayerScript.MyInstance.LifeMaxValue += 15f;
+                    break;
+
+                default:
+                    break;
+            }
+
+            audio.clip = consumableTriggerClip;
+            audio.Play();
+
+            consumableItem = null;
+
+            Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
+            Color tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
+        }
     }
 }
