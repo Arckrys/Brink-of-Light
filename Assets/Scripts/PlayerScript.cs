@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : Character
 {
+    [SerializeField] private Stat LifeBar;
+    
     private Animator mouvementAnimator;
 
     private float timeSinceLastAttack = 0;
@@ -57,6 +59,8 @@ public class PlayerScript : Character
             scale.y = Mathf.Lerp(scale.y, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
 
             life.transform.localScale = scale;
+            
+            LifeBar.GetComponent<Image>().fillAmount = life.MyCurrentValue / life.MyMaxValue;
         }
     }
 

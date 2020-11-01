@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class Stat : MonoBehaviour
 {
     [SerializeField] private Text statValue;
+    
+    [SerializeField] private Boolean filledImage;
 
     public float MyMaxValue { get; set; }
 
@@ -34,6 +37,13 @@ public class Stat : MonoBehaviour
             if (statValue)
             {
                 statValue.text = currentValue.ToString();
+            }
+            
+            Image content = GetComponent<Image>();
+
+            if (content != null && filledImage && content.fillAmount != currentValue / MyMaxValue)
+            {
+                content.fillAmount = currentValue / MyMaxValue;
             }
         }
     }

@@ -43,7 +43,7 @@ public class BasicEnemyController : Character
     {
         UpdatePolygonCollider();
 
-        UpdateLifeBar();
+        //UpdateLifeBar();
 
         base.Update();
     }
@@ -160,7 +160,7 @@ public class BasicEnemyController : Character
         gameObject.AddComponent<PolygonCollider2D>();
     }
 
-    private void UpdateLifeBar()
+    /*private void UpdateLifeBar()
     {
         Image content = life.GetComponent<Image>();
 
@@ -168,7 +168,7 @@ public class BasicEnemyController : Character
         {
             content.fillAmount = life.MyCurrentValue / life.MyMaxValue;
         }
-    }
+    }*/
 
     private void FaceDirection(Vector2 direction)
     {
