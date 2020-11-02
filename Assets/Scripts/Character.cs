@@ -190,4 +190,49 @@ public abstract class Character : MonoBehaviour
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
     }
+
+    protected void FaceDirection(Vector2 direction, Animator Anim)
+    {
+        if (direction.x == 0 && direction.y == 0)
+        {
+            Anim.SetBool("FacingRight", false);
+            Anim.SetBool("FacingLeft", false);
+            Anim.SetBool("FacingDown", false);
+            Anim.SetBool("FacingUp", false);
+            Anim.SetBool("Idle", true);
+        }
+        else
+        {
+            Anim.SetBool("Idle", false);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if (angle < 40 && angle > -40)
+            {
+                Anim.SetBool("FacingRight", true);
+                Anim.SetBool("FacingLeft", false);
+                Anim.SetBool("FacingDown", false);
+                Anim.SetBool("FacingUp", false);
+            }
+            if (angle <= 135 && angle >= 45)
+            {
+                Anim.SetBool("FacingRight", false);
+                Anim.SetBool("FacingLeft", false);
+                Anim.SetBool("FacingDown", false);
+                Anim.SetBool("FacingUp", true);
+            }
+            if (angle < -140 || angle > 140)
+            {
+                Anim.SetBool("FacingRight", false);
+                Anim.SetBool("FacingLeft", true);
+                Anim.SetBool("FacingDown", false);
+                Anim.SetBool("FacingUp", false);
+            }
+            if (angle <= -45 && angle >= -135)
+            {
+                Anim.SetBool("FacingRight", false);
+                Anim.SetBool("FacingLeft", false);
+                Anim.SetBool("FacingDown", true);
+                Anim.SetBool("FacingUp", false);
+            }
+        }
+    }
 }
