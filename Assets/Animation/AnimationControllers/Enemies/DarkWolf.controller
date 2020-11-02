@@ -83,7 +83,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfUpKnockBack
+  m_Name: UpKnockBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -97,7 +97,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e087861c708483c44a8a6ab1bcd30d0c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1f1942d24d4099f46b012ef15c39e2b3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfLeftWalk
+  m_Name: LeftWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -153,7 +153,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3baf3baa9f589f44999fe0d67356d76f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 93df4043b92215242862305659a861f2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -391,7 +391,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfLeftKnockBack
+  m_Name: LeftKnockBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -405,7 +405,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b5d9d95b37ab14049bc5a0dbfadd2373, type: 2}
+  m_Motion: {fileID: 7400000, guid: 924a0f56a1b762c458eb2c281c65687a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -492,7 +492,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Basic Enemy Ac
+  m_Name: DarkWolf
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Knockback
@@ -551,7 +551,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfDownWalk
+  m_Name: DownWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -569,7 +569,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8b5350bf432640b4f95dba7fd11dd586, type: 2}
+  m_Motion: {fileID: 7400000, guid: 034366352bfeff046a425cfd277c0d2c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -607,7 +607,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfRightWalk
+  m_Name: RightWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -625,7 +625,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7181af832a3c8ea45a51febc1217a426, type: 2}
+  m_Motion: {fileID: 7400000, guid: 81518485ad47588458b722bb70734b93, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -713,7 +713,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfIdle
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -730,7 +730,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0b5bdc4d02a28574e9bff55cef0bd431, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6311c9da75c501342a6c86871caab977, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -818,7 +818,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfUpWalk
+  m_Name: UpWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -836,7 +836,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 453c64de0ef93644ea6d8a62a7203d49, type: 2}
+  m_Motion: {fileID: 7400000, guid: 07436eab618724d449b9ef01ad686151, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -973,7 +973,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfRightKnockBack
+  m_Name: RightKnockBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -987,7 +987,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f33cd433ad2348d4d91323dfda6e65f3, type: 2}
+  m_Motion: {fileID: 7400000, guid: fe964c723508ae741b23e67f81b3a0f2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1025,7 +1025,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfDownKnockBack
+  m_Name: DownKnockBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1039,7 +1039,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 505c333b747cb644a8c870835aa046a3, type: 2}
+  m_Motion: {fileID: 7400000, guid: fdfbbcb54b53cd846a2c642f99ca0fc5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

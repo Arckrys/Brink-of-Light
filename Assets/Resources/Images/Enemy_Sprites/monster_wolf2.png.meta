@@ -1,79 +1,43 @@
 fileFormatVersion: 2
-guid: 6bc505812851ade4aac849332276d1de
+guid: 37aa01bb133913548878ad40e0c312d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -795242685621418541
-    second: monster_wolf1_0
+      213: 3005160762973509245
+    second: monster_wolf2_0
   - first:
-      213: -1219267650715569598
-    second: monster_wolf1_1
+      213: -5541222388230765437
+    second: monster_wolf2_1
   - first:
-      213: -5704251855253820830
-    second: monster_wolf1_2
+      213: 4817832026081561940
+    second: monster_wolf2_2
   - first:
-      213: 7142740013921290509
-    second: monster_wolf1_3
+      213: -4758592226415100795
+    second: monster_wolf2_3
   - first:
-      213: -7641581273439752763
-    second: monster_wolf1_4
+      213: -6145822604022121010
+    second: monster_wolf2_4
   - first:
-      213: -3874848063800166267
-    second: monster_wolf1_5
+      213: 7899198335894746130
+    second: monster_wolf2_5
   - first:
-      213: 2666510352176587726
-    second: monster_wolf1_6
+      213: -3718895150726325567
+    second: monster_wolf2_6
   - first:
-      213: 7699966434511131253
-    second: monster_wolf1_7
+      213: 4070588673465861397
+    second: monster_wolf2_7
   - first:
-      213: 7313772059840255973
-    second: monster_wolf1_8
+      213: 2018879713865894245
+    second: monster_wolf2_8
   - first:
-      213: 4498413560364746690
-    second: monster_wolf1_9
+      213: -7827896736033558417
+    second: monster_wolf2_9
   - first:
-      213: 2595810186475084868
-    second: monster_wolf1_10
+      213: 2480447361346341288
+    second: monster_wolf2_10
   - first:
-      213: 7703473287932628046
-    second: monster_wolf1_11
-  - first:
-      213: 17391041347544504
-    second: monster_wolf1_0
-  - first:
-      213: -6880313353184757265
-    second: monster_wolf1_1
-  - first:
-      213: 5113693664108628941
-    second: monster_wolf1_2
-  - first:
-      213: -7992340170710143315
-    second: monster_wolf1_3
-  - first:
-      213: -7424462551792234599
-    second: monster_wolf1_4
-  - first:
-      213: 7710598085608616901
-    second: monster_wolf1_5
-  - first:
-      213: 1041644720053552130
-    second: monster_wolf1_6
-  - first:
-      213: 3007681687358611276
-    second: monster_wolf1_7
-  - first:
-      213: -4074218148001813568
-    second: monster_wolf1_8
-  - first:
-      213: -2524387559652769200
-    second: monster_wolf1_9
-  - first:
-      213: -313205947245805309
-    second: monster_wolf1_10
-  - first:
-      213: -1327761223651256547
-    second: monster_wolf1_11
+      213: 8562210916488605588
+    second: monster_wolf2_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,12 +125,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monster_wolf1_0
+      name: monster_wolf2_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 14
         y: 198
-        width: 21
+        width: 31
         height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -175,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b56bc95f09cd3000800000000000000
-      internalID: 17391041347544504
+      spriteID: d765af9bac974b920800000000000000
+      internalID: 3005160762973509245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_1
+      name: monster_wolf2_1
       rect:
         serializedVersion: 2
-        x: 84
+        x: 79
         y: 198
-        width: 21
+        width: 31
         height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9bb0075773480a0800000000000000
-      internalID: -6880313353184757265
+      spriteID: 3844018b89f9913b0800000000000000
+      internalID: -5541222388230765437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_2
+      name: monster_wolf2_2
       rect:
         serializedVersion: 2
-        x: 149
+        x: 144
         y: 198
-        width: 21
+        width: 31
         height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -217,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb4c534b4d77f640800000000000000
-      internalID: 5113693664108628941
+      spriteID: 45d8716a3b06cd240800000000000000
+      internalID: 4817832026081561940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_3
+      name: monster_wolf2_3
       rect:
         serializedVersion: 2
         x: 2
         y: 132
         width: 48
-        height: 36
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,19 +202,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daeacb0c5f0851190800000000000000
-      internalID: -7992340170710143315
+      spriteID: 58cb799059516fdb0800000000000000
+      internalID: -4758592226415100795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_4
+      name: monster_wolf2_4
       rect:
         serializedVersion: 2
         x: 67
         y: 132
         width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecdf1b257e6a5baa0800000000000000
+      internalID: -6145822604022121010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_wolf2_5
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 132
+        width: 49
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -259,41 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99fcb3845a207f890800000000000000
-      internalID: -7424462551792234599
+      spriteID: 214fc55e8079f9d60800000000000000
+      internalID: 7899198335894746130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_5
+      name: monster_wolf2_6
       rect:
         serializedVersion: 2
-        x: 132
-        y: 132
-        width: 50
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c3328a3b1c810b60800000000000000
-      internalID: 7710598085608616901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_wolf1_6
-      rect:
-        serializedVersion: 2
-        x: 8
+        x: 9
         y: 66
-        width: 50
-        height: 36
+        width: 49
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,19 +265,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20404f0aa5aa47e00800000000000000
-      internalID: 1041644720053552130
+      spriteID: 1cad8006094d36cc0800000000000000
+      internalID: -3718895150726325567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_7
+      name: monster_wolf2_7
       rect:
         serializedVersion: 2
         x: 75
         y: 66
         width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51549a4e4d2ad7830800000000000000
+      internalID: 4070588673465861397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_wolf2_8
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 66
+        width: 48
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,41 +307,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4f157c2f8e6db920800000000000000
-      internalID: 3007681687358611276
+      spriteID: 569083d3760840c10800000000000000
+      internalID: 2018879713865894245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_8
+      name: monster_wolf2_9
       rect:
         serializedVersion: 2
-        x: 140
-        y: 66
-        width: 48
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cbe6e63e287577c0800000000000000
-      internalID: -4074218148001813568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: monster_wolf1_9
-      rect:
-        serializedVersion: 2
-        x: 19
+        x: 14
         y: 0
-        width: 21
-        height: 38
+        width: 31
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,20 +328,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0524b77a3e297fcd0800000000000000
-      internalID: -2524387559652769200
+      spriteID: f60b74e7469bd5390800000000000000
+      internalID: -7827896736033558417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_10
+      name: monster_wolf2_10
       rect:
         serializedVersion: 2
-        x: 84
+        x: 79
         y: 0
-        width: 21
-        height: 39
+        width: 31
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,20 +349,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 301cfd4b9d447abf0800000000000000
-      internalID: -313205947245805309
+      spriteID: 8a98a11bbb15c6220800000000000000
+      internalID: 2480447361346341288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_wolf1_11
+      name: monster_wolf2_11
       rect:
         serializedVersion: 2
-        x: 149
+        x: 144
         y: 0
-        width: 21
-        height: 38
+        width: 31
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,8 +370,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d179abda338d29de0800000000000000
-      internalID: -1327761223651256547
+      spriteID: 49f6649c67513d670800000000000000
+      internalID: 8562210916488605588
       vertices: []
       indices: 
       edges: []

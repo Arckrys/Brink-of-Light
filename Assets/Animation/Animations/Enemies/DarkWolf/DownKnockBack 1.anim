@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WolfUpKnockBack
+  m_Name: DownKnockBack 1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2595810186475084868, guid: 6bc505812851ade4aac849332276d1de, type: 3}
+      value: {fileID: -5541222388230765437, guid: 37aa01bb133913548878ad40e0c312d1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2595810186475084868, guid: 6bc505812851ade4aac849332276d1de, type: 3}
+    - {fileID: -5541222388230765437, guid: 37aa01bb133913548878ad40e0c312d1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
