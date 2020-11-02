@@ -8,13 +8,14 @@ public class BasicEnemyController : Character
 {
     public float stoppingDistance;
     public float detectionRadius;
-    public float knockbackIntensity;
-    public Transform player;
-    private Animator gfxAnim;
-    private bool playerDetected;
-    private int knockbackTimer;
-    private int wanderTimer;
-    private Vector2 randomDirection;
+    protected float knockbackIntensity;
+    public float knockbackResistance;
+    protected Transform player;
+    protected Animator gfxAnim;
+    protected bool playerDetected;
+    protected int knockbackTimer;
+    protected int wanderTimer;
+    protected Vector2 randomDirection;
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
@@ -24,11 +25,9 @@ public class BasicEnemyController : Character
     protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        stoppingDistance = 0;
         gfxAnim = transform.GetComponent<Animator>();
         playerDetected = false;
         knockbackTimer = 0;
-        knockbackIntensity = 1;
         wanderTimer = 0;
         randomDirection = new Vector2();
 
@@ -50,35 +49,13 @@ public class BasicEnemyController : Character
 
     protected override void FixedUpdate()
     {
-        if (playerDetected)
-        {
-            if (Vector2.Distance(transform.position, player.position) > stoppingDistance && !(gfxAnim.GetBool("Knockback")))
-            {
-                direction = player.position - transform.position;
-                //print(direction);
-                Vector2 facingDirection = player.position - transform.position;
-                FaceDirection(facingDirection);
-
-            }
-        }
-        else
-        {
-            Wander();
-        }
-        if (gfxAnim.GetBool("Knockback")){
-            knockbackTimer += 1;
-            direction = -1 * (player.position - transform.position);
-            if (knockbackTimer > knockbackIntensity)
-            {
-                gfxAnim.SetBool("Knockback", false);
-            }
-        }
+        
 
         base.FixedUpdate();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Spell") && !(gfxAnim.GetBool("Knockback")))
+        if (collision.gameObject.tag.Equals("Spell"))
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
@@ -88,9 +65,12 @@ public class BasicEnemyController : Character
             ShowLifeBar();
 
             playerDetected = true;
-            gfxAnim.SetBool("Knockback", true);
-            knockbackTimer = 0;
-            transform.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position));
+            if(knockbackIntensity - knockbackResistance > 0)
+            {
+                gfxAnim.SetBool("Knockback", true);
+                knockbackTimer = 0;
+            }
+            
             if(life.MyCurrentValue == 0)
             {
                 Destroy(gameObject);
@@ -132,9 +112,8 @@ public class BasicEnemyController : Character
         StopCoroutine(lifeBarCoroutine);
     }
 
-    private void Wander()
+    protected void Wander()
     {
-        print(wanderTimer);
         if(wanderTimer >= 100)
         {
             randomDirection.x = (Random.Range(-1,2));
@@ -170,7 +149,7 @@ public class BasicEnemyController : Character
         }
     }*/
 
-    private void FaceDirection(Vector2 direction)
+    protected void FaceDirection(Vector2 direction)
     {
         if(direction.x == 0 && direction.y == 0)
         {
@@ -214,4 +193,5 @@ public class BasicEnemyController : Character
             }
         }
     }
+
 }
