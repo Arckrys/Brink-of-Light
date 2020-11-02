@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7977440032632955669}
   - component: {fileID: 7977440032632955668}
   m_Layer: 10
-  m_Name: Dark Wolf 1
+  m_Name: LizardMan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 7977440032632955667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.0561333, y: -2.4032028, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 7977440034000466408}
   - {fileID: 7977440034273309377}
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 393699099
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3005160762973509245, guid: 37aa01bb133913548878ad40e0c312d1, type: 3}
+  m_Sprite: {fileID: 4555356587794886115, guid: 45c75eafadcae4449b025f767a62ab4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -213,7 +213,7 @@ Animator:
   m_GameObject: {fileID: 7977440032632955667}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f91c476602ffaf745aa530a0baed3604, type: 2}
+  m_Controller: {fileID: 9100000, guid: ceb493b4b24169a4e96b8416579c0f44, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -239,7 +239,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9375, y: 2.4375}
+    oldSize: {x: 1.6875, y: 2.3125}
     newSize: {x: 4.0625, y: 4.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -247,23 +247,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.3506775, y: 1.2406642}
-      - {x: -0.69005203, y: 1.1318011}
-      - {x: -0.840292, y: 0.8364532}
-      - {x: -0.77842426, y: 0.48114443}
-      - {x: -1.0323181, y: 0.36440372}
-      - {x: -0.9252291, y: 0.12806034}
-      - {x: -0.7156086, y: -0.03797102}
-      - {x: -0.66497993, y: -0.5064645}
-      - {x: -0.65310955, y: -1.1511903}
-      - {x: 0.68235016, y: -1.1511908}
-      - {x: 0.6683235, y: -0.642365}
-      - {x: 0.7467556, y: -0.052074432}
-      - {x: 1.042448, y: 0.22415209}
-      - {x: 0.7952442, y: 0.44670105}
-      - {x: 0.78499794, y: 0.9086833}
-      - {x: 0.64044094, y: 1.1711345}
-      - {x: 0.2969494, y: 1.2393923}
+    - - {x: -0.31093788, y: 1.1532376}
+      - {x: -0.42316628, y: 1.0162487}
+      - {x: -0.42700005, y: 0.71723485}
+      - {x: -0.7779865, y: 0.44388294}
+      - {x: -0.8934374, y: 0.16779995}
+      - {x: -0.78313065, y: 0.038620472}
+      - {x: -0.7921486, y: -0.4428811}
+      - {x: -0.43571854, y: -0.6810665}
+      - {x: -0.5259447, y: -1.0717111}
+      - {x: 0.53928757, y: -1.0796595}
+      - {x: 0.53954697, y: -0.70317173}
+      - {x: 0.82787895, y: -0.46522236}
+      - {x: 0.8478298, y: -0.052074432}
+      - {x: 0.8605137, y: 0.35554743}
+      - {x: 0.42990875, y: 0.724699}
+      - {x: 0.42235947, y: 1.0442629}
+      - {x: 0.29868412, y: 1.1552386}
 --- !u!114 &7977440032632955668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 7977440032683961322}
-  initLife: 15
+  initLife: 20
   attack: {fileID: 7977440033049369041}
-  initAttack: 1
+  initAttack: 3
   mouvementSpeed: {fileID: 7977440033899976243}
   initMouvementSpeed: 3
   critChance: {fileID: 7977440033764297884}
@@ -992,7 +992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -584.21, y: -321.49}
+  m_AnchoredPosition: {x: -584.0184, y: -320.89322}
   m_SizeDelta: {x: 1.8911142, y: 0.15066528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7977440034251407379
