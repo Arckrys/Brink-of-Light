@@ -103,7 +103,7 @@ public class PlayerScript : Character
         worldPosition -= new Vector2(transform.position.x, transform.position.y);
 
         //create projectile
-        GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(Projectile, new Vector3(transform.position.x, transform.position.y, -2), Quaternion.identity);
         projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
         projectile.GetComponent<ProjectileScript>().MyDamage = AttackMaxValue;
         projectile.GetComponent<ProjectileScript>().MyKnockback = KnockbackMaxValue;

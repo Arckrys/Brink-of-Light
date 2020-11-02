@@ -30,6 +30,7 @@ public class CombustibleScript : MonoBehaviour
         {
             isLit = false;
             PlayerScript.MyInstance.LifeCurrentValue += healingValue;
+            CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(), DamageType.HEAL, 1.0f, false);
             //Destroy(collider);
         }
         else if(other.gameObject.tag.Equals("Spell"))
