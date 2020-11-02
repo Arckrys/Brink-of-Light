@@ -33,7 +33,7 @@ namespace Assets.Scripts.Enemies
                 {
                     direction = player.position - transform.position;
                     Vector2 facingDirection = player.position - transform.position;
-                    FaceDirection(facingDirection);
+                    FaceDirection(facingDirection,gfxAnim);
 
                 }
             }

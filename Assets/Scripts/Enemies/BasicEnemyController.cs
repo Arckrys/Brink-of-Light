@@ -118,7 +118,7 @@ public class BasicEnemyController : Character
             randomDirection.x = (Random.Range(-1,2));
             randomDirection.y = (Random.Range(-1, 2));
             direction = randomDirection;
-            FaceDirection(randomDirection);
+            FaceDirection(randomDirection,gfxAnim);
             wanderTimer = 0;
             print(randomDirection);
         }
@@ -144,49 +144,6 @@ public class BasicEnemyController : Character
         }
     }*/
 
-    protected void FaceDirection(Vector2 direction)
-    {
-        if(direction.x == 0 && direction.y == 0)
-        {
-            gfxAnim.SetBool("FacingRight", false);
-            gfxAnim.SetBool("FacingLeft", false);
-            gfxAnim.SetBool("FacingDown", false);
-            gfxAnim.SetBool("FacingUp", false);
-            gfxAnim.SetBool("Idle", true);
-        }
-        else
-        {
-            gfxAnim.SetBool("Idle", false);
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            if (angle < 40 && angle > -40)
-            {
-                gfxAnim.SetBool("FacingRight", true);
-                gfxAnim.SetBool("FacingLeft", false);
-                gfxAnim.SetBool("FacingDown", false);
-                gfxAnim.SetBool("FacingUp", false);
-            }
-            if (angle <= 135 && angle >= 45)
-            {
-                gfxAnim.SetBool("FacingRight", false);
-                gfxAnim.SetBool("FacingLeft", false);
-                gfxAnim.SetBool("FacingDown", false);
-                gfxAnim.SetBool("FacingUp", true);
-            }
-            if (angle < -140 || angle > 140)
-            {
-                gfxAnim.SetBool("FacingRight", false);
-                gfxAnim.SetBool("FacingLeft", true);
-                gfxAnim.SetBool("FacingDown", false);
-                gfxAnim.SetBool("FacingUp", false);
-            }
-            if (angle <= -45 && angle >= -135)
-            {
-                gfxAnim.SetBool("FacingRight", false);
-                gfxAnim.SetBool("FacingLeft", false);
-                gfxAnim.SetBool("FacingDown", true);
-                gfxAnim.SetBool("FacingUp", false);
-            }
-        }
-    }
+    
 
 }
