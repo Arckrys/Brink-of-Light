@@ -40,7 +40,6 @@ public class BasicEnemyController : Character
     // Update is called once per frame
     protected override void Update()
     {
-        UpdatePolygonCollider();
 
         //UpdateLifeBar();
 
@@ -133,11 +132,7 @@ public class BasicEnemyController : Character
         }
     }
 
-    private void UpdatePolygonCollider()
-    {
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
-    }
+    
 
     /*private void UpdateLifeBar()
     {

@@ -172,7 +172,7 @@ public abstract class Character : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        
+        UpdatePolygonCollider();
     }
 
     protected virtual void FixedUpdate()
@@ -183,5 +183,11 @@ public abstract class Character : MonoBehaviour
     private void Move()
     {
         rigidbody.velocity = direction.normalized * mouvementSpeed.MyCurrentValue;
+    }
+
+    private void UpdatePolygonCollider()
+    {
+        Destroy(GetComponent<PolygonCollider2D>());
+        gameObject.AddComponent<PolygonCollider2D>();
     }
 }
