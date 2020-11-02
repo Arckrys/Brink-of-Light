@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7977440032632955669}
   - component: {fileID: 7977440032632955668}
   m_Layer: 10
-  m_Name: Dark Wolf 1
+  m_Name: Dark Wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 7977440032632955667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.0561333, y: -2.4032028, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
   m_Children:
   - {fileID: 7977440034000466408}
   - {fileID: 7977440034273309377}
@@ -992,7 +992,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -584.21, y: -321.49}
+  m_AnchoredPosition: {x: -584.11, y: -320.84}
   m_SizeDelta: {x: 1.8911142, y: 0.15066528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7977440034251407379
@@ -1091,7 +1091,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 393699099
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7977440034273309380
