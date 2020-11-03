@@ -25,7 +25,7 @@ public class ProjectileScript : MonoBehaviour
     private float heightWidthRatio;
 
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
+    private PolygonCollider2D boxCollider;
     private Rigidbody2D rigidbody;
     private Animator animator;
     private AudioSource audio;
@@ -42,16 +42,17 @@ public class ProjectileScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
         spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
-        boxCollider = GetComponent<BoxCollider2D>() as BoxCollider2D;
+        boxCollider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 
         audio = GetComponent<AudioSource>();
 
         initialZ = transform.position.z;
 
         float hitboxX, hitboxY;
-        float hitboxYReduction = 0.75f;
+        float hitboxYReduction = 0.80f;
 
-        //change hitbox size
+        /*
+        //change hitbox size of boxcollider
         hitboxX = spriteRenderer.bounds.size.x / transform.localScale.x;
         hitboxY = hitboxYReduction * spriteRenderer.bounds.size.y / transform.localScale.y;
         Vector3 newSize = new Vector3(hitboxX, hitboxY, 0);
@@ -59,6 +60,7 @@ public class ProjectileScript : MonoBehaviour
         
         //change hitbox center
         boxCollider.offset = new Vector2(0, (hitboxYReduction - 1) * spriteRenderer.bounds.size.y / transform.localScale.y);
+        */
 
         heightWidthRatio = spriteRenderer.bounds.size.y / spriteRenderer.bounds.size.x;
     }
@@ -111,6 +113,8 @@ public class ProjectileScript : MonoBehaviour
 
                     timeTemp = 0;
                     projectileShrinkSpeed *= projectileShrinkAcceleration;
+
+                    UpdatePolygonCollider();
                 }
 
                 else
@@ -196,6 +200,14 @@ public class ProjectileScript : MonoBehaviour
             else
                 projectileShrinkAcceleration = value;
         }
+    }
+
+    private void UpdatePolygonCollider()
+    {
+        Destroy(GetComponent<PolygonCollider2D>());
+        PolygonCollider2D collider = gameObject.AddComponent<PolygonCollider2D>();
+        collider.autoTiling = true;
+        collider.isTrigger = true;
     }
 
     public void DestroyProjectile()
