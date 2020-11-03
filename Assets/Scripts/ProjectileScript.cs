@@ -25,7 +25,7 @@ public class ProjectileScript : MonoBehaviour
     private float heightWidthRatio;
 
     private SpriteRenderer spriteRenderer;
-    private PolygonCollider2D boxCollider;
+    private PolygonCollider2D collider;
     private Rigidbody2D rigidbody;
     private Animator animator;
     private AudioSource audio;
@@ -42,7 +42,7 @@ public class ProjectileScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
         spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
-        boxCollider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
+        collider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 
         audio = GetComponent<AudioSource>();
 
@@ -56,10 +56,10 @@ public class ProjectileScript : MonoBehaviour
         hitboxX = spriteRenderer.bounds.size.x / transform.localScale.x;
         hitboxY = hitboxYReduction * spriteRenderer.bounds.size.y / transform.localScale.y;
         Vector3 newSize = new Vector3(hitboxX, hitboxY, 0);
-        boxCollider.size = newSize;
+        collider.size = newSize;
         
         //change hitbox center
-        boxCollider.offset = new Vector2(0, (hitboxYReduction - 1) * spriteRenderer.bounds.size.y / transform.localScale.y);
+        collider.offset = new Vector2(0, (hitboxYReduction - 1) * spriteRenderer.bounds.size.y / transform.localScale.y);
         */
 
         heightWidthRatio = spriteRenderer.bounds.size.y / spriteRenderer.bounds.size.x;
@@ -78,7 +78,7 @@ public class ProjectileScript : MonoBehaviour
             //remove the projectile collisions and trigger the blast animation
             animator.SetBool("CollisionDetected", true);            
             Destroy(rigidbody);
-            Destroy(boxCollider);
+            Destroy(collider);
 
             //play the blast audio clip
             audio.clip = impactClip;
@@ -205,7 +205,7 @@ public class ProjectileScript : MonoBehaviour
     private void UpdatePolygonCollider()
     {
         Destroy(GetComponent<PolygonCollider2D>());
-        PolygonCollider2D collider = gameObject.AddComponent<PolygonCollider2D>();
+        collider = gameObject.AddComponent<PolygonCollider2D>();
         collider.autoTiling = true;
         collider.isTrigger = true;
     }
