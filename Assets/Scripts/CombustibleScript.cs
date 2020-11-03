@@ -26,14 +26,14 @@ public class CombustibleScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) // Triggered when a rigidBody touches the collider
     {
-        if (other.gameObject.tag.Equals("Player"))
+        if (other.gameObject.tag.Equals("Player") && isLit)
         {
             isLit = false;
             PlayerScript.MyInstance.LifeCurrentValue += healingValue;
             CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(), DamageType.HEAL, 1.0f, false);
             //Destroy(collider);
         }
-        else if(other.gameObject.tag.Equals("Spell"))
+        else if(other.gameObject.tag.Equals("Spell") && !isLit)
         {
             isLit = true;
             //Destroy(collider);

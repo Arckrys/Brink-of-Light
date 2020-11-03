@@ -686,6 +686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 950590217, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699537, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Controller
       value: 
@@ -782,7 +786,8 @@ PrefabInstance:
       propertyPath: LifeBar
       value: 
       objectReference: {fileID: 1053499897}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 950590216, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
 --- !u!1 &891769677
 GameObject:
