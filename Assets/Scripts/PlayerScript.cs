@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -10,12 +11,11 @@ public class PlayerScript : Character
     
     private Animator mouvementAnimator;
 
-    private float timeSinceLastAttack = 0;
+    private float timeSinceLastAttack = 0, timeSinceLastHit = 0;
 
-    [SerializeField] private float invincibilityTime = 1f;
+    private float invincibilityTime = 0.5f;
 
     public GameObject Projectile;
-
     private static PlayerScript instance;
 
     // Start is called before the first frame update
@@ -38,6 +38,7 @@ public class PlayerScript : Character
         base.Update();
 
         timeSinceLastAttack += Time.deltaTime;
+        timeSinceLastHit += Time.deltaTime;
     }
 
     public static PlayerScript MyInstance
@@ -49,6 +50,19 @@ public class PlayerScript : Character
                 instance = FindObjectOfType<PlayerScript>();
             }
             return instance;
+        }
+    }
+
+    public float Invincibility
+    {
+        get
+        {
+            return invincibilityTime;
+        }
+
+        set 
+        {
+            invincibilityTime = value;
         }
     }
 
@@ -139,5 +153,17 @@ public class PlayerScript : Character
         }
 
         mouvementAnimator.SetLayerWeight(mouvementAnimator.GetLayerIndex(layerName), 1);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && timeSinceLastHit > invincibilityTime)
+        {
+            timeSinceLastHit = 0;
+
+            float damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().AttackMaxValue;
+            LifeCurrentValue -= damageReceived;
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
+        }
     }
 }

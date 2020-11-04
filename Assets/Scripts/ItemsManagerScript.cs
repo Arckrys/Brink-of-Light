@@ -56,7 +56,7 @@ public class ItemsManagerScript : MonoBehaviour
 
     private void ItemsTest()
     {
-        CreateEquipmentItem(new Vector3(4, 3, 0), "Allumettes");
+        CreateEquipmentItem(new Vector3(4, 3, 0), "Cape de vampire");
         CreateEquipmentItem(new Vector3(-2, 3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(4, -3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(-2, -3, 0), SelectRandomItem(itemsEquipmentList));
@@ -124,8 +124,8 @@ public class ItemsManagerScript : MonoBehaviour
                 PlayerScript.MyInstance.MovementSpeedMaxValue += 1f;
                 break;
 
-            case "Cape du vampire":
-                
+            case "Cape de vampire":
+                PlayerScript.MyInstance.Invincibility += 0.3f;
                 break;
 
             case "Lampe à huile d'Hotavius":

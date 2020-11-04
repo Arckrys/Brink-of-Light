@@ -273,6 +273,14 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4178549706028165045, guid: d27a0d8701065b745ae2d3d70eab47be, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178549706028165045, guid: d27a0d8701065b745ae2d3d70eab47be, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6350571433951855206, guid: d27a0d8701065b745ae2d3d70eab47be, type: 3}
       propertyPath: m_AutoTiling
       value: 0
@@ -749,6 +757,14 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 950590215, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 950590215, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 950590217, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -849,6 +865,10 @@ PrefabInstance:
       propertyPath: LifeBar
       value: 
       objectReference: {fileID: 1053499897}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: invincibilityTime
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
