@@ -109,6 +109,8 @@ public class PlayerScript : Character
             FireProjectile();
             timeSinceLastAttack = 0;
         }
+
+
     }
 
     private void FireProjectile()
