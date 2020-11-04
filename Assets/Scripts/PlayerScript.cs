@@ -12,6 +12,8 @@ public class PlayerScript : Character
 
     private float timeSinceLastAttack = 0;
 
+    [SerializeField] private float invincibilityTime = 1f;
+
     public GameObject Projectile;
 
     private static PlayerScript instance;
@@ -34,6 +36,8 @@ public class PlayerScript : Character
         UpdateLifeImage();
 
         base.Update();
+
+        timeSinceLastAttack += Time.deltaTime;
     }
 
     public static PlayerScript MyInstance
@@ -84,8 +88,7 @@ public class PlayerScript : Character
         {
             direction += Vector2.right;
         }
-
-        timeSinceLastAttack += Time.deltaTime;
+        
 
         if (Input.GetMouseButton(0) && timeSinceLastAttack > attackSpeed.MyCurrentValue)
         {
@@ -108,6 +111,9 @@ public class PlayerScript : Character
         projectile.GetComponent<ProjectileScript>().MyDamage = AttackMaxValue;
         projectile.GetComponent<ProjectileScript>().MyKnockback = KnockbackMaxValue;
         projectile.GetComponent<ProjectileScript>().MyRange = RangeMaxValue;
+
+        //player lose one health per shot
+        life.MyCurrentValue -= 1;
     }
 
     private void HandleLayers()

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemConsumableScript : Item
 {
+    private float timeSincePickup = 0;
+
     public override void SetName(string itemName)
     {
         base.SetName(itemName);
@@ -16,8 +18,10 @@ public class ItemConsumableScript : Item
     {
         string colliderName = other.gameObject.name;
 
-        if (colliderName == "Player")
+        if (colliderName == "Player" && timeSincePickup > 1.5f)
         {
+            timeSincePickup = 0;
+
             ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();
 
             if (itemsManager.PlayerConsumableItem == null)
@@ -42,5 +46,10 @@ public class ItemConsumableScript : Item
             tempColor.a = 1f;
             image.color = tempColor;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        timeSincePickup += Time.deltaTime;
     }
 }

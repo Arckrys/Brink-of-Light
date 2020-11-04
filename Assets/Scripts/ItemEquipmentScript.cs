@@ -15,13 +15,8 @@ public class ItemEquipmentScript : Item
     {
         if (other.gameObject.name == "Player")
         {
-            Destroy(gameObject);                        
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (GameObject.Find("ItemManager"))
+            Destroy(gameObject);
             GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
+        }
     }
 }
