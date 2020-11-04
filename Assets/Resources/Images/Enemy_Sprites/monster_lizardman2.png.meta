@@ -1,0 +1,683 @@
+fileFormatVersion: 2
+guid: 5e1e8c58c5961ec41ad295d6275a6503
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3074283488062110490
+    second: monster_lizardman2_0
+  - first:
+      213: 8621790346223948449
+    second: monster_lizardman2_1
+  - first:
+      213: 3325582239868557209
+    second: monster_lizardman2_2
+  - first:
+      213: 5273647157367240737
+    second: monster_lizardman2_3
+  - first:
+      213: 3183792412747246269
+    second: monster_lizardman2_4
+  - first:
+      213: -901747259795685156
+    second: monster_lizardman2_5
+  - first:
+      213: 2242681036860240141
+    second: monster_lizardman2_6
+  - first:
+      213: 6299341975350291635
+    second: monster_lizardman2_7
+  - first:
+      213: -6194421581298294437
+    second: monster_lizardman2_8
+  - first:
+      213: -3851938367657673878
+    second: monster_lizardman2_9
+  - first:
+      213: 563484442229737770
+    second: monster_lizardman2_10
+  - first:
+      213: 257085334108833324
+    second: monster_lizardman2_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: monster_lizardman2_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 150
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.5, y: -14.5}
+        - {x: 7.5, y: -11.5}
+        - {x: 11.5, y: -8.5}
+        - {x: 13.5, y: 11.5}
+        - {x: 6.5, y: 11.5}
+        - {x: 6.5, y: 20.5}
+        - {x: 4.5, y: 22.5}
+        - {x: -4.5, y: 22.5}
+        - {x: -6.5, y: 20.5}
+        - {x: -6.5, y: 11.5}
+        - {x: -13.5, y: 11.5}
+        - {x: -11.5, y: -7.5}
+        - {x: -7.5, y: -10.5}
+        - {x: -5.5, y: -14.5}
+        - {x: -8.5, y: -17.5}
+        - {x: -7.5, y: -20.5}
+        - {x: 4.5, y: -21.5}
+        - {x: 8.5, y: -18.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 6e48533b473f555d0800000000000000
+      internalID: -3074283488062110490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 150
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8.5, y: -12}
+        - {x: 11.5, y: -12}
+        - {x: 14.5, y: -8}
+        - {x: 14.5, y: 11}
+        - {x: 6.5, y: 12}
+        - {x: 6.5, y: 21}
+        - {x: 4.5, y: 23}
+        - {x: -4.5, y: 23}
+        - {x: -6.5, y: 21}
+        - {x: -6.5, y: 11}
+        - {x: -13.5, y: 12}
+        - {x: -13.5, y: -11}
+        - {x: -7.5, y: -13}
+        - {x: -6.5, y: -16}
+        - {x: -9.5, y: -19}
+        - {x: -7.5, y: -21}
+        - {x: 7.5, y: -21}
+        - {x: 9.5, y: -19}
+        - {x: 6.5, y: -16}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 1a21292c3a0c6a770800000000000000
+      internalID: 8621790346223948449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 150
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5.5, y: -15.5}
+        - {x: 7.5, y: -12.5}
+        - {x: 7.5, y: -9.5}
+        - {x: 11.5, y: -7.5}
+        - {x: 11.5, y: 0.5}
+        - {x: 13.5, y: 10.5}
+        - {x: 6.5, y: 11.5}
+        - {x: 6.5, y: 20.5}
+        - {x: 4.5, y: 22.5}
+        - {x: -4.5, y: 22.5}
+        - {x: -6.5, y: 19.5}
+        - {x: -6.5, y: 11.5}
+        - {x: -12.5, y: 11.5}
+        - {x: -12.5, y: -6.5}
+        - {x: -6.5, y: -10.5}
+        - {x: -5.5, y: -15.5}
+        - {x: -8.5, y: -18.5}
+        - {x: -3.5, y: -20.5}
+        - {x: 8.5, y: -18.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 99796be6d67d62e20800000000000000
+      internalID: 3325582239868557209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 100
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6, y: -20}
+        - {x: 10, y: -15}
+        - {x: 7, y: -11}
+        - {x: 7, y: -7}
+        - {x: 9, y: -4}
+        - {x: 10, y: 2}
+        - {x: 12, y: 3}
+        - {x: 12, y: 10}
+        - {x: 11, y: 12}
+        - {x: 7, y: 12}
+        - {x: 1, y: 22}
+        - {x: -5, y: 22}
+        - {x: -14, y: 14}
+        - {x: -14, y: 10}
+        - {x: -12, y: 8}
+        - {x: -6, y: 8}
+        - {x: -5, y: 3}
+        - {x: -5, y: -6}
+        - {x: -3, y: -8}
+        - {x: -3, y: -13}
+        - {x: -5, y: -17}
+        - {x: -4, y: -19}
+        - {x: 1, y: -18}
+        - {x: 2, y: -20}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 1287f9d0622cf2940800000000000000
+      internalID: 5273647157367240737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 100
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 8, y: -17.5}
+        - {x: 6, y: -11.5}
+        - {x: 10, y: -11.5}
+        - {x: 13, y: -8.5}
+        - {x: 13, y: -2.5}
+        - {x: 11, y: -1.5}
+        - {x: 11, y: 2.5}
+        - {x: 12, y: 2.5}
+        - {x: 12, y: 12.5}
+        - {x: 7, y: 12.5}
+        - {x: 1, y: 22.5}
+        - {x: -5, y: 22.5}
+        - {x: -14, y: 14.5}
+        - {x: -14, y: 10.5}
+        - {x: -12, y: 8.5}
+        - {x: -7, y: 8.5}
+        - {x: -7, y: 3.5}
+        - {x: -5, y: 2.5}
+        - {x: -5, y: -1.5}
+        - {x: -7, y: -2.5}
+        - {x: -7, y: -8.5}
+        - {x: -3, y: -11.5}
+        - {x: -3, y: -19.5}
+        - {x: -2, y: -20.5}
+        - {x: 3, y: -20.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: dba2268b45a1f2c20800000000000000
+      internalID: 3183792412747246269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 9, y: -16}
+        - {x: 5, y: -10}
+        - {x: 11, y: -10}
+        - {x: 15, y: -6}
+        - {x: 15, y: -1}
+        - {x: 12, y: 2}
+        - {x: 12, y: 12}
+        - {x: 6, y: 12}
+        - {x: 0, y: 22}
+        - {x: -5, y: 22}
+        - {x: -15, y: 13}
+        - {x: -15, y: 11}
+        - {x: -12, y: 8}
+        - {x: -9, y: 8}
+        - {x: -9, y: 3}
+        - {x: -7, y: 2}
+        - {x: -7, y: -2}
+        - {x: -10, y: -4}
+        - {x: -10, y: -8}
+        - {x: -8, y: -10}
+        - {x: -5, y: -10}
+        - {x: -5, y: -17}
+        - {x: -4, y: -19}
+        - {x: 6, y: -19}
+      tessellationDetail: 1
+      bones: []
+      spriteID: cd042b615a95c73f0800000000000000
+      internalID: -901747259795685156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_6
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 50
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -10}
+        - {x: 8, y: -10}
+        - {x: 10, y: -7}
+        - {x: 10, y: -5}
+        - {x: 7, y: -2}
+        - {x: 7, y: 2}
+        - {x: 9, y: 3}
+        - {x: 9, y: 8}
+        - {x: 12, y: 8}
+        - {x: 15, y: 11}
+        - {x: 15, y: 13}
+        - {x: 6, y: 22}
+        - {x: 0, y: 22}
+        - {x: -6, y: 12}
+        - {x: -12, y: 12}
+        - {x: -12, y: 2}
+        - {x: -15, y: 0}
+        - {x: -15, y: -6}
+        - {x: -10, y: -10}
+        - {x: -5, y: -10}
+        - {x: -8, y: -17}
+        - {x: -5, y: -19}
+        - {x: 4, y: -19}
+        - {x: 6, y: -17}
+      tessellationDetail: 1
+      bones: []
+      spriteID: d013f82558a9f1f10800000000000000
+      internalID: 2242681036860240141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_7
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 50
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -7.5}
+        - {x: 7, y: -3.5}
+        - {x: 5, y: -1.5}
+        - {x: 5, y: 2.5}
+        - {x: 7, y: 4.5}
+        - {x: 7, y: 8.5}
+        - {x: 11, y: 8.5}
+        - {x: 14, y: 11.5}
+        - {x: 14, y: 13.5}
+        - {x: 11, y: 16.5}
+        - {x: 10, y: 16.5}
+        - {x: 5, y: 22.5}
+        - {x: -1, y: 22.5}
+        - {x: -7, y: 12.5}
+        - {x: -12, y: 12.5}
+        - {x: -12, y: 2.5}
+        - {x: -11, y: 2.5}
+        - {x: -11, y: -1.5}
+        - {x: -13, y: -3.5}
+        - {x: -13, y: -8.5}
+        - {x: -9, y: -11.5}
+        - {x: -6, y: -11.5}
+        - {x: -7, y: -17.5}
+        - {x: -3, y: -20.5}
+        - {x: 2, y: -20.5}
+        - {x: 3, y: -17.5}
+        - {x: 3, y: -11.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 3bc2677b622cb6750800000000000000
+      internalID: 6299341975350291635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_8
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 50
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5, y: -18}
+        - {x: 5, y: -16}
+        - {x: 3, y: -13}
+        - {x: 3, y: -7}
+        - {x: 5, y: -5}
+        - {x: 5, y: 3}
+        - {x: 6, y: 3}
+        - {x: 6, y: 8}
+        - {x: 11, y: 8}
+        - {x: 14, y: 11}
+        - {x: 14, y: 13}
+        - {x: 11, y: 16}
+        - {x: 10, y: 16}
+        - {x: 5, y: 22}
+        - {x: -1, y: 22}
+        - {x: -7, y: 12}
+        - {x: -11, y: 12}
+        - {x: -12, y: 10}
+        - {x: -12, y: 3}
+        - {x: -10, y: 2}
+        - {x: -9, y: -4}
+        - {x: -7, y: -7}
+        - {x: -7, y: -12}
+        - {x: -10, y: -15}
+        - {x: -6, y: -20}
+        - {x: -2, y: -20}
+        - {x: -2, y: -19}
+        - {x: 4, y: -19}
+      tessellationDetail: 1
+      bones: []
+      spriteID: b51a3b9246ef80aa0800000000000000
+      internalID: -6194421581298294437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5.5, y: -13.5}
+        - {x: 6.5, y: -9.5}
+        - {x: 8.5, y: -9.5}
+        - {x: 12.5, y: -4.5}
+        - {x: 12.5, y: 1.5}
+        - {x: 13.5, y: 3.5}
+        - {x: 13.5, y: 11.5}
+        - {x: 6.5, y: 11.5}
+        - {x: 6.5, y: 19.5}
+        - {x: 3.5, y: 22.5}
+        - {x: -3.5, y: 22.5}
+        - {x: -6.5, y: 19.5}
+        - {x: -6.5, y: 10.5}
+        - {x: -12.5, y: 10.5}
+        - {x: -12.5, y: 3.5}
+        - {x: -11.5, y: 1.5}
+        - {x: -11.5, y: -5.5}
+        - {x: -9.5, y: -8.5}
+        - {x: -5.5, y: -8.5}
+        - {x: -4.5, y: -13.5}
+        - {x: -4.5, y: -16.5}
+        - {x: -7.5, y: -18.5}
+        - {x: -4.5, y: -20.5}
+        - {x: 4.5, y: -20.5}
+        - {x: 7.5, y: -19.5}
+        - {x: 5.5, y: -16.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: a6bf01b867a2b8ac0800000000000000
+      internalID: -3851938367657673878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_10
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.5, y: -14}
+        - {x: 7.5, y: -11}
+        - {x: 11.5, y: -11}
+        - {x: 14.5, y: -8}
+        - {x: 14.5, y: -3}
+        - {x: 12.5, y: -2}
+        - {x: 12.5, y: 2}
+        - {x: 13.5, y: 3}
+        - {x: 13.5, y: 11}
+        - {x: 6.5, y: 11}
+        - {x: 6.5, y: 20}
+        - {x: 3.5, y: 23}
+        - {x: -3.5, y: 23}
+        - {x: -6.5, y: 20}
+        - {x: -6.5, y: 11}
+        - {x: -12.5, y: 11}
+        - {x: -13.5, y: 10}
+        - {x: -13.5, y: 4}
+        - {x: -12.5, y: 2}
+        - {x: -12.5, y: -2}
+        - {x: -14.5, y: -4}
+        - {x: -14.5, y: -7}
+        - {x: -11.5, y: -11}
+        - {x: -7.5, y: -12}
+        - {x: -5.5, y: -14}
+        - {x: -5.5, y: -17}
+        - {x: -8.5, y: -19}
+        - {x: -6.5, y: -21}
+        - {x: 5.5, y: -21}
+        - {x: 8.5, y: -19}
+        - {x: 6.5, y: -18}
+      tessellationDetail: 1
+      bones: []
+      spriteID: a29009f5d16e1d700800000000000000
+      internalID: 563484442229737770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_lizardman2_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7.5, y: -19.5}
+        - {x: 5.5, y: -16.5}
+        - {x: 5.5, y: -8.5}
+        - {x: 11.5, y: -7.5}
+        - {x: 11.5, y: 1.5}
+        - {x: 12.5, y: 2.5}
+        - {x: 12.5, y: 11.5}
+        - {x: 6.5, y: 11.5}
+        - {x: 6.5, y: 19.5}
+        - {x: 3.5, y: 22.5}
+        - {x: -3.5, y: 22.5}
+        - {x: -6.5, y: 19.5}
+        - {x: -6.5, y: 11.5}
+        - {x: -12.5, y: 11.5}
+        - {x: -12.5, y: 2.5}
+        - {x: -11.5, y: 1.5}
+        - {x: -11.5, y: -5.5}
+        - {x: -8.5, y: -9.5}
+        - {x: -5.5, y: -9.5}
+        - {x: -4.5, y: -13.5}
+        - {x: -4.5, y: -15.5}
+        - {x: -6.5, y: -18.5}
+        - {x: -5.5, y: -20.5}
+        - {x: 5.5, y: -20.5}
+      tessellationDetail: 1
+      bones: []
+      spriteID: c260580dfb9519300800000000000000
+      internalID: 257085334108833324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
