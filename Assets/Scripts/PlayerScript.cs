@@ -10,7 +10,10 @@ public class PlayerScript : Character
     
     private Animator mouvementAnimator;
 
-    private float timeSinceLastAttack = 0, timeSinceLastHit = 0;
+    [SerializeField] private GameObject razakusMenu;
+    private bool menuIsActive = false;
+
+    private float timeSinceLastAttack = 0, timeSinceLastHit = 0, timeSinceLastAction = 0;
 
     private float invincibilityTime = 0.5f;
 
@@ -21,6 +24,7 @@ public class PlayerScript : Character
     protected override void Start()
     {
         mouvementAnimator = GetComponent<Animator>();
+        razakusMenu.SetActive(menuIsActive);
         
         base.Start();
     }
@@ -38,6 +42,7 @@ public class PlayerScript : Character
 
         timeSinceLastAttack += Time.deltaTime;
         timeSinceLastHit += Time.deltaTime;
+        timeSinceLastAction += Time.deltaTime;
     }
 
     public static PlayerScript MyInstance
@@ -108,6 +113,14 @@ public class PlayerScript : Character
             FireProjectile();
             timeSinceLastAttack = 0;
         }
+
+        if (Input.GetKey(KeyCode.E) && timeSinceLastAction > 0.2)
+        {
+            menuIsActive = !menuIsActive;
+            timeSinceLastAction = 0;
+            razakusMenu.SetActive(menuIsActive);
+        }
+
     }
 
     private void FireProjectile()
