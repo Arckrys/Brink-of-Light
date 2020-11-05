@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4178549706028165046, guid: d27a0d8701065b745ae2d3d70eab47be, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6350571433951855206, guid: d27a0d8701065b745ae2d3d70eab47be, type: 3}
       propertyPath: m_AutoTiling
       value: 0
@@ -323,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 8502234294414699537, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: edf197874a52fee4ebd3cc8c6ecd35ae, type: 2}
+      objectReference: {fileID: 9100000, guid: 03e8c735c3d14bf4c94cdf46245f425d, type: 2}
     - target: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: m_Name
       value: Player

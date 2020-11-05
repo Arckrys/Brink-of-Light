@@ -11,20 +11,20 @@ namespace Assets.Scripts.Enemies
         /*protected override void Start()
         {
             base.Start();
-        }
+        }*/
         
         protected override void Update()
         {
-            //Behaviour();
-            base.Update();
-        }*/
-
-        protected override void FixedUpdate()
-        {
             Behaviour();
+            base.Update();
+        }
+
+        /*protected override void FixedUpdate()
+        {
+            
 
             base.FixedUpdate();
-        }
+        }*/
 
         private void Behaviour()
         {
