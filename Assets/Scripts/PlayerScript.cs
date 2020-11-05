@@ -136,7 +136,7 @@ public class PlayerScript : Character
         projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
         projectile.GetComponent<ProjectileScript>().MyDamage = AttackMaxValue;
         projectile.GetComponent<ProjectileScript>().MyKnockback = KnockbackMaxValue;
-        projectile.GetComponent<ProjectileScript>().MyRange = RangeMaxValue;
+        projectile.GetComponent<ProjectileScript>().MyRange = 1/RangeMaxValue;
 
         //player lose one health per shot
         life.MyCurrentValue -= 1;
