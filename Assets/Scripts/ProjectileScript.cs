@@ -17,7 +17,8 @@ public class ProjectileScript : MonoBehaviour
 
     private float initialZ;
 
-    private float projectileDamage = 1f;
+    private float projectileBaseDamage = 1f;
+    private float projectileCurrentDamage;
     private float projectileKnockback = 2f;
     private float projectileCritChance = 5f;
 
@@ -52,6 +53,9 @@ public class ProjectileScript : MonoBehaviour
         float hitboxYReduction = 0.80f;
 
         UpdatePolygonCollider();
+
+        //allow the projectile to shrink and update its current damage right after its creation
+        timeTemp = projectileShrinkFrequency;
 
         /*
         //change hitbox size of boxcollider
@@ -115,6 +119,21 @@ public class ProjectileScript : MonoBehaviour
 
                     timeTemp = 0;
                     projectileShrinkSpeed *= projectileShrinkAcceleration;
+
+                    //damage multiplier based on projectile scale (-0.8f is arbitrary)
+                    float damageMultiplier = newX + newY / 2 - 0.8f;
+                    float newDamage = Mathf.Round(damageMultiplier * projectileBaseDamage * 2) / 2;
+
+                    Debug.Log("base damage : " + projectileBaseDamage);
+                    Debug.Log("multiplier : " + damageMultiplier);
+                    Debug.Log("new damage : " + newDamage);
+
+                    if (newDamage < projectileBaseDamage / 2)
+                        newDamage = projectileBaseDamage / 2;
+                    else if (newDamage > projectileBaseDamage * 2)
+                        newDamage = projectileBaseDamage * 2;
+
+                    projectileCurrentDamage = newDamage;
                 }
 
                 else
@@ -151,20 +170,35 @@ public class ProjectileScript : MonoBehaviour
         transform.Rotate(Vector3.forward * (directionAngle + 180));
     }
 
-    public float MyDamage
+    public float MyBaseDamage
     {
         get
         {
-            return projectileDamage;
+            return projectileBaseDamage;
         }
 
         set
         {
             if (value < 1)
-                projectileDamage = 1;
+                projectileBaseDamage = 1;
 
             else
-                projectileDamage = value;
+                projectileBaseDamage = value;
+
+            MyCurrentDamage = projectileBaseDamage;
+        }
+    }
+
+    public float MyCurrentDamage
+    {
+        get
+        {
+            return projectileCurrentDamage;
+        }
+
+        set
+        {
+            projectileCurrentDamage = value;
         }
     }
 

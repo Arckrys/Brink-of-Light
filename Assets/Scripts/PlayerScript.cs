@@ -115,7 +115,7 @@ public class PlayerScript : Character
         //create projectile
         GameObject newProjectile = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, -2), Quaternion.identity);
         newProjectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
-        newProjectile.GetComponent<ProjectileScript>().MyDamage = attack.MyMaxValue;
+        newProjectile.GetComponent<ProjectileScript>().MyBaseDamage = attack.MyMaxValue;
         newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
         newProjectile.GetComponent<ProjectileScript>().MyRange = 1/range.MyMaxValue;
 

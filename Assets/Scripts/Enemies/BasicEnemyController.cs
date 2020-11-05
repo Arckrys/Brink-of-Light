@@ -57,7 +57,7 @@ public class BasicEnemyController : Character
         if (collision.gameObject.tag.Equals("Spell"))
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
-            float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
+            float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
 
