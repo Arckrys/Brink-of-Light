@@ -51,33 +51,33 @@ public class RazakusMenuScript : MonoBehaviour
 
     public void OnHealthPressed()
     {
-        PlayerScript.MyInstance.LifeMaxValue += 5f;
+        PlayerScript.MyInstance.life.MyMaxValue += 5f;
         UpdateUI(Vie, "Vie");
     }
     public void OnAttackPressed()
     {
-        PlayerScript.MyInstance.AttackMaxValue += 0.5f;
+        PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
         UpdateUI(Attaque, "Attaque");
     }
     public void OnRangePressed()
     {
-        PlayerScript.MyInstance.RangeMaxValue -= 0.1f;
+        PlayerScript.MyInstance.range.MyMaxValue -= 0.1f;
         UpdateUI(Portee, "Portee");
     }
     public void OnCritChancePressed()
     {
-        PlayerScript.MyInstance.CritChanceMaxValue += 0.1f;
+        PlayerScript.MyInstance.critChance.MyMaxValue += 0.1f;
         UpdateUI(ChanceCrit, "ChanceCrit");
     }
     public void OnSpeedPressed()
     {
-        PlayerScript.MyInstance.MovementSpeedMaxValue += 1f;
+        PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
         UpdateUI(Vitesse, "Vitesse");
     }
 
     public void OnAtkSpeedPressed()
     {
-        PlayerScript.MyInstance.AttackSpeedMaxValue -= 0.1f;
+        PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.1f;
         UpdateUI(VitesseAtk, "VitesseAtk");
     }
 
@@ -89,7 +89,7 @@ public class RazakusMenuScript : MonoBehaviour
     }*/
     public void OnKnockbackPressed()
     {
-        PlayerScript.MyInstance.KnockbackMaxValue += 1f;
+        PlayerScript.MyInstance.knockback.MyMaxValue += 1f;
         UpdateUI(Recul, "Recul"); ;
     }
 

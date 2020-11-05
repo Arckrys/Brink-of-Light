@@ -18,6 +18,11 @@ public class StatUI : StatManager
             content = GetComponent<Image>();
         }
     }
+    
+    public StatUI(float initValue, float topValue, bool variable) : base(initValue, topValue, variable)
+    {
+        
+    }
 
     protected override void UpdateUIStat()
     {
@@ -36,7 +41,7 @@ public class StatUI : StatManager
             }
         }
         
-        if (filled && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
+        if (filled && content && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
         {
             content.fillAmount = MyCurrentValue / MyMaxValue;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum DamageType {DAMAGE, HEAL}
+public enum DamageType {DAMAGE, HEAL, PLAYER}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -41,6 +41,10 @@ public class CombatTextManager : MonoBehaviour
             case DamageType.HEAL:
                 operation += "+";
                 temp.color = Color.green;
+                break;
+            case DamageType.PLAYER:
+                operation += "+";
+                temp.color = Color.blue;
                 break;
         }
 

@@ -2,7 +2,22 @@
 
 public class StatManager : MonoBehaviour
 {
-    public float MyMaxValue { get; set; }
+    [SerializeField] private bool variableStat;
+
+    public float MyMaxValue
+    {
+        get => maxValue;
+
+        set
+        {
+            maxValue = value;
+
+            if (!variableStat)
+            {
+                MyCurrentValue = value;
+            }
+        }
+    }
     
     public float MyCurrentValue
     {
@@ -27,11 +42,20 @@ public class StatManager : MonoBehaviour
         }
     }
     
+    private float maxValue;
+
     private float currentValue;
-    
-    public void Initialized(float initValue, float maxValue)
+
+    public StatManager(float initValue, float topValue, bool variable)
     {
-        MyMaxValue = maxValue;
+        variableStat = variable;
+        
+        Initialized(initValue, topValue);
+    }
+    
+    public void Initialized(float initValue, float topValue)
+    {
+        MyMaxValue = topValue;
 
         MyCurrentValue = initValue;
     }

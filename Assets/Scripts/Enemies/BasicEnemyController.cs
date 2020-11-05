@@ -22,6 +22,7 @@ public class BasicEnemyController : Character
     private Animator lifeBarAnimator;
 
     // Start is called before the first frame update
+    
     protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -38,7 +39,7 @@ public class BasicEnemyController : Character
     }
 
     // Update is called once per frame
-    protected override void Update()
+    /*protected override void Update()
     {
 
         //UpdateLifeBar();
@@ -48,10 +49,9 @@ public class BasicEnemyController : Character
 
     protected override void FixedUpdate()
     {
-        
-
         base.FixedUpdate();
-    }
+    }*/
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Spell"))
@@ -131,9 +131,7 @@ public class BasicEnemyController : Character
             playerDetected = true;
         }
     }
-
     
-
     /*private void UpdateLifeBar()
     {
         Image content = life.GetComponent<Image>();
@@ -143,7 +141,4 @@ public class BasicEnemyController : Character
             content.fillAmount = life.MyCurrentValue / life.MyMaxValue;
         }
     }*/
-
-    
-
 }

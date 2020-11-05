@@ -1,33 +1,58 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
+using System.Globalization;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerScript : Character
 {
-    [SerializeField] private Stat LifeBar;
+    [SerializeField] private StatUI lifeBar;
+
+    [NonSerialized] public StatField invincibilityTime;
     
-    private Animator mouvementAnimator;
+    [SerializeField] private float initInvincibilityTime;
+
+    private Animator movementAnimator;
 
     [SerializeField] private GameObject razakusMenu;
-    private bool menuIsActive = false;
 
-    private float timeSinceLastAttack = 0, timeSinceLastHit = 0, timeSinceLastAction = 0;
+    private float timeSinceLastAttack = 0, timeSinceLastHit = 0;
+    
+    public GameObject projectile;
+    
+    private static PlayerScript _instance;
 
-    private float invincibilityTime = 0.5f;
+    public PlayerScript(StatField invincibilityTime)
+    {
+        this.invincibilityTime = invincibilityTime;
+    }
 
-    public GameObject Projectile;
-    private static PlayerScript instance;
+    public static PlayerScript MyInstance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType<PlayerScript>();
+            }
+            
+            return _instance;
+        }
+    }
 
     // Start is called before the first frame update
     protected override void Start()
     {
-        mouvementAnimator = GetComponent<Animator>();
-        razakusMenu.SetActive(menuIsActive);
+        movementAnimator = GetComponent<Animator>();
+
+        if (razakusMenu.activeSelf)
+        {
+            razakusMenu.SetActive(!razakusMenu.activeSelf);
+        }
         
         base.Start();
+
+        lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
+        
+        InitStatField(ref invincibilityTime, initInvincibilityTime, false);
     }
 
     // Update is called once per frame
@@ -37,54 +62,10 @@ public class PlayerScript : Character
 
         HandleLayers();
 
-        UpdateLifeImage();
-
         base.Update();
 
         timeSinceLastAttack += Time.deltaTime;
         timeSinceLastHit += Time.deltaTime;
-        timeSinceLastAction += Time.deltaTime;
-    }
-
-    public static PlayerScript MyInstance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<PlayerScript>();
-            }
-            return instance;
-        }
-    }
-
-    public float Invincibility
-    {
-        get
-        {
-            return invincibilityTime;
-        }
-
-        set 
-        {
-            invincibilityTime = value;
-        }
-    }
-
-
-    private void UpdateLifeImage()
-    {
-        Vector3 scale = life.transform.localScale;
-
-        if (scale.x != life.MyCurrentValue / life.MyMaxValue && scale.y != life.MyCurrentValue / life.MyMaxValue)
-        {
-            scale.x = Mathf.Lerp(scale.x, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
-            scale.y = Mathf.Lerp(scale.y, life.MyCurrentValue / life.MyMaxValue, Time.deltaTime);
-
-            life.transform.localScale = scale;
-            
-            LifeBar.GetComponent<Image>().fillAmount = life.MyCurrentValue / life.MyMaxValue;
-        }
     }
 
     private void GetInput()
@@ -115,13 +96,10 @@ public class PlayerScript : Character
             timeSinceLastAttack = 0;
         }
 
-        if (Input.GetKey(KeyCode.E) && timeSinceLastAction > 0.2)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            menuIsActive = !menuIsActive;
-            timeSinceLastAction = 0;
-            razakusMenu.SetActive(menuIsActive);
+            razakusMenu.SetActive(!razakusMenu.activeSelf);
         }
-
     }
 
     private void FireProjectile()
@@ -133,11 +111,11 @@ public class PlayerScript : Character
         worldPosition -= new Vector2(transform.position.x, transform.position.y);
 
         //create projectile
-        GameObject projectile = Instantiate(Projectile, new Vector3(transform.position.x, transform.position.y, -2), Quaternion.identity);
-        projectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
-        projectile.GetComponent<ProjectileScript>().MyDamage = AttackMaxValue;
-        projectile.GetComponent<ProjectileScript>().MyKnockback = KnockbackMaxValue;
-        projectile.GetComponent<ProjectileScript>().MyRange = RangeMaxValue;
+        GameObject newProjectile = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, -2), Quaternion.identity);
+        newProjectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
+        newProjectile.GetComponent<ProjectileScript>().MyDamage = attack.MyMaxValue;
+        newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
+        newProjectile.GetComponent<ProjectileScript>().MyRange = range.MyMaxValue;
 
         //player lose one health per shot
         life.MyCurrentValue -= 1;
@@ -149,8 +127,8 @@ public class PlayerScript : Character
         {
             ActivateLayer("Walk Layer");
 
-            mouvementAnimator.SetFloat("X_speed", direction.x);
-            mouvementAnimator.SetFloat("Y_speed", direction.y);
+            movementAnimator.SetFloat("X_speed", direction.x);
+            movementAnimator.SetFloat("Y_speed", direction.y);
         }
         else
         {
@@ -160,23 +138,24 @@ public class PlayerScript : Character
 
     private void ActivateLayer(string layerName)
     {
-        for (int i = 0; i < mouvementAnimator.layerCount; i++)
+        for (int i = 0; i < movementAnimator.layerCount; i++)
         {
-            mouvementAnimator.SetLayerWeight(i, 0);
+            movementAnimator.SetLayerWeight(i, 0);
         }
 
-        mouvementAnimator.SetLayerWeight(mouvementAnimator.GetLayerIndex(layerName), 1);
+        movementAnimator.SetLayerWeight(movementAnimator.GetLayerIndex(layerName), 1);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && timeSinceLastHit > invincibilityTime)
+        if (collision.gameObject.CompareTag("Enemy") && timeSinceLastHit > invincibilityTime.MyMaxValue)
         {
             timeSinceLastHit = 0;
 
-            float damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().AttackMaxValue;
-            LifeCurrentValue -= damageReceived;
-            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
+            var damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().attack.MyMaxValue;
+            life.MyCurrentValue -= damageReceived;
+            lifeBar.MyCurrentValue -= damageReceived;
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.PLAYER, 1.0f, false);
         }
     }
 }

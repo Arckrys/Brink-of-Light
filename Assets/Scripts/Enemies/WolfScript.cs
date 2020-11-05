@@ -8,17 +8,18 @@ namespace Assets.Scripts.Enemies
 {
     class WolfScript : BasicEnemyController
     {
-        protected override void Start()
+        /*protected override void Start()
         {
             base.Start();
         }
+        
         protected override void Update()
         {
-
+            //Behaviour();
             base.Update();
-        }
+        }*/
 
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
             Behaviour();
 
@@ -41,6 +42,7 @@ namespace Assets.Scripts.Enemies
             {
                 Wander();
             }
+            
             if (gfxAnim.GetBool("Knockback"))
             {
                 knockbackTimer += 1;
