@@ -126,12 +126,13 @@ MonoBehaviour:
   critChance: {fileID: 0}
   initCritChance: 5
   range: {fileID: 0}
-  initRange: 1.1
+  initRange: 50
   attackSpeed: {fileID: 0}
   initAttackSpeed: 0.5
   knockback: {fileID: 0}
   initKnockback: 5
   LifeBar: {fileID: 0}
+  razakusMenu: {fileID: 0}
   Projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
 --- !u!50 &950590215
 Rigidbody2D:

@@ -10,7 +10,7 @@ public class ProjectileScript : MonoBehaviour
 
     public float projectileShrinkSpeed = 0.05f;
     public float projectileSpeed = 10f;
-    public float projectileShrinkFrequency = 0.05f;
+    public float projectileShrinkFrequency = 0.1f;
 
     //variable used to change range
     public float projectileShrinkAcceleration = 1.1f;
@@ -160,7 +160,7 @@ public class ProjectileScript : MonoBehaviour
 
         set
         {
-            if (value < 0)
+            if (value < 1)
                 projectileDamage = 1;
 
             else
@@ -177,7 +177,7 @@ public class ProjectileScript : MonoBehaviour
 
         set
         {
-            if (value < 0)
+            if (value < 2)
                 projectileKnockback = 2;
 
             else
@@ -189,16 +189,16 @@ public class ProjectileScript : MonoBehaviour
     {
         get
         {
-            return projectileShrinkAcceleration;
+            return projectileShrinkSpeed;
         }
 
         set
         {
-            if (value < 0)
-                projectileShrinkAcceleration = 1.1f;
+            if (value < 0.005f)
+                projectileShrinkSpeed = 0.005f;
 
             else
-                projectileShrinkAcceleration = value;
+                projectileShrinkSpeed = value;
         }
     }
 

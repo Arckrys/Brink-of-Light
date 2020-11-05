@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : Character
@@ -7,7 +9,7 @@ public class PlayerScript : Character
     [SerializeField] private StatUI lifeBar;
 
     [NonSerialized] public StatField invincibilityTime;
-    
+
     [SerializeField] private float initInvincibilityTime;
 
     private Animator movementAnimator;
@@ -15,9 +17,9 @@ public class PlayerScript : Character
     [SerializeField] private GameObject razakusMenu;
 
     private float timeSinceLastAttack = 0, timeSinceLastHit = 0;
-    
+
     public GameObject projectile;
-    
+
     private static PlayerScript _instance;
 
     public PlayerScript(StatField invincibilityTime)
@@ -33,7 +35,7 @@ public class PlayerScript : Character
             {
                 _instance = FindObjectOfType<PlayerScript>();
             }
-            
+
             return _instance;
         }
     }
@@ -47,11 +49,11 @@ public class PlayerScript : Character
         {
             razakusMenu.SetActive(!razakusMenu.activeSelf);
         }
-        
+
         base.Start();
 
         lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
-        
+
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
     }
 
@@ -88,7 +90,7 @@ public class PlayerScript : Character
         {
             direction += Vector2.right;
         }
-        
+
 
         if (Input.GetMouseButton(0) && timeSinceLastAttack > attackSpeed.MyCurrentValue)
         {
@@ -115,7 +117,7 @@ public class PlayerScript : Character
         newProjectile.GetComponent<ProjectileScript>().SetDirection(worldPosition, transform.position.x, transform.position.y);
         newProjectile.GetComponent<ProjectileScript>().MyDamage = attack.MyMaxValue;
         newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
-        newProjectile.GetComponent<ProjectileScript>().MyRange = range.MyMaxValue;
+        newProjectile.GetComponent<ProjectileScript>().MyRange = 1/range.MyMaxValue;
 
         //player lose one health per shot
         life.MyCurrentValue -= 1;
