@@ -51,6 +51,8 @@ public class ProjectileScript : MonoBehaviour
         float hitboxX, hitboxY;
         float hitboxYReduction = 0.80f;
 
+        UpdatePolygonCollider();
+
         /*
         //change hitbox size of boxcollider
         hitboxX = spriteRenderer.bounds.size.x / transform.localScale.x;
@@ -113,8 +115,6 @@ public class ProjectileScript : MonoBehaviour
 
                     timeTemp = 0;
                     projectileShrinkSpeed *= projectileShrinkAcceleration;
-
-                    UpdatePolygonCollider();
                 }
 
                 else
