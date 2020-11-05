@@ -101,36 +101,36 @@ public class ItemsManagerScript : MonoBehaviour
         {
             //stat modifying items
             case "Allumettes":
-                PlayerScript.MyInstance.AttackSpeedMaxValue *= 0.5f;
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue *= 0.5f;
                 break;
 
             case "Amulette du dragon":
-                PlayerScript.MyInstance.AttackMaxValue += 1;
+                PlayerScript.MyInstance.attack.MyMaxValue += 1;
                 break;
 
             case "Anneau du dragon":
-                PlayerScript.MyInstance.AttackMaxValue += 0.5f;
-                PlayerScript.MyInstance.KnockbackMaxValue += 2f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.knockback.MyMaxValue += 2f;
                 break;
 
             case "Anneau du forgeron":
-                PlayerScript.MyInstance.AttackMaxValue += 0.5f;
-                PlayerScript.MyInstance.MovementSpeedMaxValue += 0.5f;
-                PlayerScript.MyInstance.LifeMaxValue += 10f;
-                PlayerScript.MyInstance.LifeCurrentValue += 10f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.life.MyMaxValue += 10f;
+                PlayerScript.MyInstance.life.MyCurrentValue += 10f;
                 break;
 
             case "Bottes d'Hotavius":
-                PlayerScript.MyInstance.MovementSpeedMaxValue += 1f;
+                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
                 break;
 
             case "Cape de vampire":
-                PlayerScript.MyInstance.Invincibility += 0.3f;
+                PlayerScript.MyInstance.invincibilityTime.MyMaxValue += 0.3f;
                 break;
 
             case "Lampe à huile d'Hotavius":
-                PlayerScript.MyInstance.LifeMaxValue += 25f;
-                PlayerScript.MyInstance.LifeCurrentValue += 25f;
+                PlayerScript.MyInstance.life.MyMaxValue += 25f;
+                PlayerScript.MyInstance.life.MyCurrentValue += 25f;
                 break;
 
             case "Sauce piquante":
@@ -166,16 +166,16 @@ public class ItemsManagerScript : MonoBehaviour
             switch (consumableItem)
             {               
                 case "Potion de vitesse":
-                    PlayerScript.MyInstance.AttackSpeedMaxValue *= 0.75f;
-                    PlayerScript.MyInstance.MovementSpeedMaxValue += 0.5f;
+                    PlayerScript.MyInstance.attackSpeed.MyMaxValue *= 0.75f;
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
                     break;
 
                 case "Potion de force":
-                    PlayerScript.MyInstance.AttackMaxValue += 0.5f;
+                    PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
                     break;
 
                 case "Potion de lumière":
-                    PlayerScript.MyInstance.LifeMaxValue += 15f;
+                    PlayerScript.MyInstance.life.MyMaxValue += 15f;
                     break;
 
                 default:

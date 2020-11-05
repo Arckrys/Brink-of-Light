@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class CombustibleScript : MonoBehaviour
@@ -29,8 +30,8 @@ public class CombustibleScript : MonoBehaviour
         if (other.gameObject.tag.Equals("Player") && isLit)
         {
             isLit = false;
-            PlayerScript.MyInstance.LifeCurrentValue += healingValue;
-            CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(), DamageType.HEAL, 1.0f, false);
+            PlayerScript.MyInstance.life.MyCurrentValue += healingValue;
+            CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.HEAL, 1.0f, false);
             //Destroy(collider);
         }
         else if(other.gameObject.tag.Equals("Spell") && !isLit)

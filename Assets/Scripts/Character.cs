@@ -1,172 +1,58 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField] protected Stat life;
+    [SerializeField] public StatUI life;
 
     [SerializeField] private float initLife;
 
-    [SerializeField] protected Stat attack;
+    [SerializeField] public StatField attack;
 
     [SerializeField] private float initAttack;
 
-    [SerializeField] protected Stat mouvementSpeed;
+    [SerializeField] public StatField movementSpeed;
 
-    [SerializeField] private float initMouvementSpeed;
+    [SerializeField] private float initMovementSpeed;
 
-    [SerializeField] protected Stat critChance;
+    [SerializeField] public StatField critChance;
 
     [SerializeField] private float initCritChance;
+    
+    [SerializeField] public StatField critDamage;
 
-    [SerializeField] protected Stat range;
+    [SerializeField] private float initCritDamage;
+
+    [SerializeField] public StatField range;
 
     [SerializeField] private float initRange;
 
-    [SerializeField] protected Stat attackSpeed;
+    [SerializeField] public StatField attackSpeed;
 
     [SerializeField] private float initAttackSpeed;
     
-    [SerializeField] protected Stat knockback;
+    [SerializeField] public StatField knockback;
 
     [SerializeField] private float initKnockback;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D myRigidbody;
 
     protected Vector2 direction;
 
-    public bool IsMoving
-    {
-        get
-        {
-            return direction.x != 0 || direction.y != 0;
-        }
-    }
-
-    public float LifeMaxValue
-    {
-        get
-        {
-            return life.MyMaxValue;
-        }
-
-        set
-        {
-            life.MyMaxValue = value;
-        }
-    }
-
-    public float LifeCurrentValue
-    {
-        get
-        {
-            return life.MyCurrentValue;
-        }
-
-        set
-        {
-            life.MyCurrentValue = value;
-        }
-    }
-
-    public float AttackMaxValue
-    {
-        get
-        {
-            return attack.MyMaxValue;
-        }
-
-        set
-        {
-            attack.MyMaxValue = value;
-            attack.MyCurrentValue = value;
-        }
-    }
-
-    public float MovementSpeedMaxValue
-    {
-        get
-        {
-            return mouvementSpeed.MyMaxValue;
-        }
-
-        set
-        {
-            mouvementSpeed.MyMaxValue = value;
-            mouvementSpeed.MyCurrentValue = value;
-        }
-    }
-
-    public float CritChanceMaxValue
-    {
-        get
-        {
-            return critChance.MyMaxValue;
-        }
-
-        set
-        {
-            critChance.MyMaxValue = value;
-            critChance.MyCurrentValue = value;
-        }
-    }
-
-    public float RangeMaxValue
-    {
-        get
-        {
-            return range.MyMaxValue;
-        }
-
-        set
-        {
-            range.MyMaxValue = value;
-            range.MyCurrentValue = value;
-        }
-    }
-
-    public float AttackSpeedMaxValue
-    {
-        get
-        {
-            return attackSpeed.MyMaxValue;
-        }
-
-        set
-        {
-            attackSpeed.MyMaxValue = value;
-            attackSpeed.MyCurrentValue = value;
-        }
-    }
-
-    public float KnockbackMaxValue
-    {
-        get
-        {
-            return knockback.MyMaxValue;
-        }
-
-        set
-        {
-            knockback.MyMaxValue = value;
-            knockback.MyCurrentValue = value;
-        }
-    }
+    protected bool IsMoving => direction.x != 0 || direction.y != 0;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
 
         life.Initialized(initLife, initLife);
-        attack.Initialized(initAttack, initAttack);
-        mouvementSpeed.Initialized(initMouvementSpeed, initMouvementSpeed);
-        critChance.Initialized(initCritChance, initCritChance);
-        range.Initialized(initRange, initRange);
-        attackSpeed.Initialized(initAttackSpeed, initAttackSpeed);
-        knockback.Initialized(initKnockback, initKnockback);
+        InitStatField(ref attack, initAttack, false);
+        InitStatField(ref movementSpeed, initMovementSpeed, false);
+        InitStatField(ref critChance, initCritChance, false);
+        InitStatField(ref critDamage, initCritDamage, false);
+        InitStatField(ref range, initRange, false);
+        InitStatField(ref attackSpeed, initAttackSpeed, false);
+        InitStatField(ref knockback, initKnockback, false);
     }
 
     // Update is called once per frame
@@ -180,9 +66,19 @@ public abstract class Character : MonoBehaviour
         Move();
     }
 
+    protected void InitStatField(ref StatField stat, float initValue, bool variable)
+    {
+        if (!stat)
+        {
+            stat = new StatField(initValue, initValue, variable);
+        }
+        
+        stat.Initialized(initValue, initValue);
+    }
+
     private void Move()
     {
-        rigidbody.velocity = direction.normalized * mouvementSpeed.MyCurrentValue;
+        myRigidbody.velocity = direction.normalized * movementSpeed.MyCurrentValue;
     }
 
     private void UpdatePolygonCollider()
@@ -191,47 +87,42 @@ public abstract class Character : MonoBehaviour
         gameObject.AddComponent<PolygonCollider2D>();
     }
 
-    protected void FaceDirection(Vector2 direction, Animator Anim)
+    private void ResetAnimator(Animator animator)
     {
-        if (direction.x == 0 && direction.y == 0)
+        animator.SetBool("FacingRight", false);
+        animator.SetBool("FacingLeft", false);
+        animator.SetBool("FacingDown", false);
+        animator.SetBool("FacingUp", false);
+        animator.SetBool("Idle", false);
+    }
+
+    protected void FaceDirection(Vector2 newDir, Animator animator)
+    {
+        ResetAnimator(animator);
+        
+        if (newDir.x == 0 && newDir.y == 0)
         {
-            Anim.SetBool("FacingRight", false);
-            Anim.SetBool("FacingLeft", false);
-            Anim.SetBool("FacingDown", false);
-            Anim.SetBool("FacingUp", false);
-            Anim.SetBool("Idle", true);
+            animator.SetBool("Idle", true);
         }
         else
         {
-            Anim.SetBool("Idle", false);
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var angle = Mathf.Atan2(newDir.y, newDir.x) * Mathf.Rad2Deg;
+            
             if (angle < 40 && angle > -40)
             {
-                Anim.SetBool("FacingRight", true);
-                Anim.SetBool("FacingLeft", false);
-                Anim.SetBool("FacingDown", false);
-                Anim.SetBool("FacingUp", false);
+                animator.SetBool("FacingRight", true);
             }
             if (angle <= 135 && angle >= 45)
             {
-                Anim.SetBool("FacingRight", false);
-                Anim.SetBool("FacingLeft", false);
-                Anim.SetBool("FacingDown", false);
-                Anim.SetBool("FacingUp", true);
+                animator.SetBool("FacingUp", true);
             }
             if (angle < -140 || angle > 140)
             {
-                Anim.SetBool("FacingRight", false);
-                Anim.SetBool("FacingLeft", true);
-                Anim.SetBool("FacingDown", false);
-                Anim.SetBool("FacingUp", false);
+                animator.SetBool("FacingLeft", true);
             }
             if (angle <= -45 && angle >= -135)
             {
-                Anim.SetBool("FacingRight", false);
-                Anim.SetBool("FacingLeft", false);
-                Anim.SetBool("FacingDown", true);
-                Anim.SetBool("FacingUp", false);
+                animator.SetBool("FacingDown", true);
             }
         }
     }
