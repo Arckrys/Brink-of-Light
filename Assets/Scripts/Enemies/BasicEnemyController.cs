@@ -31,7 +31,7 @@ public class BasicEnemyController : Character
         wanderTimer = 0;
         randomDirection = new Vector2();
 
-        canvasGroupLifeBar = transform.Find("LifeCanvas").GetComponent<CanvasGroup>();
+        canvasGroupLifeBar = transform.Find("EnemyLifeCanvas").GetComponent<CanvasGroup>();
 
         base.Start();
     }

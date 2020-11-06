@@ -81,7 +81,7 @@ public class ProjectileScript : MonoBehaviour
         {
             //set the fireball as a square since explosion uses square sprites
             float explosionScale = 0.7f;
-            transform.localScale = new Vector3(transform.localScale.x * explosionScale, transform.localScale.x * explosionScale, 0); ;
+            transform.localScale = new Vector3(transform.localScale.x * explosionScale, transform.localScale.x * explosionScale, 0);
 
             //remove the projectile collisions and trigger the blast animation
             animator.SetBool("CollisionDetected", true);            
@@ -110,26 +110,33 @@ public class ProjectileScript : MonoBehaviour
                 spriteScaleX = transform.localScale.x;
                 spriteScaleY = transform.localScale.y;
 
+                //if projectile isn't to small
                 if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
+                    //reduce the scale of the projectile by projectileShrinkSpeed
                     float newX, newY;
                     newX = spriteScaleX - projectileShrinkSpeed < 0 ? 0.01f : spriteScaleX - projectileShrinkSpeed;
-                    newY = spriteScaleY - projectileShrinkSpeed * heightWidthRatio < 0 ? 0.01f : spriteScaleX - projectileShrinkSpeed * heightWidthRatio;
+                    newY = spriteScaleY - projectileShrinkSpeed * heightWidthRatio < 0 ? 
+                        0.01f : spriteScaleX - projectileShrinkSpeed * heightWidthRatio;
 
                     Vector3 newScale = new Vector3(newX, newY, 0);
                     transform.localScale = newScale;
 
                     timeTemp = 0;
+
+                    //increase the shrink speed
                     projectileShrinkSpeed *= projectileShrinkAcceleration;
 
                     //damage multiplier based on projectile scale (-0.8f is arbitrary)
                     float damageMultiplier = newX + newY / 2 - 0.8f;
+                    //round damage to 0.5
                     float newDamage = Mathf.Round(damageMultiplier * projectileBaseDamage * 2) / 2;
 
                     Debug.Log("base damage : " + projectileBaseDamage);
                     Debug.Log("multiplier : " + damageMultiplier);
                     Debug.Log("new damage : " + newDamage);
 
+                    //projectile distance damage multiplier is forced between 0.5 and 2 times the base damage
                     if (newDamage < projectileBaseDamage / 2)
                         newDamage = projectileBaseDamage / 2;
                     else if (newDamage > projectileBaseDamage * 2)
