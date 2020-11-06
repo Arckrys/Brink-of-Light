@@ -56,7 +56,7 @@ public class ItemsManagerScript : MonoBehaviour
 
     private void ItemsTest()
     {
-        CreateEquipmentItem(new Vector3(4, 3, 0), "Cape de vampire");
+        CreateEquipmentItem(new Vector3(4, 3, 0), "Lampe à huile d'Hotavius");
         CreateEquipmentItem(new Vector3(-2, 3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(4, -3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(-2, -3, 0), SelectRandomItem(itemsEquipmentList));

@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 8502234294414699539}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: edf197874a52fee4ebd3cc8c6ecd35ae, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03e8c735c3d14bf4c94cdf46245f425d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -121,19 +121,22 @@ MonoBehaviour:
   initLife: 100
   attack: {fileID: 0}
   initAttack: 2
-  mouvementSpeed: {fileID: 0}
-  initMouvementSpeed: 3
+  movementSpeed: {fileID: 0}
+  initMovementSpeed: 0
   critChance: {fileID: 0}
   initCritChance: 5
+  critDamage: {fileID: 0}
+  initCritDamage: 0
   range: {fileID: 0}
   initRange: 50
   attackSpeed: {fileID: 0}
   initAttackSpeed: 0.5
   knockback: {fileID: 0}
   initKnockback: 5
-  LifeBar: {fileID: 0}
-  razakusMenu: {fileID: 0}
-  Projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
+  lifeBar: {fileID: 0}
+  initInvincibilityTime: 0
+  razakusMenu: {fileID: 8232620953945898655, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
+  projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
 --- !u!50 &950590215
 Rigidbody2D:
   serializedVersion: 4

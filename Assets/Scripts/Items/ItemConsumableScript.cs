@@ -20,13 +20,20 @@ public class ItemConsumableScript : Item
 
         if (colliderName == "Player" && timeSincePickup > 1.5f)
         {
+            Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
+            image.sprite = itemSprite;
+            Color tempColor = image.color;
+            tempColor.a = 1f;
+            image.color = tempColor;
+
             timeSincePickup = 0;
 
-            ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();
+            ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();            
 
             if (itemsManager.PlayerConsumableItem == null)
-            {
+            {                
                 itemsManager.PlayerConsumableItem = itemName;
+                SetName(itemsManager.PlayerConsumableItem);
                 Destroy(gameObject);
             }
 
@@ -39,12 +46,6 @@ public class ItemConsumableScript : Item
                 SetName(itemsManager.PlayerConsumableItem);
                 itemsManager.PlayerConsumableItem = tempName;    
             }
-
-            Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
-            image.sprite = itemSprite;
-            Color tempColor = image.color;
-            tempColor.a = 1f;
-            image.color = tempColor;
         }
     }
 

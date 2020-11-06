@@ -5,7 +5,7 @@ class WolfScript : BasicEnemyController
     protected override void FixedUpdate()
     {
         Behaviour();
-        
+
         base.Update();
     }
 
@@ -24,7 +24,7 @@ class WolfScript : BasicEnemyController
         {
             Wander();
         }
-        
+
         if (gfxAnim.GetBool("Knockback"))
         {
             knockbackTimer += 1;

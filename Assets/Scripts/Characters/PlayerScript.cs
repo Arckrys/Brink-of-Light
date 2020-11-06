@@ -170,7 +170,7 @@ public class PlayerScript : Character
         //create projectile
         var newProjectile = Instantiate(projectile, new Vector3(position.x, position.y, -2), Quaternion.identity);
         newProjectile.GetComponent<ProjectileScript>().SetDirection(projectileDirection, position.x, position.y);
-        newProjectile.GetComponent<ProjectileScript>().MyDamage = damageToDeal;
+        newProjectile.GetComponent<ProjectileScript>().MyCurrentDamage = damageToDeal;
         newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
         newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
         newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;

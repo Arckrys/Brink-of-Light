@@ -21,7 +21,7 @@ public class BasicEnemyController : Character
     private Coroutine lifeBarCoroutine;
 
     // Start is called before the first frame update
-    
+
     protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -35,15 +35,15 @@ public class BasicEnemyController : Character
 
         base.Start();
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Spell"))
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
-            float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
+            float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
             //var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
-            
+
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, true);
 
@@ -55,7 +55,7 @@ public class BasicEnemyController : Character
                 gfxAnim.SetBool("Knockback", true);
                 knockbackTimer = 0;
             }
-            
+
             if(life.MyCurrentValue == 0)
             {
                 Destroy(gameObject);

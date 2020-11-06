@@ -61,7 +61,7 @@ public class RazakusMenuScript : MonoBehaviour
     }
     public void OnRangePressed()
     {
-        PlayerScript.MyInstance.range.MyMaxValue -= 0.1f;
+        PlayerScript.MyInstance.range.MyMaxValue += 10f;
         UpdateUI(Portee, "Portee");
     }
     public void OnCritChancePressed()
