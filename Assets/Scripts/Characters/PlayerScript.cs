@@ -6,6 +6,14 @@ using Random = UnityEngine.Random;
 
 public class PlayerScript : Character
 {
+    [SerializeField] public StatField invincibilityTime;
+
+    [SerializeField] private float initInvincibilityTime;
+    
+    private bool isInvincible;
+    
+    private Coroutine invinsibleCoroutine;
+    
     [SerializeField] private StatUI lifeBar;
 
     public float PlayerMaxLife
@@ -30,14 +38,6 @@ public class PlayerScript : Character
         }
     }
 
-    [NonSerialized] public StatField invincibilityTime;
-
-    [SerializeField] private float initInvincibilityTime;
-    
-    private bool isInvincible;
-    
-    private Coroutine invinsibleCoroutine;
-
     private Animator movementAnimator;
 
     [SerializeField] private GameObject razakusMenu;
@@ -59,11 +59,6 @@ public class PlayerScript : Character
     private static readonly int X = Animator.StringToHash("x");
     private static readonly int Y = Animator.StringToHash("y");
     
-    public PlayerScript(StatField invincibilityTime)
-    {
-        this.invincibilityTime = invincibilityTime;
-    }
-
     public static PlayerScript MyInstance
     {
         get

@@ -120,23 +120,25 @@ MonoBehaviour:
   life: {fileID: 0}
   initLife: 100
   attack: {fileID: 0}
-  initAttack: 2
+  initAttack: 1
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 0
+  initMovementSpeed: 3
   critChance: {fileID: 0}
-  initCritChance: 5
+  initCritChance: 50
   critDamage: {fileID: 0}
-  initCritDamage: 0
+  initCritDamage: 2
   range: {fileID: 0}
-  initRange: 50
+  initRange: 30
   attackSpeed: {fileID: 0}
   initAttackSpeed: 0.5
   knockback: {fileID: 0}
   initKnockback: 5
+  invincibilityTime: {fileID: 0}
+  initInvincibilityTime: 5
   lifeBar: {fileID: 0}
-  initInvincibilityTime: 0
-  razakusMenu: {fileID: 8232620953945898655, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
+  razakusMenu: {fileID: 0}
   projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
+  mouseTimeDirection: 1
 --- !u!50 &950590215
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +158,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &950590217
 PolygonCollider2D:
