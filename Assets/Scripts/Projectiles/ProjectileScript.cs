@@ -32,6 +32,8 @@ public class ProjectileScript : MonoBehaviour
 
     [SerializeField] private AudioClip impactClip;
 
+    public bool isCrit;
+
     // Start is called before the first frame update
     void Start()
     {

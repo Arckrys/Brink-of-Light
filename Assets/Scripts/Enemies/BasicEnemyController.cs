@@ -19,7 +19,6 @@ public class BasicEnemyController : Character
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
-    private Animator lifeBarAnimator;
 
     // Start is called before the first frame update
     
@@ -33,24 +32,9 @@ public class BasicEnemyController : Character
         randomDirection = new Vector2();
 
         canvasGroupLifeBar = transform.Find("LifeCanvas").GetComponent<CanvasGroup>();
-        lifeBarAnimator = transform.Find("LifeCanvas").GetComponent<Animator>();
 
         base.Start();
     }
-
-    // Update is called once per frame
-    /*protected override void Update()
-    {
-
-        //UpdateLifeBar();
-
-        base.Update();
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }*/
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,8 +42,10 @@ public class BasicEnemyController : Character
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
+            //var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
+            
             life.MyCurrentValue -= damageReceived;
-            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, true);
 
             ShowLifeBar();
 
@@ -131,14 +117,4 @@ public class BasicEnemyController : Character
             playerDetected = true;
         }
     }
-    
-    /*private void UpdateLifeBar()
-    {
-        Image content = life.GetComponent<Image>();
-
-        if (content.fillAmount != life.MyCurrentValue / life.MyMaxValue)
-        {
-            content.fillAmount = life.MyCurrentValue / life.MyMaxValue;
-        }
-    }*/
 }

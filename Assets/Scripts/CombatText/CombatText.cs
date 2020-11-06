@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,29 +11,29 @@ public class CombatText : MonoBehaviour
     [SerializeField] private float lifeTime;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         StartCoroutine(FadeOut());
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Move();
     }
 
     private void Move()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * (speed * Time.deltaTime));
     }
 
-    public IEnumerator FadeOut()
+    private IEnumerator FadeOut()
     {
-        float startAlpha = text.color.a;
+        var startAlpha = text.color.a;
 
-        float rate = 1.0f / lifeTime;
+        var rate = 1.0f / lifeTime;
 
-        float progress = 0.0f;
+        var progress = 0.0f;
 
         while (progress < 1.0)
         {

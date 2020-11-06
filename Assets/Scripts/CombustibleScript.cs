@@ -31,7 +31,7 @@ public class CombustibleScript : MonoBehaviour
         {
             isLit = false;
             PlayerScript.MyInstance.life.MyCurrentValue += healingValue;
-            CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.HEAL, 1.0f, false);
+            CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
             //Destroy(collider);
         }
         else if(other.gameObject.tag.Equals("Spell") && !isLit)
