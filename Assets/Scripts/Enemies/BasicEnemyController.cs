@@ -42,10 +42,10 @@ public class BasicEnemyController : Character
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
-            //var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
+            var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
 
             life.MyCurrentValue -= damageReceived;
-            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, true);
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
 
             ShowLifeBar();
 
