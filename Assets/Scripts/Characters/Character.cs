@@ -142,11 +142,18 @@ public abstract class Character : MonoBehaviour
             life.MyCurrentValue -= damage;
 
             if (gameObject.GetComponent<BasicEnemyController>() != null)
+            {
+                life.MyCurrentValue -= damage;
                 gameObject.GetComponent<BasicEnemyController>().ShowLifeBar();
+            }
+            else if (gameObject.GetComponent<PlayerScript>() != null)
+            {
+                PlayerScript.MyInstance.PlayerCurrentLife -= damage;
+            }
 
             CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(CultureInfo.InvariantCulture), DamageType.DamageOnTime, 1.0f, false);
 
-            if (life.MyCurrentValue == 0)
+            if ((gameObject.GetComponent<BasicEnemyController>() != null && life.MyCurrentValue == 0) || (gameObject.GetComponent<PlayerScript>() != null && PlayerScript.MyInstance.PlayerCurrentLife == 0))
             {
                 Destroy(gameObject);
             }

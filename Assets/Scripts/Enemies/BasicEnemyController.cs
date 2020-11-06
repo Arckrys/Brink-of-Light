@@ -73,7 +73,7 @@ public class BasicEnemyController : Character
         lifeBarCoroutine = StartCoroutine(FadeOutLifeBar());
     }
 
-    public IEnumerator FadeOutLifeBar()
+    private IEnumerator FadeOutLifeBar()
     {
         float startAlpha = 1.0f;
 
