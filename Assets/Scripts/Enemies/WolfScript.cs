@@ -6,7 +6,7 @@ class WolfScript : BasicEnemyController
     {
         Behaviour();
 
-        base.Update();
+        base.FixedUpdate();
     }
 
     private void Behaviour()

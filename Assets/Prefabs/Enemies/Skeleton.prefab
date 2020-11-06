@@ -183,7 +183,7 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 5
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 0
+  initMovementSpeed: 1.75
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
