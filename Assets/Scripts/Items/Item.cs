@@ -16,4 +16,11 @@ public class Item : MonoBehaviour
     {
         return itemName;
     }
+
+    protected void UpdatePolygonCollider()
+    {
+        Destroy(GetComponent<PolygonCollider2D>());
+        PolygonCollider2D collider = gameObject.AddComponent<PolygonCollider2D>();
+        collider.isTrigger = true;
+    }
 }

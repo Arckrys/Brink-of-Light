@@ -63,7 +63,7 @@ public class BasicEnemyController : Character
         }
     }
 
-    private void ShowLifeBar()
+    public void ShowLifeBar()
     {
         if (lifeBarCoroutine != null)
         {

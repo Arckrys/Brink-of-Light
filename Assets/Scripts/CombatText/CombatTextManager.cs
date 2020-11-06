@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public enum DamageType {Damage, Heal, Player}
+public enum DamageType {Damage, Heal, Player, DamageOnTime}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -45,6 +45,11 @@ public class CombatTextManager : MonoBehaviour
             case DamageType.Player:
                 operation += "-";
                 temp.color = Color.blue;
+                break;
+            case DamageType.DamageOnTime:
+                operation += "-";
+                Color orangeColor = new Color(1.0f, 0.64f, 0.0f);
+                temp.color = orangeColor;
                 break;
             default:
                 temp.color = Color.white;

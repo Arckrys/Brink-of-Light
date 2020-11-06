@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Globalization;
 
 public abstract class Character : MonoBehaviour
 {
@@ -37,6 +39,9 @@ public abstract class Character : MonoBehaviour
     private Rigidbody2D myRigidbody;
 
     protected Vector2 direction;
+
+    private Coroutine damageOnTimeCoroutine;
+    private bool isTakingDamageOnTime;
 
     protected bool IsMoving => direction.x != 0 || direction.y != 0;
 
@@ -124,6 +129,33 @@ public abstract class Character : MonoBehaviour
             {
                 animator.SetBool("FacingDown", true);
             }
+        }
+    }
+
+    public IEnumerator StartDamageOnTime(float frequency, int maxTick, float damage)
+    {
+        isTakingDamageOnTime = true;
+        int tick = 0;
+
+        while (isTakingDamageOnTime)
+        {
+            life.MyCurrentValue -= damage;
+
+            if (gameObject.GetComponent<BasicEnemyController>() != null)
+                gameObject.GetComponent<BasicEnemyController>().ShowLifeBar();
+
+            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(CultureInfo.InvariantCulture), DamageType.DamageOnTime, 1.0f, false);
+
+            if (life.MyCurrentValue == 0)
+            {
+                Destroy(gameObject);
+            }
+
+            tick++;
+            if (tick == maxTick)
+                isTakingDamageOnTime = false;
+
+            yield return new WaitForSeconds(frequency);
         }
     }
 }

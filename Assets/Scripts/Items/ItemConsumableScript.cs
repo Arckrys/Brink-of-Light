@@ -12,6 +12,7 @@ public class ItemConsumableScript : Item
         base.SetName(itemName);
         itemSprite = Resources.Load<Sprite>("Images/Items/Consommable/" + itemName);
         GetComponent<SpriteRenderer>().sprite = itemSprite;
+        UpdatePolygonCollider();
     }
 
     void OnTriggerEnter2D(Collider2D other)

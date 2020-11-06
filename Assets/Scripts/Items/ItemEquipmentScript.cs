@@ -9,6 +9,7 @@ public class ItemEquipmentScript : Item
         base.SetName(itemName);
         itemSprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
         GetComponent<SpriteRenderer>().sprite = itemSprite;
+        UpdatePolygonCollider();
     }
 
     void OnTriggerEnter2D(Collider2D other)

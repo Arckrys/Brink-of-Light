@@ -36,7 +36,9 @@ public class ItemsManagerScript : MonoBehaviour
     private List<string> itemsConsumableList = new List<string> {
         "Potion de vitesse",
         "Potion de force",
-        "Potion de lumière"
+        "Potion de lumière",
+        "Parchemin de feu",
+        "Parchemin de froid"
     };
 
     void Start()
@@ -60,8 +62,8 @@ public class ItemsManagerScript : MonoBehaviour
         CreateEquipmentItem(new Vector3(-2, 3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(4, -3, 0), SelectRandomItem(itemsEquipmentList));
         CreateEquipmentItem(new Vector3(-2, -3, 0), SelectRandomItem(itemsEquipmentList));
-        CreateConsumableItem(new Vector3(1, 3, 0), "Potion de vitesse");
-        CreateConsumableItem(new Vector3(1, -3, 0), "Potion de force");
+        CreateConsumableItem(new Vector3(1, 3, 0), "Parchemin de feu");
+        CreateConsumableItem(new Vector3(1, -3, 0), "Parchemin de froid");
     }
 
     public string SelectRandomItem(List<string> itemList)
@@ -163,6 +165,8 @@ public class ItemsManagerScript : MonoBehaviour
     {      
         if (consumableItem != null)
         {
+            GameObject[] enemies;
+
             switch (consumableItem)
             {               
                 case "Potion de vitesse":
@@ -176,6 +180,24 @@ public class ItemsManagerScript : MonoBehaviour
 
                 case "Potion de lumière":
                     PlayerScript.MyInstance.life.MyMaxValue += 15f;
+                    break;
+
+                case "Parchemin de froid":
+                    enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
+                        enemy.GetComponent<Character>().movementSpeed.MyCurrentValue /= 2;
+                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
+                    }
+                    break;
+                    
+                case "Parchemin de feu":
+                    enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        StartCoroutine(enemy.GetComponent<Character>().StartDamageOnTime(1f, 10, 1f));
+                    }
                     break;
 
                 default:
