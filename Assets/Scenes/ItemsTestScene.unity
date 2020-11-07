@@ -918,6 +918,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6452317563657050208, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
+      propertyPath: m_Text
+      value: +plop
+      objectReference: {fileID: 0}
     - target: {fileID: 8232620953945898643, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1006,10 +1010,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Razakus
       objectReference: {fileID: 0}
-    - target: {fileID: 8232620953945898655, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8232620954046489757, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1022,14 +1022,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8232620954055940981, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 14.399902
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232620954146473857, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8232620954146473857, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1037,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 8232620954146473857, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232620954851523497, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
