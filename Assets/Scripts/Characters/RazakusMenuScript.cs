@@ -49,48 +49,77 @@ public class RazakusMenuScript : MonoBehaviour
         text.text = (RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]).ToString() + " Ames";
     }
 
+    private bool PurchaseSouls(string statName)
+    {
+        return CurrenciesScript.MyInstance.purchaseForSouls(RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]);
+    }
+
     public void OnHealthPressed()
     {
-        PlayerScript.MyInstance.PlayerMaxLife += 5f;
-        UpdateUI(Vie, "Vie");
+        if (PurchaseSouls("Vie"))
+        {
+            PlayerScript.MyInstance.PlayerMaxLife += 5f;
+            UpdateUI(Vie, "Vie");
+        }
+        
     }
     public void OnAttackPressed()
     {
-        PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
-        UpdateUI(Attaque, "Attaque");
+        if (PurchaseSouls("Attaque"))
+        {
+            PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+            UpdateUI(Attaque, "Attaque");
+        }
     }
     public void OnRangePressed()
     {
-        PlayerScript.MyInstance.range.MyMaxValue += 10f;
-        UpdateUI(Portee, "Portee");
+        if (PurchaseSouls("Portee"))
+        {
+            PlayerScript.MyInstance.range.MyMaxValue += 10f;
+            UpdateUI(Portee, "Portee");
+        }
     }
     public void OnCritChancePressed()
     {
-        PlayerScript.MyInstance.critChance.MyMaxValue += 0.1f;
-        UpdateUI(ChanceCrit, "ChanceCrit");
+        if (PurchaseSouls("ChanceCrit"))
+        {
+            PlayerScript.MyInstance.critChance.MyMaxValue += 0.1f;
+            UpdateUI(ChanceCrit, "ChanceCrit");
+        }
     }
     public void OnSpeedPressed()
     {
-        PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
-        UpdateUI(Vitesse, "Vitesse");
+        if (PurchaseSouls("Vitesse"))
+        {
+            PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
+            UpdateUI(Vitesse, "Vitesse");
+        }
     }
 
     public void OnAtkSpeedPressed()
     {
-        PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.1f;
-        UpdateUI(VitesseAtk, "VitesseAtk");
+        if (PurchaseSouls("VitesseAtk"))
+        {
+            PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.1f;
+            UpdateUI(VitesseAtk, "VitesseAtk"); 
+        }
     }
 
-   /* public void OnCritDmgPressed()
+    /*public void OnCritDmgPressed()
     {
-        PlayerScript.MyInstance.CritDMGMaxValue += 10f;
-        RazakusData["DegatsCrit"][0] += 1;
-        UpdateUI(Vitesse);
+        if (PurchaseSouls("Recul"))
+        {
+            PlayerScript.MyInstance.critDamage.MyMaxValue += 10f;
+            UpdateUI(Vitesse, "Vitesse");
+        }
     }*/
    
     public void OnKnockbackPressed()
     {
-        PlayerScript.MyInstance.knockback.MyMaxValue += 1f;
-        UpdateUI(Recul, "Recul"); ;
+        if (PurchaseSouls("Recul"))
+        {
+            PlayerScript.MyInstance.knockback.MyMaxValue += 1f;
+            UpdateUI(Recul, "Recul");
+        }
     }
 }

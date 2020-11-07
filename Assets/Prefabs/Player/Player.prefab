@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8502234294414699537}
   - component: {fileID: 8502234294414699536}
   - component: {fileID: 8502234294414699551}
+  - component: {fileID: 5267086061324552191}
   - component: {fileID: 950590215}
   - component: {fileID: 950590217}
   m_Layer: 8
@@ -139,6 +140,20 @@ MonoBehaviour:
   razakusMenu: {fileID: 0}
   projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
   mouseTimeDirection: 1
+--- !u!114 &5267086061324552191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502234294414699539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbe6a1c49f2b4b4c9ba739590c84ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsAmount: 0
+  goldAmount: 0
 --- !u!50 &950590215
 Rigidbody2D:
   serializedVersion: 4
