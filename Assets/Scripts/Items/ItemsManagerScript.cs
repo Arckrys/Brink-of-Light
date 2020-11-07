@@ -118,8 +118,9 @@ public class ItemsManagerScript : MonoBehaviour
             case "Anneau du forgeron":
                 PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
                 PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
-                PlayerScript.MyInstance.life.MyMaxValue += 10f;
-                PlayerScript.MyInstance.life.MyCurrentValue += 10f;
+                PlayerScript.MyInstance.PlayerMaxLife += 10f;
+                // TODO : À garder ?
+                PlayerScript.MyInstance.PlayerCurrentLife += 10f;
                 break;
 
             case "Bottes d'Hotavius":
@@ -131,8 +132,9 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
 
             case "Lampe à huile d'Hotavius":
-                PlayerScript.MyInstance.life.MyMaxValue += 25f;
-                PlayerScript.MyInstance.life.MyCurrentValue += 25f;
+                PlayerScript.MyInstance.PlayerMaxLife += 25f;
+                // TODO : À garder ?
+                PlayerScript.MyInstance.PlayerCurrentLife += 25f;
                 break;
 
             case "Sauce piquante":
@@ -179,7 +181,8 @@ public class ItemsManagerScript : MonoBehaviour
                     break;
 
                 case "Potion de lumière":
-                    PlayerScript.MyInstance.life.MyMaxValue += 15f;
+                    // TODO : Potion qui augmente vie max ? Pas de soin
+                    PlayerScript.MyInstance.PlayerMaxLife += 15f;
                     break;
 
                 case "Parchemin de froid":

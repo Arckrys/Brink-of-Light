@@ -30,7 +30,7 @@ public class CombustibleScript : MonoBehaviour
         if (other.gameObject.tag.Equals("Player") && isLit)
         {
             isLit = false;
-            PlayerScript.MyInstance.life.MyCurrentValue += healingValue;
+            PlayerScript.MyInstance.PlayerCurrentLife += healingValue;
             CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
             //Destroy(collider);
         }
@@ -39,8 +39,5 @@ public class CombustibleScript : MonoBehaviour
             isLit = true;
             //Destroy(collider);
         }
-
-
     }
-
 }

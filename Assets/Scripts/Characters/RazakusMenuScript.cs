@@ -51,7 +51,7 @@ public class RazakusMenuScript : MonoBehaviour
 
     public void OnHealthPressed()
     {
-        PlayerScript.MyInstance.life.MyMaxValue += 5f;
+        PlayerScript.MyInstance.PlayerMaxLife += 5f;
         UpdateUI(Vie, "Vie");
     }
     public void OnAttackPressed()
@@ -87,11 +87,10 @@ public class RazakusMenuScript : MonoBehaviour
         RazakusData["DegatsCrit"][0] += 1;
         UpdateUI(Vitesse);
     }*/
+   
     public void OnKnockbackPressed()
     {
         PlayerScript.MyInstance.knockback.MyMaxValue += 1f;
         UpdateUI(Recul, "Recul"); ;
     }
-
-
 }

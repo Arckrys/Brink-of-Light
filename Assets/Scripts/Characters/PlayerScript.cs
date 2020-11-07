@@ -24,6 +24,8 @@ public class PlayerScript : Character
         {
             life.MyMaxValue = value;
             lifeBar.MyMaxValue = value;
+
+            PlayerCurrentLife = PlayerCurrentLife;
         }
     }
     
