@@ -42,6 +42,7 @@ public abstract class Character : MonoBehaviour
 
     private Coroutine damageOnTimeCoroutine;
     private bool isTakingDamageOnTime;
+    private int isChangingDirection;
 
     protected bool IsMoving => direction.x != 0 || direction.y != 0;
 
@@ -63,7 +64,11 @@ public abstract class Character : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        UpdatePolygonCollider();
+        if (isChangingDirection > 0)
+        {
+            UpdatePolygonCollider();
+            isChangingDirection -= 1;
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -103,11 +108,15 @@ public abstract class Character : MonoBehaviour
 
     protected void FaceDirection(Vector2 newDir, Animator animator)
     {
-        ResetAnimator(animator);
         
         if (newDir.x == 0 && newDir.y == 0)
         {
-            animator.SetBool("Idle", true);
+            if (!animator.GetBool("Idle"))
+            {
+                ResetAnimator(animator);
+                animator.SetBool("Idle", true);
+                isChangingDirection = 2;
+            }
         }
         else
         {
@@ -115,19 +124,40 @@ public abstract class Character : MonoBehaviour
             
             if (angle < 40 && angle > -40)
             {
-                animator.SetBool("FacingRight", true);
+                if (!animator.GetBool("FacingRight"))
+                {
+                    ResetAnimator(animator);
+                    animator.SetBool("FacingRight", true);
+                    isChangingDirection = 2;
+                }
+                    
             }
             if (angle <= 135 && angle >= 45)
             {
-                animator.SetBool("FacingUp", true);
+                if (!animator.GetBool("FacingUp"))
+                {
+                    ResetAnimator(animator);
+                    animator.SetBool("FacingUp", true);
+                    isChangingDirection = 2;
+                }
             }
             if (angle < -140 || angle > 140)
             {
-                animator.SetBool("FacingLeft", true);
+                if (!animator.GetBool("FacingLeft"))
+                {
+                    ResetAnimator(animator);
+                    animator.SetBool("FacingLeft", true);
+                    isChangingDirection = 2;
+                }
             }
             if (angle <= -45 && angle >= -135)
             {
-                animator.SetBool("FacingDown", true);
+                if (!animator.GetBool("FacingDown"))
+                {
+                    ResetAnimator(animator);
+                    animator.SetBool("FacingDown", true);
+                    isChangingDirection = 2;
+                }
             }
         }
     }
