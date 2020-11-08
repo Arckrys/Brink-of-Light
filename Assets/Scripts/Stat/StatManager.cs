@@ -46,18 +46,20 @@ public class StatManager : MonoBehaviour
 
     private float currentValue;
 
-    public StatManager(float initValue, float topValue, bool variable)
+    /*public StatManager(float initValue, float topValue, bool variable)
     {
         variableStat = variable;
         
         Initialized(initValue, topValue);
-    }
+    }*/
     
-    public void Initialized(float initValue, float topValue)
+    public void Initialized(float initValue, float topValue, bool isVariable = true)
     {
         MyMaxValue = topValue;
 
         MyCurrentValue = initValue;
+
+        variableStat = isVariable;
     }
     
     protected virtual void UpdateUIStat()

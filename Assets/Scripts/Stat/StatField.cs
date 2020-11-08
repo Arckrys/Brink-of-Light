@@ -15,9 +15,4 @@ public class StatField : StatManager
         
         base.UpdateUIStat();
     }
-
-    public StatField(float initValue, float topValue, bool variable) : base(initValue, topValue, variable)
-    {
-        
-    }
 }

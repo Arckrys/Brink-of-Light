@@ -75,10 +75,10 @@ public abstract class Character : MonoBehaviour
     {
         if (!stat)
         {
-            stat = new StatField(initValue, initValue, variable);
+            stat = gameObject.AddComponent<StatField>();
         }
         
-        stat.Initialized(initValue, initValue);
+        stat.Initialized(initValue, initValue, false);
     }
 
     private void Move()

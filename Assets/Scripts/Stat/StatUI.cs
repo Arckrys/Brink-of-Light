@@ -18,11 +18,6 @@ public class StatUI : StatManager
             content = GetComponent<Image>();
         }
     }
-    
-    public StatUI(float initValue, float topValue, bool variable) : base(initValue, topValue, variable)
-    {
-        
-    }
 
     protected override void UpdateUIStat()
     {
