@@ -89,6 +89,9 @@ public class PlayerScript : Character
         lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
+
+        // TODO : Temporaire
+        TimerManager.MyInstance.MyTimer = true;
     }
 
     // Update is called once per frame

@@ -45,13 +45,6 @@ public class StatManager : MonoBehaviour
     private float maxValue;
 
     private float currentValue;
-
-    /*public StatManager(float initValue, float topValue, bool variable)
-    {
-        variableStat = variable;
-        
-        Initialized(initValue, topValue);
-    }*/
     
     public void Initialized(float initValue, float topValue, bool isVariable = true)
     {
