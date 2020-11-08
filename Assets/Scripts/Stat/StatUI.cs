@@ -36,7 +36,7 @@ public class StatUI : StatManager
             }
         }
         
-        if (filled && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
+        if (filled && content && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
         {
             content.fillAmount = MyCurrentValue / MyMaxValue;
         }

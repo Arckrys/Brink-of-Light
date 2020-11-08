@@ -19,9 +19,9 @@ public class BasicEnemyController : Character
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
-    private Animator lifeBarAnimator;
 
     // Start is called before the first frame update
+
     protected override void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,35 +31,21 @@ public class BasicEnemyController : Character
         wanderTimer = 0;
         randomDirection = new Vector2();
 
-        canvasGroupLifeBar = transform.Find("LifeCanvas").GetComponent<CanvasGroup>();
-        lifeBarAnimator = transform.Find("LifeCanvas").GetComponent<Animator>();
+        canvasGroupLifeBar = transform.Find("EnemyLifeCanvas").GetComponent<CanvasGroup>();
 
         base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-
-        //UpdateLifeBar();
-
-        base.Update();
-    }
-
-    protected override void FixedUpdate()
-    {
-        
-
-        base.FixedUpdate();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Spell"))
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
-            float damageReceived = collision.GetComponent<ProjectileScript>().MyDamage;
+            float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
+            var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
+
             life.MyCurrentValue -= damageReceived;
-            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.DAMAGE, 1.0f, false);
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
 
             ShowLifeBar();
 
@@ -69,7 +55,7 @@ public class BasicEnemyController : Character
                 gfxAnim.SetBool("Knockback", true);
                 knockbackTimer = 0;
             }
-            
+
             if(life.MyCurrentValue == 0)
             {
                 Destroy(gameObject);
@@ -77,7 +63,7 @@ public class BasicEnemyController : Character
         }
     }
 
-    private void ShowLifeBar()
+    public void ShowLifeBar()
     {
         if (lifeBarCoroutine != null)
         {
@@ -87,7 +73,7 @@ public class BasicEnemyController : Character
         lifeBarCoroutine = StartCoroutine(FadeOutLifeBar());
     }
 
-    public IEnumerator FadeOutLifeBar()
+    private IEnumerator FadeOutLifeBar()
     {
         float startAlpha = 1.0f;
 
@@ -131,19 +117,4 @@ public class BasicEnemyController : Character
             playerDetected = true;
         }
     }
-
-    
-
-    /*private void UpdateLifeBar()
-    {
-        Image content = life.GetComponent<Image>();
-
-        if (content.fillAmount != life.MyCurrentValue / life.MyMaxValue)
-        {
-            content.fillAmount = life.MyCurrentValue / life.MyMaxValue;
-        }
-    }*/
-
-    
-
 }

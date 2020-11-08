@@ -1,16 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CurrenciesScript : MonoBehaviour
 {
-    int soulsNumber, goldValue;
+    
+    [SerializeField] int soulsAmount, goldAmount;
+
+    private static CurrenciesScript _instance;
+
+    public static CurrenciesScript MyInstance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType<CurrenciesScript>();
+            }
+
+            return _instance;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        soulsNumber = 0;
-        goldValue = 0;
+        soulsAmount = 1505;
+        goldAmount = 0;
     }
 
     // Update is called once per frame
@@ -21,31 +38,58 @@ public class CurrenciesScript : MonoBehaviour
 
     public void setSoulsNumber (int soulsNumber)
     {
-        this.soulsNumber = soulsNumber;
+        this.soulsAmount = soulsNumber;
     }
 
     public int getSoulsNumber()
     {
-        return soulsNumber;
+        return soulsAmount;
     }
 
     public void addSouls(int soulsToAdd)
     {
-        soulsNumber += soulsToAdd;
+        soulsAmount += soulsToAdd;
     }
 
     public void setGoldValue(int goldValue)
     {
-        this.goldValue = goldValue;
+        this.goldAmount = goldValue;
     }
 
     public int getGoldValue()
     {
-        return goldValue;
+        return goldAmount;
     }
 
     public void addGold(int goldToAdd)
     {
-        goldValue += goldToAdd;
+        goldAmount += goldToAdd;
     }
+
+    public bool purchaseForGold(int goldCost)
+    {
+        if (goldCost < this.goldAmount)
+        {
+            addGold(-goldCost);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool purchaseForSouls(int soulsCost)
+    {
+        if (soulsCost < this.soulsAmount)
+        {
+            addSouls(-soulsCost);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
