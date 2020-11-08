@@ -16,6 +16,8 @@ public class PlayerScript : Character
     
     [SerializeField] private StatUI lifeBar;
 
+    [SerializeField] private bool isProjectilesDisabled;
+
     public float PlayerMaxLife
     {
         get => life.MyMaxValue;
@@ -43,6 +45,8 @@ public class PlayerScript : Character
     private Animator movementAnimator;
 
     [SerializeField] private GameObject razakusMenu;
+
+    private RazakusMenuScript razakusScript;
 
     public GameObject projectile;
     
@@ -78,6 +82,8 @@ public class PlayerScript : Character
     protected override void Start()
     {
         movementAnimator = GetComponent<Animator>();
+
+        razakusScript = RazakusMenuScript.MyInstance;
 
         if (razakusMenu.activeSelf)
         {
@@ -126,13 +132,14 @@ public class PlayerScript : Character
         }
 
 
-        if (Input.GetMouseButton(0) && !isAttacking)
+        if (Input.GetMouseButton(0) && !isAttacking && !isProjectilesDisabled)
         {
             FireProjectile();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isProjectilesDisabled)
         {
+            razakusScript.InitUI();
             razakusMenu.SetActive(!razakusMenu.activeSelf);
         }
     }

@@ -95,7 +95,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 393699099
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4555356587794886115, guid: 45c75eafadcae4449b025f767a62ab4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -199,6 +199,8 @@ MonoBehaviour:
   initKnockback: 2
   stoppingDistance: 0
   detectionRadius: 8
+  Grunt: {fileID: 8300000, guid: 192def8a49d0bfa4baed9e238a6fb4a0, type: 3}
+  DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
 --- !u!1001 &7256781847691512557
 PrefabInstance:
