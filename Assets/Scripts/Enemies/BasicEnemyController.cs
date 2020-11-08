@@ -8,6 +8,8 @@ public class BasicEnemyController : Character
 {
     public float stoppingDistance;
     public float detectionRadius;
+    public AudioClip Grunt;
+    public AudioClip DyingSound;
     protected float knockbackIntensity;
     public float knockbackResistance;
     protected Transform player;
@@ -58,7 +60,12 @@ public class BasicEnemyController : Character
 
             if(life.MyCurrentValue == 0)
             {
+                AudioSource.PlayClipAtPoint(DyingSound, transform.position);
                 Destroy(gameObject);
+            }
+            else
+            {
+                AudioSource.PlayClipAtPoint(Grunt, transform.position);
             }
         }
     }
