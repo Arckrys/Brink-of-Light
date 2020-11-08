@@ -148,6 +148,8 @@ public class ItemsManagerScript : MonoBehaviour
         audio.Play();
 
         possessedItems.Add(itemName);
+        
+        InventoryManager.MyInstance.AddItem(itemName);
     }
 
     public string PlayerConsumableItem
