@@ -16,6 +16,8 @@ public class PlayerScript : Character
     
     [SerializeField] private StatUI lifeBar;
 
+    [SerializeField] private bool isProjectilesDisabled;
+
     public float PlayerMaxLife
     {
         get => life.MyMaxValue;
@@ -130,12 +132,12 @@ public class PlayerScript : Character
         }
 
 
-        if (Input.GetMouseButton(0) && !isAttacking)
+        if (Input.GetMouseButton(0) && !isAttacking && !isProjectilesDisabled)
         {
             FireProjectile();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isProjectilesDisabled)
         {
             razakusScript.InitUI();
             razakusMenu.SetActive(!razakusMenu.activeSelf);
