@@ -26,7 +26,7 @@ public class CurrenciesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soulsAmount = 155;
+        soulsAmount = 1505;
         goldAmount = 0;
     }
 

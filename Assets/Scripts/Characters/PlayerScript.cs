@@ -44,6 +44,8 @@ public class PlayerScript : Character
 
     [SerializeField] private GameObject razakusMenu;
 
+    private RazakusMenuScript razakusScript;
+
     public GameObject projectile;
     
     private bool isAttacking;
@@ -78,6 +80,8 @@ public class PlayerScript : Character
     protected override void Start()
     {
         movementAnimator = GetComponent<Animator>();
+
+        razakusScript = RazakusMenuScript.MyInstance;
 
         if (razakusMenu.activeSelf)
         {
@@ -130,6 +134,7 @@ public class PlayerScript : Character
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            razakusScript.InitUI();
             razakusMenu.SetActive(!razakusMenu.activeSelf);
         }
     }
