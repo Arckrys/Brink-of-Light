@@ -92,8 +92,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1670103393
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -7467805150267820139, guid: f5400508742ac9e46800fb7e5305ad4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,7 +123,7 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 1
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 3
+  initMovementSpeed: 2
   critChance: {fileID: 0}
   initCritChance: 50
   critDamage: {fileID: 0}
@@ -135,8 +135,9 @@ MonoBehaviour:
   knockback: {fileID: 0}
   initKnockback: 5
   invincibilityTime: {fileID: 0}
-  initInvincibilityTime: 5
+  initInvincibilityTime: 0.5
   lifeBar: {fileID: 0}
+  isProjectilesDisabled: 0
   razakusMenu: {fileID: 0}
   projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
   mouseTimeDirection: 1
@@ -192,7 +193,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.075, y: 0.15}
+    oldSize: {x: 0.075, y: 0.1}
     newSize: {x: 0.6, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -200,23 +201,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0325, y: 0.035}
-      - {x: 0.0325, y: 0.055}
-      - {x: -0.0325, y: 0.055}
-      - {x: -0.0325, y: 0.005}
-      - {x: -0.0275, y: 0.005}
-      - {x: -0.0275, y: -0.005}
-      - {x: -0.022499999, y: -0.005}
-      - {x: -0.022499999, y: -0.02}
-      - {x: -0.0175, y: -0.02}
-      - {x: -0.0175, y: -0.024999999}
-      - {x: 0.0175, y: -0.024999999}
-      - {x: 0.0175, y: -0.02}
-      - {x: 0.022499999, y: -0.02}
-      - {x: 0.022499999, y: -0.01}
-      - {x: 0.0275, y: -0.01}
-      - {x: 0.0275, y: 0}
-      - {x: 0.0325, y: 0}
-      - {x: 0.0325, y: 0.015}
-      - {x: 0.037499998, y: 0.015}
-      - {x: 0.037499998, y: 0.035}
+    - - {x: -0.032425463, y: 0.0045205243}
+      - {x: -0.032271095, y: -0.019950226}
+      - {x: -0.027957812, y: -0.020408027}
+      - {x: -0.027728891, y: -0.02972132}
+      - {x: -0.0231867, y: -0.029263519}
+      - {x: -0.022499999, y: -0.04472132}
+      - {x: -0.017042203, y: -0.04495022}
+      - {x: -0.01718525, y: -0.04953502}
+      - {x: 0.01727109, y: -0.049492426}
+      - {x: 0.0175, y: -0.045179125}
+      - {x: 0.022042185, y: -0.045179125}
+      - {x: 0.022042189, y: -0.03540802}
+      - {x: 0.0275, y: -0.035636924}
+      - {x: 0.0275, y: -0.024950221}
+      - {x: 0.0325, y: -0.025179124}
+      - {x: 0.0325, y: 0.0045618247}
+      - {x: 0.0005430133, y: 0.00468072}
