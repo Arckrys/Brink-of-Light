@@ -193,9 +193,9 @@ MonoBehaviour:
   Grunt: {fileID: 8300000, guid: 3484662e3e15f7b4e8c83ffa1e9ac5d7, type: 3}
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
-  levelOneSpawnProbability: 90
-  levelTwoSpawnProbability: 0
-  levelThreeSpawnProbability: 0
+  levelOneSpawnProbability: 33
+  levelTwoSpawnProbability: 33
+  levelThreeSpawnProbability: 12
   levelFourSpawnProbability: 0
 --- !u!1001 &9030523027313072627
 PrefabInstance:

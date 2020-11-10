@@ -26,7 +26,7 @@ public class SpawnEnemyScript : MonoBehaviour
             if (enemyProbability > 0)
             {
                 probabilitySum += enemyProbability;
-            }            
+            }
         }
 
         int randomInt = Random.Range(0, probabilitySum);
@@ -50,7 +50,7 @@ public class SpawnEnemyScript : MonoBehaviour
                     Instantiate(o, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
                     break;
                 }
-            }            
+            }
         }
     }
 }

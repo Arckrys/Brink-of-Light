@@ -8,8 +8,8 @@ public class ProjectileCollisionScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Destroy(gameObject);
-        collisionDetected = true;
+        if (!other.isTrigger)
+            collisionDetected = true;
     }
 
     public bool IsCollisionDetected()

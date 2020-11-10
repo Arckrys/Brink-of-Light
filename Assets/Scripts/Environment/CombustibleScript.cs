@@ -7,12 +7,15 @@ public class CombustibleScript : MonoBehaviour
 {
     private Animator combustibleAnimator;
     private BoxCollider2D combustibleCollider;
-    bool isLit = true;
+    [SerializeField] bool isLit;
+    private bool hasHealedPlayer;
     private float healingValue;
 
     // Start is called before the first frame update
     void Start()
     {
+        hasHealedPlayer = false;
+
         combustibleAnimator = GetComponentInChildren<Animator>();
         combustibleCollider = GetComponent<BoxCollider2D>();
 
@@ -29,12 +32,13 @@ public class CombustibleScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && isLit)
         {
+            hasHealedPlayer = true;
             isLit = false;
             PlayerScript.MyInstance.PlayerCurrentLife += healingValue;
             CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
             //Destroy(collider);
         }
-        else if(other.gameObject.CompareTag("Spell") && !isLit)
+        else if(other.gameObject.CompareTag("Spell") && !isLit && !hasHealedPlayer)
         {
             isLit = true;
             //Destroy(collider);

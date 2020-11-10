@@ -274,7 +274,7 @@ public class PlayerScript : Character
         movementAnimator.SetLayerWeight(movementAnimator.GetLayerIndex(layerName), 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy") || isInvincible) return;
 
