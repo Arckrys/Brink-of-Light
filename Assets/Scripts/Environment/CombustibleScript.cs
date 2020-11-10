@@ -10,6 +10,7 @@ public class CombustibleScript : MonoBehaviour
     [SerializeField] bool isLit;
     private bool hasHealedPlayer;
     private float healingValue;
+    [SerializeField] bool isDestroyedAfterFire;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,9 @@ public class CombustibleScript : MonoBehaviour
             PlayerScript.MyInstance.PlayerCurrentLife += healingValue;
             CombatTextManager.MyInstance.CreateText(PlayerScript.MyInstance.transform.position, healingValue.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
             //Destroy(collider);
+
+            if(isDestroyedAfterFire)
+                Destroy(GetComponent<PolygonCollider2D>());
         }
         else if(other.gameObject.CompareTag("Spell") && !isLit && !hasHealedPlayer)
         {
