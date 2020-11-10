@@ -22,6 +22,11 @@ public class BasicEnemyController : Character
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
 
+    [SerializeField] private int levelOneSpawnProbability;
+    [SerializeField] private int levelTwoSpawnProbability;
+    [SerializeField] private int levelThreeSpawnProbability;
+    [SerializeField] private int levelFourSpawnProbability;
+
     // Start is called before the first frame update
 
     protected override void Start()
@@ -123,5 +128,14 @@ public class BasicEnemyController : Character
         {
             playerDetected = true;
         }
+    }
+
+    public int[] GetSpawnProbabilities()
+    {
+        return new int[] {
+                levelOneSpawnProbability, 
+                levelTwoSpawnProbability, 
+                levelThreeSpawnProbability, 
+                levelFourSpawnProbability };
     }
 }
