@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -41,7 +40,7 @@ public class InventoryManager : MonoBehaviour
         var sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + itemName);
 
         var index = -1;
-        
+
         foreach (var item in items.Where(item => item.MySlotValidity && index == -1))
         {
             index = items.IndexOf(item);
@@ -50,8 +49,11 @@ public class InventoryManager : MonoBehaviour
         items[index].UpdateSlot(sprite, itemName, !items[index].MySlotValidity);
     }
     
-    private void RemoveItem()
+    private void RemoveItems()
     {
-        
+        foreach (var item in items)
+        {
+            item.UpdateSlot(null, null, true);
+        }
     }
 }

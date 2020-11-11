@@ -16,14 +16,20 @@ public class SlotManager : MonoBehaviour
     public void UpdateSlot(Sprite sprite, string name, bool available)
     {
         var image = slotImage.GetComponent<Image>();
-        
-        image.sprite = sprite;
+
+        if (sprite != null)
+        {
+            image.sprite = sprite;
+        }
 
         var tempColor = image.color;
         tempColor.a = available ? 0f : 1f;
         image.color = tempColor;
 
-        itemName = name;
+        if (name != null)
+        {
+            itemName = name;
+        }
 
         isAvailable = available;
     }
