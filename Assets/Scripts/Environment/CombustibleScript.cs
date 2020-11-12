@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CombustibleScript : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class CombustibleScript : MonoBehaviour
     void Start()
     {
         hasHealedPlayer = false;
-
         combustibleAnimator = GetComponentInChildren<Animator>();
         combustibleCollider = GetComponent<BoxCollider2D>();
 
