@@ -60,7 +60,9 @@ public class RazakusMenuScript : MonoBehaviour
         StatsAndTexts.Add("DegatsCrit",   System.Tuple.Create(PlayerScript.MyInstance.critDamage, DegatsCritButton, DegatsCritStat, DegatsCritUpgrade));
         StatsAndTexts.Add("Recul",        System.Tuple.Create(PlayerScript.MyInstance.knockback, ReculButton, ReculStat, ReculUpgrade));
 
-        //InitUI();
+        InitUI();
+
+        gameObject.SetActive(false);
     }
 
     public static RazakusMenuScript MyInstance

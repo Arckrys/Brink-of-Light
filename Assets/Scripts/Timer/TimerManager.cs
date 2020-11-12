@@ -36,23 +36,16 @@ public class TimerManager : MonoBehaviour
         }
     }
     
-    // Start is called before the first frame update
-    private void Start()
-    {
-        isTimerOn = false;
-    }
-
     // Update is called once per frame
     private void Update()
     {
-        if (isTimerOn)
-        {
-            timeInSeconds += Time.deltaTime;
+        if (!isTimerOn) return;
+        
+        timeInSeconds += Time.deltaTime;
             
-            var minutes = Mathf.FloorToInt(timeInSeconds / 60); 
-            var seconds = Mathf.FloorToInt(timeInSeconds % 60);
+        var minutes = Mathf.FloorToInt(timeInSeconds / 60); 
+        var seconds = Mathf.FloorToInt(timeInSeconds % 60);
 
-            timerValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+        timerValue.text = $"{minutes:00}:{seconds:00}";
     }
 }

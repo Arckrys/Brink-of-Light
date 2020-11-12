@@ -18,6 +18,8 @@ public class PlayerScript : Character
 
     [SerializeField] private bool isProjectilesDisabled;
 
+    private bool isInMenu = false;
+
     public float PlayerMaxLife
     {
         get => life.MyMaxValue;
@@ -43,10 +45,6 @@ public class PlayerScript : Character
     }
 
     private Animator movementAnimator;
-
-    [SerializeField] private GameObject razakusMenu;
-
-    private RazakusMenuScript razakusScript;
 
     public GameObject projectile;
     
@@ -83,13 +81,6 @@ public class PlayerScript : Character
     {
         movementAnimator = GetComponent<Animator>();
 
-        razakusScript = RazakusMenuScript.MyInstance;
-
-        if (razakusMenu.activeSelf)
-        {
-            razakusMenu.SetActive(!razakusMenu.activeSelf);
-        }
-
         base.Start();
 
         lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
@@ -114,33 +105,29 @@ public class PlayerScript : Character
     {
         direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+        if (!isInMenu)
         {
-            direction += Vector2.up;
+            if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+            {
+                direction += Vector2.up;
+            }
+            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                direction += Vector2.left;
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                direction += Vector2.down;
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                direction += Vector2.right;
+            }
         }
-        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            direction += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            direction += Vector2.right;
-        }
-
 
         if (Input.GetMouseButton(0) && !isAttacking && !isProjectilesDisabled)
         {
             FireProjectile();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) && isProjectilesDisabled)
-        {
-            razakusScript.InitUI();
-            razakusMenu.SetActive(!razakusMenu.activeSelf);
         }
     }
 
@@ -287,7 +274,7 @@ public class PlayerScript : Character
         movementAnimator.SetLayerWeight(movementAnimator.GetLayerIndex(layerName), 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Enemy") || isInvincible) return;
 
@@ -297,5 +284,15 @@ public class PlayerScript : Character
         PlayerCurrentLife -= damageReceived;
         
         CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
+    }
+
+    public void SetIsInMenu(bool b)
+    {
+        isInMenu = b;
+    }
+
+    public bool GetIsInMenu()
+    {
+        return isInMenu;
     }
 }

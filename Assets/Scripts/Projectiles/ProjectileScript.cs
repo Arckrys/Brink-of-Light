@@ -132,10 +132,6 @@ public class ProjectileScript : MonoBehaviour
                     //round damage to 0.5
                     float newDamage = Mathf.Round(damageMultiplier * projectileBaseDamage * 2) / 2;
 
-                    Debug.Log("base damage : " + projectileBaseDamage);
-                    Debug.Log("multiplier : " + damageMultiplier);
-                    Debug.Log("new damage : " + newDamage);
-
                     //projectile distance damage multiplier is forced between 0.5 and 2 times the base damage
                     if (newDamage < projectileBaseDamage / 2)
                         newDamage = projectileBaseDamage / 2;
