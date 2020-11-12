@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrenciesScript : MonoBehaviour
 {
@@ -26,8 +27,8 @@ public class CurrenciesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soulsAmount = 1505;
-        goldAmount = 0;
+        setSoulsNumber(1505);
+        setGoldValue(0);
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class CurrenciesScript : MonoBehaviour
     public void setSoulsNumber (int soulsNumber)
     {
         this.soulsAmount = soulsNumber;
+        GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
     }
 
     public int getSoulsNumber()
@@ -54,6 +56,7 @@ public class CurrenciesScript : MonoBehaviour
     public void setGoldValue(int goldValue)
     {
         this.goldAmount = goldValue;
+        GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
     }
 
     public int getGoldValue()
