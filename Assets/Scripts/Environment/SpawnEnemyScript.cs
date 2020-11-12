@@ -37,9 +37,6 @@ public class SpawnEnemyScript : MonoBehaviour
         {
             int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[level - 1];
 
-            print("enemy spawn probability : " + enemyProbability);
-            print("probability sum : " + probabilitySum);
-
             if (enemyProbability > 0)
             {
                 probabilitySum += enemyProbability;

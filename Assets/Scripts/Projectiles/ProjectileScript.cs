@@ -110,7 +110,7 @@ public class ProjectileScript : MonoBehaviour
                 spriteScaleX = transform.localScale.x;
                 spriteScaleY = transform.localScale.y;
 
-                //if projectile isn't to small
+                //if projectile isn't too small
                 if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
                     //reduce the scale of the projectile by projectileShrinkSpeed
