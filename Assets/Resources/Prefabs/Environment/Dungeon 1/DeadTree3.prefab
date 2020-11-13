@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3592190606807478219}
   - component: {fileID: 274110358319077822}
   - component: {fileID: 5319994058448190446}
+  - component: {fileID: 7663711869916199499}
   m_Layer: 0
   m_Name: DeadTree3
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d5aac0edc101bf448fcbf78c78eddcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -363,3 +364,40 @@ PolygonCollider2D:
       - {x: 0.505, y: -4.27}
       - {x: 0.505, y: -4.17}
       - {x: 0.45499998, y: -4.0699997}
+--- !u!114 &7663711869916199499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766551637045620699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
+  m_ShapePath:
+  - {x: -0.7800884, y: -2.9251914, z: 0}
+  - {x: 1.058363, y: -3.05439, z: 0}
+  - {x: 0.7374096, y: -2.366261, z: 0}
+  - {x: 0.8705225, y: -2.0197554, z: 0}
+  - {x: 0.8760958, y: -1.7423925, z: 0}
+  - {x: 0.92027855, y: -1.4533329, z: 0}
+  - {x: 0.8722801, y: -1.0770001, z: 0}
+  - {x: 1.1115646, y: -0.53855085, z: 0}
+  - {x: -0.66299343, y: -0.6712322, z: 0}
+  - {x: -0.5237293, y: -0.91971636, z: 0}
+  - {x: -0.4893303, y: -1.169786, z: 0}
+  - {x: -0.49564743, y: -1.3902903, z: 0}
+  - {x: -0.5218353, y: -1.5537615, z: 0}
+  - {x: -0.62533, y: -1.8662767, z: 0}
+  - {x: -0.9103718, y: -2.355052, z: 0}
+  m_ShapePathHash: 269613351
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -91384

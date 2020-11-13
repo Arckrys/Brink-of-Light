@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6838761918455233262}
   - component: {fileID: 1340475650494400838}
-  - component: {fileID: 2233166616342932815}
+  - component: {fileID: 4333700207278182364}
+  - component: {fileID: 4846783846911079382}
   m_Layer: 0
   m_Name: DeadTree1
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d5aac0edc101bf448fcbf78c78eddcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +84,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2233166616342932815
+--- !u!114 &4333700207278182364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183837825774259843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
+  m_ShapePath:
+  - {x: -1.0243149, y: -3.4082212, z: 0}
+  - {x: 1.3173943, y: -3.135356, z: 0}
+  - {x: 1.3918104, y: -2.6065264, z: 0}
+  - {x: 1.0926037, y: -1.9461975, z: 0}
+  - {x: 0.6162348, y: -1.4539089, z: 0}
+  - {x: 0.33743763, y: -1.0979185, z: 0}
+  - {x: 0.18268585, y: -0.8192625, z: 0}
+  - {x: 0.14918137, y: -0.5914974, z: 0}
+  - {x: 0.16066551, y: -0.14988613, z: 0}
+  - {x: -1.5593548, y: -0.3836298, z: 0}
+  - {x: -1.6358709, y: -0.9421005, z: 0}
+  - {x: -1.4515901, y: -1.4572678, z: 0}
+  - {x: -1.0235825, y: -1.955842, z: 0}
+  - {x: -0.8647418, y: -2.2266722, z: 0}
+  - {x: -0.822803, y: -2.3869038, z: 0}
+  - {x: -0.83369446, y: -2.503664, z: 0}
+  - {x: -0.8534503, y: -2.6771698, z: 0}
+  - {x: -0.93194485, y: -2.7962685, z: 0}
+  m_ShapePathHash: 397355853
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -80382
+--- !u!60 &4846783846911079382
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

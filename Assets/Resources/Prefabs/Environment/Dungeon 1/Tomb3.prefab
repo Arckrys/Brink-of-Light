@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6498276270686748584}
   - component: {fileID: 1259220026411600411}
   - component: {fileID: 7983828756743355642}
+  - component: {fileID: 8160050588989008999}
   m_Layer: 0
   m_Name: Tomb3
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d5aac0edc101bf448fcbf78c78eddcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,3 +154,41 @@ PolygonCollider2D:
       - {x: 0.32999998, y: -1.385}
       - {x: 0.37, y: -1.125}
       - {x: 0.37, y: -0.865}
+--- !u!114 &8160050588989008999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159354795954804674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
+  m_ShapePath:
+  - {x: -0.7983459, y: -1.4249144, z: 0}
+  - {x: 0.33183086, y: -1.4300427, z: 0}
+  - {x: 0.37254083, y: -0.86010075, z: 0}
+  - {x: 0.15881228, y: -0.5344186, z: 0}
+  - {x: 0.2605878, y: 0.31031632, z: 0}
+  - {x: 0.78981984, y: 0.1983645, z: 0}
+  - {x: 0.789821, y: 0.8700826, z: 0}
+  - {x: 0.24023283, y: 0.8497288, z: 0}
+  - {x: 0.4030733, y: 1.399317, z: 0}
+  - {x: -0.1465149, y: 1.4705589, z: 0}
+  - {x: -0.20757985, y: 0.9209707, z: 0}
+  - {x: -0.726635, y: 1.1041667, z: 0}
+  - {x: -0.7893534, y: 0.40704274, z: 0}
+  - {x: -0.27029824, y: 0.41733646, z: 0}
+  - {x: -0.4314859, y: -0.5038855, z: 0}
+  - {x: -0.76781285, y: -0.67166066, z: 0}
+  m_ShapePathHash: 1306198897
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -38558

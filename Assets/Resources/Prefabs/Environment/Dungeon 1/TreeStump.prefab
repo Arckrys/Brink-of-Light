@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3449310585767222809}
   - component: {fileID: 3449310585767222808}
   - component: {fileID: 3449310585767222807}
+  - component: {fileID: 3692252576049536298}
   m_Layer: 0
   m_Name: TreeStump
   m_TagString: Untagged
@@ -192,3 +193,38 @@ PolygonCollider2D:
       - {x: -0.065, y: -1.245}
       - {x: 0.095, y: -1.0749999}
       - {x: 0.21499999, y: -1.035}
+--- !u!114 &3692252576049536298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449310585767222806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
+  m_ShapePath:
+  - {x: -0.90582055, y: -0.6079502, z: 0}
+  - {x: 0.85094285, y: -0.48975182, z: 0}
+  - {x: 0.7468997, y: 0.8137598, z: 0}
+  - {x: 0.6709151, y: 0.9699507, z: 0}
+  - {x: 0.56960225, y: 1.1092558, z: 0}
+  - {x: 0.45984685, y: 1.168355, z: 0}
+  - {x: 0.3500911, y: 1.1050348, z: 0}
+  - {x: 0.2276715, y: 1.2232332, z: 0}
+  - {x: -0.47878826, y: 1.2242708, z: 0}
+  - {x: -0.65675974, y: 1.0511942, z: 0}
+  - {x: -0.8107852, y: 0.9910574, z: 0}
+  - {x: -0.89521265, y: 0.8517523, z: 0}
+  - {x: -0.8796384, y: 0.10747242, z: 0}
+  m_ShapePathHash: 1998574815
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -116752

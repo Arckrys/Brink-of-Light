@@ -29,7 +29,7 @@ public class CombustibleScript : MonoBehaviour
         combustibleAnimator.SetBool("isLit", isLit);
     }
 
-    void OnTriggerEnter2D(Collider2D other) // Triggered when a rigidBody touches the collider
+    void OnTriggerStay2D(Collider2D other) // Triggered when a rigidBody touches the collider
     {
         if (other.gameObject.CompareTag("Player") && isLit)
         {
@@ -40,9 +40,10 @@ public class CombustibleScript : MonoBehaviour
             //Destroy(collider);
 
             if(isDestroyedAfterFire)
-                Destroy(GetComponent<PolygonCollider2D>());
+                Destroy(combustibleAnimator.GetComponent<PolygonCollider2D>());
         }
-        else if(other.gameObject.CompareTag("Spell") && !isLit && !hasHealedPlayer)
+        
+        if(other.gameObject.CompareTag("Spell") && !isLit && !hasHealedPlayer)
         {
             isLit = true;
             //Destroy(collider);
