@@ -206,7 +206,7 @@ MonoBehaviour:
   levelThreeSpawnProbability: 20
   levelFourSpawnProbability: 33
   dashDistance: 70
-  dashSpeedMultiplicator: 55
+  dashSpeedMultiplicator: 5
   dashRestingTime: 100
 --- !u!1001 &8758933973535977815
 PrefabInstance:
