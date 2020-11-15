@@ -44,6 +44,7 @@ class DashScript : BasicEnemyController
 
                     movementSpeed.MyMaxValue *= dashSpeedMultiplicator;
                     direction = player.position - transform.position;
+                    FaceDirection(direction, gfxAnim);
                     dashCounter = dashDistance;
                     dashing = true;
                     gfxAnim.SetBool("Dashing", true);
@@ -59,7 +60,7 @@ class DashScript : BasicEnemyController
                     dashResting = true;
                     dashRestingCounter = dashRestingTime;
                     movementSpeed.MyMaxValue /= dashSpeedMultiplicator;
-                    direction = player.position - transform.position * 0;
+                    direction = (player.position - transform.position) * 0;
                 }
 
                 if (dashCounter > 0)
