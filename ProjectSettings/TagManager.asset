@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Spell
+  - Razakus
+  - Igeirus
+  - Urbius
   layers:
   - Default
   - TransparentFX

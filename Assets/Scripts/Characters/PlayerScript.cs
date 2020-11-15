@@ -9,6 +9,24 @@ public class PlayerScript : Character
     [SerializeField] public StatField invincibilityTime;
 
     [SerializeField] private float initInvincibilityTime;
+
+    [SerializeField] private int levelIgeirus;
+
+    public int MyIgeirusLevel
+    {
+        get => levelIgeirus;
+        
+        set => levelIgeirus += 1;
+    }
+    
+    [SerializeField] private int levelUrbius;
+
+    public int MyUrbiusLevel
+    {
+        get => levelUrbius;
+        
+        set => levelUrbius += 1;
+    }
     
     private bool isInvincible;
     
