@@ -51,6 +51,7 @@ public class CurrenciesScript : MonoBehaviour
     public void addSouls(int soulsToAdd)
     {
         soulsAmount += soulsToAdd;
+        GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
     }
 
     public void setGoldValue(int goldValue)
@@ -67,6 +68,7 @@ public class CurrenciesScript : MonoBehaviour
     public void addGold(int goldToAdd)
     {
         goldAmount += goldToAdd;
+        GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
     }
 
     public bool purchaseForGold(int goldCost)

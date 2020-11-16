@@ -123,7 +123,7 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 1
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 2
+  initMovementSpeed: 3
   critChance: {fileID: 0}
   initCritChance: 50
   critDamage: {fileID: 0}
@@ -136,9 +136,10 @@ MonoBehaviour:
   initKnockback: 5
   invincibilityTime: {fileID: 0}
   initInvincibilityTime: 0.5
+  levelIgeirus: 0
+  levelUrbius: 0
   lifeBar: {fileID: 0}
-  isProjectilesDisabled: 0
-  razakusMenu: {fileID: 0}
+  isProjectilesDisabled: 1
   projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
   mouseTimeDirection: 1
 --- !u!114 &5267086061324552191

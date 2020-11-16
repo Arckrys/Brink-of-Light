@@ -12,11 +12,13 @@ public class SellerMenuScript : MonoBehaviour
     
     [SerializeField] private Text description;
 
-    private NPCName name;
+    [SerializeField] private Button btnUpdate;
 
-    public NPCName MyName
+    private NPCName sellerName;
+
+    public NPCName MySellerName
     {
-        set => name = value;
+        set => sellerName = value;
     }
 
     private static SellerMenuScript _instance;
@@ -37,6 +39,8 @@ public class SellerMenuScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        btnUpdate.GetComponent<Button>().onClick.AddListener(OnUpdatePressed);
+        
         gameObject.SetActive(false);
     }
 
@@ -44,7 +48,7 @@ public class SellerMenuScript : MonoBehaviour
     {
         var playerLevel = 0;
         
-        switch (name)
+        switch (sellerName)
         {
             case NPCName.Igeirus:
                 playerLevel = PlayerScript.MyInstance.MyIgeirusLevel;
@@ -66,5 +70,35 @@ public class SellerMenuScript : MonoBehaviour
         
         //Set Image -> Level
         //item.sprite = ...
+    }
+    
+    private static bool PurchaseSouls(int value)
+    {
+        return CurrenciesScript.MyInstance.purchaseForSouls(value);
+    }
+    
+    public void OnUpdatePressed()
+    {
+        switch (sellerName)
+        {
+            case NPCName.Igeirus:
+                if (PurchaseSouls(PlayerScript.MyInstance.MyIgeirusLevel * 50 + 50))
+                {
+                    PlayerScript.MyInstance.MyIgeirusLevel += 1;
+                    UpdateUI();
+                }
+                break;
+            case NPCName.Urbius:
+                if (PurchaseSouls(PlayerScript.MyInstance.MyUrbiusLevel * 50 + 50))
+                {
+                    PlayerScript.MyInstance.MyUrbiusLevel += 1;
+                    UpdateUI();
+                }
+                break;
+            case NPCName.Razakus:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }

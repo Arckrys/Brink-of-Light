@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4034360033426394546}
   - component: {fileID: 4756623745009482411}
   - component: {fileID: 4034360033426394544}
-  - component: {fileID: 4034360033426394551}
+  - component: {fileID: 1781528645}
   m_Layer: 8
   m_Name: Igeirus
   m_TagString: Igeirus
@@ -272,7 +272,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31686592, y: 0.46003765}
   m_EdgeRadius: 0
---- !u!114 &4034360033426394551
+--- !u!114 &1781528645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,10 +281,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4034360033426394545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f355f19882cd6419e1dec00f6221aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 0290308bbe95e4d5eaebc60e8dbda01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuGameObject: {fileID: 0}
+  menuGameObject: {fileID: 7935577860118144879, guid: 363585259480e4992b58a5996c56072b, type: 3}
+  sellerName: 1
 --- !u!1 &9069649485078888968
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,10 +108,10 @@ GameObject:
   - component: {fileID: 3178205640797909625}
   - component: {fileID: 6477654258940724576}
   - component: {fileID: 3178205640797909627}
-  - component: {fileID: 3178205640797909628}
+  - component: {fileID: 2336682059846718985}
   m_Layer: 8
-  m_Name: Razakus
-  m_TagString: Player
+  m_Name: VillageNpc
+  m_TagString: Razakus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,7 +272,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31686592, y: 0.46003765}
   m_EdgeRadius: 0
---- !u!114 &3178205640797909628
+--- !u!114 &2336682059846718985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,10 +281,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3178205640797909626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f355f19882cd6419e1dec00f6221aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 0290308bbe95e4d5eaebc60e8dbda01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuGameObject: {fileID: 0}
+  menuGameObject: {fileID: 8232620953945898655, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
+  sellerName: 0
 --- !u!1 &7366325506349841859
 GameObject:
   m_ObjectHideFlags: 0

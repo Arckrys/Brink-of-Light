@@ -6,24 +6,17 @@ public abstract class VillageNpcScript : MonoBehaviour
 {
     [SerializeField] protected GameObject menuGameObject;
 
-    protected NPCName? playerInRange;
+    [SerializeField] private NPCName sellerName;
+
+    protected NPCName SellerName => sellerName;
+
+    protected bool isInCollision;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
         
-        if (gameObject.CompareTag(NPCName.Razakus.ToString()))
-        {
-            playerInRange = NPCName.Razakus;
-        }
-        else if (gameObject.CompareTag(NPCName.Igeirus.ToString()))
-        {
-            playerInRange = NPCName.Igeirus;
-        }
-        else if (gameObject.CompareTag(NPCName.Urbius.ToString()))
-        {
-            playerInRange = NPCName.Urbius;
-        }
+        isInCollision = true;
 
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
     }
@@ -32,7 +25,7 @@ public abstract class VillageNpcScript : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player")) return;
         
-        playerInRange = null;
+        isInCollision = false;
 
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }

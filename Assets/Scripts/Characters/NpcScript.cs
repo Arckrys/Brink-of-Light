@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-public class RazakusNpcScript : VillageNpcScript
+public class NpcScript : VillageNpcScript
 {
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.E) || playerInRange == null) return;
-        
+        if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
+
         var isMenuActivated = menuGameObject.activeSelf;
 
         menuGameObject.SetActive(!menuGameObject.activeSelf);
 
-        if (!isMenuActivated && playerInRange != null)
+        if (!isMenuActivated)
         {
-            switch (playerInRange)
+            switch (SellerName)
             {
                 case NPCName.Razakus:
                     RazakusMenuScript.MyInstance.InitUI();
@@ -22,7 +22,7 @@ public class RazakusNpcScript : VillageNpcScript
                 case NPCName.Urbius:
                 {
                     var seller = SellerMenuScript.MyInstance;
-                    seller.MyName = (NPCName) playerInRange;
+                    seller.MySellerName = SellerName;
                     seller.UpdateUI();
                     break;
                 }
