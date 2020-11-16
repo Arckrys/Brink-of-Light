@@ -10,7 +10,7 @@ public class RazakusMenuScript : MonoBehaviour
     private readonly Dictionary<string, dynamic> StatsAndTexts = new Dictionary<string, dynamic>();
     private static RazakusMenuScript _instance;
 
-    //private string[] statNames = new string[] { "Attaque", "Vie", "Portee", "Vitesse", "VitesseAtk", "ChanceCrit", "DegatsCrit", "Recul" };
+    private string[] statNames = new string[] { "Attaque", "Vie", "Portee", "Vitesse", "VitesseAtk", "ChanceCrit", "DegatsCrit", "Recul" };
 
     [SerializeField] private Text AttaqueButton;
     [SerializeField] private Text VieButton;
@@ -76,6 +76,25 @@ public class RazakusMenuScript : MonoBehaviour
 
             return _instance;
         }
+    }
+
+    public double[] GetRazakusPurchases()
+    {
+        double[] purchases = new double[statNames.Length];
+        for(int i = 0; i < statNames.Length; i++)
+        {
+            purchases[i] = RazakusData[statNames[i]][0];
+        }
+        return purchases;
+    }
+
+    public void LoadRazakusData(double[] savedData)
+    {
+        for (int i = 0; i < statNames.Length; i++)
+        {
+            RazakusData[statNames[i]][0] = savedData[i];
+        }
+        InitUI();
     }
 
     public void InitUI()
