@@ -88,7 +88,7 @@ public class PlayerScript : Character
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
         // TODO : Temporaire
-        // TimerManager.MyInstance.MyTimer = true;
+        TimerManager.MyInstance.MyTimer = true;
     }
 
     // Update is called once per frame
