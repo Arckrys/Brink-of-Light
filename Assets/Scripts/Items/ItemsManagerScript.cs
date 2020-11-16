@@ -47,7 +47,7 @@ public class ItemsManagerScript : MonoBehaviour
 
         audio = GetComponent<AudioSource>();
 
-        ItemsTest();        
+        //ItemsTest();        
     }
 
     void Update()
@@ -71,6 +71,16 @@ public class ItemsManagerScript : MonoBehaviour
         string randomItem = itemList[Random.Range(0, itemList.Count)];
 
         return randomItem;
+    }
+
+    public List<string> GetItemsEquipmentList()
+    {
+        return itemsEquipmentList;
+    }
+
+    public List<string> GetItemsConsumableList()
+    {
+        return itemsConsumableList;
     }
 
     public void CreateEquipmentItem(Vector3 position, string itemName)
@@ -203,6 +213,10 @@ public class ItemsManagerScript : MonoBehaviour
                     {
                         StartCoroutine(enemy.GetComponent<Character>().StartDamageOnTime(1f, 10, 1f));
                     }
+                    break;
+
+                case "Fruit étrange":
+                    //A FAIRE
                     break;
 
                 default:
