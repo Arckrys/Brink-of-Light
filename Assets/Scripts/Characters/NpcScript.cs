@@ -2,7 +2,14 @@
 using UnityEngine;
 
 public class NpcScript : VillageNpcScript
-{
+{ 
+    private GameManager game;
+
+    private void Start()
+    {
+        game = GameManager.MyInstance;
+    }
+    
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
@@ -17,6 +24,7 @@ public class NpcScript : VillageNpcScript
             {
                 case NPCName.Razakus:
                     RazakusMenuScript.MyInstance.InitUI();
+                    game.LoadGame();
                     break;
                 case NPCName.Igeirus:
                 case NPCName.Urbius:
@@ -26,6 +34,21 @@ public class NpcScript : VillageNpcScript
                     seller.UpdateUI();
                     break;
                 }
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+        else
+        {
+            switch (SellerName)
+            {
+                case NPCName.Razakus:
+                    game.SaveGame();
+                    break;
+                case NPCName.Igeirus:
+                    break;
+                case NPCName.Urbius:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

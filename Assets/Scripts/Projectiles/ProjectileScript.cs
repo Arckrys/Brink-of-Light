@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
 public class ProjectileScript : MonoBehaviour
@@ -25,6 +26,7 @@ public class ProjectileScript : MonoBehaviour
     //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
 
+    private Light2D projectileLight;
     private SpriteRenderer spriteRenderer;
     private PolygonCollider2D collider;
     private Rigidbody2D rigidbody;
@@ -48,6 +50,8 @@ public class ProjectileScript : MonoBehaviour
         collider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 
         audio = GetComponent<AudioSource>();
+
+        projectileLight = GetComponent<Light2D>();
 
         initialZ = transform.position.z;
 
@@ -110,7 +114,7 @@ public class ProjectileScript : MonoBehaviour
                 spriteScaleX = transform.localScale.x;
                 spriteScaleY = transform.localScale.y;
 
-                //if projectile isn't to small
+                //if projectile isn't too small
                 if (spriteScaleX > 0.1 && spriteScaleY > 0.1)
                 {
                     //reduce the scale of the projectile by projectileShrinkSpeed
@@ -121,8 +125,12 @@ public class ProjectileScript : MonoBehaviour
 
                     Vector3 newScale = new Vector3(newX, newY, 0);
                     transform.localScale = newScale;
-
                     timeTemp = 0;
+
+                    if(newX < 1.5 && newY < 1.5)
+                    {
+                        projectileLight.pointLightOuterRadius = System.Math.Max(0, projectileLight.pointLightOuterRadius - 0.2f);
+                    }
 
                     //increase the shrink speed
                     projectileShrinkSpeed *= projectileShrinkAcceleration;

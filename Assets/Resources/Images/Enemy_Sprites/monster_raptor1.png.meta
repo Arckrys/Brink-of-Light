@@ -1,0 +1,574 @@
+fileFormatVersion: 2
+guid: 21cc209648252654aa609848b3554bff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3183819923023962626
+    second: monster_raptor1_0
+  - first:
+      213: 7698056830219161411
+    second: monster_raptor1_1
+  - first:
+      213: 6936525313484231291
+    second: monster_raptor1_2
+  - first:
+      213: 6904916748335780300
+    second: monster_raptor1_3
+  - first:
+      213: -2887828134567172619
+    second: monster_raptor1_4
+  - first:
+      213: -620516828604510461
+    second: monster_raptor1_5
+  - first:
+      213: 2062464967490292046
+    second: monster_raptor1_6
+  - first:
+      213: 8292702325382486724
+    second: monster_raptor1_7
+  - first:
+      213: 1964345278759373336
+    second: monster_raptor1_8
+  - first:
+      213: -8180087406920989433
+    second: monster_raptor1_9
+  - first:
+      213: 6232387501325726377
+    second: monster_raptor1_10
+  - first:
+      213: -6548811750856253950
+    second: monster_raptor1_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: monster_raptor1_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 150
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 13}
+        - {x: -6.5, y: 1}
+        - {x: -10.5, y: -3}
+        - {x: -9.5, y: -7}
+        - {x: -5.5, y: -10}
+        - {x: 4.5, y: -11}
+        - {x: 7.5, y: -8}
+        - {x: 10.5, y: -5}
+        - {x: 10.5, y: -3}
+        - {x: 6.5, y: 1}
+        - {x: 5.5, y: 13}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202a7a4f9533f2c20800000000000000
+      internalID: 3183819923023962626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 150
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.5, y: 11.5}
+        - {x: 3.5, y: 14.5}
+        - {x: -4.5, y: 14.5}
+        - {x: -6.5, y: 11.5}
+        - {x: -6.5, y: 2.5}
+        - {x: -10.5, y: -3.5}
+        - {x: -7.5, y: -8.5}
+        - {x: -6.5, y: -11.5}
+        - {x: 7.5, y: -11.5}
+        - {x: 7.5, y: -8.5}
+        - {x: 10.5, y: -4.5}
+        - {x: 10.5, y: -2.5}
+        - {x: 6.5, y: 1.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f8bf9a6edf4da60800000000000000
+      internalID: 7698056830219161411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 150
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 6.5, y: 11}
+        - {x: 4.5, y: 14}
+        - {x: -4.5, y: 14}
+        - {x: -6.5, y: 12}
+        - {x: -6.5, y: 2}
+        - {x: -10.5, y: -4}
+        - {x: -7.5, y: -8}
+        - {x: -4.5, y: -6}
+        - {x: -4.5, y: -11}
+        - {x: 5.5, y: -10}
+        - {x: 5.5, y: -7}
+        - {x: 10.5, y: -6}
+        - {x: 10.5, y: -3}
+        - {x: 6.5, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b729bb5750d734060800000000000000
+      internalID: 6936525313484231291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 100
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 20, y: 4.5}
+        - {x: 7, y: 4.5}
+        - {x: -2, y: 6.5}
+        - {x: -5, y: 12.5}
+        - {x: -12, y: 12.5}
+        - {x: -20, y: 4.5}
+        - {x: -20, y: 0.5}
+        - {x: -18, y: -1.5}
+        - {x: -9, y: -0.5}
+        - {x: -10, y: -5.5}
+        - {x: -6, y: -7.5}
+        - {x: -5, y: -8.5}
+        - {x: -2, y: -8.5}
+        - {x: 1, y: -4.5}
+        - {x: 4, y: -7.5}
+        - {x: 4, y: -9.5}
+        - {x: 7, y: -9.5}
+        - {x: 9, y: -6.5}
+        - {x: 6, y: -2.5}
+        - {x: 11, y: -0.5}
+        - {x: 20, y: 2.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc11334e23133df50800000000000000
+      internalID: 6904916748335780300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 100
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 6}
+        - {x: -5, y: 13}
+        - {x: -11, y: 13}
+        - {x: -20, y: 4}
+        - {x: -18, y: -1}
+        - {x: -7, y: 1}
+        - {x: -10, y: -5}
+        - {x: -6, y: -7}
+        - {x: -4, y: -10}
+        - {x: 2, y: -10}
+        - {x: 5, y: -3}
+        - {x: 11, y: 0}
+        - {x: 20, y: 3}
+        - {x: 20, y: 5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5aebaac9f5ce7d0800000000000000
+      internalID: -2887828134567172619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 100
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: 7.5}
+        - {x: -5, y: 12.5}
+        - {x: -11, y: 12.5}
+        - {x: -20, y: 4.5}
+        - {x: -20, y: 1.5}
+        - {x: -18, y: -1.5}
+        - {x: -9, y: -0.5}
+        - {x: -10, y: -5.5}
+        - {x: -7, y: -9.5}
+        - {x: -2, y: -9.5}
+        - {x: 5, y: -8.5}
+        - {x: 6, y: -3.5}
+        - {x: 19, y: 1.5}
+        - {x: 20, y: 4.5}
+        - {x: 6, y: 4.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f40e56b3b7367f0800000000000000
+      internalID: -620516828604510461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 50
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5, y: 12.5}
+        - {x: 1, y: 5.5}
+        - {x: -20, y: 4.5}
+        - {x: -20, y: 2.5}
+        - {x: -4, y: -3.5}
+        - {x: -6, y: -7.5}
+        - {x: -5, y: -8.5}
+        - {x: 7, y: -9.5}
+        - {x: 9, y: -0.5}
+        - {x: 17, y: -1.5}
+        - {x: 20, y: 1.5}
+        - {x: 20, y: 3.5}
+        - {x: 12, y: 12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4942f4e5f85f9c10800000000000000
+      internalID: 2062464967490292046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_7
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 50
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 5, y: 13}
+        - {x: 2, y: 6}
+        - {x: -20, y: 5}
+        - {x: -20, y: 3}
+        - {x: -4, y: -2}
+        - {x: -4, y: -7}
+        - {x: -2, y: -10}
+        - {x: 4, y: -10}
+        - {x: 10, y: -4}
+        - {x: 9, y: 0}
+        - {x: 17, y: -1}
+        - {x: 20, y: 4}
+        - {x: 11, y: 13}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca9a7c04d8951370800000000000000
+      internalID: 8292702325382486724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 50
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 11, y: 12.5}
+        - {x: 5, y: 12.5}
+        - {x: 1, y: 5.5}
+        - {x: -20, y: 4.5}
+        - {x: -20, y: 2.5}
+        - {x: -6, y: -2.5}
+        - {x: -9.331345, y: -5.913311}
+        - {x: -7, y: -9.5}
+        - {x: -4, y: -9.5}
+        - {x: -1, y: -3.5}
+        - {x: 2, y: -8.5}
+        - {x: 5, y: -8.5}
+        - {x: 10, y: -4.5}
+        - {x: 8, y: -0.5}
+        - {x: 17, y: -1.5}
+        - {x: 20, y: 0.5}
+        - {x: 20, y: 3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a0bac9f91c24b10800000000000000
+      internalID: 1964345278759373336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 14}
+        - {x: -6.5, y: 11}
+        - {x: -6.5, y: 1}
+        - {x: -10.5, y: -4}
+        - {x: -8.5, y: -7}
+        - {x: -6.5, y: -7}
+        - {x: -1.5, y: -13}
+        - {x: 1.5, y: -13}
+        - {x: 2.5, y: -11}
+        - {x: 6.5, y: -11}
+        - {x: 6.5, y: -7}
+        - {x: 10.5, y: -6}
+        - {x: 10.5, y: -3}
+        - {x: 6.5, y: 1}
+        - {x: 6.5, y: 11}
+        - {x: 4.5, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70504d6e7dd7a7e80800000000000000
+      internalID: -8180087406920989433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: 14.5}
+        - {x: -6.5, y: 11.5}
+        - {x: -6.5, y: 1.5}
+        - {x: -10.5, y: -3.5}
+        - {x: -10.5, y: -4.5}
+        - {x: -6.5, y: -7.5}
+        - {x: -7.5, y: -11.5}
+        - {x: -1.5, y: -12.5}
+        - {x: 1.5, y: -12.5}
+        - {x: 7.5, y: -11.5}
+        - {x: 7.5, y: -7.5}
+        - {x: 10.5, y: -4.5}
+        - {x: 10.5, y: -2.5}
+        - {x: 6.5, y: 1.5}
+        - {x: 6.5, y: 11.5}
+        - {x: 4.5, y: 14.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2ba1f6963ed7650800000000000000
+      internalID: 6232387501325726377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monster_raptor1_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 14}
+        - {x: -6.5, y: 11}
+        - {x: -6.5, y: 1}
+        - {x: -10.5, y: -3}
+        - {x: -10.5, y: -5}
+        - {x: -8.5, y: -7}
+        - {x: -5.5, y: -7}
+        - {x: -5.5, y: -11}
+        - {x: -2.5, y: -11}
+        - {x: -1.5, y: -13}
+        - {x: 1.5, y: -13}
+        - {x: 6.5, y: -7}
+        - {x: 10.5, y: -6}
+        - {x: 10.5, y: -4}
+        - {x: 6.5, y: 1}
+        - {x: 6.5, y: 11}
+        - {x: 4.5, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e1f41e862fd15a0800000000000000
+      internalID: -6548811750856253950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
