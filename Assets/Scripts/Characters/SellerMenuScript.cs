@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,8 @@ public class SellerMenuScript : MonoBehaviour
     [SerializeField] private Text description;
 
     [SerializeField] private Button btnUpdate;
+    
+    [SerializeField] private Text congrats;
 
     private NPCName sellerName;
 
@@ -39,9 +43,32 @@ public class SellerMenuScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        btnUpdate.GetComponent<Button>().onClick.AddListener(OnUpdatePressed);
+        btnUpdate.onClick.AddListener(OnUpdatePressed);
         
         gameObject.SetActive(false);
+    }
+
+    private bool IsMaxLevel(int currentLevel, ICollection items)
+    {
+        return currentLevel == items.Count;
+    }
+
+    private void HideAll()
+    {
+        title.gameObject.SetActive(false);
+        price.gameObject.SetActive(false);
+        btnUpdate.gameObject.SetActive(false);
+        item.gameObject.SetActive(false);
+        description.gameObject.SetActive(false);
+    }
+    
+    private void ActiveAll()
+    {
+        title.gameObject.SetActive(true);
+        price.gameObject.SetActive(true);
+        btnUpdate.gameObject.SetActive(true);
+        item.gameObject.SetActive(true);
+        description.gameObject.SetActive(true);
     }
 
     public void UpdateUI()
@@ -52,13 +79,35 @@ public class SellerMenuScript : MonoBehaviour
         {
             case NPCName.Igeirus:
                 playerLevel = PlayerScript.MyInstance.MyIgeirusLevel;
-                title.text = "Igeirus le Forgeron";
-                description.text = "Item description";
+                if (IsMaxLevel(playerLevel, ItemsManagerScript.MyInstance.EquipmentItems))
+                {
+                    HideAll();
+                    congrats.gameObject.SetActive(true);
+                }
+                else
+                {
+                    congrats.gameObject.SetActive(false);
+                    ActiveAll();
+                    title.text = "Igeirus le Forgeron";
+                    description.text = "Item description";
+                    item.sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + ItemsManagerScript.MyInstance.EquipmentItems[playerLevel]);
+                }
                 break;
             case NPCName.Urbius:
                 playerLevel = PlayerScript.MyInstance.MyUrbiusLevel;
-                title.text = "Urbius l'Alchimiste";
-                description.text = "Potion description";
+                if (IsMaxLevel(playerLevel, ItemsManagerScript.MyInstance.ConsumableItems))
+                {
+                    HideAll();
+                    congrats.gameObject.SetActive(true);
+                }
+                else
+                {
+                    congrats.gameObject.SetActive(false);
+                    ActiveAll();
+                    title.text = "Urbius l'Alchimiste";
+                    description.text = "Potion description";
+                    item.sprite = Resources.Load<Sprite>("Images/Items/Consommable/" + ItemsManagerScript.MyInstance.ConsumableItems[playerLevel]);
+                }
                 break;
             case NPCName.Razakus:
                 break;
@@ -67,17 +116,14 @@ public class SellerMenuScript : MonoBehaviour
         }
         
         price.text = playerLevel * 50 + 50 + " Ames";
-        
-        //Set Image -> Level
-        //item.sprite = ...
     }
     
     private static bool PurchaseSouls(int value)
     {
         return CurrenciesScript.MyInstance.purchaseForSouls(value);
     }
-    
-    public void OnUpdatePressed()
+
+    private void OnUpdatePressed()
     {
         switch (sellerName)
         {
