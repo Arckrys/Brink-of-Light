@@ -28,7 +28,7 @@ public class CurrenciesScript : MonoBehaviour
     void Start()
     {
         setSoulsNumber(1505);
-        setGoldValue(0);
+        setGoldValue(25);
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class CurrenciesScript : MonoBehaviour
 
     public bool purchaseForGold(int goldCost)
     {
-        if (goldCost < this.goldAmount)
+        if (goldCost <= this.goldAmount)
         {
             addGold(-goldCost);
             return true;

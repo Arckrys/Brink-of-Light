@@ -17,37 +17,54 @@ public class ItemConsumableScript : Item
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (isItemSold)
+        {
+            //débite l'argent
+            if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().purchaseForGold(myGoldCost))
+                canBuyItem = true;
+        }
+
         string colliderName = other.gameObject.name;
 
-        if (colliderName == "Player" && timeSincePickup > 1.5f)
+        if (colliderName == "Player" && timeSincePickup > 1f)
         {
-            Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
-            image.sprite = itemSprite;
-            Color tempColor = image.color;
-            tempColor.a = 1f;
-            image.color = tempColor;
-
-            timeSincePickup = 0;
-
-            ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();            
-
-            if (itemsManager.PlayerConsumableItem == null)
-            {                
-                itemsManager.PlayerConsumableItem = itemName;
-                SetName(itemsManager.PlayerConsumableItem);
-                Destroy(gameObject);
-            }
-
-            else
+            if ((isItemSold && canBuyItem) || !isItemSold)
             {
-                string tempName;
+                if (isItemSold)
+                {
+                    transform.parent.gameObject.GetComponent<SpawnItemScript>().DestroyPriceText();
+                }
 
-                //swap player's consumable item with the one on the ground
-                tempName = itemName;
-                SetName(itemsManager.PlayerConsumableItem);
-                itemsManager.PlayerConsumableItem = tempName;    
+                isItemSold = false;
+
+                Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
+                image.sprite = itemSprite;
+                Color tempColor = image.color;
+                tempColor.a = 1f;
+                image.color = tempColor;
+
+                timeSincePickup = 0;
+
+                ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();
+
+                if (itemsManager.PlayerConsumableItem == null)
+                {
+                    itemsManager.PlayerConsumableItem = itemName;
+                    SetName(itemsManager.PlayerConsumableItem);
+                    Destroy(gameObject);
+                }
+
+                else
+                {
+                    string tempName;
+
+                    //swap player's consumable item with the one on the ground
+                    tempName = itemName;
+                    SetName(itemsManager.PlayerConsumableItem);
+                    itemsManager.PlayerConsumableItem = tempName;
+                }
             }
-        }
+        }        
     }
 
     private void FixedUpdate()

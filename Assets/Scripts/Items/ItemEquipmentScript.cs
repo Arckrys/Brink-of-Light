@@ -14,10 +14,22 @@ public class ItemEquipmentScript : Item
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (isItemSold)
+        {
+            //débite l'argent
+            if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().purchaseForGold(myGoldCost))
+                canBuyItem = true;
+        }
+
+        if (other.gameObject.name == "Player" && ((canBuyItem && isItemSold) || !isItemSold))
         {
             Destroy(gameObject);
             GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
+
+            if(isItemSold)
+            {
+                transform.parent.gameObject.GetComponent<SpawnItemScript>().DestroyPriceText();
+            }
         }
     }
 }

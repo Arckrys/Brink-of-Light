@@ -6,6 +6,9 @@ public class Item : MonoBehaviour
 {
     protected string itemName;
     protected Sprite itemSprite;
+    protected bool isItemSold = false;
+    protected bool canBuyItem = false;
+    protected int myGoldCost;
 
     public virtual void SetName(string itemName)
     {
@@ -15,6 +18,12 @@ public class Item : MonoBehaviour
     public string GetName()
     {
         return itemName;
+    }
+
+    public void SetIsItemSold(bool b, int cost)
+    {
+        isItemSold = b;
+        myGoldCost = cost;
     }
 
     protected void UpdatePolygonCollider()

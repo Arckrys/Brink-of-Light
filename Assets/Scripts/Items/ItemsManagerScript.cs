@@ -101,16 +101,20 @@ public class ItemsManagerScript : MonoBehaviour
         return itemsConsumableList;
     }
 
-    public void CreateEquipmentItem(Vector3 position, string itemName)
+    public GameObject CreateEquipmentItem(Vector3 position, string itemName)
     {
         GameObject newItem = Instantiate(itemEquipmentGameObject, position, Quaternion.identity);
         newItem.GetComponent<ItemEquipmentScript>().SetName(itemName);
+
+        return newItem;
     }
     
-    public void CreateConsumableItem(Vector3 position, string itemName)
+    public GameObject CreateConsumableItem(Vector3 position, string itemName)
     {
         GameObject newItem = Instantiate(itemConsumableGameObject, position, Quaternion.identity);
         newItem.GetComponent<ItemConsumableScript>().SetName(itemName);
+
+        return newItem;
     }
 
     public bool IsItemPossessed(string name)
