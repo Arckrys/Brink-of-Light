@@ -1,30 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+public enum NPCName {Razakus, Igeirus, Urbius}
 
 public abstract class VillageNpcScript : MonoBehaviour
 {
     [SerializeField] protected GameObject menuGameObject;
 
-    protected bool isPlayerInRange = false;
+    [SerializeField] private NPCName sellerName;
+
+    protected NPCName SellerName => sellerName;
+
+    protected bool isInCollision;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            isPlayerInRange = true;
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        isInCollision = true;
 
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        }
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            isPlayerInRange = false;
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        isInCollision = false;
 
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }

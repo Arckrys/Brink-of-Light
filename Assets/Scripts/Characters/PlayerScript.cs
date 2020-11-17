@@ -9,6 +9,24 @@ public class PlayerScript : Character
     [SerializeField] public StatField invincibilityTime;
 
     [SerializeField] private float initInvincibilityTime;
+
+    [SerializeField] private int levelIgeirus;
+
+    public int MyIgeirusLevel
+    {
+        get => levelIgeirus;
+
+        set => levelIgeirus = value;
+    }
+    
+    [SerializeField] private int levelUrbius;
+
+    public int MyUrbiusLevel
+    {
+        get => levelUrbius;
+        
+        set => levelUrbius = value;
+    }
     
     private bool isInvincible;
     
@@ -88,7 +106,7 @@ public class PlayerScript : Character
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
         // TODO : Temporaire
-        TimerManager.MyInstance.MyTimer = true;
+        if (!isProjectilesDisabled) TimerManager.MyInstance.MyTimer = true;
     }
 
     // Update is called once per frame

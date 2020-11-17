@@ -96,7 +96,8 @@ SpriteRenderer:
   m_SortingLayerID: -1670103393
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7467805150267820139, guid: f5400508742ac9e46800fb7e5305ad4f, type: 3}
+  m_Sprite: {fileID: -7467805150267820139, guid: f5400508742ac9e46800fb7e5305ad4f,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,9 +138,12 @@ MonoBehaviour:
   initKnockback: 5
   invincibilityTime: {fileID: 0}
   initInvincibilityTime: 0.5
+  levelIgeirus: 0
+  levelUrbius: 0
   lifeBar: {fileID: 0}
-  isProjectilesDisabled: 0
-  projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
+  isProjectilesDisabled: 1
+  projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54,
+    type: 3}
   mouseTimeDirection: 1
 --- !u!114 &5267086061324552191
 MonoBehaviour:

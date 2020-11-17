@@ -20,7 +20,6 @@ public class ItemsManagerScript : MonoBehaviour
     private List<string> possessedItems = new List<string>();
     private string consumableItem = null;
 
-
     //available items
     private List<string> itemsEquipmentList = new List<string> {        
         "Allumettes",
@@ -40,6 +39,25 @@ public class ItemsManagerScript : MonoBehaviour
         "Parchemin de feu",
         "Parchemin de froid"
     };
+
+    public List<string> EquipmentItems => itemsEquipmentList;
+    
+    public List<string> ConsumableItems => itemsConsumableList;
+    
+    private static ItemsManagerScript _instance;
+
+    public static ItemsManagerScript MyInstance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType<ItemsManagerScript>();
+            }
+
+            return _instance;
+        }
+    }
 
     void Start()
     {
