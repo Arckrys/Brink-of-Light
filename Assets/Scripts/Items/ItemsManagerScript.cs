@@ -14,6 +14,8 @@ public class ItemsManagerScript : MonoBehaviour
 
     [SerializeField] private AudioClip equipmentPickupClip, consumableTriggerClip;
 
+    [SerializeField] private GameObject combustibleGameObject;
+
     private static ItemsManagerScript instance;
 
     //à mettre sur playerscript
@@ -238,7 +240,18 @@ public class ItemsManagerScript : MonoBehaviour
                     break;
 
                 case "Fruit étrange":
-                    //A FAIRE
+                    StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartNotLosingHealthWhenAttacking(5f));
+                    break;
+
+                case "Silex":
+                    Vector2 playerPosition = PlayerScript.MyInstance.transform.position;
+
+                    //if the player is on the bottom half, spawn the combustible toward the top, else toward the bot
+                    float combustibleOffset = 0.8f;
+                    if (playerPosition.y > 0)
+                        combustibleOffset = -combustibleOffset;
+
+                    Instantiate(combustibleGameObject, new Vector2(playerPosition.x, playerPosition.y + combustibleOffset), Quaternion.identity);
                     break;
 
                 default:

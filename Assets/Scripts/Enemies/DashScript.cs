@@ -23,7 +23,7 @@ class DashScript : BasicEnemyController
     protected override void FixedUpdate()
     {
         Behaviour();
-        print(movementSpeed.MyCurrentValue);
+        //print(movementSpeed.MyCurrentValue);
         base.FixedUpdate();
     }
 

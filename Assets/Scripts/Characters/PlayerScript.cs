@@ -67,6 +67,7 @@ public class PlayerScript : Character
     public GameObject projectile;
     
     private bool isAttacking;
+    private bool isLosingHealthWhenAttacking = true;
 
     private Coroutine attackCoroutine;
 
@@ -188,7 +189,8 @@ public class PlayerScript : Character
         newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
         
         //player lose one health per shot
-        PlayerCurrentLife -= 1;
+        if (isLosingHealthWhenAttacking)
+            PlayerCurrentLife -= 1;
 
         if (mouseLookCoroutine != null)
         {
@@ -281,6 +283,18 @@ public class PlayerScript : Character
             StopCoroutine(invinsibleCoroutine);
         }
     }
+
+    public IEnumerator StartNotLosingHealthWhenAttacking(float secondsOfInvincibility)
+    {
+        isLosingHealthWhenAttacking = false;
+
+        yield return new WaitForSeconds(secondsOfInvincibility);
+
+        isLosingHealthWhenAttacking = true;
+
+        yield break;
+    }
+
 
     private void ActivateLayer(string layerName)
     {

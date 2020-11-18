@@ -49,6 +49,7 @@ MonoBehaviour:
   player: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
   equipmentPickupClip: {fileID: 8300000, guid: 94584f65f8d98e443964f0ed0756da1d, type: 3}
   consumableTriggerClip: {fileID: 8300000, guid: 5fb49c69a91801443a01d4e0f27eeeb0, type: 3}
+  combustibleGameObject: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
 --- !u!82 &935025563
 AudioSource:
   m_ObjectHideFlags: 0
