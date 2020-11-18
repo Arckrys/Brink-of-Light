@@ -43,7 +43,6 @@ public class SpawnEnemyScript : MonoBehaviour
 
                 if (randomInt < probabilitySum)
                 {
-                    print("spawning enemy");
                     Instantiate(o, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
                     break;
                 }

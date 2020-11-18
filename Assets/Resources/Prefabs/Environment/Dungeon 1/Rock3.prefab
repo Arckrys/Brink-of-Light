@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5176060811842683202}
   - component: {fileID: 3485278084869715992}
   - component: {fileID: 4600805141680942926}
+  - component: {fileID: -7405638645295757419}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d5aac0edc101bf448fcbf78c78eddcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,3 +137,42 @@ PolygonCollider2D:
       - {x: 0.65, y: -1.02}
       - {x: 0.83, y: -0.90999997}
       - {x: 1.01, y: -0.76}
+--- !u!114 &-7405638645295757419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135749689630659869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
+  m_ShapePath:
+  - {x: -0.95327806, y: -0.43301797, z: 0}
+  - {x: -0.8017559, y: -0.7068763, z: 0}
+  - {x: -0.5288882, y: -1.0187242, z: 0}
+  - {x: 0.2861719, y: -1.1427555, z: 0}
+  - {x: 0.8248191, y: -0.8309076, z: 0}
+  - {x: 0.9736376, y: -0.71396923, z: 0}
+  - {x: 0.97719955, y: -0.41983342, z: 0}
+  - {x: 0.945292, y: -0.033573866, z: 0}
+  - {x: 0.7087617, y: 0.2509215, z: 0}
+  - {x: 0.6901436, y: 0.79211617, z: 0}
+  - {x: 0.23300219, y: 1.1039641, z: 0}
+  - {x: 0.04253912, y: 1.1559405, z: 0}
+  - {x: -0.3021021, y: 1.1075082, z: 0}
+  - {x: -0.65206003, y: 1.0000172, z: 0}
+  - {x: -0.70605946, y: 0.85945153, z: 0}
+  - {x: -0.727324, y: 0.40939832, z: 0}
+  - {x: -0.97538424, y: 0.1577928, z: 0}
+  m_ShapePathHash: -646171473
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -269918
