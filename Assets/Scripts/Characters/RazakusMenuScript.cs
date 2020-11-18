@@ -46,7 +46,7 @@ public class RazakusMenuScript : MonoBehaviour
         RazakusData.Add("Vie",          new double[] { 0, 50, 50, 5 });
         RazakusData.Add("Portee",       new double[] { 0, 50, 50, 10 });
         RazakusData.Add("Vitesse",      new double[] { 0, 50, 50, 1 });
-        RazakusData.Add("VitesseAtk",   new double[] { 0, 50, 50, -0.1 });
+        RazakusData.Add("VitesseAtk",   new double[] { 0, 50, 50, 0.1 });
         RazakusData.Add("ChanceCrit",   new double[] { 0, 50, 100, 1 });
         RazakusData.Add("DegatsCrit",   new double[] { 0, 50, 100, 0.1 });
         RazakusData.Add("Recul",        new double[] { 0, 50, 100, 1 });

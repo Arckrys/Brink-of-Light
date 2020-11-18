@@ -250,7 +250,7 @@ public class PlayerScript : Character
     {
         isAttacking = true;
         
-        yield return new WaitForSeconds(attackSpeed.MyMaxValue);
+        yield return new WaitForSeconds(1 / attackSpeed.MyMaxValue);
         
         StopAttack();
     }

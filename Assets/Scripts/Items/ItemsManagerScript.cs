@@ -137,7 +137,7 @@ public class ItemsManagerScript : MonoBehaviour
         {
             //stat modifying items
             case "Allumettes":
-                PlayerScript.MyInstance.attackSpeed.MyMaxValue *= 0.5f;
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;
                 break;
 
             case "Amulette du dragon":
@@ -208,7 +208,7 @@ public class ItemsManagerScript : MonoBehaviour
             switch (consumableItem)
             {               
                 case "Potion de vitesse":
-                    PlayerScript.MyInstance.attackSpeed.MyMaxValue *= 0.75f;
+                    PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.75f;
                     PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
                     break;
 

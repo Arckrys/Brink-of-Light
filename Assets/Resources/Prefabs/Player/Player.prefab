@@ -132,7 +132,7 @@ MonoBehaviour:
   range: {fileID: 0}
   initRange: 30
   attackSpeed: {fileID: 0}
-  initAttackSpeed: 0.5
+  initAttackSpeed: 1
   knockback: {fileID: 0}
   initKnockback: 5
   invincibilityTime: {fileID: 0}
