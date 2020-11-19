@@ -17,17 +17,16 @@ public class ItemConsumableScript : Item
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isItemSold)
-        {
-            //débite l'argent
-            if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().purchaseForGold(myGoldCost))
-                canBuyItem = true;
-        }
-
         string colliderName = other.gameObject.name;
 
         if (colliderName == "Player" && timeSincePickup > 1f)
         {
+            if (isItemSold)
+            {
+                if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().purchaseForGold(myGoldCost))
+                    canBuyItem = true;
+            }
+
             if ((isItemSold && canBuyItem) || !isItemSold)
             {
                 if (isItemSold)

@@ -10,9 +10,12 @@ public class CurrenciesScript : MonoBehaviour
     
     private int soulsUpdate, goldUpdate;
 
-    private float incrementTime = 0.2f;
+    private float baseIncrementTime = 0.7f;
 
     private static CurrenciesScript _instance;
+
+    private bool isSoulsIncrementing = false; 
+    private bool isGoldIncrementing = false; 
 
     public static CurrenciesScript MyInstance
     {
@@ -45,24 +48,58 @@ public class CurrenciesScript : MonoBehaviour
 
     private IEnumerator GoldIncrement()
     {
-        while (goldUpdate > 0)
+        isGoldIncrementing = true;
+        float incrementTime = Math.Abs(baseIncrementTime / goldUpdate);
+
+        while (goldUpdate != 0)
         {
-            yield return new WaitForSeconds(incrementTime);
-            goldAmount += 1;
-            goldUpdate -= 1;
+            
+            if (goldUpdate > 0)
+            {
+                goldAmount += 1;
+                goldUpdate -= 1;
+            }
+
+            else
+            {
+                goldAmount -= 1;
+                goldUpdate += 1;
+            }
+            
             GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
+
+            yield return new WaitForSeconds(incrementTime);
         }
+
+        isGoldIncrementing = false;
     }
     
     private IEnumerator SoulIncrement()
     {
-        while (soulsUpdate > 0)
+        isSoulsIncrementing = true;
+        float incrementTime = Math.Abs(baseIncrementTime / soulsUpdate);
+
+        while (soulsUpdate != 0)
         {
-            yield return new WaitForSeconds(incrementTime);
-            soulsAmount += 1;
-            soulsUpdate -= 1;
+
+            if (soulsUpdate > 0)
+            {
+                soulsAmount += 1;
+                soulsUpdate -= 1;
+            }
+
+            else
+            {
+                soulsAmount -= 1;
+                soulsUpdate += 1;
+            }
+
             GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
+
+            yield return new WaitForSeconds(incrementTime);
         }
+
+        isSoulsIncrementing = false;
     }
 
     public void setSoulsNumber (int soulsNumber)
@@ -101,7 +138,7 @@ public class CurrenciesScript : MonoBehaviour
 
     public bool purchaseForGold(int goldCost)
     {
-        if (goldCost <= this.goldAmount)
+        if (goldCost <= this.goldAmount && !isGoldIncrementing)
         {
             addGold(-goldCost);
             return true;
@@ -114,7 +151,7 @@ public class CurrenciesScript : MonoBehaviour
 
     public bool purchaseForSouls(int soulsCost)
     {
-        if (soulsCost < this.soulsAmount)
+        if (soulsCost < this.soulsAmount && !isSoulsIncrementing)
         {
             addSouls(-soulsCost);
             return true;

@@ -69,10 +69,18 @@ public class BasicEnemyController : Character
             {
                 var position = transform.position;
                 AudioSource.PlayClipAtPoint(DyingSound, position);
-                
-                var itemType = Random.Range(0, 2);
+
+                //var itemType = Random.Range(0, 2);
+                var itemType = 0;
+
+                string randomConsumableItem = null;
+                int consumableItemProbability = Random.Range(0, 25);
+
+                if (consumableItemProbability == 0)
+                    randomConsumableItem = RandomItemDrop(itemType);
+
                 var loot = Instantiate(lootBag, position, Quaternion.identity);
-                loot.GetComponent<LootManager>().CreateBag(RandomItemDrop(itemType), itemType, Random.Range(0, 3), Random.Range(0, 6));
+                loot.GetComponent<LootManager>().CreateBag(randomConsumableItem, itemType, Random.Range(0, 3), Random.Range(0, 6));
                 
                 Destroy(gameObject);
             }
