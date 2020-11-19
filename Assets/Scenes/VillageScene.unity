@@ -4879,7 +4879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: isProjectilesDisabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initAttackSpeed
@@ -5449,7 +5449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232620954851523497, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdca37c3372a52d47b99cba6f6bfa71c, type: 3}
@@ -6083,7 +6083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7935577858459078339, guid: 363585259480e4992b58a5996c56072b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7935577858692704667, guid: 363585259480e4992b58a5996c56072b, type: 3}
       propertyPath: m_AnchorMax.x

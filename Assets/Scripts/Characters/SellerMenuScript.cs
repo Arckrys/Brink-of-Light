@@ -18,6 +18,14 @@ public class SellerMenuScript : MonoBehaviour
     
     [SerializeField] private Text congrats;
 
+    [SerializeField] private int initEquipmentItems;
+    
+    [SerializeField] private int initConsumableItems;
+
+    public int InitEquipmentItems => initEquipmentItems;
+    
+    public int InitConsumableItems => initConsumableItems;
+
     private NPCName sellerName;
 
     public NPCName MySellerName
@@ -79,7 +87,7 @@ public class SellerMenuScript : MonoBehaviour
         {
             case NPCName.Igeirus:
                 playerLevel = PlayerScript.MyInstance.MyIgeirusLevel;
-                if (IsMaxLevel(playerLevel, ItemsManagerScript.MyInstance.EquipmentItems))
+                if (IsMaxLevel(playerLevel + initEquipmentItems, ItemsManagerScript.MyInstance.EquipmentItems))
                 {
                     HideAll();
                     congrats.gameObject.SetActive(true);
@@ -89,13 +97,13 @@ public class SellerMenuScript : MonoBehaviour
                     congrats.gameObject.SetActive(false);
                     ActiveAll();
                     title.text = "Igeirus le Forgeron";
-                    description.text = "Item description";
-                    item.sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + ItemsManagerScript.MyInstance.EquipmentItems[playerLevel]);
+                    description.text = ItemsManagerScript.MyInstance.EquipmentItems[playerLevel + initEquipmentItems];
+                    item.sprite = Resources.Load<Sprite>("Images/Items/Equipment/" + ItemsManagerScript.MyInstance.EquipmentItems[playerLevel + initEquipmentItems]);
                 }
                 break;
             case NPCName.Urbius:
                 playerLevel = PlayerScript.MyInstance.MyUrbiusLevel;
-                if (IsMaxLevel(playerLevel, ItemsManagerScript.MyInstance.ConsumableItems))
+                if (IsMaxLevel(playerLevel + initConsumableItems, ItemsManagerScript.MyInstance.ConsumableItems))
                 {
                     HideAll();
                     congrats.gameObject.SetActive(true);
@@ -105,8 +113,8 @@ public class SellerMenuScript : MonoBehaviour
                     congrats.gameObject.SetActive(false);
                     ActiveAll();
                     title.text = "Urbius l'Alchimiste";
-                    description.text = "Potion description";
-                    item.sprite = Resources.Load<Sprite>("Images/Items/Consommable/" + ItemsManagerScript.MyInstance.ConsumableItems[playerLevel]);
+                    description.text = ItemsManagerScript.MyInstance.ConsumableItems[playerLevel + initConsumableItems];
+                    item.sprite = Resources.Load<Sprite>("Images/Items/Consommable/" + ItemsManagerScript.MyInstance.ConsumableItems[playerLevel + initConsumableItems]);
                 }
                 break;
             case NPCName.Razakus:
