@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class PlayerScript : Character
@@ -63,6 +64,7 @@ public class PlayerScript : Character
     }
 
     private Animator movementAnimator;
+    private Light2D light;
 
     public GameObject projectile;
     
@@ -103,6 +105,8 @@ public class PlayerScript : Character
         base.Start();
 
         lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
+
+        light = GetComponent<Light2D>();
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
@@ -326,5 +330,11 @@ public class PlayerScript : Character
     public bool GetIsInMenu()
     {
         return isInMenu;
+    }
+
+    public void SetPlayerLighting(float radius)
+    {
+        light.pointLightOuterRadius = radius;
+        light.pointLightInnerRadius = radius / 10;
     }
 }

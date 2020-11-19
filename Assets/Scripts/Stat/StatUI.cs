@@ -6,6 +6,8 @@ public class StatUI : StatManager
 {
     private Image content;
 
+    PlayerScript playerScript;
+
     [SerializeField] private bool scalable;
 
     [SerializeField] private bool filled;
@@ -32,6 +34,8 @@ public class StatUI : StatManager
                 scale.x = MyCurrentValue / MyMaxValue;
                 scale.y = MyCurrentValue / MyMaxValue;
 
+                UpdatePlayerLight(scale);
+
                 transform.localScale = scale;
             }
         }
@@ -42,5 +46,17 @@ public class StatUI : StatManager
         }
         
         base.UpdateUIStat();
+    }
+
+    protected void UpdatePlayerLight(Vector2 scale)
+    {
+        if (playerScript == null)
+            playerScript = PlayerScript.MyInstance;
+
+        // Outer radius is between 4 and 8
+        // Inner radius is between 0.4 and 0.8
+        playerScript.SetPlayerLighting(scale.x * 4 + 4);
+        
+
     }
 }
