@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class CurrenciesScript : MonoBehaviour
 {
+    [SerializeField] private int soulsAmount, goldAmount;
     
-    [SerializeField] int soulsAmount, goldAmount;
+    private int soulsUpdate, goldUpdate;
+
+    private float incrementTime = 0.2f;
 
     private static CurrenciesScript _instance;
 
@@ -27,6 +30,9 @@ public class CurrenciesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soulsUpdate = 0;
+        goldUpdate = 0;
+        
         setSoulsNumber(1505);
         setGoldValue(25);
     }
@@ -35,6 +41,28 @@ public class CurrenciesScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private IEnumerator GoldIncrement()
+    {
+        while (goldUpdate > 0)
+        {
+            yield return new WaitForSeconds(incrementTime);
+            goldAmount += 1;
+            goldUpdate -= 1;
+            GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
+        }
+    }
+    
+    private IEnumerator SoulIncrement()
+    {
+        while (soulsUpdate > 0)
+        {
+            yield return new WaitForSeconds(incrementTime);
+            soulsAmount += 1;
+            soulsUpdate -= 1;
+            GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
+        }
     }
 
     public void setSoulsNumber (int soulsNumber)
@@ -50,8 +78,8 @@ public class CurrenciesScript : MonoBehaviour
 
     public void addSouls(int soulsToAdd)
     {
-        soulsAmount += soulsToAdd;
-        GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
+        soulsUpdate += soulsToAdd;
+        StartCoroutine(SoulIncrement());
     }
 
     public void setGoldValue(int goldValue)
@@ -67,8 +95,8 @@ public class CurrenciesScript : MonoBehaviour
 
     public void addGold(int goldToAdd)
     {
-        goldAmount += goldToAdd;
-        GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
+        goldUpdate += goldToAdd;
+        StartCoroutine(GoldIncrement());
     }
 
     public bool purchaseForGold(int goldCost)

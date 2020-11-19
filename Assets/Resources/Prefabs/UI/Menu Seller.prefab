@@ -604,7 +604,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7935577859348742873}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.008255157
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1065,6 +1065,8 @@ MonoBehaviour:
   description: {fileID: 7935577859736650044}
   btnUpdate: {fileID: 7935577858492391154}
   congrats: {fileID: 296740409}
+  initEquipmentItems: 3
+  initConsumableItems: 2
 --- !u!1 &7935577860141780657
 GameObject:
   m_ObjectHideFlags: 0

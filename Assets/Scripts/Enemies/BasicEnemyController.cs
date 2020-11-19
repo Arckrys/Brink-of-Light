@@ -27,6 +27,8 @@ public class BasicEnemyController : Character
     [SerializeField] private int levelThreeSpawnProbability;
     [SerializeField] private int levelFourSpawnProbability;
 
+    [SerializeField] private GameObject lootBag;
+
     // Start is called before the first frame update
 
     protected override void Start()
@@ -65,7 +67,13 @@ public class BasicEnemyController : Character
 
             if(life.MyCurrentValue == 0)
             {
-                AudioSource.PlayClipAtPoint(DyingSound, transform.position);
+                var position = transform.position;
+                AudioSource.PlayClipAtPoint(DyingSound, position);
+                
+                var itemType = Random.Range(0, 2);
+                var loot = Instantiate(lootBag, position, Quaternion.identity);
+                loot.GetComponent<LootManager>().CreateBag(RandomItemDrop(itemType), itemType, Random.Range(0, 3), Random.Range(0, 6));
+                
                 Destroy(gameObject);
             }
             else
@@ -73,6 +81,13 @@ public class BasicEnemyController : Character
                 AudioSource.PlayClipAtPoint(Grunt, transform.position);
             }
         }
+    }
+
+    private string RandomItemDrop(int itemType)
+    {
+        var itemManager = ItemsManagerScript.MyInstance;
+        
+        return itemManager.SelectRandomItem(itemType > 0 ? itemManager.EquipmentItems : itemManager.ConsumableItems);
     }
 
     public void ShowLifeBar()

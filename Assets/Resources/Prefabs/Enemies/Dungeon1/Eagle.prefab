@@ -204,6 +204,7 @@ MonoBehaviour:
   levelTwoSpawnProbability: 33
   levelThreeSpawnProbability: 12
   levelFourSpawnProbability: 0
+  lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   dashDistance: 100
   dashSpeedMultiplicator: 3
   dashRestingTime: 100
