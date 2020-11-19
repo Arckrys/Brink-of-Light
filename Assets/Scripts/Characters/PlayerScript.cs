@@ -64,7 +64,7 @@ public class PlayerScript : Character
     }
 
     private Animator movementAnimator;
-    private Light2D light;
+    private Light2D light2D;
 
     public GameObject projectile;
     
@@ -106,7 +106,7 @@ public class PlayerScript : Character
 
         lifeBar.Initialized(life.MyMaxValue, life.MyMaxValue);
 
-        light = GetComponent<Light2D>();
+        light2D = GetComponent<Light2D>();
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
@@ -334,7 +334,23 @@ public class PlayerScript : Character
 
     public void SetPlayerLighting(float radius)
     {
-        light.pointLightOuterRadius = radius;
-        light.pointLightInnerRadius = radius / 10;
+        light2D.pointLightOuterRadius = radius;
+        light2D.pointLightInnerRadius = radius / 10;
     }
+
+    /*public float[] getStatMaxValues()
+    {
+        float[] playerStatMaxValues = new float[8];
+        playerStatMaxValues[0] = PlayerScript.MyInstance.attack.MyMaxValue;
+        playerStatMaxValues[1] = PlayerScript.MyInstance.life.MyMaxValue;
+        playerStatMaxValues[2] = PlayerScript.MyInstance.range.MyMaxValue;
+        playerStatMaxValues[3] = PlayerScript.MyInstance.movementSpeed.MyMaxValue;
+        playerStatMaxValues[4] = PlayerScript.MyInstance.attackSpeed.MyMaxValue;
+        playerStatMaxValues[5] = PlayerScript.MyInstance.critChance.MyMaxValue;
+        playerStatMaxValues[6] = PlayerScript.MyInstance.critDamage.MyMaxValue;
+        playerStatMaxValues[7] = PlayerScript.MyInstance.knockback.MyMaxValue;
+
+        return playerStatMaxValues;
+    }*/
+
 }
