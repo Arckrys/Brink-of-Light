@@ -11,12 +11,34 @@ public class GameManager : MonoBehaviour
 
     private float[] playerStatsData;
     private int[] currenciesData;
+    
+    [SerializeField] private GameObject closeDoors;
+    [SerializeField] private GameObject openDoors;
 
     private void Start()
     {
         razakusScript = RazakusMenuScript.MyInstance;
         playerScript = PlayerScript.MyInstance;
         currencyScript = CurrenciesScript.MyInstance;
+    }
+    
+    void Update()
+    {
+        UpdateDoorState();
+    }
+
+    private void UpdateDoorState()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        {
+            closeDoors.SetActive(false);
+            openDoors.SetActive(true);
+        }
+        else
+        {
+            closeDoors.SetActive(true);
+            openDoors.SetActive(false);
+        }
     }
 
     public static GameManager MyInstance

@@ -10,6 +10,7 @@ TagManager:
   - Igeirus
   - Urbius
   - Loot
+  - Door
   layers:
   - Default
   - TransparentFX
