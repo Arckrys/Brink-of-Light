@@ -24,7 +24,7 @@ public class NpcScript : VillageNpcScript
             {
                 case NPCName.Razakus:
                     RazakusMenuScript.MyInstance.InitUI();
-                    //game.LoadGame();
+                    game.LoadGame();
                     break;
                 case NPCName.Igeirus:
                 case NPCName.Urbius:
@@ -43,7 +43,7 @@ public class NpcScript : VillageNpcScript
             switch (SellerName)
             {
                 case NPCName.Razakus:
-                    //game.SaveGame();
+                    game.SaveGame();
                     break;
                 case NPCName.Igeirus:
                     break;
