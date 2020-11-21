@@ -142,7 +142,7 @@ public class BasicEnemyController : Character
             direction = randomDirection;
             FaceDirection(randomDirection,gfxAnim);
             wanderTimer = 0;
-            print(randomDirection);
+            //print(randomDirection);
         }
         else
         {

@@ -39,7 +39,7 @@ public class LootManager : MonoBehaviour
         soulAmount = soul;
         goldAmount = gold;
 
-        print(soulAmount);
-        print(goldAmount);
+        //print(soulAmount);
+        //print(goldAmount);
     }
 }

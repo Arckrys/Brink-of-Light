@@ -50,6 +50,8 @@ public class CanvasTransitionScript : MonoBehaviour
         //instantiate the next room
         Instantiate(nextRoom);
 
+        print(nextNode.GetCoord());
+
         //reposition the player to the correct place of the room where he should spawn
         UpdatePlayerPosition(spawnPointName);
 
