@@ -312,16 +312,28 @@ public class PlayerScript : Character
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Enemy") || isInvincible) return;
+        if (isInvincible) return;
 
-        invinsibleCoroutine = StartCoroutine(StartInvincibility());
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            invinsibleCoroutine = StartCoroutine(StartInvincibility());
 
-        var damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().attack.MyMaxValue;
-        PlayerCurrentLife -= damageReceived;
-        
-        CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
+            var damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().attack.MyMaxValue;
+            PlayerCurrentLife -= damageReceived;
+
+            CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
+        }
+
     }
 
+    public void ReceiveDmgFromProjectile(float damageReceived)
+    {
+        invinsibleCoroutine = StartCoroutine(StartInvincibility());
+        print("touched");
+        PlayerCurrentLife -= damageReceived;
+
+        CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
+    }
     public void SetIsInMenu(bool b)
     {
         isInMenu = b;

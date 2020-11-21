@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DownWalk 1
+  m_Name: Projectile Blast Blue
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,24 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -487967313718294480, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - time: 0.16666667
-      value: {fileID: -4806023566988031704, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - time: 0.33333334
-      value: {fileID: -4649174861842027462, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - time: 0.5
-      value: {fileID: -4806023566988031704, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
+      value: {fileID: 21300000, guid: 995e5f86db6f132468657be97b6c9fc3, type: 3}
+    - time: 0.05
+      value: {fileID: 21300000, guid: 1f6784f2f042f804a9860e997bafae35, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: 010c03de5b5ce5c4c9f6249bd8c04d6a, type: 3}
+    - time: 0.15
+      value: {fileID: 21300000, guid: 91effa780ddcce846b9c01f1f5f863b3, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 2930d498f7efbe24cace753ad47cc1d6, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 7b2fe79bba4068c439db5f4e39e4eee0, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: aa619ef2971e1c14d93ef4aa2e9bf9d1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 6
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +52,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -487967313718294480, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - {fileID: -4806023566988031704, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - {fileID: -4649174861842027462, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
-    - {fileID: -4806023566988031704, guid: 2bc3ac26bedee4643a035ecdba09d733, type: 3}
+    - {fileID: 21300000, guid: 995e5f86db6f132468657be97b6c9fc3, type: 3}
+    - {fileID: 21300000, guid: 1f6784f2f042f804a9860e997bafae35, type: 3}
+    - {fileID: 21300000, guid: 010c03de5b5ce5c4c9f6249bd8c04d6a, type: 3}
+    - {fileID: 21300000, guid: 91effa780ddcce846b9c01f1f5f863b3, type: 3}
+    - {fileID: 21300000, guid: 2930d498f7efbe24cace753ad47cc1d6, type: 3}
+    - {fileID: 21300000, guid: 7b2fe79bba4068c439db5f4e39e4eee0, type: 3}
+    - {fileID: 21300000, guid: aa619ef2971e1c14d93ef4aa2e9bf9d1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.35
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -74,4 +83,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.35
+    functionName: DestroyProjectile
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
