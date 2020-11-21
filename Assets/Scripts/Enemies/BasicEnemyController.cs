@@ -18,6 +18,7 @@ public class BasicEnemyController : Character
     protected int knockbackTimer;
     protected int wanderTimer;
     protected Vector2 randomDirection;
+    public GameObject projectile;
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
@@ -45,8 +46,10 @@ public class BasicEnemyController : Character
         base.Start();
     }
 
+    //Fonction qui défini la réaction du monstre en cas de collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Prise en charge des collision avec les projectiles du joueurs
         if (collision.gameObject.tag.Equals("Spell"))
         {
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
@@ -132,6 +135,38 @@ public class BasicEnemyController : Character
         StopCoroutine(lifeBarCoroutine);
     }
 
+    /// <summary>
+    /// Permet aux ennemies de tirer des projectiles dans une direction voulu
+    /// </summary>
+    /// <param name="direction">Direction du projectile</param>
+    protected void FireProjectileAtDirection(Vector2 direction)
+    {
+        var position = transform.position;
+
+        var projectileDirection = direction;
+
+        var randomNumber = Random.Range(0, 100);
+        var damageToDeal = attack.MyMaxValue;
+        var isCrit = false;
+
+        if (randomNumber <= critChance.MyMaxValue)
+        {
+            damageToDeal *= critDamage.MyMaxValue;
+            isCrit = true;
+        }
+
+        //create projectile
+        var newProjectile = Instantiate(projectile, new Vector3(position.x, position.y, -2), Quaternion.identity);
+        newProjectile.GetComponent<EnnemiesProjectileScript>().SetDirection(projectileDirection, position.x, position.y);
+        newProjectile.GetComponent<EnnemiesProjectileScript>().MyBaseDamage = damageToDeal;
+        newProjectile.GetComponent<EnnemiesProjectileScript>().MyKnockback = knockback.MyMaxValue;
+        newProjectile.GetComponent<EnnemiesProjectileScript>().isCrit = isCrit;
+    }
+
+
+    /// <summary>
+    /// fonction utilisé quand l'ennemi n'a pas encore détécté le joueur
+    /// </summary>
     protected void Wander()
     {
         if(wanderTimer >= 100)

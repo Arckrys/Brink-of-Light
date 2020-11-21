@@ -10,11 +10,12 @@ TagManager:
   - Igeirus
   - Urbius
   - Loot
+  - DoorDown
   - Door
   - DoorLeft
   - DoorUp
   - DoorRight
-  - DoorDown
+  - Projectile
   layers:
   - Default
   - TransparentFX
