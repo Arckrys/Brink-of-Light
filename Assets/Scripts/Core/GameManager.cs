@@ -29,16 +29,33 @@ public class GameManager : MonoBehaviour
 
     private void UpdateDoorState()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        if (closeDoors != null && openDoors != null)
         {
-            closeDoors.SetActive(false);
-            openDoors.SetActive(true);
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+            {
+                closeDoors.SetActive(false);
+                openDoors.SetActive(true);
+            }
+            else
+            {
+                closeDoors.SetActive(true);
+                openDoors.SetActive(false);
+            }
         }
+
         else
         {
-            closeDoors.SetActive(true);
-            openDoors.SetActive(false);
+            FindRoomDoors();
         }
+    }
+
+    //get the doors grids of the current room
+    public void FindRoomDoors()
+    {
+        closeDoors = GameObject.Find("BorderGridClose");
+        print(closeDoors);
+        openDoors = GameObject.Find("BorderGridOpen");
+        print(openDoors);
     }
 
     public static GameManager MyInstance

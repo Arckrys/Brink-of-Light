@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4111364122671969461}
   m_Layer: 0
   m_Name: RoomNESW
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9358,7 +9358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8997420764370312457
 Transform:
   m_ObjectHideFlags: 0

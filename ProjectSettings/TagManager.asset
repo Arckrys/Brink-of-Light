@@ -15,6 +15,7 @@ TagManager:
   - DoorUp
   - DoorRight
   - DoorDown
+  - Room
   layers:
   - Default
   - TransparentFX
