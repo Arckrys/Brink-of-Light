@@ -11,6 +11,10 @@ TagManager:
   - Urbius
   - Loot
   - Door
+  - DoorLeft
+  - DoorUp
+  - DoorRight
+  - DoorDown
   layers:
   - Default
   - TransparentFX
