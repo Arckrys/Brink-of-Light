@@ -80,6 +80,7 @@ public class BasicEnemyController : Character
                     randomConsumableItem = RandomItemDrop(itemType);
 
                 var loot = Instantiate(lootBag, position, Quaternion.identity);
+                loot.transform.parent = this.transform.parent;
                 loot.GetComponent<LootManager>().CreateBag(randomConsumableItem, itemType, Random.Range(0, 3), Random.Range(0, 6));
                 
                 Destroy(gameObject);

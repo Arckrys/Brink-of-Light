@@ -8,10 +8,11 @@ public class ExitManager : MonoBehaviour
 
     [SerializeField] private GameObject transitionSpawn;
 
+    /*
     public void UpdatePlayerPosition()
     {
         PlayerScript.MyInstance.transform.position = transitionSpawn.transform.position;
-    }
+    }*/
 
     private void Start()
     {

@@ -53,9 +53,7 @@ public class GameManager : MonoBehaviour
     public void FindRoomDoors()
     {
         closeDoors = GameObject.Find("BorderGridClose");
-        print(closeDoors);
         openDoors = GameObject.Find("BorderGridOpen");
-        print(openDoors);
     }
 
     public static GameManager MyInstance

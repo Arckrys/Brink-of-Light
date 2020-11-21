@@ -15,16 +15,43 @@ public class CanvasTransitionScript : MonoBehaviour
             canvasGroup.alpha += 0.1f;
         }
 
-        //reposition the player to the correct place of the room where he should spawn
-        exitDoor.GetComponent<ExitManager>().UpdatePlayerPosition();
-
         //destroy the current room - we will need to store it before destroying it to keep the state of the room if the player come back in it later
         Destroy(GameObject.FindGameObjectWithTag("Room"));
 
+        //get the next room direction
+        FloorNode.directionEnum direction = FloorNode.directionEnum.north;
+        string spawnPointName = "SpawnDown";
+
+        if (exitDoor.tag == "DoorRight")
+        {
+            direction = FloorNode.directionEnum.east;
+            spawnPointName = "SpawnLeft";
+        }
+        if (exitDoor.tag == "DoorDown")
+        {
+            direction = FloorNode.directionEnum.south;
+            spawnPointName = "SpawnUp";
+        }
+        if (exitDoor.tag == "DoorLeft")
+        {
+            direction = FloorNode.directionEnum.west;
+            spawnPointName = "SpawnRight";
+        }
+
+        print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
+        print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
+
+        FloorNode nextNode = DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction);
+
+        Object nextRoom = nextNode.GetRoom();
+
+        DungeonFloorScript.MyInstance.SetCurrentNode(nextNode);
+
         //instantiate the next room
-        Instantiate(Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/RoomS"));
+        Instantiate(nextRoom);
 
-
+        //reposition the player to the correct place of the room where he should spawn
+        UpdatePlayerPosition(spawnPointName);
 
         StartCoroutine(FadeOut());
     }
@@ -37,5 +64,10 @@ public class CanvasTransitionScript : MonoBehaviour
             yield return new WaitForSeconds(transitionSpeed);
             canvasGroup.alpha -= 0.1f;
         }
+    }
+
+    public void UpdatePlayerPosition(string spawnPointName)
+    {
+        PlayerScript.MyInstance.transform.position = GameObject.Find(spawnPointName).transform.position;
     }
 }
