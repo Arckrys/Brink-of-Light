@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UpKnockBack 2
+  m_Name: DownKnockBack 2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,6 +22,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.071428575
         value: 1
         inSlope: 0
         outSlope: 0
@@ -123,9 +132,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3855450653017886650, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
+      value: {fileID: 6987079933735496018, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
     - time: 0.071428575
-      value: {fileID: 3855450653017886650, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
+      value: {fileID: 6987079933735496018, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -173,8 +182,8 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 3855450653017886650, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
-    - {fileID: 3855450653017886650, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
+    - {fileID: 6987079933735496018, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
+    - {fileID: 6987079933735496018, guid: df554b68fc6e2ad4fbbf25b617a83171, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -201,6 +210,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.071428575
         value: 1
         inSlope: 0
         outSlope: 0

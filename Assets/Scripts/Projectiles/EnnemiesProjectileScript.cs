@@ -150,7 +150,7 @@ public class EnnemiesProjectileScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!(other.gameObject.tag.Equals("Enemy") || other.gameObject.tag.Equals("Spell")))
+        if (!(other.gameObject.tag.Equals("Enemy") || other.gameObject.tag.Equals("Spell") || other.gameObject.tag.Equals("Projectile")))
         {
             collisionDetected = true;
             if (other.gameObject.tag.Equals("Player"))

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class DistanceScript : BasicEnemyController
+public class DistanceScript : BasicEnemyController
 {
 
-    private bool attacking;
-    private bool attackResting;
+    protected bool attacking;
+    protected bool attackResting;
     public float attackFrequency;
-    private int dashCounter;
-    private int attackRestingCounter;
+    protected int dashCounter;
+    protected int attackRestingCounter;
 
     protected override void Start()
     {
@@ -25,7 +25,21 @@ class DistanceScript : BasicEnemyController
         base.FixedUpdate();
     }
 
-    private void Behaviour()
+
+    /// <summary>
+    /// fonction permettant d'extraire l'action de tir du Behaviour afin de l'override plus facilement et de créer differents types d'ennemis
+    /// </summary>
+    /// <param name="direction">direction dans laquelle tir l'ennemi</param>
+    protected virtual void shoot(Vector2 direction)
+    {
+        FireProjectileAtDirection(direction);
+    }
+
+
+    /// <summary>
+    /// Fonction ayant pour but de stocker le comportement de l'ennemi
+    /// </summary>
+    protected void Behaviour()
     {
         if (playerDetected)
         {
@@ -43,7 +57,7 @@ class DistanceScript : BasicEnemyController
                     direction = (player.position - transform.position)*0;
                     FaceDirection(player.position - transform.position, gfxAnim);
                     gfxAnim.SetBool("Attacking", true);
-                    FireProjectileAtDirection(player.position - transform.position);
+                    shoot(player.position - transform.position);
                     attackResting = true;
                     attackRestingCounter = (int)((1 / attackFrequency) * 10);
 
