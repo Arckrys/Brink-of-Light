@@ -17,8 +17,10 @@ TagManager:
   - Projectile
   - DoorDown
   - Room
-  - EnemySpawn
   - Combustible
+  - EnemySpawn
+  - AStar
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -32,8 +34,8 @@ TagManager:
   - Spell
   - Ennemy
   - Item
-  - 
-  - 
+  - Obstacle
+  - DashingEnnemy
   - 
   - 
   - 
@@ -61,6 +63,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 393699099
+    locked: 0
+  - name: DashingEnemy
+    uniqueID: 3553600579
     locked: 0
   - name: Player
     uniqueID: 2624863903

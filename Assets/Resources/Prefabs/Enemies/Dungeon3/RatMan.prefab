@@ -94,8 +94,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 393699099
-  m_SortingLayer: 2
+  m_SortingLayerID: -741366717
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3563134898435998910, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -201,10 +201,14 @@ MonoBehaviour:
   Grunt: {fileID: 8300000, guid: 192def8a49d0bfa4baed9e238a6fb4a0, type: 3}
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
+  projectile: {fileID: 0}
   levelOneSpawnProbability: 0
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20
   levelFourSpawnProbability: 33
+  lootBag: {fileID: 0}
+  nextWaypointDistance: 1
+  repathRate: 0.5
   dashDistance: 70
   dashSpeedMultiplicator: 5
   dashRestingTime: 100

@@ -45,9 +45,7 @@ public class DistanceScript : BasicEnemyController
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance && !(gfxAnim.GetBool("Knockback")) && !attacking && !attackResting)
             {
-                direction = player.position - transform.position;
-                Vector2 facingDirection = player.position - transform.position;
-                FaceDirection(facingDirection, gfxAnim);
+                MoveToPlayer();
             }
             if (Vector2.Distance(transform.position, player.position) <= stoppingDistance)
             {
@@ -55,6 +53,7 @@ public class DistanceScript : BasicEnemyController
                 {
 
                     direction = (player.position - transform.position)*0;
+                    Move();
                     FaceDirection(player.position - transform.position, gfxAnim);
                     gfxAnim.SetBool("Attacking", true);
                     shoot(player.position - transform.position);
@@ -67,12 +66,15 @@ public class DistanceScript : BasicEnemyController
             {
                 if (attackRestingCounter == 0)
                 {
+                    Move();
                     attackResting = false;
                     gfxAnim.SetBool("Attacking", false);
                 }
 
                 if (attackRestingCounter > 0)
                 {
+                    direction = (player.position - transform.position) * 0;
+                    Move();
                     attackRestingCounter -= 1;
                 }
             }
@@ -85,6 +87,7 @@ public class DistanceScript : BasicEnemyController
         if (gfxAnim.GetBool("Knockback") && attacking)
         {
             knockbackTimer += 1;
+            Move();
             if (knockbackTimer > knockbackIntensity - knockbackResistance)
             {
                 gfxAnim.SetBool("Knockback", false);
@@ -95,6 +98,7 @@ public class DistanceScript : BasicEnemyController
         {
             knockbackTimer += 1;
             direction = -1 * (player.position - transform.position);
+            Move();
             if (knockbackTimer > knockbackIntensity - knockbackResistance)
             {
                 gfxAnim.SetBool("Knockback", false);

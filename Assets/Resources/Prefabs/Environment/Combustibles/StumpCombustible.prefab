@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8835502988616057074}
   - component: {fileID: 751799704}
   - component: {fileID: 1981756248970433373}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8108706507450623690}
   - component: {fileID: 8108706507450623688}
   - component: {fileID: 8108706507450623689}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: StumpCombustible
   m_TagString: Combustible
   m_Icon: {fileID: 0}

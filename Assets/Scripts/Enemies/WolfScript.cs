@@ -15,9 +15,7 @@ class WolfScript : BasicEnemyController
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance && !(gfxAnim.GetBool("Knockback")))
             {
-                direction = player.position - transform.position;
-                Vector2 facingDirection = player.position - transform.position;
-                FaceDirection(facingDirection, gfxAnim);
+                MoveToPlayer();
             }
         }
         else
@@ -29,7 +27,7 @@ class WolfScript : BasicEnemyController
         {
             knockbackTimer += 1;
             direction = -1 * (player.position - transform.position);
-            print(knockbackIntensity);
+            Move();
             if (knockbackTimer > knockbackIntensity - knockbackResistance)
             {
                 gfxAnim.SetBool("Knockback", false);
