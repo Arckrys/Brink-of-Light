@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class CurrenciesScript : MonoBehaviour
 {
     [SerializeField] private int soulsAmount, goldAmount;
-    
-    private int soulsUpdate, goldUpdate;
+
+    private int soulsToPrint, goldToPrint;
 
     private float baseIncrementTime = 0.7f;
 
     private static CurrenciesScript _instance;
 
-    private bool isSoulsIncrementing = false; 
-    private bool isGoldIncrementing = false; 
+    private bool isSoulsIncrementing; 
+    private bool isGoldIncrementing;
+
+    private Coroutine goldIncrementCoroutine;
+    private Coroutine soulsIncrementCoroutine;
+    
 
     public static CurrenciesScript MyInstance
     {
@@ -31,135 +35,109 @@ public class CurrenciesScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        soulsUpdate = 0;
-        goldUpdate = 0;
+        soulsToPrint = soulsAmount;
+        goldToPrint = goldAmount;
         
-        setSoulsNumber(1505);
-        setGoldValue(25);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetSoulsNumber(1505);
+        SetGoldValue(25);
     }
 
     private IEnumerator GoldIncrement()
     {
-        isGoldIncrementing = true;
-        float incrementTime = Math.Abs(baseIncrementTime / goldUpdate);
+        var incrementTime = Math.Abs(baseIncrementTime / Math.Abs(goldAmount - goldToPrint));
 
-        while (goldUpdate != 0)
+        while (goldToPrint != goldAmount)
         {
-            
-            if (goldUpdate > 0)
-            {
-                goldAmount += 1;
-                goldUpdate -= 1;
-            }
+            goldToPrint += goldToPrint < goldAmount ? 1 : -1;
 
-            else
-            {
-                goldAmount -= 1;
-                goldUpdate += 1;
-            }
-            
-            GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
+            GameObject.Find("TextGold").GetComponent<Text>().text = goldToPrint.ToString();
 
             yield return new WaitForSeconds(incrementTime);
         }
 
-        isGoldIncrementing = false;
+        StopCoroutine(goldIncrementCoroutine);
     }
     
     private IEnumerator SoulIncrement()
     {
-        isSoulsIncrementing = true;
-        float incrementTime = Math.Abs(baseIncrementTime / soulsUpdate);
+        var incrementTime = Math.Abs(baseIncrementTime / Math.Abs(soulsAmount - soulsToPrint));
 
-        while (soulsUpdate != 0)
+        while (soulsToPrint != soulsAmount)
         {
+            soulsToPrint += soulsToPrint < soulsAmount ? 1 : -1;
 
-            if (soulsUpdate > 0)
-            {
-                soulsAmount += 1;
-                soulsUpdate -= 1;
-            }
-
-            else
-            {
-                soulsAmount -= 1;
-                soulsUpdate += 1;
-            }
-
-            GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
+            GameObject.Find("TextSoul").GetComponent<Text>().text = soulsToPrint.ToString();
 
             yield return new WaitForSeconds(incrementTime);
         }
-
-        isSoulsIncrementing = false;
+        
+        StopCoroutine(soulsIncrementCoroutine);
     }
 
-    public void setSoulsNumber (int soulsNumber)
+    public void SetSoulsNumber (int soulsNumber)
     {
-        this.soulsAmount = soulsNumber;
-        GameObject.Find("TextSoul").GetComponent<Text>().text = soulsAmount.ToString();
+        soulsAmount = soulsNumber;
+        soulsToPrint = soulsAmount;
+        GameObject.Find("TextSoul").GetComponent<Text>().text = soulsToPrint.ToString();
     }
 
-    public int getSoulsNumber()
+    public int GetSoulsNumber()
     {
         return soulsAmount;
     }
 
-    public void addSouls(int soulsToAdd)
+    public void AddSouls(int soulsToAdd)
     {
-        soulsUpdate += soulsToAdd;
-        StartCoroutine(SoulIncrement());
+        soulsAmount += soulsToAdd;
+        
+        if (soulsIncrementCoroutine != null)
+        {
+            StopCoroutine(soulsIncrementCoroutine);    
+        }
+        
+        soulsIncrementCoroutine = StartCoroutine(SoulIncrement());
     }
 
-    public void setGoldValue(int goldValue)
+    public void SetGoldValue(int goldValue)
     {
-        this.goldAmount = goldValue;
-        GameObject.Find("TextGold").GetComponent<Text>().text = goldAmount.ToString();
+        goldAmount = goldValue;
+        goldToPrint = goldAmount;
+        GameObject.Find("TextGold").GetComponent<Text>().text = goldToPrint.ToString();
     }
 
-    public int getGoldValue()
+    public int GetGoldValue()
     {
         return goldAmount;
     }
 
-    public void addGold(int goldToAdd)
+    public void AddGold(int goldToAdd)
     {
-        goldUpdate += goldToAdd;
-        StartCoroutine(GoldIncrement());
+        goldAmount += goldToAdd;
+
+        if (goldIncrementCoroutine != null)
+        {
+            StopCoroutine(goldIncrementCoroutine);    
+        }
+        
+        goldIncrementCoroutine = StartCoroutine(GoldIncrement());
     }
 
-    public bool purchaseForGold(int goldCost)
+    public bool PurchaseForGold(int goldCost)
     {
-        if (goldCost <= this.goldAmount && !isGoldIncrementing)
-        {
-            addGold(-goldCost);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (goldCost > goldAmount) return false;
+        
+        AddGold(-goldCost);
+        return true;
     }
 
-    public bool purchaseForSouls(int soulsCost)
+    public bool PurchaseForSouls(int soulsCost)
     {
-        if (soulsCost < this.soulsAmount && !isSoulsIncrementing)
-        {
-            addSouls(-soulsCost);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        if (soulsCost > soulsAmount) return false;
+        
+        AddSouls(-soulsCost);
+        return true;
     }
 
 }

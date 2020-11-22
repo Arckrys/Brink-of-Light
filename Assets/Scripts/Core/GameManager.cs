@@ -92,8 +92,8 @@ public class GameManager : MonoBehaviour
 
             currenciesData = data.GetCurrencies();
 
-            currencyScript.setGoldValue(currenciesData[0]);
-            currencyScript.setSoulsNumber(currenciesData[1]);
+            currencyScript.SetGoldValue(currenciesData[0]);
+            currencyScript.SetSoulsNumber(currenciesData[1]);
 
 
             // Save items bought

@@ -25,8 +25,8 @@ public class GameData
         playerStatMaxValues[6] = playerScript.critDamage.MyMaxValue;
         playerStatMaxValues[7] = playerScript.knockback.MyMaxValue;
 
-        currencies[0] = CurrenciesScript.MyInstance.getGoldValue();
-        currencies[1] = CurrenciesScript.MyInstance.getSoulsNumber();
+        currencies[0] = CurrenciesScript.MyInstance.GetGoldValue();
+        currencies[1] = CurrenciesScript.MyInstance.GetSoulsNumber();
     }
     
     public double[] GetRazakusPurchases()

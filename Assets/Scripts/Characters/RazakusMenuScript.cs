@@ -128,7 +128,7 @@ public class RazakusMenuScript : MonoBehaviour
 
     private bool PurchaseSouls(string statName)
     {
-        return CurrenciesScript.MyInstance.purchaseForSouls((int)(RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]));
+        return CurrenciesScript.MyInstance.PurchaseForSouls((int)(RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]));
     }
 
     public void OnHealthPressed()

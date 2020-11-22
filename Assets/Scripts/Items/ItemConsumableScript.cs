@@ -23,7 +23,7 @@ public class ItemConsumableScript : Item
         {
             if (isItemSold)
             {
-                if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().purchaseForGold(myGoldCost))
+                if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().PurchaseForGold(myGoldCost))
                     canBuyItem = true;
             }
 

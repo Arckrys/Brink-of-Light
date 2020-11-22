@@ -128,7 +128,7 @@ public class SellerMenuScript : MonoBehaviour
     
     private static bool PurchaseSouls(int value)
     {
-        return CurrenciesScript.MyInstance.purchaseForSouls(value);
+        return CurrenciesScript.MyInstance.PurchaseForSouls(value);
     }
 
     private void OnUpdatePressed()

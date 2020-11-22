@@ -17,8 +17,8 @@ public class LootManager : MonoBehaviour
             var currency = CurrenciesScript.MyInstance;
             var itemManager = ItemsManagerScript.MyInstance;
 
-            currency.addSouls(soulAmount);
-            currency.addGold(goldAmount);
+            currency.AddSouls(soulAmount);
+            currency.AddGold(goldAmount);
 
             if (itemName != null)
             {
