@@ -4891,9 +4891,9 @@ GameObject:
   - component: {fileID: 8676034881016958470}
   - component: {fileID: 8676034881016958469}
   - component: {fileID: 8676034881016958471}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ObstaclesGrid
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8805,7 +8805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -245972
+      value: -719282
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8855,6 +8855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb2
       objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
 --- !u!4 &5526154964612237205 stripped
@@ -8875,11 +8879,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -245976
+      value: -719290
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8987,13 +8995,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -245986
+      value: -719300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -9012,6 +9024,10 @@ PrefabInstance:
     - target: {fileID: 2712794075549133858, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
       propertyPath: m_Name
       value: Dungeon1Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712794075549133858, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2712794075549133862, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9056,6 +9072,10 @@ PrefabInstance:
     - target: {fileID: 2712794075549133862, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712794076456102572, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
@@ -9119,13 +9139,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -246012
+      value: -719326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -9147,11 +9171,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -246018
+      value: -719332
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9259,6 +9287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &3388311020897540062 stripped
@@ -9275,11 +9307,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -246028
+      value: -719344
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9387,6 +9423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &3388311021192204201 stripped
@@ -9407,11 +9447,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -246042
+      value: -719356
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9519,6 +9563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &3388311019402584133 stripped
@@ -9581,13 +9629,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -246056
+      value: -719370
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -9605,11 +9657,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -246060
+      value: -719376
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9675,7 +9731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -246074
+      value: -719384
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9724,6 +9780,10 @@ PrefabInstance:
     - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_Name
       value: Tomb2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
@@ -9787,6 +9847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &3388311019589871327 stripped
@@ -9807,7 +9871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -246086
+      value: -719396
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9857,6 +9921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
 --- !u!4 &3239142683652119310 stripped
@@ -9877,11 +9945,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -246090
+      value: -719404
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9989,6 +10061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &3388311020087221496 stripped
@@ -10005,11 +10081,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -246100
+      value: -719416
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10071,7 +10151,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1981756248970433373, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_InstanceId
-      value: -246108
+      value: -719424
       objectReference: {fileID: 0}
     - target: {fileID: 8108706506544443400, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10080,6 +10160,10 @@ PrefabInstance:
     - target: {fileID: 8108706506544443400, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108706506544443401, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8108706506544443407, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_Sprite
@@ -10132,6 +10216,10 @@ PrefabInstance:
     - target: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_Name
       value: StumpCombustible
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}

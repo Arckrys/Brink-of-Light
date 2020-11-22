@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6951472327913292196}
   - component: {fileID: 115410246114406709}
   - component: {fileID: 5089372748930672042}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tomb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

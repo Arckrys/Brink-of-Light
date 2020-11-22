@@ -86,7 +86,7 @@ public abstract class Character : MonoBehaviour
         stat.Initialized(initValue, initValue, false);
     }
 
-    private void Move()
+    protected void Move()
     {
         myRigidbody.velocity = direction.normalized * movementSpeed.MyCurrentValue;
     }

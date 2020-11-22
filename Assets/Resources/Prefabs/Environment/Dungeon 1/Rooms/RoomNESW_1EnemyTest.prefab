@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 599575289207443557}
   - component: {fileID: 599575289207443556}
   - component: {fileID: 599575289207443563}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderTilemapRight
   m_TagString: DoorRight
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599575289249472071}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 599575289258775751}
   - component: {fileID: 599575289258775750}
   - component: {fileID: 599575289258775749}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderTilemapUp
   m_TagString: DoorUp
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599575289286615444}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 599575289310588290}
   - component: {fileID: 599575289310588289}
   - component: {fileID: 599575289310588291}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ObstaclesGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 599575289674723446}
   - component: {fileID: 599575289674723445}
   - component: {fileID: 599575289674723444}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderTilemapClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 599575289685666745}
   - component: {fileID: 599575289685666747}
   - component: {fileID: 599575289685666740}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderTilemapLeft
   m_TagString: DoorLeft
   m_Icon: {fileID: 0}
@@ -1605,7 +1605,7 @@ GameObject:
   - component: {fileID: 599575289798757075}
   - component: {fileID: 599575289798757101}
   - component: {fileID: 599575289798757100}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BackgroundTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5034,7 +5034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599575290053464843}
   - component: {fileID: 599575290053464842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BackgroundGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5080,7 +5080,7 @@ GameObject:
   - component: {fileID: 599575290139874515}
   - component: {fileID: 599575290139874541}
   - component: {fileID: 599575290139874542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderGridOpen
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -5177,7 +5177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599575290148838506}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5207,7 +5207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599575290420504786}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5239,7 +5239,7 @@ GameObject:
   - component: {fileID: 599575290553037494}
   - component: {fileID: 599575290553037493}
   - component: {fileID: 599575290553037492}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5307,7 +5307,7 @@ GameObject:
   - component: {fileID: 599575290560955045}
   - component: {fileID: 599575290560955044}
   - component: {fileID: 599575290560955051}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderTilemapDown
   m_TagString: DoorDown
   m_Icon: {fileID: 0}
@@ -5632,7 +5632,7 @@ GameObject:
   - component: {fileID: 599575290768278388}
   - component: {fileID: 599575290768278395}
   - component: {fileID: 599575290768278394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BorderGridClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5773,7 +5773,7 @@ GameObject:
   - component: {fileID: 599575290784699827}
   - component: {fileID: 599575290784699826}
   - component: {fileID: 599575290784699825}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9475,7 +9475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5584784517748075209}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoomNESW_1EnemyTest
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -9626,6 +9626,10 @@ PrefabInstance:
     - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
       propertyPath: m_Name
       value: SpawnPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
