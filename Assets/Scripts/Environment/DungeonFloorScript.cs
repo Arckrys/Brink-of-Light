@@ -5,7 +5,9 @@ using UnityEngine;
 public class DungeonFloorScript : MonoBehaviour
 {
     private static DungeonFloorScript _instance;
+    private MinimapScript miniMap;
     private List<FloorNode> nodeList;
+    private List<(int, int)> coordList;
 
     private int basicRoomsNumber = 8;
     private int currentNodeIndex;
@@ -13,6 +15,7 @@ public class DungeonFloorScript : MonoBehaviour
     private void Start()
     {
         nodeList = new List<FloorNode>();
+        coordList = new List<(int, int)>();
 
         //create a first room
         FloorNode newNode = new FloorNode();
@@ -34,8 +37,10 @@ public class DungeonFloorScript : MonoBehaviour
             node.SetRoom(node.GetRoomType());
             node.CreateRoom();
             node.ActivateRoom(false);
+            coordList.Add(node.GetCoord());
         }
 
+        MinimapScript.MyInstance.InitializeMiniMap(coordList);
         InitializeMap(nodeList[0].GetRoom());
         currentNodeIndex = 0;
     }
