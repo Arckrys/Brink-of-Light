@@ -11,6 +11,8 @@ public class PlayerScript : Character
 
     [SerializeField] public float initInvincibilityTime;
 
+    [SerializeField] private float projectileCost;
+
     [SerializeField] private int levelIgeirus;
 
     public int MyIgeirusLevel
@@ -194,7 +196,7 @@ public class PlayerScript : Character
         
         //player lose one health per shot
         if (isLosingHealthWhenAttacking)
-            PlayerCurrentLife -= 1;
+            PlayerCurrentLife -= projectileCost;
 
         if (mouseLookCoroutine != null)
         {

@@ -323,4 +323,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 0
+  healingValue: 25
   isDestroyedAfterFire: 1

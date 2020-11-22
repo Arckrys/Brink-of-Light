@@ -10,7 +10,7 @@ public class CombustibleScript : MonoBehaviour
     private BoxCollider2D combustibleCollider;
     [SerializeField] bool isLit;
     private bool hasHealedPlayer;
-    private float healingValue;
+    [SerializeField] private float healingValue = 25;
     [SerializeField] bool isDestroyedAfterFire;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class CombustibleScript : MonoBehaviour
         combustibleAnimator = GetComponentInChildren<Animator>();
         combustibleCollider = GetComponent<BoxCollider2D>();
 
-        healingValue = 10;
+
     }
 
     // Update is called once per frame

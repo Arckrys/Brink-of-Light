@@ -122,11 +122,11 @@ MonoBehaviour:
   life: {fileID: 0}
   initLife: 100
   attack: {fileID: 0}
-  initAttack: 1
+  initAttack: 1.5
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 3
+  initMovementSpeed: 2.5
   critChance: {fileID: 0}
-  initCritChance: 50
+  initCritChance: 25
   critDamage: {fileID: 0}
   initCritDamage: 2
   range: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   initKnockback: 5
   invincibilityTime: {fileID: 0}
   initInvincibilityTime: 0.5
+  projectileCost: 1.5
   levelIgeirus: 0
   levelUrbius: 0
   lifeBar: {fileID: 0}
