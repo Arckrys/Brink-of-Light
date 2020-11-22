@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,8 @@ public class RazakusMenuScript : MonoBehaviour
     [SerializeField] private Text ChanceCritUpgrade;
     [SerializeField] private Text DegatsCritUpgrade;
     [SerializeField] private Text ReculUpgrade;
+    
+    private PlayerScript player;
 
 
     public void Start()
@@ -51,15 +54,17 @@ public class RazakusMenuScript : MonoBehaviour
         RazakusData.Add("DegatsCrit",   new double[] { 0, 50, 100, 0.1 });
         RazakusData.Add("Recul",        new double[] { 0, 50, 100, 1 });
 
-        StatsAndTexts.Add("Attaque",      System.Tuple.Create(PlayerScript.MyInstance.attack, AttaqueButton, AttaqueStat, AttaqueUpgrade));
-        StatsAndTexts.Add("Vie",          System.Tuple.Create(PlayerScript.MyInstance.life, VieButton, VieStat, VieUpgrade));
-        StatsAndTexts.Add("Portee",       System.Tuple.Create(PlayerScript.MyInstance.range, PorteeButton, PorteeStat, PorteeUpgrade));
-        StatsAndTexts.Add("Vitesse",      System.Tuple.Create(PlayerScript.MyInstance.movementSpeed, VitesseButton, VitesseStat, VitesseUpgrade));
-        StatsAndTexts.Add("VitesseAtk",   System.Tuple.Create(PlayerScript.MyInstance.attackSpeed, VitesseAtkButton, VitesseAtkStat, VitesseAtkUpgrade));
-        StatsAndTexts.Add("ChanceCrit",   System.Tuple.Create(PlayerScript.MyInstance.critChance, ChanceCritButton, ChanceCritStat, ChanceCritUpgrade));
-        StatsAndTexts.Add("DegatsCrit",   System.Tuple.Create(PlayerScript.MyInstance.critDamage, DegatsCritButton, DegatsCritStat, DegatsCritUpgrade));
-        StatsAndTexts.Add("Recul",        System.Tuple.Create(PlayerScript.MyInstance.knockback, ReculButton, ReculStat, ReculUpgrade));
+        StatsAndTexts.Add("Attaque",      System.Tuple.Create(PlayerScript.MyInstance.initAttack, AttaqueButton, AttaqueStat, AttaqueUpgrade));
+        StatsAndTexts.Add("Vie",          System.Tuple.Create(PlayerScript.MyInstance.initLife, VieButton, VieStat, VieUpgrade));
+        StatsAndTexts.Add("Portee",       System.Tuple.Create(PlayerScript.MyInstance.initRange, PorteeButton, PorteeStat, PorteeUpgrade));
+        StatsAndTexts.Add("Vitesse",      System.Tuple.Create(PlayerScript.MyInstance.initMovementSpeed, VitesseButton, VitesseStat, VitesseUpgrade));
+        StatsAndTexts.Add("VitesseAtk",   System.Tuple.Create(PlayerScript.MyInstance.initAttackSpeed, VitesseAtkButton, VitesseAtkStat, VitesseAtkUpgrade));
+        StatsAndTexts.Add("ChanceCrit",   System.Tuple.Create(PlayerScript.MyInstance.initCritChance, ChanceCritButton, ChanceCritStat, ChanceCritUpgrade));
+        StatsAndTexts.Add("DegatsCrit",   System.Tuple.Create(PlayerScript.MyInstance.initCritDamage, DegatsCritButton, DegatsCritStat, DegatsCritUpgrade));
+        StatsAndTexts.Add("Recul",        System.Tuple.Create(PlayerScript.MyInstance.initKnockback, ReculButton, ReculStat, ReculUpgrade));
 
+        player = PlayerScript.MyInstance;
+        
         InitUI();
 
         gameObject.SetActive(false);
@@ -99,26 +104,25 @@ public class RazakusMenuScript : MonoBehaviour
 
     public void InitUI()
     {
-        UpdateUI("Attaque", true);
-        UpdateUI("Vie", true);
-        UpdateUI("Portee", true);
-        UpdateUI("Vitesse", true);
-        UpdateUI("VitesseAtk", true);
-        UpdateUI("ChanceCrit", true);
-        UpdateUI("DegatsCrit", true);
-        UpdateUI("Recul", true);
+        UpdateUI("Attaque", player.initAttack, true);
+        UpdateUI("Vie", player.initLife, true);
+        UpdateUI("Portee", player.initRange, true);
+        UpdateUI("Vitesse", player.initMovementSpeed, true);
+        UpdateUI("VitesseAtk", player.initAttackSpeed, true);
+        UpdateUI("ChanceCrit", player.initCritChance, true);
+        UpdateUI("DegatsCrit", player.initCritDamage, true);
+        UpdateUI("Recul", player.initKnockback, true);
     }
     
-    private void UpdateUI(string statName, bool init = false)
+    private void UpdateUI(string statName, float statValue, bool init = false)
     {
         if (!init)
         {
             RazakusData[statName][0] += 1;
-            StatsAndTexts[statName].Item1.MyMaxValue += RazakusData[statName][3];
         }
-
-        StatsAndTexts[statName].Item2.text = (RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]).ToString() + " Ames";
-        StatsAndTexts[statName].Item3.text = System.Math.Round(StatsAndTexts[statName].Item1.MyMaxValue, 1).ToString();
+        
+        StatsAndTexts[statName].Item2.text = RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2] + " Ames";
+        StatsAndTexts[statName].Item3.text = System.Math.Round(statValue, 1).ToString(CultureInfo.InvariantCulture);
         StatsAndTexts[statName].Item4.text = "+" + RazakusData[statName][3];
     }
 
@@ -129,62 +133,69 @@ public class RazakusMenuScript : MonoBehaviour
 
     public void OnHealthPressed()
     {
-        if (PurchaseSouls("Vie"))
+        const string statName = "Vie";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("Vie");
+            UpdateUI(statName, player.initLife += (float) RazakusData[statName][3]);
         }
-        
     }
     public void OnAttackPressed()
     {
-        if (PurchaseSouls("Attaque"))
+        const string statName = "Attaque";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("Attaque");
+            UpdateUI(statName, player.initAttack += (float) RazakusData[statName][3]);
         }
     }
     public void OnRangePressed()
     {
-        if (PurchaseSouls("Portee"))
+        const string statName = "Portee";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("Portee");
+            UpdateUI(statName, player.initRange += (float) RazakusData[statName][3]);
         }
     }
     public void OnCritChancePressed()
     {
-        if (PurchaseSouls("ChanceCrit"))
+        const string statName = "ChanceCrit";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("ChanceCrit");
+            UpdateUI(statName, player.initCritChance += (float) RazakusData[statName][3]);
         }
     }
     public void OnSpeedPressed()
     {
-        if (PurchaseSouls("Vitesse"))
+        const string statName = "Vitesse";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("Vitesse");
+            UpdateUI(statName, player.initMovementSpeed += (float) RazakusData[statName][3]);
         }
     }
 
     public void OnAtkSpeedPressed()
     {
-        if (PurchaseSouls("VitesseAtk"))
+        const string statName = "VitesseAtk";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("VitesseAtk"); 
+            UpdateUI(statName, player.initAttackSpeed += (float) RazakusData[statName][3]); 
         }
     }
 
     public void OnCritDmgPressed()
     {
-        if (PurchaseSouls("DegatsCrit"))
+        const string statName = "DegatsCrit";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("DegatsCrit");
+            UpdateUI(statName, player.initCritDamage += (float) RazakusData[statName][3]);
         }
     }
    
     public void OnKnockbackPressed()
     {
-        if (PurchaseSouls("Recul"))
+        const string statName = "Recul";
+        if (PurchaseSouls(statName))
         {
-            UpdateUI("Recul");
+            UpdateUI(statName, player.initKnockback += (float) RazakusData[statName][3]);
         }
     }
 }

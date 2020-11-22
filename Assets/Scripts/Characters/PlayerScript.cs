@@ -9,7 +9,7 @@ public class PlayerScript : Character
 {
     [SerializeField] public StatField invincibilityTime;
 
-    [SerializeField] private float initInvincibilityTime;
+    [SerializeField] public float initInvincibilityTime;
 
     [SerializeField] private int levelIgeirus;
 

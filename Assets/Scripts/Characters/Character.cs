@@ -6,35 +6,35 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] public StatUI life;
 
-    [SerializeField] private float initLife;
+    [SerializeField] public float initLife;
 
     [SerializeField] public StatField attack;
 
-    [SerializeField] private float initAttack;
+    [SerializeField] public float initAttack;
 
     [SerializeField] public StatField movementSpeed;
 
-    [SerializeField] private float initMovementSpeed;
+    [SerializeField] public float initMovementSpeed;
 
     [SerializeField] public StatField critChance;
 
-    [SerializeField] private float initCritChance;
+    [SerializeField] public float initCritChance;
     
     [SerializeField] public StatField critDamage;
 
-    [SerializeField] private float initCritDamage;
+    [SerializeField] public float initCritDamage;
 
     [SerializeField] public StatField range;
 
-    [SerializeField] private float initRange;
+    [SerializeField] public float initRange;
 
     [SerializeField] public StatField attackSpeed;
 
-    [SerializeField] private float initAttackSpeed;
+    [SerializeField] public float initAttackSpeed;
     
     [SerializeField] public StatField knockback;
 
-    [SerializeField] private float initKnockback;
+    [SerializeField] public float initKnockback;
 
     private Rigidbody2D myRigidbody;
 
