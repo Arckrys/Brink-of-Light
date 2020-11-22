@@ -81,14 +81,14 @@ public class GameManager : MonoBehaviour
             razakusScript.LoadRazakusData(data.GetRazakusPurchases());
 
             playerStatsData = data.GetPlayerStatMaxValues();
-            playerScript.attack.MyMaxValue = playerStatsData[0];
-            playerScript.life.MyMaxValue = playerStatsData[1];
-            playerScript.range.MyMaxValue = playerStatsData[2];
-            playerScript.movementSpeed.MyMaxValue = playerStatsData[3];
-            playerScript.attackSpeed.MyMaxValue = playerStatsData[4];
-            playerScript.critChance.MyMaxValue = playerStatsData[5];
-            playerScript.critDamage.MyMaxValue = playerStatsData[6];
-            playerScript.knockback.MyMaxValue = playerStatsData[7];
+            playerScript.initAttack = playerStatsData[0];
+            playerScript.initLife = playerStatsData[1];
+            playerScript.initRange = playerStatsData[2];
+            playerScript.initMovementSpeed= playerStatsData[3];
+            playerScript.initAttackSpeed = playerStatsData[4];
+            playerScript.initCritChance = playerStatsData[5];
+            playerScript.initCritDamage = playerStatsData[6];
+            playerScript.initKnockback = playerStatsData[7];
 
             currenciesData = data.GetCurrencies();
 

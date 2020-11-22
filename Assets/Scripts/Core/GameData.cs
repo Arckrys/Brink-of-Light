@@ -16,14 +16,14 @@ public class GameData
 
         PlayerScript playerScript = PlayerScript.MyInstance;
 
-        playerStatMaxValues[0] = playerScript.attack.MyMaxValue;
-        playerStatMaxValues[1] = playerScript.life.MyMaxValue;
-        playerStatMaxValues[2] = playerScript.range.MyMaxValue;
-        playerStatMaxValues[3] = playerScript.movementSpeed.MyMaxValue;
-        playerStatMaxValues[4] = playerScript.attackSpeed.MyMaxValue;
-        playerStatMaxValues[5] = playerScript.critChance.MyMaxValue;
-        playerStatMaxValues[6] = playerScript.critDamage.MyMaxValue;
-        playerStatMaxValues[7] = playerScript.knockback.MyMaxValue;
+        playerStatMaxValues[0] = playerScript.initAttack;
+        playerStatMaxValues[1] = playerScript.initLife;
+        playerStatMaxValues[2] = playerScript.initRange;
+        playerStatMaxValues[3] = playerScript.initMovementSpeed;
+        playerStatMaxValues[4] = playerScript.initAttackSpeed;
+        playerStatMaxValues[5] = playerScript.initCritChance;
+        playerStatMaxValues[6] = playerScript.initCritDamage;
+        playerStatMaxValues[7] = playerScript.initKnockback;
 
         currencies[0] = CurrenciesScript.MyInstance.GetGoldValue();
         currencies[1] = CurrenciesScript.MyInstance.GetSoulsNumber();
