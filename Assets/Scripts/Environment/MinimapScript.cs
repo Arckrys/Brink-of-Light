@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MinimapScript : MonoBehaviour
 {
-    GameObject mapRoom;
+    private GameObject mapRoom;
     private static MinimapScript _instance;
-    [SerializeField] public GameObject panel;
+    [SerializeField] private GameObject panel;
+
+    private List<FloorNode> shownNodes;
 
     private void Start()
     {
         mapRoom = Resources.Load("Prefabs/UI/MapRoom") as GameObject;
+        shownNodes = new List<FloorNode>();
     }
 
     public static MinimapScript MyInstance
@@ -26,13 +29,30 @@ public class MinimapScript : MonoBehaviour
         }
     }
 
-    public void InitializeMiniMap(List<(int, int)> roomsCoords)
+    public void ShowFullMap(List<FloorNode> roomsList)
     {
-        foreach((int, int) coord in roomsCoords)
+        foreach (FloorNode node in roomsList)
         {
-            GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
-            room.transform.position = room.transform.parent.position;
-            room.transform.position += new Vector3(coord.Item1 * 60, coord.Item2 * 20, 0);
+            if (!shownNodes.Contains(node))
+            {
+                shownNodes.Add(node);
+                GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
+                room.transform.position = room.transform.parent.position;
+                room.transform.position += new Vector3(node.GetCoord().Item1 * 60, node.GetCoord().Item2 * 20, 0);
+            }
         }
     }
+
+    public void AddRoom(FloorNode node)
+    {
+        if (!shownNodes.Contains(node))
+        {
+            shownNodes.Add(node);
+            GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
+            room.transform.position = room.transform.parent.position;
+            room.transform.position += new Vector3(node.GetCoord().Item1 * 60, node.GetCoord().Item2 * 20, 0);
+        }
+        
+    }
+
 }
