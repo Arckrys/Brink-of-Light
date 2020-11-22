@@ -15,25 +15,24 @@ public class CanvasTransitionScript : MonoBehaviour
             canvasGroup.alpha += 0.1f;
         }
 
-        //destroy the current room - we will need to store it before destroying it to keep the state of the room if the player come back in it later
-        GameObject oldRoom = GameObject.FindGameObjectWithTag("Room");
-        Destroy(oldRoom);
+        //set the current room inactive
+        DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(false);
 
         //get the next room direction
         FloorNode.directionEnum direction = FloorNode.directionEnum.north;
         string spawnPointName = "SpawnDown";
 
-        if (exitDoor.tag == "DoorRight")
+        if (exitDoor.CompareTag("DoorRight"))
         {
             direction = FloorNode.directionEnum.east;
             spawnPointName = "SpawnLeft";
         }
-        if (exitDoor.tag == "DoorDown")
+        if (exitDoor.CompareTag("DoorDown"))
         {
             direction = FloorNode.directionEnum.south;
             spawnPointName = "SpawnUp";
         }
-        if (exitDoor.tag == "DoorLeft")
+        if (exitDoor.CompareTag("DoorLeft"))
         {
             direction = FloorNode.directionEnum.west;
             spawnPointName = "SpawnRight";
@@ -42,29 +41,20 @@ public class CanvasTransitionScript : MonoBehaviour
         print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
         print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
 
+        //get the next room node
         FloorNode nextNode = DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction);
 
-        Object nextRoom = nextNode.GetRoom();
-
+        //change the current room node as the next room node we picked
         DungeonFloorScript.MyInstance.SetCurrentNode(nextNode);
 
-        //instantiate the next room
-        Instantiate(nextRoom);
-
-        print(nextNode.GetCoord());
-
-        //destroy the enemy spawners if the room has been cleared by the player before
-        if (nextNode.EnemiesCleared)
-        {
-            GameObject[] enemiesList = GameObject.FindGameObjectsWithTag("EnemySpawn");
-            foreach (GameObject enemy in enemiesList)
-            {
-                Destroy(enemy);
-            }
-        }
+        //activate the room
+        DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(true);
 
         //reposition the player to the correct place of the room where he should spawn
         UpdatePlayerPosition(spawnPointName);
+
+        //reset the room doors to get the doors of the new room
+        GameManager.MyInstance.ResetRoomDoors();
 
         StartCoroutine(FadeOut());
     }

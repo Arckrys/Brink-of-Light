@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
             {
                 closeDoors.SetActive(false);
                 openDoors.SetActive(true);
-                DungeonFloorScript.MyInstance.GetCurrentNode().EnemiesCleared = true;
             }
             else
             {
@@ -55,6 +54,12 @@ public class GameManager : MonoBehaviour
     {
         closeDoors = GameObject.Find("BorderGridClose");
         openDoors = GameObject.Find("BorderGridOpen");
+    }
+
+    public void ResetRoomDoors()
+    {
+        closeDoors = null;
+        openDoors = null;
     }
 
     public static GameManager MyInstance

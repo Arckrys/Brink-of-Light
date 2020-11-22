@@ -19,8 +19,6 @@ public class CombustibleScript : MonoBehaviour
         hasHealedPlayer = false;
         combustibleAnimator = GetComponentInChildren<Animator>();
         combustibleCollider = GetComponent<BoxCollider2D>();
-
-
     }
 
     // Update is called once per frame
@@ -53,5 +51,15 @@ public class CombustibleScript : MonoBehaviour
     public bool GetHasHealedPlayer()
     {
         return hasHealedPlayer;
+    }
+
+    public void SetHasHealedPlayer(bool b)
+    {
+        hasHealedPlayer = b;
+    }
+
+    public void SetIsLit(bool b)
+    {
+        isLit = b;
     }
 }

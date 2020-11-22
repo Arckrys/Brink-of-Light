@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 5;
+    private int basicRoomsNumber = 25;
     private int currentNodeIndex;
 
     private void Start()
@@ -18,7 +18,6 @@ public class DungeonFloorScript : MonoBehaviour
         FloorNode newNode = new FloorNode();
         newNode.SetRoomType(FloorNode.roomTypeEnum.regular);
         newNode.SetCoord(0, 0);
-        newNode.EnemiesCleared = true;
         nodeList.Add(newNode);
 
         //create the number of rooms desired
@@ -31,10 +30,11 @@ public class DungeonFloorScript : MonoBehaviour
         AddSpecialRooms();
 
         foreach (FloorNode node in nodeList)
+        {
             node.SetRoom(node.GetRoomType());
-
-        //initialize the scene in the first room;
-        print(nodeList[0].GetRoom());
+            node.CreateRoom();
+            node.ActivateRoom(false);
+        }
 
         InitializeMap(nodeList[0].GetRoom());
         currentNodeIndex = 0;
@@ -158,6 +158,7 @@ public class DungeonFloorScript : MonoBehaviour
     public void InitializeMap(Object mapPrefab)
     {
         Instantiate(mapPrefab);
+        nodeList[0].ActivateRoom(true);
 
         /*destroy all enemy spawners
         redundant with code in CanvasTransitionScript, probably will be deleted 

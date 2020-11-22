@@ -9,21 +9,11 @@ public class FloorNode
 
     private FloorNode northNode, eastNode, southNode, westNode;
 
-    private Object myRoom;
+    private GameObject myRoom;
     private string roomName;
     private roomTypeEnum myType;
 
     private int myX, myY;
-
-    private bool enemiesCleared;
-
-    private GameObject[] combustiblesList;
-
-    public FloorNode()
-    {
-        enemiesCleared = false;
-        combustiblesList = null;
-    }
 
     public void SetNeighbourNode(directionEnum direction, FloorNode node)
     {
@@ -86,7 +76,7 @@ public class FloorNode
         if (westNode != null)
             roomDirections += 'W';
 
-        myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections);
+        myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
 
         roomName = roomDirections;
 
@@ -98,11 +88,13 @@ public class FloorNode
         switch (roomType)
         {
             case roomTypeEnum.itemRoom:
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/ItemRoomS");
+                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/ItemRoomS") as GameObject;
+                roomName = "ItemRoomS";
                 break;
 
             case roomTypeEnum.sellerRoom:
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/SellerRoomS");
+                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/SellerRoomS") as GameObject;
+                roomName = "SellerRoomS";
                 break;
 
             case roomTypeEnum.regular:
@@ -121,7 +113,7 @@ public class FloorNode
                 if (westNode != null)
                     roomDirections += 'W';
 
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections);
+                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
 
                 roomName = roomDirections;
                 break;
@@ -159,16 +151,13 @@ public class FloorNode
         return (myX, myY);
     }
 
-    public bool EnemiesCleared
+    public void CreateRoom()
     {
-        get
-        {
-            return enemiesCleared;
-        }
+        myRoom = GameObject.Instantiate(myRoom);
+    }
 
-        set
-        {
-            enemiesCleared = value;
-        }
+    public void ActivateRoom(bool b)
+    {
+        myRoom.SetActive(b);
     }
 }
