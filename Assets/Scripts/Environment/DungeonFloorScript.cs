@@ -19,7 +19,7 @@ public class DungeonFloorScript : MonoBehaviour
         newNode.SetRoomType(FloorNode.roomTypeEnum.regular);
         newNode.SetCoord(0, 0);
         nodeList.Add(newNode);
-        MinimapScript.MyInstance.AddRoom(newNode);
+        
 
         //create the number of rooms desired
         while (basicRoomsNumber > 0)
@@ -38,6 +38,8 @@ public class DungeonFloorScript : MonoBehaviour
         }
 
         InitializeMap(nodeList[0].GetRoom());
+
+        MinimapScript.MyInstance.AddRoom(newNode);
         currentNodeIndex = 0;
     }
 

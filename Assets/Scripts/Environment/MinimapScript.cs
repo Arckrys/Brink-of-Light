@@ -12,8 +12,8 @@ public class MinimapScript : MonoBehaviour
 
     private void Start()
     {
-        mapRoom = Resources.Load("Prefabs/UI/MapRoom") as GameObject;
         shownNodes = new List<FloorNode>();
+        mapRoom = Resources.Load("Prefabs/UI/MapRoom") as GameObject;
     }
 
     public static MinimapScript MyInstance
@@ -31,6 +31,8 @@ public class MinimapScript : MonoBehaviour
 
     public void ShowFullMap(List<FloorNode> roomsList)
     {
+        if (shownNodes == null)
+            this.Start();
         foreach (FloorNode node in roomsList)
         {
             if (!shownNodes.Contains(node))
@@ -45,6 +47,9 @@ public class MinimapScript : MonoBehaviour
 
     public void AddRoom(FloorNode node)
     {
+        if (shownNodes == null)
+            this.Start();
+
         if (!shownNodes.Contains(node))
         {
             shownNodes.Add(node);
