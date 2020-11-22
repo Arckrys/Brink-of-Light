@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 603518852}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initAttack
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initMovementSpeed
@@ -921,17 +921,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1490317445, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -44.66992
-      objectReference: {fileID: 0}
     - target: {fileID: 3453829919189244201, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
       propertyPath: m_Name
       value: CanvasPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3453829919189244201, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3453829919189244205, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
       propertyPath: m_LocalPosition.x
