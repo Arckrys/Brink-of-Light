@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 274110358319077822}
   - component: {fileID: 5319994058448190446}
   - component: {fileID: 7663711869916199499}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DeadTree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

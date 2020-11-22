@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class CanvasTransitionScript : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class CanvasTransitionScript : MonoBehaviour
 
         //reset the room doors to get the doors of the new room
         GameManager.MyInstance.ResetRoomDoors();
-
+        AstarPath.active.Scan();
         StartCoroutine(FadeOut());
     }
 

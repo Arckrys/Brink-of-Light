@@ -7854,9 +7854,9 @@ GameObject:
   - component: {fileID: 4560139250703674658}
   - component: {fileID: 4560139250703674657}
   - component: {fileID: 4560139250703674659}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ObstaclesGrid
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8867,11 +8867,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -260016
+      value: -741428
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8979,13 +8983,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -260028
+      value: -741438
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -9007,11 +9015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192020863645659945, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_InstanceId
-      value: -260036
+      value: -741444
       objectReference: {fileID: 0}
     - target: {fileID: 5014918777274883707, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_Name
       value: Rock2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014918777274883707, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8928835637086763569, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9083,13 +9095,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadTree1
       objectReference: {fileID: 0}
+    - target: {fileID: 3183837825774259843, guid: 6652985b8d2fcdf408ac8efff58703e8, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4333700207278182364, guid: 6652985b8d2fcdf408ac8efff58703e8, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4333700207278182364, guid: 6652985b8d2fcdf408ac8efff58703e8, type: 3}
       propertyPath: m_InstanceId
-      value: -260044
+      value: -741456
       objectReference: {fileID: 0}
     - target: {fileID: 6838761918455233262, guid: 6652985b8d2fcdf408ac8efff58703e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9201,6 +9217,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &7505841788426501069 stripped
@@ -9218,6 +9238,10 @@ PrefabInstance:
     - target: {fileID: 3449310585767222806, guid: 13aacaaeb92a2cf41936f6ad181e6459, type: 3}
       propertyPath: m_Name
       value: TreeStump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449310585767222806, guid: 13aacaaeb92a2cf41936f6ad181e6459, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3449310585767222809, guid: 13aacaaeb92a2cf41936f6ad181e6459, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9269,7 +9293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692252576049536298, guid: 13aacaaeb92a2cf41936f6ad181e6459, type: 3}
       propertyPath: m_InstanceId
-      value: -260070
+      value: -741466
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13aacaaeb92a2cf41936f6ad181e6459, type: 3}
@@ -9335,11 +9359,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510248481550210555, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_InstanceId
-      value: -260082
+      value: -741472
       objectReference: {fileID: 0}
     - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_Name
       value: Rock4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8997925926919860948, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_SortingLayerID
@@ -9415,13 +9443,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5
       objectReference: {fileID: 0}
+    - target: {fileID: 1395828656025782172, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_InstanceId
-      value: -260090
+      value: -741482
       objectReference: {fileID: 0}
     - target: {fileID: 8473656563610244663, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_SortingLayerID
@@ -9455,11 +9487,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -260094
+      value: -741488
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9525,11 +9561,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192020863645659945, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_InstanceId
-      value: -260104
+      value: -741496
       objectReference: {fileID: 0}
     - target: {fileID: 5014918777274883707, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_Name
       value: Rock2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014918777274883707, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8641948162095600273, guid: 79f5a2523f2616d47bfab08627eafc28, type: 3}
       propertyPath: m_SortingLayerID
@@ -9607,11 +9647,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -260108
+      value: -741504
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9719,13 +9763,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -260120
+      value: -741514
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -9747,11 +9795,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -260126
+      value: -741520
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9863,6 +9915,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &7505841789421872150 stripped
@@ -9933,13 +9989,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5
       objectReference: {fileID: 0}
+    - target: {fileID: 1395828656025782172, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_InstanceId
-      value: -260142
+      value: -741534
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
@@ -9961,11 +10021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -260146
+      value: -741540
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10031,11 +10095,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -260154
+      value: -741548
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10147,6 +10215,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &7505841789185823119 stripped
@@ -10167,7 +10239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5318722730979969307, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_InstanceId
-      value: -260170
+      value: -741562
       objectReference: {fileID: 0}
     - target: {fileID: 7304657066858364953, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10217,6 +10289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock1
       objectReference: {fileID: 0}
+    - target: {fileID: 7857274015572956527, guid: 674490c097805844389dee9e549acc2c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674490c097805844389dee9e549acc2c, type: 3}
 --- !u!4 &6491803186157075720 stripped
@@ -10237,7 +10313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -260178
+      value: -741568
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10287,6 +10363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb2
       objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
 --- !u!4 &7772111963251609338 stripped
@@ -10307,11 +10387,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -260180
+      value: -741576
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10421,11 +10505,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3215284875122850354, guid: d1947a7fd98e29d46a714c388acc5632, type: 3}
       propertyPath: m_InstanceId
-      value: -260192
+      value: -741584
       objectReference: {fileID: 0}
     - target: {fileID: 4613335948401599707, guid: d1947a7fd98e29d46a714c388acc5632, type: 3}
       propertyPath: m_Name
       value: DeadTree2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613335948401599707, guid: d1947a7fd98e29d46a714c388acc5632, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1947a7fd98e29d46a714c388acc5632, type: 3}
@@ -10447,7 +10535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -260202
+      value: -741592
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10497,6 +10585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
 --- !u!4 &7772111963446892396 stripped
@@ -10517,11 +10609,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299465717275104954, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_InstanceId
-      value: -260206
+      value: -741600
       objectReference: {fileID: 0}
     - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_Name
       value: Tomb1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686053145664368503, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9117425906676250150, guid: a47b44c6e726a9c4cafbcee9904be2ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10599,7 +10695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5318722730979969307, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_InstanceId
-      value: -260218
+      value: -741610
       objectReference: {fileID: 0}
     - target: {fileID: 7304657066858364953, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10648,6 +10744,10 @@ PrefabInstance:
     - target: {fileID: 7857274015572956527, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_Name
       value: Rock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857274015572956527, guid: 674490c097805844389dee9e549acc2c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674490c097805844389dee9e549acc2c, type: 3}
@@ -10713,11 +10813,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510248481550210555, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_InstanceId
-      value: -260226
+      value: -741616
       objectReference: {fileID: 0}
     - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_Name
       value: Rock4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
@@ -10739,7 +10843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089372748930672042, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_InstanceId
-      value: -260234
+      value: -741624
       objectReference: {fileID: 0}
     - target: {fileID: 6094717035206046365, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10788,6 +10892,10 @@ PrefabInstance:
     - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
       propertyPath: m_Name
       value: Tomb2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995272656207875040, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66affffbc533dcf4f9b08be35a0d326a, type: 3}
@@ -10855,6 +10963,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6296812014536587459, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6244d37ebd8fb5c47a9bcb0e48f5ba5c, type: 3}
 --- !u!4 &7505841787637454744 stripped
@@ -10872,6 +10984,10 @@ PrefabInstance:
     - target: {fileID: 2712794075549133858, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
       propertyPath: m_Name
       value: Dungeon1Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712794075549133858, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2712794075549133862, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10917,6 +11033,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2712794076456102572, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018cbcf27098e05419136dffe46f276b, type: 3}
 --- !u!4 &1940235233848486315 stripped
@@ -10937,11 +11057,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737374685, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_InstanceId
-      value: -260258
+      value: -741654
       objectReference: {fileID: 0}
     - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_Name
       value: DeadTreeStump (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986142863568692584, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8281221684579752049, guid: 3844df1085e6e654eb67fa2a567213c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11007,7 +11131,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981756248970433373, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_InstanceId
-      value: -260266
+      value: -741662
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108706506544443401, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8108706507450623690, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11056,6 +11184,10 @@ PrefabInstance:
     - target: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
       propertyPath: m_Name
       value: StumpCombustible
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
@@ -11123,13 +11255,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1395828656025782172, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_InstanceId
-      value: -260292
+      value: -741684
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
@@ -11197,13 +11333,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock5
       objectReference: {fileID: 0}
+    - target: {fileID: 1395828656025782172, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5169323108284230097, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_InstanceId
-      value: -260300
+      value: -741692
       objectReference: {fileID: 0}
     - target: {fileID: 8473656563610244663, guid: c2d8aba4c184b1043ab4afa71b40de3e, type: 3}
       propertyPath: m_SortingOrder
@@ -11279,13 +11419,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomb3
       objectReference: {fileID: 0}
+    - target: {fileID: 8159354795954804674, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8160050588989008999, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
       propertyPath: m_InstanceId
-      value: -260306
+      value: -741700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc18846cb5567e14f9d2b6a1d229c0ae, type: 3}
@@ -11359,11 +11503,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5510248481550210555, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_InstanceId
-      value: -260316
+      value: -741706
       objectReference: {fileID: 0}
     - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_Name
       value: Rock4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742353589979972401, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8997925926919860948, guid: 8f431f4ee02743f4da491eaec3942662, type: 3}
       propertyPath: m_SortingLayerID
@@ -11409,7 +11557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5318722730979969307, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_InstanceId
-      value: -260324
+      value: -741716
       objectReference: {fileID: 0}
     - target: {fileID: 7304657066858364953, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11458,6 +11606,10 @@ PrefabInstance:
     - target: {fileID: 7857274015572956527, guid: 674490c097805844389dee9e549acc2c, type: 3}
       propertyPath: m_Name
       value: Rock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7857274015572956527, guid: 674490c097805844389dee9e549acc2c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674490c097805844389dee9e549acc2c, type: 3}

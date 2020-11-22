@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Pathfinding;
 
 public class BasicEnemyController : Character
 {
@@ -30,6 +31,14 @@ public class BasicEnemyController : Character
 
     [SerializeField] private GameObject lootBag;
 
+    public float nextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    bool reachedEndOfPath = false;
+    Seeker seeker;
+    Rigidbody2D rb;
+    public float repathRate = 0.5f;
+    private float lastRepath = float.NegativeInfinity;
     // Start is called before the first frame update
 
     protected override void Start()
@@ -42,12 +51,39 @@ public class BasicEnemyController : Character
         randomDirection = new Vector2();
 
         canvasGroupLifeBar = transform.Find("EnemyLifeCanvas").GetComponent<CanvasGroup>();
-
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+        UpdatePath();
+        InvokeRepeating("UpdatePath", 0f, .5f);
+        
         base.Start();
     }
 
+    protected override void FixedUpdate()
+    {
+        
+    }
+
+
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, player.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
     //Fonction qui défini la réaction du monstre en cas de collision
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         //Prise en charge des collision avec les projectiles du joueurs
         if (collision.gameObject.tag.Equals("Spell"))
@@ -164,6 +200,41 @@ public class BasicEnemyController : Character
         newProjectile.GetComponent<EnnemiesProjectileScript>().isCrit = isCrit;
     }
 
+    protected void MoveToPlayer()
+    {
+        if (Time.time > lastRepath + repathRate && seeker.IsDone())
+        {
+            lastRepath = Time.time;
+
+            seeker.StartPath(transform.position, player.position, OnPathComplete);
+        }
+
+        if (path == null)
+            return;
+
+        if(currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        if(distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+        else
+        {
+            Move();
+            FaceDirection(direction, gfxAnim);
+        }
+    }
 
     /// <summary>
     /// fonction utilisé quand l'ennemi n'a pas encore détécté le joueur

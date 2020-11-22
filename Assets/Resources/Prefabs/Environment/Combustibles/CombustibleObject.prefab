@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 460615593076189053}
   - component: {fileID: 460615593076189055}
   - component: {fileID: 460615593076189054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CombustibleObject
   m_TagString: Combustible
   m_Icon: {fileID: 0}
@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 1
+  healingValue: 25
   isDestroyedAfterFire: 0
 --- !u!1 &460615594250285502
 GameObject:
@@ -85,7 +86,7 @@ GameObject:
   - component: {fileID: 460615594250285497}
   - component: {fileID: 460615594250285496}
   - component: {fileID: 8993008057546675185}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

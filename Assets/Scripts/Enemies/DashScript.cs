@@ -23,9 +23,21 @@ class DashScript : BasicEnemyController
     protected override void FixedUpdate()
     {
         Behaviour();
-        //print(movementSpeed.MyCurrentValue);
         base.FixedUpdate();
     }
+
+
+    //Verification des collision pour arrêter le sprint en cas de collision
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.tag.Equals("Spell"))
+        {
+            dashCounter = 0;
+        }
+    }
+
+
+
 
     private void Behaviour()
     {
@@ -33,9 +45,7 @@ class DashScript : BasicEnemyController
         {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance && !(gfxAnim.GetBool("Knockback")) && !dashing)
             {
-                direction = player.position - transform.position;
-                Vector2 facingDirection = player.position - transform.position;
-                FaceDirection(facingDirection, gfxAnim);
+                MoveToPlayer();
             }
             if (Vector2.Distance(transform.position, player.position) <= stoppingDistance)
             {
@@ -44,11 +54,12 @@ class DashScript : BasicEnemyController
 
                     movementSpeed.MyMaxValue *= dashSpeedMultiplicator;
                     direction = player.position - transform.position;
+                    Move();
                     FaceDirection(direction, gfxAnim);
                     dashCounter = dashDistance;
                     dashing = true;
                     gfxAnim.SetBool("Dashing", true);
-
+                    gameObject.layer = 13;
                 }
             }
             if (dashing)
@@ -57,14 +68,17 @@ class DashScript : BasicEnemyController
                 {
                     gfxAnim.SetBool("Dashing", false);
                     dashing = false;
+                    gameObject.layer = 10;
                     dashResting = true;
                     dashRestingCounter = dashRestingTime;
                     movementSpeed.MyMaxValue /= dashSpeedMultiplicator;
                     direction = (player.position - transform.position) * 0;
+                    Move();
                 }
 
                 if (dashCounter > 0)
                 {
+                    print(dashCounter);
                     dashCounter -= 1;
                 }
             }
@@ -72,11 +86,15 @@ class DashScript : BasicEnemyController
             {
                 if (dashRestingCounter == 0)
                 {
+                    Move();
                     dashResting = false;
                 }
 
                 if (dashRestingCounter > 0)
                 {
+                    print("dashresting");
+                    direction = (player.position - transform.position) * 0;
+                    Move();
                     dashRestingCounter -= 1;
                 }
             }
@@ -97,11 +115,14 @@ class DashScript : BasicEnemyController
 
         if (gfxAnim.GetBool("Knockback") && !dashing)
         {
+            print(dashing);
             knockbackTimer += 1;
             direction = -1 * (player.position - transform.position);
+            Move();
             if (knockbackTimer > knockbackIntensity - knockbackResistance)
             {
                 gfxAnim.SetBool("Knockback", false);
+                Move();
             }
         }
     }
