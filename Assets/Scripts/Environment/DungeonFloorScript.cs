@@ -18,6 +18,7 @@ public class DungeonFloorScript : MonoBehaviour
         FloorNode newNode = new FloorNode();
         newNode.SetRoomType(FloorNode.roomTypeEnum.regular);
         newNode.SetCoord(0, 0);
+        newNode.EnemiesCleared = true;
         nodeList.Add(newNode);
 
         //create the number of rooms desired
@@ -157,6 +158,15 @@ public class DungeonFloorScript : MonoBehaviour
     public void InitializeMap(Object mapPrefab)
     {
         Instantiate(mapPrefab);
+
+        /*destroy all enemy spawners
+        redundant with code in CanvasTransitionScript, probably will be deleted 
+        when transition from village to dungeon will be added*/
+        GameObject[] enemiesList = GameObject.FindGameObjectsWithTag("EnemySpawn");
+        foreach (GameObject enemy in enemiesList)
+        {
+            Destroy(enemy);
+        }        
     }
 
     public void AddSpecialRooms()

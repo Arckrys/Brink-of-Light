@@ -49,4 +49,9 @@ public class CombustibleScript : MonoBehaviour
             //Destroy(collider);
         }
     }
+
+    public bool GetHasHealedPlayer()
+    {
+        return hasHealedPlayer;
+    }
 }

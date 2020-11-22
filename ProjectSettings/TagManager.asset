@@ -17,6 +17,8 @@ TagManager:
   - Projectile
   - DoorDown
   - Room
+  - EnemySpawn
+  - Combustible
   layers:
   - Default
   - TransparentFX

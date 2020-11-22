@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FloorNode
 {
-    public enum directionEnum {north, east, south, west};
-    public enum roomTypeEnum {regular, itemRoom, sellerRoom};
+    public enum directionEnum { north, east, south, west };
+    public enum roomTypeEnum { regular, itemRoom, sellerRoom };
 
     private FloorNode northNode, eastNode, southNode, westNode;
 
@@ -15,9 +15,19 @@ public class FloorNode
 
     private int myX, myY;
 
+    private bool enemiesCleared;
+
+    private GameObject[] combustiblesList;
+
+    public FloorNode()
+    {
+        enemiesCleared = false;
+        combustiblesList = null;
+    }
+
     public void SetNeighbourNode(directionEnum direction, FloorNode node)
     {
-        switch(direction)
+        switch (direction)
         {
             case directionEnum.north:
                 northNode = node;
@@ -57,7 +67,7 @@ public class FloorNode
                 return null;
         }
     }
-    
+
     /*
     public string SetRoom()
     {
@@ -147,5 +157,18 @@ public class FloorNode
     public (int x, int y) GetCoord()
     {
         return (myX, myY);
+    }
+
+    public bool EnemiesCleared
+    {
+        get
+        {
+            return enemiesCleared;
+        }
+
+        set
+        {
+            enemiesCleared = value;
+        }
     }
 }

@@ -246,7 +246,8 @@ public class ItemsManagerScript : MonoBehaviour
                     if (playerPosition.y > 0)
                         combustibleOffset = -combustibleOffset;
 
-                    Instantiate(combustibleGameObject, new Vector2(playerPosition.x, playerPosition.y + combustibleOffset), Quaternion.identity);
+                    GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x, playerPosition.y + combustibleOffset), Quaternion.identity);
+                    combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     break;
 
                 default:

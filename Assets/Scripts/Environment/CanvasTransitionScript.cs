@@ -16,7 +16,8 @@ public class CanvasTransitionScript : MonoBehaviour
         }
 
         //destroy the current room - we will need to store it before destroying it to keep the state of the room if the player come back in it later
-        Destroy(GameObject.FindGameObjectWithTag("Room"));
+        GameObject oldRoom = GameObject.FindGameObjectWithTag("Room");
+        Destroy(oldRoom);
 
         //get the next room direction
         FloorNode.directionEnum direction = FloorNode.directionEnum.north;
@@ -51,6 +52,16 @@ public class CanvasTransitionScript : MonoBehaviour
         Instantiate(nextRoom);
 
         print(nextNode.GetCoord());
+
+        //destroy the enemy spawners if the room has been cleared by the player before
+        if (nextNode.EnemiesCleared)
+        {
+            GameObject[] enemiesList = GameObject.FindGameObjectsWithTag("EnemySpawn");
+            foreach (GameObject enemy in enemiesList)
+            {
+                Destroy(enemy);
+            }
+        }
 
         //reposition the player to the correct place of the room where he should spawn
         UpdatePlayerPosition(spawnPointName);

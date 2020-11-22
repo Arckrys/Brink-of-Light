@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
             {
                 closeDoors.SetActive(false);
                 openDoors.SetActive(true);
+                DungeonFloorScript.MyInstance.GetCurrentNode().EnemiesCleared = true;
             }
             else
             {
