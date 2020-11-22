@@ -189,6 +189,24 @@ public class BasicEnemyController : Character
         }
     }
 
+    /// <summary>
+    /// Fonction utilitaire permettant d'ajouter un angle à un Vector2
+    /// </summary>
+    /// <param name="v">Vector2 à modifier</param>
+    /// <param name="degrees">Angle à appliquer</param>
+    /// <returns></returns>
+    public Vector2 Rotate(Vector2 v, float degrees)
+    {
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+        float tx = v.x;
+        float ty = v.y;
+        v.x = (cos * tx) - (sin * ty);
+        v.y = (sin * tx) + (cos * ty);
+        return v;
+    }
+
     public int[] GetSpawnProbabilities()
     {
         return new int[] {
