@@ -18,6 +18,8 @@ public class CanvasTransitionScript : MonoBehaviour
         //set the current room inactive
         DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(false);
 
+        ItemsManagerScript.MyInstance.RemovePotionEffect();
+
         //get the next room direction
         FloorNode.directionEnum direction = FloorNode.directionEnum.north;
         string spawnPointName = "SpawnDown";

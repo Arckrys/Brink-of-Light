@@ -9,7 +9,9 @@ public class ItemsManagerScript : MonoBehaviour
     public GameObject itemConsumableGameObject;
     public GameObject player;
 
-    private PlayerScript playerScript;
+    private enum potionsEnum { none, vitesse, force, lumiere };
+    private potionsEnum potionUsed;
+
     private AudioSource audio;
 
     [SerializeField] private AudioClip equipmentPickupClip, consumableTriggerClip;
@@ -18,7 +20,6 @@ public class ItemsManagerScript : MonoBehaviour
 
     private static ItemsManagerScript instance;
 
-    //à mettre sur playerscript
     private List<string> possessedItems = new List<string>();
     private string consumableItem = null;
 
@@ -38,6 +39,7 @@ public class ItemsManagerScript : MonoBehaviour
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
+        "Potion du forgeron",
         "Parchemin de feu",
         "Parchemin de froid"
     };
@@ -63,10 +65,9 @@ public class ItemsManagerScript : MonoBehaviour
 
     void Start()
     {
-        playerScript = player.GetComponent<PlayerScript>();
-
         audio = GetComponent<AudioSource>();
 
+        potionUsed = potionsEnum.none;
         //ItemsTest();        
     }
 
@@ -137,7 +138,7 @@ public class ItemsManagerScript : MonoBehaviour
         {
             //stat modifying items
             case "Allumettes":
-                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;                
                 break;
 
             case "Amulette du dragon":
@@ -206,14 +207,21 @@ public class ItemsManagerScript : MonoBehaviour
                 case "Potion de vitesse":
                     PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.75f;
                     PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
+                    potionUsed = potionsEnum.vitesse;
                     break;
 
                 case "Potion de force":
                     PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                    potionUsed = potionsEnum.force;
                     break;
 
                 case "Potion de lumière":
                     PlayerScript.MyInstance.PlayerMaxLife += 15f;
+                    potionUsed = potionsEnum.lumiere;
+                    break;
+
+                case "Potion du forgeron":
+                    
                     break;
 
                 case "Parchemin de froid":
@@ -264,5 +272,29 @@ public class ItemsManagerScript : MonoBehaviour
             tempColor.a = 0f;
             image.color = tempColor;
         }
+    }
+
+    public void RemovePotionEffect()
+    {
+        switch(potionUsed)
+        {
+            case potionsEnum.vitesse:
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.75f;
+                PlayerScript.MyInstance.movementSpeed.MyMaxValue -= 0.5f;
+                potionUsed = potionsEnum.vitesse;
+                break;
+
+            case potionsEnum.force:
+                PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                potionUsed = potionsEnum.force;
+                break;
+
+            case potionsEnum.lumiere:
+                PlayerScript.MyInstance.PlayerMaxLife -= 15f;
+                potionUsed = potionsEnum.lumiere;
+                break;
+        }
+
+        potionUsed = potionsEnum.none;
     }
 }
