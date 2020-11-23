@@ -33,7 +33,7 @@ class DashScript : BasicEnemyController
     //Verification des collision pour arrêter le sprint en cas de collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.tag.Equals("Spell"))
+        if (!collision.gameObject.tag.Equals("Spell") && !collision.gameObject.tag.Equals("Enemy"))
         {
             dashCounter = 0;
         }
@@ -82,6 +82,7 @@ class DashScript : BasicEnemyController
                 if (dashCounter > 0)
                 {
                     print(dashCounter);
+                    Move();
                     dashCounter -= 1;
                 }
             }
