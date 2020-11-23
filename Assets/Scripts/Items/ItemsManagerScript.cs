@@ -221,7 +221,7 @@ public class ItemsManagerScript : MonoBehaviour
                     break;
 
                 case "Potion du forgeron":
-                    
+                    StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartInvincibility(10f));
                     break;
 
                 case "Parchemin de froid":

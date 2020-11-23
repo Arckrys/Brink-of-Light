@@ -280,6 +280,17 @@ public class PlayerScript : Character
         StopInvincibility();
     }
 
+    public IEnumerator StartInvincibility(float secondsOfInvincibility)
+    {
+        isInvincible = true;
+
+        yield return new WaitForSeconds(secondsOfInvincibility);
+
+        isInvincible = true;
+
+        yield break;
+    }
+
     private void StopInvincibility()
     {
         isInvincible = false;

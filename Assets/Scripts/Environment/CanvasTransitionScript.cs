@@ -16,6 +16,23 @@ public class CanvasTransitionScript : MonoBehaviour
             canvasGroup.alpha += 0.1f;
         }
 
+        TransitionToNewRoom(exitDoor);
+
+        StartCoroutine(FadeOut());
+    }
+
+    public IEnumerator FadeOut()
+    {
+        var canvasGroup = GameObject.Find("CanvasTransition").GetComponent<CanvasGroup>();
+        while (canvasGroup.alpha > 0)
+        {
+            yield return new WaitForSeconds(transitionSpeed);
+            canvasGroup.alpha -= 0.1f;
+        }
+    }
+
+    private void TransitionToNewRoom(GameObject exitDoor)
+    {
         //set the current room inactive
         DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(false);
 
@@ -61,22 +78,29 @@ public class CanvasTransitionScript : MonoBehaviour
 
         //reset the room doors to get the doors of the new room
         GameManager.MyInstance.ResetRoomDoors();
-        AstarPath.active.Scan();
-        StartCoroutine(FadeOut());
-    }
 
-    public IEnumerator FadeOut()
-    {
-        var canvasGroup = GameObject.Find("CanvasTransition").GetComponent<CanvasGroup>();
-        while (canvasGroup.alpha > 0)
-        {
-            yield return new WaitForSeconds(transitionSpeed);
-            canvasGroup.alpha -= 0.1f;
-        }
+        AstarPath.active.Scan();
+
+        DestroyAllProjectiles();
     }
 
     public void UpdatePlayerPosition(string spawnPointName)
     {
         PlayerScript.MyInstance.transform.position = GameObject.Find(spawnPointName).transform.position;
+    }
+
+    private void DestroyAllProjectiles()
+    {
+        GameObject[] enemyProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        GameObject[] playerProjectiles = GameObject.FindGameObjectsWithTag("Spell");
+
+        List<GameObject> projectiles = new List<GameObject>();
+        projectiles.AddRange(enemyProjectiles);
+        projectiles.AddRange(playerProjectiles);
+
+        foreach(GameObject projectile in projectiles)
+        {
+            Destroy(projectile);
+        }
     }
 }
