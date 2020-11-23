@@ -15,16 +15,47 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject closeDoors;
     [SerializeField] private GameObject openDoors;
 
+    [SerializeField] private GameObject menuPause;
+    [SerializeField] private GameObject menuGraphics;
+    private bool inPause;
+
+    public bool PauseState => inPause;
+
     private void Start()
     {
         razakusScript = RazakusMenuScript.MyInstance;
         playerScript = PlayerScript.MyInstance;
         currencyScript = CurrenciesScript.MyInstance;
+        
+        menuPause.SetActive(false);
+        inPause = false;
     }
     
     void Update()
     {
         UpdateDoorState();
+        
+        GetPauseKey();
+    }
+
+    private void GetPauseKey()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        
+        EditPauseState(!inPause);
+    }
+
+    public void EditPauseState(bool state)
+    {
+        if (!state)
+        {
+            menuGraphics.SetActive(state);
+        }
+        else
+        {
+            inPause = state;
+            menuPause.SetActive(state);
+        }
     }
 
     private void UpdateDoorState()
