@@ -40,6 +40,7 @@ public class DungeonFloorScript : MonoBehaviour
         InitializeMap(nodeList[0].GetRoom());
 
         MinimapScript.MyInstance.AddRoom(newNode);
+        MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
     }
 

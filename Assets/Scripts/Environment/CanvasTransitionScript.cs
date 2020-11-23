@@ -72,6 +72,7 @@ public class CanvasTransitionScript : MonoBehaviour
 
         //update the mini map
         MinimapScript.MyInstance.AddRoom(DungeonFloorScript.MyInstance.GetCurrentNode());
+        MinimapScript.MyInstance.UpdateCurrentRoomDisplay(DungeonFloorScript.MyInstance.GetCurrentNode());
 
         //reposition the player to the correct place of the room where he should spawn
         UpdatePlayerPosition(spawnPointName);
