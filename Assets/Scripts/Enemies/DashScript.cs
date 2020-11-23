@@ -79,6 +79,7 @@ class DashScript : BasicEnemyController
                 if (dashCounter > 0)
                 {
                     print(dashCounter);
+                    Move();
                     dashCounter -= 1;
                 }
             }
