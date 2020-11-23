@@ -130,29 +130,32 @@ public class PlayerScript : Character
     {
         direction = Vector2.zero;
 
-        if (!isInMenu)
+        if (!CanvasTransitionScript.MyInstance.isDoingTransition)
         {
-            if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+            if (!isInMenu)
             {
-                direction += Vector2.up;
+                if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+                {
+                    direction += Vector2.up;
+                }
+                if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    direction += Vector2.left;
+                }
+                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                {
+                    direction += Vector2.down;
+                }
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    direction += Vector2.right;
+                }
             }
-            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                direction += Vector2.left;
-            }
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                direction += Vector2.down;
-            }
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                direction += Vector2.right;
-            }
-        }
 
-        if (Input.GetMouseButton(0) && !isAttacking && !isProjectilesDisabled)
-        {
-            FireProjectile();
+            if (Input.GetMouseButton(0) && !isAttacking && !isProjectilesDisabled)
+            {
+                FireProjectile();
+            }
         }
     }
 

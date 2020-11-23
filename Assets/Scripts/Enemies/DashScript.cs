@@ -22,7 +22,10 @@ class DashScript : BasicEnemyController
 
     protected override void FixedUpdate()
     {
-        Behaviour();
+        if (!CanvasTransitionScript.MyInstance.isDoingTransition)
+        {
+            Behaviour();
+        }
         base.FixedUpdate();
     }
 

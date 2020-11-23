@@ -7,8 +7,26 @@ public class CanvasTransitionScript : MonoBehaviour
 {
     [SerializeField] private float transitionSpeed;
 
+    private static CanvasTransitionScript _instance;
+    public bool isDoingTransition = false;
+
+    public static CanvasTransitionScript MyInstance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType<CanvasTransitionScript>();
+            }
+
+            return _instance;
+        }
+    }
+
     public IEnumerator FadeIn(GameObject exitDoor)
     {
+        isDoingTransition = true;
+
         var canvasGroup = GameObject.Find("CanvasTransition").GetComponent<CanvasGroup>();
         while (canvasGroup.alpha < 1)
         {
@@ -29,6 +47,8 @@ public class CanvasTransitionScript : MonoBehaviour
             yield return new WaitForSeconds(transitionSpeed);
             canvasGroup.alpha -= 0.1f;
         }
+
+        isDoingTransition = false;
     }
 
     private void TransitionToNewRoom(GameObject exitDoor)

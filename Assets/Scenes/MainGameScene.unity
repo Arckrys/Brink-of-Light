@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionSpeed: 0.05
+  isDoingTransition: 0
 --- !u!1001 &1439594220
 PrefabInstance:
   m_ObjectHideFlags: 0
