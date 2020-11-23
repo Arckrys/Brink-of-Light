@@ -39,7 +39,7 @@ public class ItemsManagerScript : MonoBehaviour
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
-        "Potion du forgeron",
+        "Potion de Urbius",
         "Parchemin de feu",
         "Parchemin de froid"
     };
@@ -220,7 +220,7 @@ public class ItemsManagerScript : MonoBehaviour
                     potionUsed = potionsEnum.lumiere;
                     break;
 
-                case "Potion du forgeron":
+                case "Potion de Urbius":
                     StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartInvincibility(10f));
                     break;
 
