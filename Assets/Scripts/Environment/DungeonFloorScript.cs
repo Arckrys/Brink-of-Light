@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 8;
+    private int basicRoomsNumber = 1;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -25,6 +25,9 @@ public class DungeonFloorScript : MonoBehaviour
 
     public void GenerateNewFloor()
     {
+        foreach (FloorNode room in nodeList)
+            room.DestroyRoom();
+
         MinimapScript.MyInstance.ClearMap();
         nodeList.Clear();
         IncreaseFloorLevel();

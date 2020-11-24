@@ -165,4 +165,9 @@ public class FloorNode
     {
         myRoom.SetActive(b);
     }
+
+    public void DestroyRoom()
+    {
+        GameObject.Destroy(myRoom);
+    }
 }
