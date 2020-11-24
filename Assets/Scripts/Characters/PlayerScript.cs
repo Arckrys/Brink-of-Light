@@ -371,20 +371,4 @@ public class PlayerScript : Character
         isProjectilesDisabled = b;
     }
 
-
-    /*public float[] getStatMaxValues()
-    {
-        float[] playerStatMaxValues = new float[8];
-        playerStatMaxValues[0] = PlayerScript.MyInstance.attack.MyMaxValue;
-        playerStatMaxValues[1] = PlayerScript.MyInstance.life.MyMaxValue;
-        playerStatMaxValues[2] = PlayerScript.MyInstance.range.MyMaxValue;
-        playerStatMaxValues[3] = PlayerScript.MyInstance.movementSpeed.MyMaxValue;
-        playerStatMaxValues[4] = PlayerScript.MyInstance.attackSpeed.MyMaxValue;
-        playerStatMaxValues[5] = PlayerScript.MyInstance.critChance.MyMaxValue;
-        playerStatMaxValues[6] = PlayerScript.MyInstance.critDamage.MyMaxValue;
-        playerStatMaxValues[7] = PlayerScript.MyInstance.knockback.MyMaxValue;
-
-        return playerStatMaxValues;
-    }*/
-
 }

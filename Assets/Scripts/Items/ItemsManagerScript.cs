@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ItemsManagerScript : MonoBehaviour
 {
+    [SerializeField] public GameObject popupPanel;
     public GameObject itemEquipmentGameObject;
     public GameObject itemConsumableGameObject;
     public GameObject player;
