@@ -366,6 +366,12 @@ public class PlayerScript : Character
         light2D.pointLightInnerRadius = radius / 10;
     }
 
+    public void SetIsProjectilesDisabled(bool b)
+    {
+        isProjectilesDisabled = b;
+    }
+
+
     /*public float[] getStatMaxValues()
     {
         float[] playerStatMaxValues = new float[8];
