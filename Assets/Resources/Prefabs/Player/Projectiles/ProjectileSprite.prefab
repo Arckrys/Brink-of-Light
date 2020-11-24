@@ -198,7 +198,6 @@ MonoBehaviour:
   projectileShrinkSpeed: 0.01
   projectileSpeed: 7
   projectileShrinkFrequency: 0.05
-  projectileMaxIntensity: 1
   projectileShrinkAcceleration: 1.1
   impactClip: {fileID: 8300000, guid: d6367d5c17e6d78429e5c34cb3122080, type: 3}
   isCrit: 0
@@ -230,7 +229,7 @@ AudioSource:
   m_GameObject: {fileID: 7869541750430091150}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3c0941b9009af41f685e907252f5bc37, type: 2}
   m_audioClip: {fileID: 8300000, guid: 79533889256488a469648841ecdf0b56, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.03

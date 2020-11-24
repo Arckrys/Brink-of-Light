@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Pathfinding;
+using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 public class BasicEnemyController : Character
 {
@@ -103,11 +106,23 @@ public class BasicEnemyController : Character
                 gfxAnim.SetBool("Knockback", true);
                 knockbackTimer = 0;
             }
+            
+            var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+            var volumeValue = .5f;
+            var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
 
             if(life.MyCurrentValue == 0)
             {
                 var position = transform.position;
-                AudioSource.PlayClipAtPoint(DyingSound, position);
+
+                if (volume)
+                {
+                    AudioSource.PlayClipAtPoint(DyingSound, position, 1-Math.Abs(volumeValue)/80);
+                }
+                else
+                {
+                    AudioSource.PlayClipAtPoint(DyingSound, position);
+                }
 
                 //var itemType = Random.Range(0, 2);
                 var itemType = 0;
@@ -126,7 +141,14 @@ public class BasicEnemyController : Character
             }
             else
             {
-                AudioSource.PlayClipAtPoint(Grunt, transform.position);
+                if (volume)
+                {
+                    AudioSource.PlayClipAtPoint(Grunt, transform.position, 1-Math.Abs(volumeValue)/80);
+                }
+                else
+                {
+                    AudioSource.PlayClipAtPoint(Grunt, transform.position);
+                }
             }
         }
     }

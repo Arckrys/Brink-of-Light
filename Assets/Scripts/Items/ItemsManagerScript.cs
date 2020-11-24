@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ItemsManagerScript : MonoBehaviour
 {
@@ -175,6 +178,15 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
         }
 
+        var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+        var volumeValue = .5f;
+        var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+        if (volume)
+        {
+            audio.volume = 1-Math.Abs(volumeValue)/80;
+        }
+
         audio.clip = equipmentPickupClip;
         audio.Play();
 
@@ -260,6 +272,15 @@ public class ItemsManagerScript : MonoBehaviour
 
                 default:
                     break;
+            }
+            
+            var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+            var volumeValue = .5f;
+            var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+            if (volume)
+            {
+                audio.volume = 1-Math.Abs(volumeValue)/80;
             }
 
             audio.clip = consumableTriggerClip;
