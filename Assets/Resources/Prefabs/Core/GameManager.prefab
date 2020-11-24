@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeDoors: {fileID: 0}
   openDoors: {fileID: 0}
+  chestPrefab: {fileID: 5029205384024540948, guid: cce38df88cc91764aa2988e73aefdc72, type: 3}
 --- !u!1 &4889284226335711151
 GameObject:
   m_ObjectHideFlags: 0

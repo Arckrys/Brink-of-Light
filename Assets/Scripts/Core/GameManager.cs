@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject closeDoors;
     [SerializeField] private GameObject openDoors;
+    [SerializeField] private GameObject chestPrefab;
+
+    private bool enemiesAllKilled;
 
     private void Start()
     {
+        enemiesAllKilled = false;
         razakusScript = RazakusMenuScript.MyInstance;
         playerScript = PlayerScript.MyInstance;
         currencyScript = CurrenciesScript.MyInstance;
@@ -29,12 +33,24 @@ public class GameManager : MonoBehaviour
 
     private void UpdateDoorState()
     {
-        if (closeDoors != null && openDoors != null)
+        if (closeDoors != null && openDoors != null && !enemiesAllKilled)
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
             {
                 closeDoors.SetActive(false);
                 openDoors.SetActive(true);
+                enemiesAllKilled = true;
+
+                if (DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomType() == FloorNode.roomTypeEnum.regular)
+                {
+                    int randomInt = Random.Range(0, 15);
+                    if (randomInt == 0)
+                    {
+                        print("spawning chest");
+                        GameObject chest = Instantiate(chestPrefab);
+                        chest.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
+                    }
+                }
             }
             else
             {
@@ -60,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         closeDoors = null;
         openDoors = null;
+        enemiesAllKilled = false;
     }
 
     public static GameManager MyInstance
