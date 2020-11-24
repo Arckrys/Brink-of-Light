@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[4]
       value: -741366717
       objectReference: {fileID: 0}
+    - target: {fileID: 4889284224549988548, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4889284226022031979, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0191226

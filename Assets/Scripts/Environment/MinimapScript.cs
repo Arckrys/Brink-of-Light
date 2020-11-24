@@ -82,4 +82,14 @@ public class MinimapScript : MonoBehaviour
         newColorRed.b = 0;
         room.GetComponent<Image>().color = newColorRed;
     }
+
+    public void ClearMap()
+    {
+        shownNodes.Clear();
+        foreach (GameObject room in displayedRooms)
+        {
+            Destroy(room);
+        }
+        displayedRooms.Clear();
+    }
 }

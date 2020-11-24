@@ -53,13 +53,12 @@ public class CanvasTransitionScript : MonoBehaviour
 
     private void TransitionToNewRoom(GameObject exitDoor)
     {
-        if (exitDoor.CompareTag("DoorVillage"))
+        if (exitDoor.CompareTag("DoorNextFloor") || exitDoor.CompareTag("DoorVillage"))
         {
             DungeonFloorScript.MyInstance.GenerateNewFloor();
             Destroy(GameObject.FindGameObjectWithTag("Room"));
             //position du joueur codée en dur pour l'instant, à changer 
             PlayerScript.MyInstance.transform.position = new Vector2(4.86f, 0);
-            print("generate new floor");
         }
 
         else
@@ -89,8 +88,8 @@ public class CanvasTransitionScript : MonoBehaviour
                 spawnPointName = "SpawnRight";
             }
 
-            print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
-            print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
+            //print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
+            //print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
 
             //get the next room node
             FloorNode nextNode = DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction);

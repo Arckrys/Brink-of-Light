@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorNode
 {
     public enum directionEnum { north, east, south, west };
-    public enum roomTypeEnum { regular, itemRoom, sellerRoom };
+    public enum roomTypeEnum { regular, itemRoom, sellerRoom, exitRoom };
 
     private FloorNode northNode, eastNode, southNode, westNode;
 
@@ -95,6 +95,11 @@ public class FloorNode
             case roomTypeEnum.sellerRoom:
                 myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/SellerRoomS") as GameObject;
                 roomName = "SellerRoomS";
+                break;
+
+            case roomTypeEnum.exitRoom:
+                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/ExitRoomW") as GameObject;
+                roomName = "ExitRoomW";
                 break;
 
             case roomTypeEnum.regular:

@@ -228,9 +228,7 @@ public class ItemsManagerScript : MonoBehaviour
                     enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
                     {
-                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
                         enemy.GetComponent<Character>().movementSpeed.MyCurrentValue /= 2;
-                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
                     }
                     break;
                     
