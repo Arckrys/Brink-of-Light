@@ -21,6 +21,7 @@ TagManager:
   - EnemySpawn
   - AStar
   - Obstacle
+  - DoorVillage
   layers:
   - Default
   - TransparentFX

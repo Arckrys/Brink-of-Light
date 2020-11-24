@@ -14,18 +14,27 @@ public class DungeonFloorScript : MonoBehaviour
     {
         nodeList = new List<FloorNode>();
 
+        if(!GameObject.FindGameObjectWithTag("Room"))
+            GenerateNewFloor();
+    }
+
+    public void GenerateNewFloor()
+    {
+        nodeList.Clear();
+
         //create a first room
         FloorNode newNode = new FloorNode();
         newNode.SetRoomType(FloorNode.roomTypeEnum.regular);
         newNode.SetCoord(0, 0);
         nodeList.Add(newNode);
-        
+
 
         //create the number of rooms desired
-        while (basicRoomsNumber > 0)
+        int roomNumber = basicRoomsNumber;
+        while (roomNumber > 0)
         {
-            createRandomNode(FloorNode.roomTypeEnum.regular);
-            basicRoomsNumber--;
+            CreateRandomNode(FloorNode.roomTypeEnum.regular);
+            roomNumber--;
         }
 
         AddSpecialRooms();
@@ -43,6 +52,7 @@ public class DungeonFloorScript : MonoBehaviour
         MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
     }
+
 
     public FloorNode GetCurrentNode()
     {
@@ -67,7 +77,7 @@ public class DungeonFloorScript : MonoBehaviour
         }
     }
 
-    private void createRandomNode(FloorNode.roomTypeEnum roomType)
+    private void CreateRandomNode(FloorNode.roomTypeEnum roomType)
     {
         bool canBeCreated = false;
 
@@ -176,8 +186,8 @@ public class DungeonFloorScript : MonoBehaviour
 
     public void AddSpecialRooms()
     {
-        createRandomNode(FloorNode.roomTypeEnum.itemRoom);
-        createRandomNode(FloorNode.roomTypeEnum.sellerRoom);
+        CreateRandomNode(FloorNode.roomTypeEnum.itemRoom);
+        CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
     }
 
     public void CreateLinkBetweenNodes(FloorNode a, FloorNode b, FloorNode.directionEnum directionFromAToB)

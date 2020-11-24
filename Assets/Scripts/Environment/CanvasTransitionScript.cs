@@ -53,56 +53,68 @@ public class CanvasTransitionScript : MonoBehaviour
 
     private void TransitionToNewRoom(GameObject exitDoor)
     {
-        //set the current room inactive
-        DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(false);
-
-        ItemsManagerScript.MyInstance.RemovePotionEffect();
-
-        //get the next room direction
-        FloorNode.directionEnum direction = FloorNode.directionEnum.north;
-        string spawnPointName = "SpawnDown";
-
-        if (exitDoor.CompareTag("DoorRight"))
+        if (exitDoor.CompareTag("DoorVillage"))
         {
-            direction = FloorNode.directionEnum.east;
-            spawnPointName = "SpawnLeft";
-        }
-        if (exitDoor.CompareTag("DoorDown"))
-        {
-            direction = FloorNode.directionEnum.south;
-            spawnPointName = "SpawnUp";
-        }
-        if (exitDoor.CompareTag("DoorLeft"))
-        {
-            direction = FloorNode.directionEnum.west;
-            spawnPointName = "SpawnRight";
+            DungeonFloorScript.MyInstance.GenerateNewFloor();
+            Destroy(GameObject.FindGameObjectWithTag("Room"));
+            //position du joueur codée en dur pour l'instant, à changer 
+            PlayerScript.MyInstance.transform.position = new Vector2(4.86f, 0);
+            print("generate new floor");
         }
 
-        print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
-        print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
+        else
+        {
+            //set the current room inactive
+            DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(false);
 
-        //get the next room node
-        FloorNode nextNode = DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction);
+            ItemsManagerScript.MyInstance.RemovePotionEffect();
 
-        //change the current room node as the next room node we picked
-        DungeonFloorScript.MyInstance.SetCurrentNode(nextNode);
+            //get the next room direction
+            FloorNode.directionEnum direction = FloorNode.directionEnum.north;
+            string spawnPointName = "SpawnDown";
 
-        //activate the room
-        DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(true);
+            if (exitDoor.CompareTag("DoorRight"))
+            {
+                direction = FloorNode.directionEnum.east;
+                spawnPointName = "SpawnLeft";
+            }
+            else if (exitDoor.CompareTag("DoorDown"))
+            {
+                direction = FloorNode.directionEnum.south;
+                spawnPointName = "SpawnUp";
+            }
+            else if (exitDoor.CompareTag("DoorLeft"))
+            {
+                direction = FloorNode.directionEnum.west;
+                spawnPointName = "SpawnRight";
+            }
 
-        //update the mini map
-        MinimapScript.MyInstance.AddRoom(DungeonFloorScript.MyInstance.GetCurrentNode());
-        MinimapScript.MyInstance.UpdateCurrentRoomDisplay(DungeonFloorScript.MyInstance.GetCurrentNode());
+            print("current room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomName());
+            print("next room : " + DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction).GetRoomName());
 
-        //reposition the player to the correct place of the room where he should spawn
-        UpdatePlayerPosition(spawnPointName);
+            //get the next room node
+            FloorNode nextNode = DungeonFloorScript.MyInstance.GetCurrentNode().GetNeighbourNode(direction);
 
-        //reset the room doors to get the doors of the new room
-        GameManager.MyInstance.ResetRoomDoors();
+            //change the current room node as the next room node we picked
+            DungeonFloorScript.MyInstance.SetCurrentNode(nextNode);
 
-        AstarPath.active.Scan();
+            //activate the room
+            DungeonFloorScript.MyInstance.GetCurrentNode().ActivateRoom(true);
 
-        DestroyAllProjectiles();
+            //update the mini map
+            MinimapScript.MyInstance.AddRoom(DungeonFloorScript.MyInstance.GetCurrentNode());
+            MinimapScript.MyInstance.UpdateCurrentRoomDisplay(DungeonFloorScript.MyInstance.GetCurrentNode());
+
+            //reposition the player to the correct place of the room where he should spawn
+            UpdatePlayerPosition(spawnPointName);
+
+            //reset the room doors to get the doors of the new room
+            GameManager.MyInstance.ResetRoomDoors();
+
+            AstarPath.active.Scan();
+
+            DestroyAllProjectiles();
+        }
     }
 
     public void UpdatePlayerPosition(string spawnPointName)
