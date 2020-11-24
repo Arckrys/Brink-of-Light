@@ -19,21 +19,25 @@ public class PauseManager : MonoBehaviour
     void Start()
     {
         btnResume.onClick.AddListener(OnResumePressed);
-        btnVideo.onClick.AddListener(OnResumePressed);
-        btnSound.onClick.AddListener(OnResumePressed);
+        btnVideo.onClick.AddListener(OnVideoPressed);
+        btnSound.onClick.AddListener(OnAudioPressed);
         btnRestart.onClick.AddListener(OnResumePressed);
         btnTown.onClick.AddListener(OnResumePressed);
         btnMenu.onClick.AddListener(OnResumePressed);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private static void OnResumePressed()
     {
         GameManager.MyInstance.EditPauseState(false);
+    }
+
+    private static void OnVideoPressed()
+    {
+        GameManager.MyInstance.SetGraphicMenu(true);
+    }
+    
+    private static void OnAudioPressed()
+    {
+        GameManager.MyInstance.SetAudioMenu(true);
     }
 }

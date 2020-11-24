@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider volume;
 
     [SerializeField] private AudioMixer audioMixer;
+    
+    [SerializeField] private Button back;
 
     private float currentVolume;
     
@@ -19,6 +21,12 @@ public class AudioManager : MonoBehaviour
         SetVolume(currentVolume);
         
         volume.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
+        back.onClick.AddListener(OnBackPressed);
+    }
+    
+    private void OnBackPressed()
+    {
+        GameManager.MyInstance.SetAudioMenu(false);
     }
 
     private void OnVolumeChanged()

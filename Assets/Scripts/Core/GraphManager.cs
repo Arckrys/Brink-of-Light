@@ -89,7 +89,7 @@ public class GraphManager : MonoBehaviour
 
     private void OnBackPressed()
     {
-        
+        GameManager.MyInstance.SetGraphicMenu(false);
     }
 
     private void OnFullscreenPressed()

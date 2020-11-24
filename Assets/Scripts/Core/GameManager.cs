@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject menuPause;
     [SerializeField] private GameObject menuGraphics;
+    [SerializeField] private GameObject menuAudio;
     private bool inPause;
 
     public bool PauseState => inPause;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
         currencyScript = CurrenciesScript.MyInstance;
         
         menuPause.SetActive(false);
+        menuGraphics.SetActive(false);
+        menuAudio.SetActive(false);
         inPause = false;
     }
     
@@ -47,15 +50,29 @@ public class GameManager : MonoBehaviour
 
     public void EditPauseState(bool state)
     {
-        if (!state)
+        if (!state && (menuGraphics.activeSelf || menuAudio.activeSelf))
         {
             menuGraphics.SetActive(state);
+            menuAudio.SetActive(state);
+            menuPause.SetActive(!state);
         }
         else
         {
             inPause = state;
             menuPause.SetActive(state);
         }
+    }
+
+    public void SetGraphicMenu(bool state)
+    {
+        menuPause.SetActive(!state);
+        menuGraphics.SetActive(state);
+    }
+
+    public void SetAudioMenu(bool state)
+    {
+        menuPause.SetActive(!state);
+        menuAudio.SetActive(state);
     }
 
     private void UpdateDoorState()
