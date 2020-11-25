@@ -6,16 +6,6 @@ using UnityEngine.UI;
 public class ItemEquipmentScript : Item
 {
 
-    [SerializeField] private GameObject popupPanel;
-    private Image background;
-    private Text itemText;
-
-    private void Start()
-    {
-        GameObject popupPanel = ItemsManagerScript.MyInstance.popupPanel;
-        background = popupPanel.GetComponentInChildren<Image>();
-        itemText = popupPanel.GetComponentInChildren<Text>();
-    }
 
     public override void SetName(string itemName)
     {
@@ -25,25 +15,6 @@ public class ItemEquipmentScript : Item
         UpdatePolygonCollider();
     }
 
-    private IEnumerator FadingItemPopup()
-    {
-        for (float ft = 1f; ft >= 0; ft -= 0.1f)
-        {
-            Color bgColor = background.color;
-            Color textColor = itemText.color;
-
-            //Debug.Log("help" + bgColor.a);
-
-            bgColor.a = ft;
-            textColor.a = ft;
-
-            //background.color = bgColor;
-            background.canvasRenderer.SetColor(bgColor);
-            itemText.color = textColor;
-
-            yield return null;
-        }
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -61,7 +32,7 @@ public class ItemEquipmentScript : Item
                 GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
 
                 // TODO Start Item Name Popup coroutine
-                StartCoroutine("FadingItemPopup");
+                ItemsManagerScript.MyInstance.StartCoroutine("FadingItemPopup", itemName);
 
                 if (isItemSold)
                 {
