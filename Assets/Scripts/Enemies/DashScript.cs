@@ -41,7 +41,9 @@ class DashScript : BasicEnemyController
 
 
 
-
+    /// <summary>
+    /// Fonction ayant pour but de stocker le comportement de l'ennemi
+    /// </summary>
     private void Behaviour()
     {
         if (playerDetected)
@@ -81,7 +83,6 @@ class DashScript : BasicEnemyController
 
                 if (dashCounter > 0)
                 {
-                    print(dashCounter);
                     Move();
                     dashCounter -= 1;
                 }
@@ -96,7 +97,6 @@ class DashScript : BasicEnemyController
 
                 if (dashRestingCounter > 0)
                 {
-                    print("dashresting");
                     direction = (player.position - transform.position) * 0;
                     Move();
                     dashRestingCounter -= 1;
@@ -119,7 +119,6 @@ class DashScript : BasicEnemyController
 
         if (gfxAnim.GetBool("Knockback") && !dashing)
         {
-            print(dashing);
             knockbackTimer += 1;
             direction = -1 * (player.position - transform.position);
             Move();

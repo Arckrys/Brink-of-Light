@@ -12,6 +12,9 @@ class WolfScript : BasicEnemyController
         base.FixedUpdate();
     }
 
+    /// <summary>
+    /// Fonction ayant pour but de stocker le comportement de l'ennemi
+    /// </summary>
     private void Behaviour()
     {
         if (playerDetected)
