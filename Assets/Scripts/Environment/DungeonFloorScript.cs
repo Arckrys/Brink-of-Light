@@ -106,7 +106,7 @@ public class DungeonFloorScript : MonoBehaviour
                 FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
 
                 //choose a random direction
-                var randomDirection = (FloorNode.directionEnum)Random.Range(0, 3);
+                var randomDirection = (FloorNode.directionEnum)Random.Range(0, 4);
 
                 //if the existing room has no room at the direction chosen we create the room there and is not a special room
                 if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular && existingNode.GetNeighbourNode(randomDirection) == null)
