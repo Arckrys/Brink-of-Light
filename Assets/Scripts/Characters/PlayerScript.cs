@@ -72,6 +72,9 @@ public class PlayerScript : Character
     
     private bool isAttacking;
     private bool isLosingHealthWhenAttacking = true;
+    private bool isProjectilePiercingEnemies = false;
+
+    private int projectilesNumber = 1;
 
     private Coroutine attackCoroutine;
 
@@ -179,24 +182,28 @@ public class PlayerScript : Character
             
         var projectileDirection = GetPlayerToDirection();
 
-        var randomNumber = Random.Range(0, 100);
-        var damageToDeal = attack.MyMaxValue;
-        var isCrit = false;
-        
-        if (randomNumber <= critChance.MyMaxValue)
+        for (int i = 0; i < projectilesNumber; i++)
         {
-            damageToDeal *= critDamage.MyMaxValue;
-            isCrit = true;
+            var randomNumber = Random.Range(0, 100);
+            var damageToDeal = attack.MyMaxValue;
+            var isCrit = false;
+
+            if (randomNumber <= critChance.MyMaxValue)
+            {
+                damageToDeal *= critDamage.MyMaxValue;
+                isCrit = true;
+            }
+
+            //create projectile
+            float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
+            var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y, -2), Quaternion.identity);
+            newProjectile.GetComponent<ProjectileScript>().SetDirection(projectileDirection, xPos, position.y);
+            newProjectile.GetComponent<ProjectileScript>().MyBaseDamage = damageToDeal;
+            newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
+            newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
+            newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
         }
 
-        //create projectile
-        var newProjectile = Instantiate(projectile, new Vector3(position.x, position.y, -2), Quaternion.identity);
-        newProjectile.GetComponent<ProjectileScript>().SetDirection(projectileDirection, position.x, position.y);
-        newProjectile.GetComponent<ProjectileScript>().MyBaseDamage = damageToDeal;
-        newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
-        newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
-        newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
-        
         //player lose one health per shot
         if (isLosingHealthWhenAttacking)
             PlayerCurrentLife -= projectileCost;
@@ -369,6 +376,24 @@ public class PlayerScript : Character
     public void SetIsProjectilesDisabled(bool b)
     {
         isProjectilesDisabled = b;
+    }
+
+    public bool IsProjectilePiercing
+    {
+        get
+        {
+            return isProjectilePiercingEnemies;
+        }
+
+        set
+        {
+            isProjectilePiercingEnemies = value;
+        }
+    }
+
+    public void IncreaseProjectileNumber()
+    {
+        projectilesNumber++;
     }
 
 

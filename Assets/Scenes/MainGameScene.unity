@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 603518852}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initAttack
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initMovementSpeed

@@ -32,7 +32,9 @@ public class ItemsManagerScript : MonoBehaviour
         "Bottes d'Hotavius",
         "Cape de vampire",
         "Lampe à huile d'Hotavius",
-        "Sauce piquante"
+        "Sauce piquante",
+        "Lance d'Hotavius",
+        "Grimoire de boule de feu"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -169,6 +171,15 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
 
             case "Sauce piquante":
+                break;
+
+            case "Lance d'Hotavius":
+                PlayerScript.MyInstance.IsProjectilePiercing = true;
+                PlayerScript.MyInstance.range.MyMaxValue += 20;
+                break;
+
+            case "Grimoire de boule de feu":
+                PlayerScript.MyInstance.IncreaseProjectileNumber();
                 break;
 
             default:
