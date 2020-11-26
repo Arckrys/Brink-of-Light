@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
@@ -14,6 +16,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button btnTown;
     
     [SerializeField] private Button btnMenu;
+
+    [SerializeField] private Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -21,8 +25,8 @@ public class PauseManager : MonoBehaviour
         btnResume.onClick.AddListener(OnResumePressed);
         btnVideo.onClick.AddListener(OnVideoPressed);
         btnSound.onClick.AddListener(OnAudioPressed);
-        btnRestart.onClick.AddListener(OnResumePressed);
-        btnTown.onClick.AddListener(OnResumePressed);
+        btnRestart.onClick.AddListener(OnRestartPressed);
+        btnTown.onClick.AddListener(OnTownPressed);
         btnMenu.onClick.AddListener(OnResumePressed);
     }
 
@@ -39,5 +43,26 @@ public class PauseManager : MonoBehaviour
     private static void OnAudioPressed()
     {
         GameManager.MyInstance.SetAudioMenu(true);
+    }
+
+    private void OnRestartPressed()
+    {
+        //StartCoroutine(GameObject.Find("CanvasTransition").GetComponent<CanvasTransitionScript>().FadeIn(gameObject));
+    }
+
+    private void OnTownPressed()
+    {
+        StartCoroutine(Load());
+    }
+
+    private IEnumerator Load()
+    {
+        animator.SetTrigger("Start");
+
+        GetComponent<CanvasGroup>().alpha = 0f;
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
