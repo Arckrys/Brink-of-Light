@@ -136,7 +136,10 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "Vie";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initLife += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.PlayerMaxLife += value;
+            player.PlayerCurrentLife += value;
+            UpdateUI(statName, player.initLife += value);
         }
     }
     public void OnAttackPressed()
@@ -144,7 +147,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "Attaque";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initAttack += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.attack.MyMaxValue += value;
+            UpdateUI(statName, player.initAttack += value);
         }
     }
     public void OnRangePressed()
@@ -152,7 +157,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "Portee";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initRange += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.range.MyMaxValue += value;
+            UpdateUI(statName, player.initRange += value);
         }
     }
     public void OnCritChancePressed()
@@ -160,7 +167,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "ChanceCrit";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initCritChance += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.critChance.MyMaxValue += value;
+            UpdateUI(statName, player.initCritChance += value);
         }
     }
     public void OnSpeedPressed()
@@ -168,7 +177,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "Vitesse";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initMovementSpeed += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.movementSpeed.MyMaxValue += value;
+            UpdateUI(statName, player.initMovementSpeed += value);
         }
     }
 
@@ -177,7 +188,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "VitesseAtk";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initAttackSpeed += (float) RazakusData[statName][3]); 
+            var value = (float) RazakusData[statName][3];
+            player.attackSpeed.MyMaxValue += value;
+            UpdateUI(statName, player.initAttackSpeed += value); 
         }
     }
 
@@ -186,7 +199,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "DegatsCrit";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initCritDamage += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.critDamage.MyMaxValue += value;
+            UpdateUI(statName, player.initCritDamage += value);
         }
     }
    
@@ -195,7 +210,9 @@ public class RazakusMenuScript : MonoBehaviour
         const string statName = "Recul";
         if (PurchaseSouls(statName))
         {
-            UpdateUI(statName, player.initKnockback += (float) RazakusData[statName][3]);
+            var value = (float) RazakusData[statName][3];
+            player.knockback.MyMaxValue += value;
+            UpdateUI(statName, player.initKnockback += value);
         }
     }
 }
