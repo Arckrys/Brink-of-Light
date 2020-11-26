@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
@@ -92,8 +94,17 @@ public class ProjectileScript : MonoBehaviour
             Destroy(collider);
 
             //play the blast audio clip
+            
+            var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+            var volumeValue = .5f;
+            var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+            if (volume)
+            {
+                audio.volume = 1-Math.Abs(volumeValue)/80;
+            }
+            
             audio.clip = impactClip;
-            audio.volume /= 2;
             audio.Play();
         }
 

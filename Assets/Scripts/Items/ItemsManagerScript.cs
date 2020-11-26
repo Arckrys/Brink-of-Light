@@ -1,13 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ItemsManagerScript : MonoBehaviour
 {
+    [SerializeField] private GameObject popupPanel;
     public GameObject itemEquipmentGameObject;
     public GameObject itemConsumableGameObject;
     public GameObject player;
+
+    private CanvasGroup canvasGroup;
+    private Text itemText;
+
 
     private enum potionsEnum { none, vitesse, force, lumiere };
     private potionsEnum potionUsed;
@@ -68,6 +76,9 @@ public class ItemsManagerScript : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
+        canvasGroup = popupPanel.GetComponent<CanvasGroup>();
+        itemText = popupPanel.GetComponentInChildren<Text>();
 
         potionUsed = potionsEnum.none;
         //ItemsTest();        
@@ -186,6 +197,15 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
         }
 
+        var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+        var volumeValue = .5f;
+        var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+        if (volume)
+        {
+            audio.volume = 1-Math.Abs(volumeValue)/80;
+        }
+
         audio.clip = equipmentPickupClip;
         audio.Play();
 
@@ -270,6 +290,15 @@ public class ItemsManagerScript : MonoBehaviour
                 default:
                     break;
             }
+            
+            var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+            var volumeValue = .5f;
+            var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+            if (volume)
+            {
+                audio.volume = 1-Math.Abs(volumeValue)/80;
+            }
 
             audio.clip = consumableTriggerClip;
             audio.Play();
@@ -306,4 +335,36 @@ public class ItemsManagerScript : MonoBehaviour
 
         potionUsed = potionsEnum.none;
     }
+
+
+    public IEnumerator FadingItemPopup(string itemName)
+    {
+
+        itemText.text = itemName;
+
+        popupPanel.SetActive(true);
+
+        while(canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha += 0.05f;
+            Debug.Log(canvasGroup.alpha);
+
+            yield return new WaitForSeconds(.01f);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= 0.05f;
+            Debug.Log(canvasGroup.alpha);
+
+            yield return new WaitForSeconds(.05f);
+        }
+
+        popupPanel.SetActive(false);
+        yield return null;
+    }
 }
+
+

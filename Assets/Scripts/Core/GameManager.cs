@@ -18,17 +18,65 @@ public class GameManager : MonoBehaviour
 
     private bool enemiesAllKilled;
 
+    [SerializeField] private GameObject menuPause;
+    [SerializeField] private GameObject menuGraphics;
+    [SerializeField] private GameObject menuAudio;
+    private bool inPause;
+
+    public bool PauseState => inPause;
+
     private void Start()
     {
         enemiesAllKilled = false;
         razakusScript = RazakusMenuScript.MyInstance;
         playerScript = PlayerScript.MyInstance;
         currencyScript = CurrenciesScript.MyInstance;
+        
+        menuPause.SetActive(false);
+        menuGraphics.SetActive(false);
+        menuAudio.SetActive(false);
+        inPause = false;
     }
     
     void Update()
     {
         UpdateDoorState();
+        
+        GetPauseKey();
+    }
+
+    private void GetPauseKey()
+    {
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        
+        EditPauseState(!inPause);
+    }
+
+    public void EditPauseState(bool state)
+    {
+        if (!state && (menuGraphics.activeSelf || menuAudio.activeSelf))
+        {
+            menuGraphics.SetActive(state);
+            menuAudio.SetActive(state);
+            menuPause.SetActive(!state);
+        }
+        else
+        {
+            inPause = state;
+            menuPause.SetActive(state);
+        }
+    }
+
+    public void SetGraphicMenu(bool state)
+    {
+        menuPause.SetActive(!state);
+        menuGraphics.SetActive(state);
+    }
+
+    public void SetAudioMenu(bool state)
+    {
+        menuPause.SetActive(!state);
+        menuAudio.SetActive(state);
     }
 
     private void UpdateDoorState()

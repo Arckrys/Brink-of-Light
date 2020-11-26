@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemEquipmentScript : Item
 {
+
+
     public override void SetName(string itemName)
     {
         base.SetName(itemName);
@@ -11,6 +14,7 @@ public class ItemEquipmentScript : Item
         GetComponent<SpriteRenderer>().sprite = itemSprite;
         UpdatePolygonCollider();
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +30,9 @@ public class ItemEquipmentScript : Item
             {
                 Destroy(gameObject);
                 GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
+
+                // TODO Start Item Name Popup coroutine
+                ItemsManagerScript.MyInstance.StartCoroutine("FadingItemPopup", itemName);
 
                 if (isItemSold)
                 {
