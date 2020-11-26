@@ -222,6 +222,9 @@ public class BasicEnemyController : Character
         newProjectile.GetComponent<EnnemiesProjectileScript>().isCrit = isCrit;
     }
 
+    /// <summary>
+    /// Script permettant de faire aller l'ennemi vers le joueur en utilisant un algorithme de pathfinding de type A*
+    /// </summary>
     protected void MoveToPlayer()
     {
         if (Time.time > lastRepath + repathRate && seeker.IsDone())
@@ -236,6 +239,7 @@ public class BasicEnemyController : Character
 
         if(currentWaypoint >= path.vectorPath.Count)
         {
+            Move();
             reachedEndOfPath = true;
             return;
         }

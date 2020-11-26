@@ -5,10 +5,16 @@ using UnityEngine;
 public class ProjectileCollisionScript : MonoBehaviour
 {
     private bool collisionDetected = false;
+    private bool pierceEnemies = false;
+
+    private void Start()
+    {
+        pierceEnemies = PlayerScript.MyInstance.IsProjectilePiercing;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.isTrigger)
+        if (!other.isTrigger && (!pierceEnemies || pierceEnemies && !other.CompareTag("Enemy")))
             collisionDetected = true;
     }
 

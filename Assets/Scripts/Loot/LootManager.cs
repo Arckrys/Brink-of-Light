@@ -25,7 +25,10 @@ public class LootManager : MonoBehaviour
                 if (itemType > 0) itemManager.ApplyItemModifications(itemName);
 
                 else
-                    ItemsManagerScript.MyInstance.CreateConsumableItem(transform.position, itemName);
+                {
+                    GameObject consumableItem = ItemsManagerScript.MyInstance.CreateConsumableItem(transform.position, itemName);
+                    consumableItem.transform.SetParent(this.transform.parent);
+                }
             }
 
             Destroy(gameObject);

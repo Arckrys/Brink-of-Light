@@ -12,6 +12,7 @@ public class CombustibleScript : MonoBehaviour
     private bool hasHealedPlayer;
     [SerializeField] private float healingValue = 25;
     [SerializeField] bool isDestroyedAfterFire;
+    private bool hasAnimatorBurntParameter;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,15 @@ public class CombustibleScript : MonoBehaviour
         hasHealedPlayer = false;
         combustibleAnimator = GetComponentInChildren<Animator>();
         combustibleCollider = GetComponent<BoxCollider2D>();
+        hasAnimatorBurntParameter = HasParameter("isBurnt", combustibleAnimator);
     }
 
     // Update is called once per frame
     void Update()
     {
         combustibleAnimator.SetBool("isLit", isLit);
+        if (hasAnimatorBurntParameter)
+            combustibleAnimator.SetBool("isBurnt", hasHealedPlayer);
     }
 
     void OnTriggerStay2D(Collider2D other) // Triggered when a rigidBody touches the collider
@@ -61,5 +65,15 @@ public class CombustibleScript : MonoBehaviour
     public void SetIsLit(bool b)
     {
         isLit = b;
+    }
+
+    private static bool HasParameter(string paramName, Animator animator)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName)
+                return true;
+        }
+        return false;
     }
 }

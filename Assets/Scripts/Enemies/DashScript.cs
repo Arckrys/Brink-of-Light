@@ -22,7 +22,10 @@ class DashScript : BasicEnemyController
 
     protected override void FixedUpdate()
     {
-        Behaviour();
+        if (!CanvasTransitionScript.MyInstance.isDoingTransition)
+        {
+            Behaviour();
+        }
         base.FixedUpdate();
     }
 
@@ -30,7 +33,7 @@ class DashScript : BasicEnemyController
     //Verification des collision pour arrêter le sprint en cas de collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.tag.Equals("Spell"))
+        if (!collision.gameObject.tag.Equals("Spell") && !collision.gameObject.tag.Equals("Enemy"))
         {
             dashCounter = 0;
         }
@@ -38,7 +41,9 @@ class DashScript : BasicEnemyController
 
 
 
-
+    /// <summary>
+    /// Fonction ayant pour but de stocker le comportement de l'ennemi
+    /// </summary>
     private void Behaviour()
     {
         if (playerDetected)
@@ -78,7 +83,7 @@ class DashScript : BasicEnemyController
 
                 if (dashCounter > 0)
                 {
-                    print(dashCounter);
+                    Move();
                     dashCounter -= 1;
                 }
             }
@@ -92,7 +97,6 @@ class DashScript : BasicEnemyController
 
                 if (dashRestingCounter > 0)
                 {
-                    print("dashresting");
                     direction = (player.position - transform.position) * 0;
                     Move();
                     dashRestingCounter -= 1;
@@ -115,7 +119,6 @@ class DashScript : BasicEnemyController
 
         if (gfxAnim.GetBool("Knockback") && !dashing)
         {
-            print(dashing);
             knockbackTimer += 1;
             direction = -1 * (player.position - transform.position);
             Move();

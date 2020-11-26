@@ -57,15 +57,14 @@ public class ProjectileScript : MonoBehaviour
 
         initialZ = transform.position.z;
 
-        float hitboxX, hitboxY;
-        float hitboxYReduction = 0.80f;
-
         UpdatePolygonCollider();
 
         //allow the projectile to shrink and update its current damage right after its creation
         timeTemp = projectileShrinkFrequency;
 
-        /*
+        /*         
+        float hitboxX, hitboxY;
+        float hitboxYReduction = 0.80f;
         //change hitbox size of boxcollider
         hitboxX = spriteRenderer.bounds.size.x / transform.localScale.x;
         hitboxY = hitboxYReduction * spriteRenderer.bounds.size.y / transform.localScale.y;

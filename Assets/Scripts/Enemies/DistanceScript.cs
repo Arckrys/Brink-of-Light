@@ -20,7 +20,10 @@ public class DistanceScript : BasicEnemyController
 
     protected override void FixedUpdate()
     {
-        Behaviour();
+        if (!CanvasTransitionScript.MyInstance.isDoingTransition)
+        {
+            Behaviour();
+        }
         //print(movementSpeed.MyCurrentValue);
         base.FixedUpdate();
     }

@@ -10,22 +10,41 @@ public class DungeonFloorScript : MonoBehaviour
     private int basicRoomsNumber = 8;
     private int currentNodeIndex;
 
+    private int floorLevel;
+    private int dungeonLevel;
+
     private void Start()
     {
         nodeList = new List<FloorNode>();
+        floorLevel = 0;
+        dungeonLevel = 0;
+
+        if(!GameObject.FindGameObjectWithTag("Room"))
+            GenerateNewFloor();
+    }
+
+    public void GenerateNewFloor()
+    {
+        foreach (FloorNode room in nodeList)
+            room.DestroyRoom();
+
+        MinimapScript.MyInstance.ClearMap();
+        nodeList.Clear();
+        IncreaseFloorLevel();
 
         //create a first room
         FloorNode newNode = new FloorNode();
         newNode.SetRoomType(FloorNode.roomTypeEnum.regular);
         newNode.SetCoord(0, 0);
         nodeList.Add(newNode);
-        
+        SetCurrentNode(newNode);
 
         //create the number of rooms desired
-        while (basicRoomsNumber > 0)
+        int roomNumber = basicRoomsNumber;
+        while (roomNumber > 0)
         {
-            createRandomNode(FloorNode.roomTypeEnum.regular);
-            basicRoomsNumber--;
+            CreateRandomNode(FloorNode.roomTypeEnum.regular);
+            roomNumber--;
         }
 
         AddSpecialRooms();
@@ -40,8 +59,10 @@ public class DungeonFloorScript : MonoBehaviour
         InitializeMap(nodeList[0].GetRoom());
 
         MinimapScript.MyInstance.AddRoom(newNode);
+        MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
     }
+
 
     public FloorNode GetCurrentNode()
     {
@@ -66,7 +87,7 @@ public class DungeonFloorScript : MonoBehaviour
         }
     }
 
-    private void createRandomNode(FloorNode.roomTypeEnum roomType)
+    private void CreateRandomNode(FloorNode.roomTypeEnum roomType)
     {
         bool canBeCreated = false;
 
@@ -114,6 +135,35 @@ public class DungeonFloorScript : MonoBehaviour
                     //check if there are rooms existing around the new room and connect them.
                     //This allow the level to have loops and not look like a tree 
                     ConnectNodeNeighbours(newNode);
+
+                    nodeList.Add(newNode);
+                    canBeCreated = true;
+                }
+            }
+
+            //TEMPORARY because next floor room only have west version
+            //if we create a special room
+            else if (roomType == FloorNode.roomTypeEnum.exitRoom)
+            {
+                //take an existing room
+                FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
+
+                //if the existing room has no room at the direction chosen we create the room there and is not a special room
+                if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular && existingNode.GetNeighbourNode(FloorNode.directionEnum.east) == null)
+                {
+                    FloorNode newNode = new FloorNode();
+
+                    newNode.SetRoomType(roomType);
+
+                    //add the new room as a neighbour of the existing room
+                    existingNode.SetNeighbourNode(FloorNode.directionEnum.east, newNode);
+
+                    //add the existing room as a neighbour of the new room
+                    newNode.SetNeighbourNode(GetOppositeDirection(FloorNode.directionEnum.east), existingNode);
+
+                    (int x, int y) = existingNode.GetCoord();
+
+                    newNode.SetCoord(x + 1, y);
 
                     nodeList.Add(newNode);
                     canBeCreated = true;
@@ -175,8 +225,9 @@ public class DungeonFloorScript : MonoBehaviour
 
     public void AddSpecialRooms()
     {
-        createRandomNode(FloorNode.roomTypeEnum.itemRoom);
-        createRandomNode(FloorNode.roomTypeEnum.sellerRoom);
+        CreateRandomNode(FloorNode.roomTypeEnum.itemRoom);
+        CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
+        CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
     }
 
     public void CreateLinkBetweenNodes(FloorNode a, FloorNode b, FloorNode.directionEnum directionFromAToB)
@@ -222,5 +273,14 @@ public class DungeonFloorScript : MonoBehaviour
                 CreateLinkBetweenNodes(baseNode, node, direction);
             }
         }
+    }
+
+    private void IncreaseFloorLevel()
+    {
+        floorLevel = (floorLevel % 4) + 1;
+        if (floorLevel == 1)
+            dungeonLevel++;
+        print("Current floor : " + floorLevel);
+        print("Current dungeon : " + dungeonLevel);
     }
 }

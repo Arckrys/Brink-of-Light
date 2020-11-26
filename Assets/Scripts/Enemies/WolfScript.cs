@@ -4,11 +4,17 @@ class WolfScript : BasicEnemyController
 {
     protected override void FixedUpdate()
     {
-        Behaviour();
+        if (!CanvasTransitionScript.MyInstance.isDoingTransition)
+        {
+            Behaviour();
+        }
 
         base.FixedUpdate();
     }
 
+    /// <summary>
+    /// Fonction ayant pour but de stocker le comportement de l'ennemi
+    /// </summary>
     private void Behaviour()
     {
         if (playerDetected)

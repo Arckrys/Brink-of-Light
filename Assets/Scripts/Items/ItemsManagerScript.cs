@@ -8,9 +8,14 @@ using Random = UnityEngine.Random;
 
 public class ItemsManagerScript : MonoBehaviour
 {
+    [SerializeField] private GameObject popupPanel;
     public GameObject itemEquipmentGameObject;
     public GameObject itemConsumableGameObject;
     public GameObject player;
+
+    private CanvasGroup canvasGroup;
+    private Text itemText;
+
 
     private enum potionsEnum { none, vitesse, force, lumiere };
     private potionsEnum potionUsed;
@@ -35,14 +40,16 @@ public class ItemsManagerScript : MonoBehaviour
         "Bottes d'Hotavius",
         "Cape de vampire",
         "Lampe à huile d'Hotavius",
-        "Sauce piquante"
+        "Sauce piquante",
+        "Lance d'Hotavius",
+        "Grimoire de boule de feu"
     };
 
     private List<string> itemsConsumableList = new List<string> {
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
-        "Potion du forgeron",
+        "Potion de Urbius",
         "Parchemin de feu",
         "Parchemin de froid"
     };
@@ -69,6 +76,9 @@ public class ItemsManagerScript : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
+        canvasGroup = popupPanel.GetComponent<CanvasGroup>();
+        itemText = popupPanel.GetComponentInChildren<Text>();
 
         potionUsed = potionsEnum.none;
         //ItemsTest();        
@@ -174,6 +184,15 @@ public class ItemsManagerScript : MonoBehaviour
             case "Sauce piquante":
                 break;
 
+            case "Lance d'Hotavius":
+                PlayerScript.MyInstance.IsProjectilePiercing = true;
+                PlayerScript.MyInstance.range.MyMaxValue += 20;
+                break;
+
+            case "Grimoire de boule de feu":
+                PlayerScript.MyInstance.IncreaseProjectileNumber();
+                break;
+
             default:
                 break;
         }
@@ -232,17 +251,15 @@ public class ItemsManagerScript : MonoBehaviour
                     potionUsed = potionsEnum.lumiere;
                     break;
 
-                case "Potion du forgeron":
-                    
+                case "Potion de Urbius":
+                    StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartInvincibility(10f));
                     break;
 
                 case "Parchemin de froid":
                     enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
                     {
-                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
                         enemy.GetComponent<Character>().movementSpeed.MyCurrentValue /= 2;
-                        print(enemy.GetComponent<Character>().movementSpeed.MyCurrentValue);
                     }
                     break;
                     
@@ -318,4 +335,36 @@ public class ItemsManagerScript : MonoBehaviour
 
         potionUsed = potionsEnum.none;
     }
+
+
+    public IEnumerator FadingItemPopup(string itemName)
+    {
+
+        itemText.text = itemName;
+
+        popupPanel.SetActive(true);
+
+        while(canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha += 0.05f;
+            Debug.Log(canvasGroup.alpha);
+
+            yield return new WaitForSeconds(.01f);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= 0.05f;
+            Debug.Log(canvasGroup.alpha);
+
+            yield return new WaitForSeconds(.05f);
+        }
+
+        popupPanel.SetActive(false);
+        yield return null;
+    }
 }
+
+
