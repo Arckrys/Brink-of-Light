@@ -1067,7 +1067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &145455645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,7 +2126,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7559,9 +7559,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1090090410
 MonoBehaviour:
@@ -8071,6 +8071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: {fileID: 1876057638}
   audioMixer: {fileID: 24100000, guid: 3c0941b9009af41f685e907252f5bc37, type: 2}
+  back: {fileID: 577151792}
 --- !u!114 &1221879506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10776,6 +10777,10 @@ PrefabInstance:
       propertyPath: menuGraphics
       value: 
       objectReference: {fileID: 145455644}
+    - target: {fileID: 4889284226022031980, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: menuAudio
+      value: 
+      objectReference: {fileID: 1221879504}
     - target: {fileID: 4889284226022031981, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -10943,7 +10948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &5373363342267059025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,7 +11221,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11502,9 +11507,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5373363343693284773
 GameObject:
