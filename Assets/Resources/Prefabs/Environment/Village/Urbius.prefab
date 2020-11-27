@@ -192,6 +192,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuGameObject: {fileID: 0}
   sellerName: 2
+  isSeller: 1
+  dialogue:
+    name: 
+    sentences: []
 --- !u!114 &1339743410
 MonoBehaviour:
   m_ObjectHideFlags: 0
