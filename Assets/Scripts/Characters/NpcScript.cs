@@ -2,21 +2,31 @@
 using UnityEngine;
 
 public class NpcScript : VillageNpcScript
-{ 
+{
     private GameManager game;
+    private SellerMenuScript seller;
+
+    [SerializeField] private Dialogue dialogue;
+
+    private bool sellerDialogueDone = false;
+    private bool isMenuActivated = false;
 
     private void Start()
     {
         game = GameManager.MyInstance;
+        seller = SellerMenuScript.MyInstance;
     }
-    
+
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
 
-        var isMenuActivated = menuGameObject.activeSelf;
-
-        menuGameObject.SetActive(!menuGameObject.activeSelf);
+        if (isSeller & sellerDialogueDone)
+        {
+            isMenuActivated = menuGameObject.activeSelf;
+            menuGameObject.SetActive(!menuGameObject.activeSelf);
+            PlayerScript.MyInstance.SetIsInMenu(!PlayerScript.MyInstance.GetIsInMenu());
+        }
 
         if (!isMenuActivated)
         {
@@ -24,36 +34,35 @@ public class NpcScript : VillageNpcScript
             {
                 case NPCName.Razakus:
                     RazakusMenuScript.MyInstance.InitUI();
-                    //game.LoadGame();
+                    if(!sellerDialogueDone)
+                        TriggerDialogue();
                     break;
                 case NPCName.Igeirus:
                 case NPCName.Urbius:
-                {
-                    var seller = SellerMenuScript.MyInstance;
-                    seller.MySellerName = SellerName;
-                    seller.UpdateUI();
-                    break;
-                }
+                    {
+                        seller.MySellerName = SellerName;
+                        seller.UpdateUI();
+                        if (!sellerDialogueDone)
+                            TriggerDialogue();
+                        break;
+                    }
+                case NPCName.Talker:
+                    {
+                        if (!DialogueManagerScript.MyInstance.DialogueIsOpen)
+                            TriggerDialogue();
+                        break;
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-        else
-        {
-            switch (SellerName)
-            {
-                case NPCName.Razakus:
-                    //game.SaveGame();
-                    break;
-                case NPCName.Igeirus:
-                    break;
-                case NPCName.Urbius:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            sellerDialogueDone = true;
         }
 
-        PlayerScript.MyInstance.SetIsInMenu(!PlayerScript.MyInstance.GetIsInMenu());
     }
+    public void TriggerDialogue()
+    {
+        DialogueManagerScript.MyInstance.StartDialogue(dialogue);
+    }
+
 }

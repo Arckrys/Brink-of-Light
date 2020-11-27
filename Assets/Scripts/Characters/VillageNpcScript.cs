@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
-public enum NPCName {Razakus, Igeirus, Urbius}
+public enum NPCName {Razakus, Igeirus, Urbius, Talker}
 
 public abstract class VillageNpcScript : MonoBehaviour
 {
     [SerializeField] protected GameObject menuGameObject;
 
     [SerializeField] private NPCName sellerName;
+
+    [SerializeField] protected bool isSeller;
 
     protected NPCName SellerName => sellerName;
 
