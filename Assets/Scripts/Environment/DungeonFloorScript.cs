@@ -98,106 +98,48 @@ public class DungeonFloorScript : MonoBehaviour
         {
             count++;
 
-            //if we create a regular room
-            if (roomType == FloorNode.roomTypeEnum.regular)
+            //take an existing room
+            FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
+
+            //choose a random direction
+            var randomDirection = (FloorNode.directionEnum)Random.Range(0, 4);
+
+            //set the new room coord based on the existing room we used to place it
+            (int x, int y) = existingNode.GetCoord();
+
+            if (randomDirection == FloorNode.directionEnum.east)
+                x += 1;
+            if (randomDirection == FloorNode.directionEnum.west)
+                x -= 1;
+            if (randomDirection == FloorNode.directionEnum.north)
+                y += 1;
+            if (randomDirection == FloorNode.directionEnum.south)
+                y -= 1;
+
+            //if the existing room is a regular room and has no room at the direction chosen, we create the room there
+            if (existingNode.GetNeighbourNode(randomDirection) == null 
+                && !isTileOccupied(x, y) 
+                && existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
             {
+                FloorNode newNode = new FloorNode();
 
-                //take an existing room
-                FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
+                newNode.SetRoomType(roomType);
+                
+                //connect the new room with the existing room
+                CreateLinkBetweenNodes(existingNode, newNode, randomDirection);                
 
-                //choose a random direction
-                var randomDirection = (FloorNode.directionEnum)Random.Range(0, 4);
+                newNode.SetCoord(x, y);
 
-                //if the existing room has no room at the direction chosen we create the room there and is not a special room
-                if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular && existingNode.GetNeighbourNode(randomDirection) == null)
+                if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
                 {
-                    FloorNode newNode = new FloorNode();
-
-                    newNode.SetRoomType(roomType);
-
-                    //connect the new room with the existing room
-                    CreateLinkBetweenNodes(existingNode, newNode, randomDirection);
-
-                    //set the new room coord based on the existing room we used to place it
-                    (int x, int y) = existingNode.GetCoord();
-
-                    if (randomDirection == FloorNode.directionEnum.east)
-                        x += 1;
-                    if (randomDirection == FloorNode.directionEnum.west)
-                        x -= 1;
-                    if (randomDirection == FloorNode.directionEnum.north)
-                        y += 1;
-                    if (randomDirection == FloorNode.directionEnum.south)
-                        y -= 1;
-
-                    newNode.SetCoord(x, y);
-
                     //check if there are rooms existing around the new room and connect them.
                     //This allow the level to have loops and not look like a tree 
                     ConnectNodeNeighbours(newNode);
-
-                    nodeList.Add(newNode);
-                    canBeCreated = true;
                 }
-            }
 
-            //TEMPORARY because next floor room only have west version
-            //if we create a special room
-            else if (roomType == FloorNode.roomTypeEnum.exitRoom)
-            {
-                //take an existing room
-                FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
-
-                //if the existing room has no room at the direction chosen we create the room there and is not a special room
-                if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular && existingNode.GetNeighbourNode(FloorNode.directionEnum.east) == null)
-                {
-                    FloorNode newNode = new FloorNode();
-
-                    newNode.SetRoomType(roomType);
-
-                    //add the new room as a neighbour of the existing room
-                    existingNode.SetNeighbourNode(FloorNode.directionEnum.east, newNode);
-
-                    //add the existing room as a neighbour of the new room
-                    newNode.SetNeighbourNode(GetOppositeDirection(FloorNode.directionEnum.east), existingNode);
-
-                    (int x, int y) = existingNode.GetCoord();
-
-                    newNode.SetCoord(x + 1, y);
-
-                    nodeList.Add(newNode);
-                    canBeCreated = true;
-                }
-            }
-
-            //TEMPORARY because all special rooms currently have only one version which has one door to the south
-            //if we create a special room
-            else
-            {
-                //take an existing room
-                FloorNode existingNode = nodeList[Random.Range(0, nodeList.Count)];
-
-                //if the existing room has no room at the direction chosen we create the room there and is not a special room
-                if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular && existingNode.GetNeighbourNode(FloorNode.directionEnum.north) == null)
-                {
-                    FloorNode newNode = new FloorNode();
-
-                    newNode.SetRoomType(roomType);
-
-                    //add the new room as a neighbour of the existing room
-                    existingNode.SetNeighbourNode(FloorNode.directionEnum.north, newNode);
-
-                    //add the existing room as a neighbour of the new room
-                    newNode.SetNeighbourNode(GetOppositeDirection(FloorNode.directionEnum.north), existingNode);
-
-                    (int x, int y) = existingNode.GetCoord();
-
-                    newNode.SetCoord(x, y + 1);
-
-                    nodeList.Add(newNode);
-                    canBeCreated = true;
-                }
-            }
+                nodeList.Add(newNode);
+                canBeCreated = true;
+            }            
         }
     }
 
@@ -244,33 +186,39 @@ public class DungeonFloorScript : MonoBehaviour
 
     public void ConnectNodeNeighbours(FloorNode baseNode)
     {
-        //look if there are rooms neighbouring the base node, and if there are, connect them to the base node
-        foreach (FloorNode node in nodeList)
+        if (baseNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
         {
-            FloorNode.directionEnum direction;
+            //look if there are rooms neighbouring the base node, and if there are, connect them to the base node
+            foreach (FloorNode node in nodeList)
+            {
+                if (node.GetRoomType() == FloorNode.roomTypeEnum.regular)
+                {
+                    FloorNode.directionEnum direction;
 
-            if (node.GetCoord().x == baseNode.GetCoord().x + 1 && node.GetCoord().y == baseNode.GetCoord().y)
-            {
-                direction = FloorNode.directionEnum.east;
-                CreateLinkBetweenNodes(baseNode, node, direction);
-            }     
-            
-            if (node.GetCoord().x == baseNode.GetCoord().x - 1 && node.GetCoord().y == baseNode.GetCoord().y)
-            {
-                direction = FloorNode.directionEnum.west;
-                CreateLinkBetweenNodes(baseNode, node, direction);
-            }
+                    if (node.GetCoord().x == baseNode.GetCoord().x + 1 && node.GetCoord().y == baseNode.GetCoord().y)
+                    {
+                        direction = FloorNode.directionEnum.east;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
+                    }
 
-            if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y + 1)
-            {
-                direction = FloorNode.directionEnum.north;
-                CreateLinkBetweenNodes(baseNode, node, direction);
-            }
+                    if (node.GetCoord().x == baseNode.GetCoord().x - 1 && node.GetCoord().y == baseNode.GetCoord().y)
+                    {
+                        direction = FloorNode.directionEnum.west;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
+                    }
 
-            if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y - 1)
-            {
-                direction = FloorNode.directionEnum.south;
-                CreateLinkBetweenNodes(baseNode, node, direction);
+                    if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y + 1)
+                    {
+                        direction = FloorNode.directionEnum.north;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
+                    }
+
+                    if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y - 1)
+                    {
+                        direction = FloorNode.directionEnum.south;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
+                    }
+                }
             }
         }
     }
@@ -282,5 +230,17 @@ public class DungeonFloorScript : MonoBehaviour
             dungeonLevel++;
         print("Current floor : " + floorLevel);
         print("Current dungeon : " + dungeonLevel);
+    }
+
+    //return true if the tile given already has a room
+    private bool isTileOccupied(int x, int y)
+    {
+        foreach(FloorNode node in nodeList)
+        {
+            if (node.GetCoord() == (x, y))
+                return true;
+        }
+
+        return false;
     }
 }

@@ -85,44 +85,42 @@ public class FloorNode
 
     public void SetRoom(roomTypeEnum roomType)
     {
+        string roomDirections = "";
+
         switch (roomType)
         {
             case roomTypeEnum.itemRoom:
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/ItemRoomS") as GameObject;
-                roomName = "ItemRoomS";
+                roomDirections = "ItemRoom";
                 break;
 
             case roomTypeEnum.sellerRoom:
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/SellerRoomS") as GameObject;
-                roomName = "SellerRoomS";
+                roomDirections = "SellerRoom";
                 break;
 
             case roomTypeEnum.exitRoom:
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/ExitRoomW") as GameObject;
-                roomName = "ExitRoomW";
+                roomDirections = "ExitRoom";
                 break;
 
             case roomTypeEnum.regular:
                 //load the correct prefab based on the present neighbour rooms
-                string roomDirections = "Room";
-
-                if (northNode != null)
-                    roomDirections += 'N';
-
-                if (eastNode != null)
-                    roomDirections += 'E';
-
-                if (southNode != null)
-                    roomDirections += 'S';
-
-                if (westNode != null)
-                    roomDirections += 'W';
-
-                myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
-
-                roomName = roomDirections;
+                roomDirections = "Room";             
                 break;
         }
+
+        if (northNode != null)
+            roomDirections += 'N';
+
+        if (eastNode != null)
+            roomDirections += 'E';
+
+        if (southNode != null)
+            roomDirections += 'S';
+
+        if (westNode != null)
+            roomDirections += 'W';
+
+        myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
+        roomName = roomDirections;
     }
 
     public string GetRoomName()
