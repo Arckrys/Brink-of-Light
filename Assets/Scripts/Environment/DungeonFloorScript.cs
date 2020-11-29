@@ -168,8 +168,18 @@ public class DungeonFloorScript : MonoBehaviour
     public void AddSpecialRooms()
     {
         CreateRandomNode(FloorNode.roomTypeEnum.itemRoom);
-        CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
-        CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
+        if (floorLevel % 2 == 0)
+        {
+            CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
+            print("seller room");
+        }
+
+        if (floorLevel == 2)
+            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom); //FloorNode.roomTypeEnum.miniBossRoom when done
+        else if (floorLevel == 4)
+            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom); //FloorNode.roomTypeEnum.bossRoom when done
+        else
+            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
     }
 
     public void CreateLinkBetweenNodes(FloorNode a, FloorNode b, FloorNode.directionEnum directionFromAToB)
