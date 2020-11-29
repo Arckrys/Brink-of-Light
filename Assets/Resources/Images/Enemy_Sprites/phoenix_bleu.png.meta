@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 54a84c0e88105364196bd8f5ab7dd1cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3228647610919405151
+    second: phoenix_bleu_0
+  - first:
+      213: -7715010634691242511
+    second: phoenix_bleu_1
+  - first:
+      213: -6534413771501276592
+    second: phoenix_bleu_2
+  - first:
+      213: -1416891979468457309
+    second: phoenix_bleu_3
+  - first:
+      213: -4142810607434492811
+    second: phoenix_bleu_4
+  - first:
+      213: -7244880822518571343
+    second: phoenix_bleu_5
+  - first:
+      213: 2885218027541055741
+    second: phoenix_bleu_6
+  - first:
+      213: -8818646687201959786
+    second: phoenix_bleu_7
+  - first:
+      213: 7797162806678117843
+    second: phoenix_bleu_8
+  - first:
+      213: -2178939388243877094
+    second: phoenix_bleu_9
+  - first:
+      213: 8699493867632700722
+    second: phoenix_bleu_10
+  - first:
+      213: 2930501806729502867
+    second: phoenix_bleu_11
+  - first:
+      213: 5762015594247222604
+    second: phoenix_bleu_12
+  - first:
+      213: 4442901988459689281
+    second: phoenix_bleu_13
+  - first:
+      213: -8640477724475090592
+    second: phoenix_bleu_14
+  - first:
+      213: 4743516861353847738
+    second: phoenix_bleu_15
+  - first:
+      213: 7541938148045261676
+    second: phoenix_bleu_16
+  - first:
+      213: 1785996552070813212
+    second: phoenix_bleu_17
+  - first:
+      213: 1816070878424777002
+    second: phoenix_bleu_18
+  - first:
+      213: 7886148516918244360
+    second: phoenix_bleu_19
+  - first:
+      213: 7569535310480484588
+    second: phoenix_bleu_20
+  - first:
+      213: 1830535870229800403
+    second: phoenix_bleu_21
+  - first:
+      213: 3166521586798195383
+    second: phoenix_bleu_22
+  - first:
+      213: -2249347606025191858
+    second: phoenix_bleu_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: phoenix_bleu_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 177
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 15, y: 23.5}
+        - {x: 8, y: 17.5}
+        - {x: -8, y: 16.5}
+        - {x: -11, y: 21.5}
+        - {x: -27, y: 23.5}
+        - {x: -27, y: 3.5}
+        - {x: -8, y: -10.5}
+        - {x: -5, y: -22.5}
+        - {x: 6, y: -22.5}
+        - {x: 9, y: -11.5}
+        - {x: 27, y: 4.5}
+        - {x: 27, y: 23.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a93c3e9a1a8133d0800000000000000
+      internalID: -3228647610919405151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 178
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 19, y: 16}
+        - {x: 9, y: 11}
+        - {x: 7, y: 15}
+        - {x: 3, y: 21}
+        - {x: -3, y: 21}
+        - {x: -8, y: 10}
+        - {x: -27, y: 16}
+        - {x: -26, y: 3}
+        - {x: -8, y: -8}
+        - {x: -5, y: -21}
+        - {x: 6, y: -21}
+        - {x: 7, y: -8}
+        - {x: 27, y: 1}
+        - {x: 27, y: 14}
+        - {x: 22, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f51ed024b6cee490800000000000000
+      internalID: -7715010634691242511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 179
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 27, y: -6}
+        - {x: 8, y: 6}
+        - {x: 3, y: 21}
+        - {x: -4, y: 21}
+        - {x: -7, y: 7}
+        - {x: -28, y: -8}
+        - {x: -28, y: -14}
+        - {x: -15, y: -13}
+        - {x: -7, y: -5}
+        - {x: -6, y: -20}
+        - {x: 7, y: -20}
+        - {x: 8, y: -8}
+        - {x: 25, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052fe3eab491155a0800000000000000
+      internalID: -6534413771501276592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 120
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -22, y: 22.5}
+        - {x: -22, y: 0.5}
+        - {x: -1, y: -21.5}
+        - {x: 6, y: -21.5}
+        - {x: 6, y: -10.5}
+        - {x: 22, y: 2.5}
+        - {x: 22, y: 22.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8432f628a5a0820800000000000000
+      internalID: 2885218027541055741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_7
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 121
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 21}
+        - {x: -9, y: 11}
+        - {x: -23, y: 12}
+        - {x: -23, y: 1}
+        - {x: -8, y: -9}
+        - {x: -1, y: -21}
+        - {x: 7, y: -21}
+        - {x: 4, y: -9}
+        - {x: 23, y: 1}
+        - {x: 23, y: 14}
+        - {x: 7, y: 9}
+        - {x: 2, y: 21}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690e6a9af8fdd9580800000000000000
+      internalID: -8818646687201959786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 122
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -22.5, y: -13}
+        - {x: -4.5, y: -11}
+        - {x: 3.5, y: -20}
+        - {x: 9.5, y: -16}
+        - {x: 23.5, y: -14}
+        - {x: 23.5, y: -8}
+        - {x: 5.5, y: 5}
+        - {x: 2.5, y: 21}
+        - {x: -4.5, y: 21}
+        - {x: -8.5, y: 18}
+        - {x: -11.5, y: 3}
+        - {x: -22.5, y: -5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dddfe3f246153c60800000000000000
+      internalID: 7797162806678117843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 65
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1.5, y: 21}
+        - {x: -3.5, y: 5}
+        - {x: -21.5, y: -6}
+        - {x: -22.5, y: -14}
+        - {x: -12.5, y: -15}
+        - {x: -3.5, y: -7}
+        - {x: -7.5, y: -18}
+        - {x: 0.5, y: -20}
+        - {x: 4.5, y: -13}
+        - {x: 23.5, y: -14}
+        - {x: 23.5, y: -8}
+        - {x: 3.5, y: 21}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45fd5d87aac6ff40800000000000000
+      internalID: 5762015594247222604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_13
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 64
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 11, y: 10}
+        - {x: 2, y: 20}
+        - {x: -5, y: 7}
+        - {x: -23, y: 14}
+        - {x: -23, y: 2}
+        - {x: -5, y: -9}
+        - {x: -8, y: -17}
+        - {x: -4, y: -20}
+        - {x: 3, y: -20}
+        - {x: 4, y: -11}
+        - {x: 23, y: 3}
+        - {x: 23, y: 12}
+        - {x: 18, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145340aa1db58ad30800000000000000
+      internalID: 4442901988459689281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 63
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 12, y: 20.5}
+        - {x: 6, y: 18.5}
+        - {x: -1, y: 19.5}
+        - {x: -20, y: 22.5}
+        - {x: -22, y: 1.5}
+        - {x: -4, y: -10.5}
+        - {x: -7, y: -20.5}
+        - {x: 2, y: -21.5}
+        - {x: 4, y: -11.5}
+        - {x: 22, y: 3.5}
+        - {x: 22, y: 22.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0699cfee94bd61880800000000000000
+      internalID: -8640477724475090592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 6
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: 6.5}
+        - {x: -2, y: 18.5}
+        - {x: -6, y: 6.5}
+        - {x: -27, y: 23.5}
+        - {x: -27, y: 4.5}
+        - {x: -6, y: -11.5}
+        - {x: -6, y: -21.5}
+        - {x: 6, y: -21.5}
+        - {x: 8, y: -10.5}
+        - {x: 27, y: 5.5}
+        - {x: 27, y: 14.5}
+        - {x: 22, y: 23.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21c07b87daf33910800000000000000
+      internalID: 1816070878424777002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 7
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: 21}
+        - {x: -7, y: 5}
+        - {x: -27, y: 12}
+        - {x: -27, y: 2}
+        - {x: -7, y: -8}
+        - {x: -6, y: -20}
+        - {x: 5, y: -20}
+        - {x: 7, y: -10}
+        - {x: 27, y: 2}
+        - {x: 27, y: 12}
+        - {x: 7, y: 6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804b2e42b4a317d60800000000000000
+      internalID: 7886148516918244360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phoenix_bleu_20
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 8
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 21}
+        - {x: -7, y: 6}
+        - {x: -26, y: -7}
+        - {x: -24, y: -15}
+        - {x: -16, y: -15}
+        - {x: -6, y: -7}
+        - {x: -6, y: -20}
+        - {x: 5, y: -20}
+        - {x: 8, y: -7}
+        - {x: 24, y: -16}
+        - {x: 26, y: -6}
+        - {x: 7, y: 5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce827ff72446c0960800000000000000
+      internalID: 7569535310480484588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
