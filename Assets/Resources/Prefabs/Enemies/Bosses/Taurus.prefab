@@ -223,6 +223,7 @@ MonoBehaviour:
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
   projectile: {fileID: 0}
+  isBoss: 1
   levelOneSpawnProbability: 0
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 0

@@ -24,6 +24,7 @@ public class ProjectileScript : MonoBehaviour
     private float projectileCurrentDamage;
     private float projectileKnockback = 2f;
     private float projectileCritChance = 5f;
+    private float bossBonusDamage = 0;
 
     //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
@@ -256,6 +257,19 @@ public class ProjectileScript : MonoBehaviour
 
             else
                 projectileShrinkSpeed = value;
+        }
+    }
+
+    public float MyBossBonusDamage
+    {
+        get
+        {
+            return bossBonusDamage;
+        }
+
+        set
+        {
+            bossBonusDamage = value;
         }
     }
 

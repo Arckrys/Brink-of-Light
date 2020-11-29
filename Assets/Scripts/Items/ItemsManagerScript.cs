@@ -183,6 +183,7 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
 
             case "Sauce piquante":
+                PlayerScript.MyInstance.MyBossBonusDamage += 2f;
                 break;
 
             case "Lance d'Hotavius":

@@ -73,6 +73,7 @@ public class PlayerScript : Character
     private bool isAttacking;
     private bool isLosingHealthWhenAttacking = true;
     private bool isProjectilePiercingEnemies = false;
+    private float bossBonusDamage = 0;
 
     private int projectilesNumber = 1;
 
@@ -202,6 +203,8 @@ public class PlayerScript : Character
             newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
             newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
             newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
+            newProjectile.GetComponent<ProjectileScript>().MyBossBonusDamage = bossBonusDamage;
+            print(bossBonusDamage);
         }
 
         //player lose one health per shot
@@ -388,6 +391,19 @@ public class PlayerScript : Character
         set
         {
             isProjectilePiercingEnemies = value;
+        }
+    }
+
+    public float MyBossBonusDamage
+    {
+        get
+        {
+            return bossBonusDamage;
+        }
+
+        set
+        {
+            bossBonusDamage = value;
         }
     }
 

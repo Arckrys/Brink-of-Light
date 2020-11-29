@@ -23,6 +23,7 @@ public class BasicEnemyController : Character
     protected int wanderTimer;
     protected Vector2 randomDirection;
     public GameObject projectile;
+    [SerializeField] private bool isBoss;
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
@@ -94,6 +95,12 @@ public class BasicEnemyController : Character
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
             var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
+
+            if (isBoss)
+            {
+                print("is boss");
+                damageReceived += collision.GetComponent<ProjectileScript>().MyBossBonusDamage;
+            }
 
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
