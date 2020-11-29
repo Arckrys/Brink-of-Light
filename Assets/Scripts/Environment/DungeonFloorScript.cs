@@ -13,8 +13,11 @@ public class DungeonFloorScript : MonoBehaviour
     private int floorLevel;
     private int dungeonLevel;
 
+    private bool isMapRevealed;
+
     private void Start()
     {
+        isMapRevealed = false;
         nodeList = new List<FloorNode>();
         floorLevel = 0;
         dungeonLevel = 0;
@@ -58,7 +61,14 @@ public class DungeonFloorScript : MonoBehaviour
 
         InitializeMap(nodeList[0].GetRoom());
 
-        MinimapScript.MyInstance.AddRoom(newNode);
+        if (isMapRevealed)
+            MinimapScript.MyInstance.ShowFullMap(nodeList);
+
+        else
+        {
+            MinimapScript.MyInstance.AddRoom(newNode);
+        }        
+
         MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
     }
@@ -252,5 +262,11 @@ public class DungeonFloorScript : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ShowFullMap()
+    {
+        isMapRevealed = true;
+        MinimapScript.MyInstance.ShowFullMap(nodeList);
     }
 }
