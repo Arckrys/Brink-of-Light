@@ -84,8 +84,6 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print(isBurning);
-
         if (GetComponent<ProjectileCollisionScript>().IsCollisionDetected() && rigidbody)
         {
             //set the fireball as a square since explosion uses square sprites

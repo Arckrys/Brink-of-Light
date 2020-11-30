@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 8;
+    private int basicRoomsNumber = 0;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -19,7 +19,7 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = false;
         nodeList = new List<FloorNode>();
-        floorLevel = 0;
+        floorLevel = 1;
         dungeonLevel = 0;
 
         if(!GameObject.FindGameObjectWithTag("Room"))
@@ -181,7 +181,6 @@ public class DungeonFloorScript : MonoBehaviour
         if (floorLevel % 2 == 0)
         {
             CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
-            print("seller room");
         }
 
         if (floorLevel == 2)

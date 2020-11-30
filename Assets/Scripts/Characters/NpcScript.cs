@@ -14,7 +14,7 @@ public class NpcScript : VillageNpcScript
     private void Start()
     {
         game = GameManager.MyInstance;
-        seller = SellerMenuScript.MyInstance;
+        seller = menuGameObject.GetComponent<SellerMenuScript>();
     }
 
     private void Update()

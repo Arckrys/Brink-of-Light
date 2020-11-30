@@ -50,16 +50,19 @@ public class PauseManager : MonoBehaviour
 
     private void OnRestartPressed()
     {
+        Time.timeScale = 1;
         //StartCoroutine(GameObject.Find("CanvasTransition").GetComponent<CanvasTransitionScript>().FadeIn(gameObject));
     }
 
     private void OnTownPressed()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadVillage());
     }
 
     private void OnMainMenuPressed()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadMainMenu());
     }
 

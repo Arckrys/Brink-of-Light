@@ -383,7 +383,6 @@ public class ItemsManagerScript : MonoBehaviour
         while(canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += 0.05f;
-            Debug.Log(canvasGroup.alpha);
 
             yield return new WaitForSeconds(.01f);
         }
@@ -393,7 +392,6 @@ public class ItemsManagerScript : MonoBehaviour
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= 0.05f;
-            Debug.Log(canvasGroup.alpha);
 
             yield return new WaitForSeconds(.05f);
         }
