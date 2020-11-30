@@ -57,7 +57,12 @@ public class MainMenuManager : MonoBehaviour
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.Escape) || !inMenu) return;
-        
+
+        UpdateMenu();
+    }
+
+    public void UpdateMenu()
+    {
         if (menuAudio.activeSelf || menuGraphics.activeSelf)
         {
             menuAudio.SetActive(false);
@@ -96,7 +101,7 @@ public class MainMenuManager : MonoBehaviour
         menuGraphics.SetActive(true);
     }
     
-    public void OnBackPressed()
+    private void OnBackPressed()
     {
         inMenu = false;
         menuSettings.SetActive(false);
