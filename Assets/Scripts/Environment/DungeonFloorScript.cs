@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 0;
+    private int basicRoomsNumber = 8;
     private int currentNodeIndex;
 
     private int floorLevel;
