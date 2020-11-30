@@ -114,6 +114,13 @@ public class BasicEnemyController : Character
                 damageReceived += collision.GetComponent<ProjectileScript>().MyBossBonusDamage;
             }
 
+            //chance to catch fire when hit by the player if they have the item "Essence"
+            if (collision.GetComponent<ProjectileScript>().IsBurning)
+            {
+                print("start burning");
+                StartCoroutine(StartDamageOnTime(1f, 15, 1f));
+            }
+
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
 

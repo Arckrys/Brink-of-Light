@@ -25,6 +25,7 @@ public class ProjectileScript : MonoBehaviour
     private float projectileKnockback = 2f;
     private float projectileCritChance = 5f;
     private float bossBonusDamage = 0;
+    private bool isBurning = false;
 
     //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
@@ -56,7 +57,7 @@ public class ProjectileScript : MonoBehaviour
 
         projectileLight = GetComponent<Light2D>();
 
-        initialZ = transform.position.z;
+        initialZ = transform.position.z;        
 
         UpdatePolygonCollider();
 
@@ -83,6 +84,8 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        print(isBurning);
+
         if (GetComponent<ProjectileCollisionScript>().IsCollisionDetected() && rigidbody)
         {
             //set the fireball as a square since explosion uses square sprites
@@ -273,12 +276,25 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
+    public bool IsBurning
+    {
+        get
+        {
+            return isBurning;
+        }
+
+        set
+        {
+            isBurning = value;
+        }
+    }
+
     private void UpdatePolygonCollider()
     {
         Destroy(GetComponent<PolygonCollider2D>());
         collider = gameObject.AddComponent<PolygonCollider2D>();
         collider.autoTiling = true;
-        collider.isTrigger = true;
+        collider.isTrigger = true;        
     }
 
     public void DestroyProjectile()

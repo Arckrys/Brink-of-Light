@@ -81,6 +81,7 @@ public class PlayerScript : Character
     private int successiveHit = 0;
     private int healValueOnSuccessiveHits = 0;
     private int chanceToSpawnCombustible = 0;
+    private int burningProbability = 0;
 
     private Coroutine attackCoroutine;
 
@@ -219,19 +220,32 @@ public class PlayerScript : Character
                 isCrit = true;
             }
 
+            //add the rocket bonus damage
             if (projectileCount % 5 == 0)
                 damageToDeal += rocketBonusDamage;
 
+            
 
             //create projectile
             float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
             var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y, -2), Quaternion.identity);
-            newProjectile.GetComponent<ProjectileScript>().SetDirection(projectileDirection, xPos, position.y);
-            newProjectile.GetComponent<ProjectileScript>().MyBaseDamage = damageToDeal;
-            newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
-            newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
-            newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
-            newProjectile.GetComponent<ProjectileScript>().MyBossBonusDamage = bossBonusDamage;
+            var projectileScript = newProjectile.GetComponent<ProjectileScript>();
+            projectileScript.SetDirection(projectileDirection, xPos, position.y);
+            projectileScript.MyBaseDamage = damageToDeal;
+            projectileScript.MyKnockback = knockback.MyMaxValue;
+            projectileScript.MyRange = 1 / range.MyMaxValue;
+            projectileScript.isCrit = isCrit;
+            projectileScript.MyBossBonusDamage = bossBonusDamage;
+
+            //calculate if the projectile will set the enemies on fire
+            if (burningProbability != 0)
+            {
+                int randomBurningNumber = Random.Range(0, burningProbability);
+                if (randomBurningNumber == 0)
+                {
+                    projectileScript.IsBurning = true;
+                }
+            }
         }
 
         //player lose one health per shot
@@ -500,13 +514,22 @@ public class PlayerScript : Character
 
         else
             chanceToSpawnCombustible /= 2;
-
-        print(chanceToSpawnCombustible);
     }
 
     public int GetChanceToSpawnCombustible()
     {
         return chanceToSpawnCombustible;
+    }
+
+    public void IncreaseBurningProjectileProbability()
+    {
+        if (burningProbability == 0)
+            burningProbability = 20;
+
+        else
+            burningProbability /= 2;
+
+        print(burningProbability);
     }
 
 

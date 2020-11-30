@@ -47,7 +47,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Plume du phoenix",
         "Roquette",
         "Crocs de vampire",
-        "Flamme éternelle"
+        "Flamme éternelle",
+        "Essence"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -217,6 +218,10 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Flamme éternelle":
                 PlayerScript.MyInstance.IncreaseCombustibleSpawnProbability();
+                break;
+
+            case "Essence":
+                PlayerScript.MyInstance.IncreaseBurningProjectileProbability();
                 break;                
 
             default:
