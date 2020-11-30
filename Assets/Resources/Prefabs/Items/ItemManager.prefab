@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4294c6bed5d995448a890798ce44fe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupPanel: {fileID: 0}
   itemEquipmentGameObject: {fileID: 4900422906043604832, guid: f286b5d24a7bc814c9c1a2e4e1ae338f, type: 3}
   itemConsumableGameObject: {fileID: 8740232628539791327, guid: c2b6fd91c7a487147a99fb3abc36abcc, type: 3}
   player: {fileID: 8502234294414699539, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}

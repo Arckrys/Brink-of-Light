@@ -43,7 +43,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Sauce piquante",
         "Lance d'Hotavius",
         "Grimoire de boule de feu",
-        "Carte d'Hotavius"
+        "Carte d'Hotavius",
+        "Plume du phoenix"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -197,6 +198,10 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Carte d'Hotavius":
                 DungeonFloorScript.MyInstance.ShowFullMap();
+                break;
+
+            case "Plume du phoenix":
+                PlayerScript.MyInstance.IncreaseAdditionalLives();
                 break;
 
             default:

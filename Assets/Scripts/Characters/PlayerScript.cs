@@ -74,6 +74,7 @@ public class PlayerScript : Character
     private bool isLosingHealthWhenAttacking = true;
     private bool isProjectilePiercingEnemies = false;
     private float bossBonusDamage = 0;
+    private int additionalLives = 0;
 
     private int projectilesNumber = 1;
 
@@ -123,9 +124,25 @@ public class PlayerScript : Character
     // Update is called once per frame
     protected override void Update()
     {
-        GetInput();
+        if (!GameManager.MyInstance.PauseState)
+            GetInput();
 
         HandleLayers();
+
+        if (PlayerCurrentLife <= 0)
+        {
+            if (additionalLives == 0)
+            {
+                GameManager.MyInstance.SetDeathMenu(true);
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                additionalLives--;
+                PlayerCurrentLife = PlayerMaxLife;
+                StartInvincibility(2f);
+            }
+        }
 
         base.Update();
     }
@@ -204,7 +221,6 @@ public class PlayerScript : Character
             newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
             newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
             newProjectile.GetComponent<ProjectileScript>().MyBossBonusDamage = bossBonusDamage;
-            print(bossBonusDamage);
         }
 
         //player lose one health per shot
@@ -410,6 +426,11 @@ public class PlayerScript : Character
     public void IncreaseProjectileNumber()
     {
         projectilesNumber++;
+    }
+
+    public void IncreaseAdditionalLives()
+    {
+        additionalLives++;
     }
 
 

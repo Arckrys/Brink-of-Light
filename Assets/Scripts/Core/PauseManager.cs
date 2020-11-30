@@ -22,9 +22,12 @@ public class PauseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        btnResume.onClick.AddListener(OnResumePressed);
-        btnVideo.onClick.AddListener(OnVideoPressed);
-        btnSound.onClick.AddListener(OnAudioPressed);
+        if (btnResume != null)
+            btnResume.onClick.AddListener(OnResumePressed);
+        if (btnVideo != null)
+            btnVideo.onClick.AddListener(OnVideoPressed);
+        if (btnSound != null)
+            btnSound.onClick.AddListener(OnAudioPressed);
         btnRestart.onClick.AddListener(OnRestartPressed);
         btnTown.onClick.AddListener(OnTownPressed);
         btnMenu.onClick.AddListener(OnMainMenuPressed);

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject menuPause;
     [SerializeField] private GameObject menuGraphics;
     [SerializeField] private GameObject menuAudio;
+    [SerializeField] private GameObject menuMort;
     private bool inPause;
 
     public bool PauseState => inPause;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         menuPause.SetActive(false);
         menuGraphics.SetActive(false);
         menuAudio.SetActive(false);
+        menuMort.SetActive(false);
         inPause = false;
     }
     
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
 
     public void EditPauseState(bool state)
     {
+        if (Time.timeScale == 1)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+
         if (!state && (menuGraphics.activeSelf || menuAudio.activeSelf))
         {
             menuGraphics.SetActive(state);
@@ -77,6 +84,11 @@ public class GameManager : MonoBehaviour
     {
         menuPause.SetActive(!state);
         menuAudio.SetActive(state);
+    }
+
+    public void SetDeathMenu(bool state)
+    {
+        menuMort.SetActive(state);
     }
 
     private void UpdateDoorState()
