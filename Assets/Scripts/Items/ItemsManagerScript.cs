@@ -45,7 +45,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Grimoire de boule de feu",
         "Carte d'Hotavius",
         "Plume du phoenix",
-        "Roquette"
+        "Roquette",
+        "Crocs de vampire"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -209,6 +210,10 @@ public class ItemsManagerScript : MonoBehaviour
                 PlayerScript.MyInstance.MyRocketBonusDamage += 2f;
                 break;
 
+            case "Crocs de vampire":
+                PlayerScript.MyInstance.MyHealOnSuccessiveHits += 15;
+                break;
+
             default:
                 break;
         }
@@ -295,11 +300,16 @@ public class ItemsManagerScript : MonoBehaviour
                     Vector2 playerPosition = PlayerScript.MyInstance.transform.position;
 
                     //if the player is on the bottom half, spawn the combustible toward the top, else toward the bot
-                    float combustibleOffset = 0.8f;
+                    float combustibleOffsetY = 0.8f;
                     if (playerPosition.y > 0)
-                        combustibleOffset = -combustibleOffset;
+                        combustibleOffsetY = -combustibleOffsetY;
 
-                    GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x, playerPosition.y + combustibleOffset), Quaternion.identity);
+                    //same for the x axis
+                    float combustibleOffsetX = 0.8f;
+                    if (transform.position.x > 0)
+                        combustibleOffsetX = -combustibleOffsetX;
+
+                    GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x + combustibleOffsetX, playerPosition.y + combustibleOffsetY), Quaternion.identity);
                     combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     break;
 

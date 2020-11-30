@@ -78,6 +78,8 @@ public class PlayerScript : Character
     private float projectileCount = 0;
     private float rocketBonusDamage = 0;
     private int projectilesNumber = 1;
+    private int successiveHit = 0;
+    private int healValueOnSuccessiveHits = 0;
 
     private Coroutine attackCoroutine;
 
@@ -451,6 +453,42 @@ public class PlayerScript : Character
         set
         {
             rocketBonusDamage = value;
+        }
+    }
+
+    public int MySuccessiveHit
+    {
+        get
+        {
+            return successiveHit;
+        }
+
+        set
+        {
+            successiveHit = value;
+        }
+    }
+
+    public int MyHealOnSuccessiveHits
+    {
+        get
+        {
+            return healValueOnSuccessiveHits;
+        }
+
+        set
+        {
+            healValueOnSuccessiveHits = value;
+        }
+    }
+    
+
+    public void HealOnSuccessiveHit()
+    {
+        if (MySuccessiveHit % 10 == 0)
+        {
+            PlayerCurrentLife += MyHealOnSuccessiveHits;
+            CombatTextManager.MyInstance.CreateText(transform.position, MyHealOnSuccessiveHits.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
         }
     }
 
