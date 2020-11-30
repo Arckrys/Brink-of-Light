@@ -46,7 +46,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Carte d'Hotavius",
         "Plume du phoenix",
         "Roquette",
-        "Crocs de vampire"
+        "Crocs de vampire",
+        "Flamme éternelle"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -213,6 +214,10 @@ public class ItemsManagerScript : MonoBehaviour
             case "Crocs de vampire":
                 PlayerScript.MyInstance.MyHealOnSuccessiveHits += 15;
                 break;
+
+            case "Flamme éternelle":
+                PlayerScript.MyInstance.IncreaseCombustibleSpawnProbability();
+                break;                
 
             default:
                 break;

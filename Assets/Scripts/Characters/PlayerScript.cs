@@ -80,6 +80,7 @@ public class PlayerScript : Character
     private int projectilesNumber = 1;
     private int successiveHit = 0;
     private int healValueOnSuccessiveHits = 0;
+    private int chanceToSpawnCombustible = 0;
 
     private Coroutine attackCoroutine;
 
@@ -485,11 +486,27 @@ public class PlayerScript : Character
 
     public void HealOnSuccessiveHit()
     {
-        if (MySuccessiveHit % 10 == 0)
+        if (MySuccessiveHit % 10 == 0 && MyHealOnSuccessiveHits > 0)
         {
             PlayerCurrentLife += MyHealOnSuccessiveHits;
             CombatTextManager.MyInstance.CreateText(transform.position, MyHealOnSuccessiveHits.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
         }
+    }
+
+    public void IncreaseCombustibleSpawnProbability()
+    {
+        if (chanceToSpawnCombustible == 0)
+            chanceToSpawnCombustible = 50;
+
+        else
+            chanceToSpawnCombustible /= 2;
+
+        print(chanceToSpawnCombustible);
+    }
+
+    public int GetChanceToSpawnCombustible()
+    {
+        return chanceToSpawnCombustible;
     }
 
 

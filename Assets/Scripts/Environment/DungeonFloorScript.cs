@@ -185,9 +185,9 @@ public class DungeonFloorScript : MonoBehaviour
         }
 
         if (floorLevel == 2)
-            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom); //FloorNode.roomTypeEnum.miniBossRoom when done
+            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom);
         else if (floorLevel == 4)
-            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom); //FloorNode.roomTypeEnum.bossRoom when done
+            CreateRandomNode(FloorNode.roomTypeEnum.bossRoom);
         else
             CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
     }

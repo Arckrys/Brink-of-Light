@@ -35,6 +35,8 @@ public class BasicEnemyController : Character
 
     [SerializeField] private GameObject lootBag;
 
+    GameObject combustibleGameObject;
+
     public float nextWaypointDistance = 3f;
     Path path;
     int currentWaypoint = 0;
@@ -47,6 +49,8 @@ public class BasicEnemyController : Character
 
     protected override void Start()
     {
+        combustibleGameObject = Resources.Load("Prefabs/Environment/Combustibles/StumpCombustible") as GameObject;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         gfxAnim = transform.GetComponent<Animator>();
         playerDetected = false;
@@ -139,6 +143,7 @@ public class BasicEnemyController : Character
                     AudioSource.PlayClipAtPoint(DyingSound, position);
                 }
 
+                //create a lootbag on death
                 //var itemType = Random.Range(0, 2);
                 var itemType = 0;
 
@@ -151,7 +156,18 @@ public class BasicEnemyController : Character
                 var loot = Instantiate(lootBag, position, Quaternion.identity);
                 loot.transform.parent = this.transform.parent;
                 loot.GetComponent<LootManager>().CreateBag(randomConsumableItem, itemType, Random.Range(0, 3), Random.Range(0, 6));
-                
+
+                //chance to create a combustible on death if the player has the item "Flamme éternelle"
+                if (PlayerScript.MyInstance.GetChanceToSpawnCombustible() != 0)
+                {
+                    int combustibleProbability = Random.Range(0, PlayerScript.MyInstance.GetChanceToSpawnCombustible());
+                    if (combustibleProbability == 0)
+                    {                        
+                        GameObject combustible = Instantiate(combustibleGameObject, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                        combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
+                    }
+                }
+
                 Destroy(gameObject);
             }
             else
