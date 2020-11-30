@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorNode
 {
     public enum directionEnum { north, east, south, west };
-    public enum roomTypeEnum { regular, itemRoom, sellerRoom, exitRoom };
+    public enum roomTypeEnum { regular, itemRoom, sellerRoom, exitRoom, miniBossRoom, bossRoom };
 
     private FloorNode northNode, eastNode, southNode, westNode;
 
@@ -99,6 +99,14 @@ public class FloorNode
 
             case roomTypeEnum.exitRoom:
                 roomDirections = "ExitRoom";
+                break;
+
+            case roomTypeEnum.miniBossRoom:
+                roomDirections = "MiniBossRoom";
+                break;
+
+            case roomTypeEnum.bossRoom:
+                roomDirections = "BossRoom";
                 break;
 
             case roomTypeEnum.regular:

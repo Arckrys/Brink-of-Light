@@ -42,7 +42,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Lampe à huile d'Hotavius",
         "Sauce piquante",
         "Lance d'Hotavius",
-        "Grimoire de boule de feu"
+        "Grimoire de boule de feu",
+        "Carte d'Hotavius"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -182,6 +183,7 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
 
             case "Sauce piquante":
+                PlayerScript.MyInstance.MyBossBonusDamage += 2f;
                 break;
 
             case "Lance d'Hotavius":
@@ -191,6 +193,10 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Grimoire de boule de feu":
                 PlayerScript.MyInstance.IncreaseProjectileNumber();
+                break;
+
+            case "Carte d'Hotavius":
+                DungeonFloorScript.MyInstance.ShowFullMap();
                 break;
 
             default:

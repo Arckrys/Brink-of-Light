@@ -20,7 +20,7 @@ public class EnnemiesProjectileScript : MonoBehaviour
     private float projectileKnockback = 2f;
     private float projectileCritChance = 5f;
 
-    private bool collisionDetected;
+    protected bool collisionDetected;
 
     private Light2D projectileLight;
     private SpriteRenderer spriteRenderer;
@@ -34,7 +34,7 @@ public class EnnemiesProjectileScript : MonoBehaviour
     public bool isCrit;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         collisionDetected = false;
 
@@ -160,7 +160,7 @@ public class EnnemiesProjectileScript : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (!(other.gameObject.tag.Equals("Enemy") || other.gameObject.tag.Equals("Spell") || other.gameObject.tag.Equals("Projectile")))
         {
@@ -186,4 +186,5 @@ public class EnnemiesProjectileScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

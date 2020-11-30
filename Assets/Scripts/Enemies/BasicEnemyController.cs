@@ -23,6 +23,7 @@ public class BasicEnemyController : Character
     protected int wanderTimer;
     protected Vector2 randomDirection;
     public GameObject projectile;
+    [SerializeField] private bool isBoss;
 
     private CanvasGroup canvasGroupLifeBar;
     private Coroutine lifeBarCoroutine;
@@ -52,13 +53,14 @@ public class BasicEnemyController : Character
         knockbackTimer = 0;
         wanderTimer = 0;
         randomDirection = new Vector2();
+        randomDirection.x = (Random.Range(-10, 11));
+        randomDirection.y = (Random.Range(-10, 11));
 
         canvasGroupLifeBar = transform.Find("EnemyLifeCanvas").GetComponent<CanvasGroup>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        UpdatePath();
-        InvokeRepeating("UpdatePath", 0f, .5f);
-        
+        UpdatePathWander();
+        InvokeRepeating("UpdatePathWander", 0f, .5f);
         base.Start();
     }
 
@@ -77,6 +79,13 @@ public class BasicEnemyController : Character
         }
     }
 
+    void UpdatePathWander()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, rb.position + randomDirection, OnPathComplete);
+        }
+    }
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -94,6 +103,12 @@ public class BasicEnemyController : Character
             knockbackIntensity = collision.GetComponent<ProjectileScript>().MyKnockback;
             float damageReceived = collision.GetComponent<ProjectileScript>().MyCurrentDamage;
             var isCrit = collision.GetComponent<ProjectileScript>().isCrit;
+
+            if (isBoss)
+            {
+                print("is boss");
+                damageReceived += collision.GetComponent<ProjectileScript>().MyBossBonusDamage;
+            }
 
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
@@ -269,20 +284,58 @@ public class BasicEnemyController : Character
     {
         if(wanderTimer >= 100)
         {
-            randomDirection.x = (Random.Range(-1,2));
-            randomDirection.y = (Random.Range(-1, 2));
+            randomDirection.x = (Random.Range(-10,11));
+            randomDirection.y = (Random.Range(-10,11));
             direction = randomDirection;
-            FaceDirection(randomDirection,gfxAnim);
+            
             wanderTimer = 0;
             //print(randomDirection);
         }
         else
         {
             wanderTimer += 1;
+            if (Time.time > lastRepath + repathRate && seeker.IsDone())
+            {
+                lastRepath = Time.time;
+
+                seeker.StartPath(transform.position, transform.position + (Vector3)randomDirection, OnPathComplete);
+            }
+
+            if (path == null)
+                return;
+
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                Move();
+                reachedEndOfPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+
+            direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+            if (distance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+            else
+            {
+                Move();
+                FaceDirection(direction, gfxAnim);
+            }
         }
         if (Vector2.Distance(transform.position, player.position) < detectionRadius)
         {
             playerDetected = true;
+            Move();
+            CancelInvoke("UpdatePathWander");
+            UpdatePath();
+            InvokeRepeating("UpdatePath", 0f, .5f);
+            
         }
     }
 

@@ -13,8 +13,11 @@ public class DungeonFloorScript : MonoBehaviour
     private int floorLevel;
     private int dungeonLevel;
 
+    private bool isMapRevealed;
+
     private void Start()
     {
+        isMapRevealed = false;
         nodeList = new List<FloorNode>();
         floorLevel = 0;
         dungeonLevel = 0;
@@ -58,7 +61,14 @@ public class DungeonFloorScript : MonoBehaviour
 
         InitializeMap(nodeList[0].GetRoom());
 
-        MinimapScript.MyInstance.AddRoom(newNode);
+        if (isMapRevealed)
+            MinimapScript.MyInstance.ShowFullMap(nodeList);
+
+        else
+        {
+            MinimapScript.MyInstance.AddRoom(newNode);
+        }        
+
         MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
     }
@@ -168,8 +178,18 @@ public class DungeonFloorScript : MonoBehaviour
     public void AddSpecialRooms()
     {
         CreateRandomNode(FloorNode.roomTypeEnum.itemRoom);
-        CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
-        CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
+        if (floorLevel % 2 == 0)
+        {
+            CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
+            print("seller room");
+        }
+
+        if (floorLevel == 2)
+            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom); //FloorNode.roomTypeEnum.miniBossRoom when done
+        else if (floorLevel == 4)
+            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom); //FloorNode.roomTypeEnum.bossRoom when done
+        else
+            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
     }
 
     public void CreateLinkBetweenNodes(FloorNode a, FloorNode b, FloorNode.directionEnum directionFromAToB)
@@ -242,5 +262,11 @@ public class DungeonFloorScript : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ShowFullMap()
+    {
+        isMapRevealed = true;
+        MinimapScript.MyInstance.ShowFullMap(nodeList);
     }
 }

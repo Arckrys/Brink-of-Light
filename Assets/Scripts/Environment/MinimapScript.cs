@@ -44,6 +44,7 @@ public class MinimapScript : MonoBehaviour
                 GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
                 room.transform.position = room.transform.parent.position;
                 room.transform.position += new Vector3(node.GetCoord().x * 60, node.GetCoord().y * 20, 0);
+                displayedRooms.Add(room);
             }
         }
     }
