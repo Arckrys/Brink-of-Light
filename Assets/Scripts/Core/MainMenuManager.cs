@@ -1,66 +1,106 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Experimental.Rendering.Universal;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class MainMenuManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject fire;
+    [SerializeField] private GameObject menuSettings;
+    
+    [SerializeField] private GameObject menuAudio;
+    
+    [SerializeField] private GameObject menuGraphics;
 
-    private Coroutine fireCoroutine;
+    [SerializeField] private Button settings;
+    
+    [SerializeField] private Button quit;
+    
+    [SerializeField] private Button audio;
+    
+    [SerializeField] private Button graphics;
+    
+    [SerializeField] private Button back;
 
+    private bool inMenu;
+
+    public bool InMenu => inMenu;
+
+    private static MainMenuManager _instance;
+    
+    public static MainMenuManager MyInstance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType<MainMenuManager>();
+            }
+
+            return _instance;
+        }
+    }
+    
     // Start is called before the first frame update
     private void Start()
     {
-        var tempColor = fire.GetComponent<SpriteRenderer>().color;
-        tempColor.a = 0;
-        fire.GetComponent<SpriteRenderer>().color = tempColor;
-        fire.GetComponent<Light2D>().intensity = 0;
+        menuSettings.SetActive(false);
+        menuAudio.SetActive(false);
+        menuGraphics.SetActive(false);
+        
+        settings.onClick.AddListener(OnSettingsPressed);
+        quit.onClick.AddListener(OnQuitPressed);
+        
+        audio.onClick.AddListener(OnAudioPressed);
+        graphics.onClick.AddListener(OnGraphicsPressed);
+        back.onClick.AddListener(OnBackPressed);
     }
     
-    private IEnumerator OffFire()
+    // Update is called once per frame
+    private void Update()
     {
-        var tempColor = fire.GetComponent<SpriteRenderer>().color;
-        while (tempColor.a > 0f)
+        if (!Input.GetKeyDown(KeyCode.Escape) || !inMenu) return;
+        
+        if (menuAudio.activeSelf || menuGraphics.activeSelf)
         {
-            tempColor.a -= 0.1f;
-            fire.GetComponent<Light2D>().intensity -= 0.1f;
-            fire.GetComponent<SpriteRenderer>().color = tempColor;
-            yield return new WaitForSeconds(0.1f);
+            menuAudio.SetActive(false);
+            menuGraphics.SetActive(false);
+            menuSettings.SetActive(true);
         }
-        StopCoroutine(fireCoroutine);
+        else
+        {
+            inMenu = false;
+            menuSettings.SetActive(false);
+        }
     }
 
-    private IEnumerator OnFire()
+    private void OnSettingsPressed()
     {
-        var tempColor = fire.GetComponent<SpriteRenderer>().color;
-        while (tempColor.a < 1f)
-        {
-            tempColor.a += 0.1f;
-            fire.GetComponent<Light2D>().intensity += 0.1f;
-            fire.GetComponent<SpriteRenderer>().color = tempColor;
-            yield return new WaitForSeconds(0.1f);
-        }
-        StopCoroutine(fireCoroutine);
+        if (inMenu) return;
+        
+        inMenu = true;
+        menuSettings.SetActive(true);
     }
     
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnQuitPressed()
     {
-        if (fireCoroutine != null)
-        {
-            StopCoroutine(fireCoroutine);
-        }
-        
-        fireCoroutine = StartCoroutine(OnFire());
+        Application.Quit();
     }
     
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnAudioPressed()
     {
-        if (fireCoroutine != null)
-        {
-            StopCoroutine(fireCoroutine);
-        }
-        
-        fireCoroutine = StartCoroutine(OffFire());
+        menuSettings.SetActive(false);
+        menuAudio.SetActive(true);
+    }
+    
+    private void OnGraphicsPressed()
+    {
+        menuSettings.SetActive(false);
+        menuGraphics.SetActive(true);
+    }
+    
+    public void OnBackPressed()
+    {
+        inMenu = false;
+        menuSettings.SetActive(false);
+        menuAudio.SetActive(false);
+        menuGraphics.SetActive(false);
     }
 }

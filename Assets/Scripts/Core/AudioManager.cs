@@ -26,7 +26,8 @@ public class AudioManager : MonoBehaviour
     
     private void OnBackPressed()
     {
-        GameManager.MyInstance.SetAudioMenu(false);
+        if (GameManager.MyInstance) GameManager.MyInstance.SetAudioMenu(false);
+        else MainMenuManager.MyInstance.OnBackPressed();
     }
 
     private void OnVolumeChanged()

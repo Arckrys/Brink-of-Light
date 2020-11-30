@@ -27,7 +27,7 @@ public class PauseManager : MonoBehaviour
         btnSound.onClick.AddListener(OnAudioPressed);
         btnRestart.onClick.AddListener(OnRestartPressed);
         btnTown.onClick.AddListener(OnTownPressed);
-        btnMenu.onClick.AddListener(OnResumePressed);
+        btnMenu.onClick.AddListener(OnMainMenuPressed);
     }
 
     private static void OnResumePressed()
@@ -52,10 +52,15 @@ public class PauseManager : MonoBehaviour
 
     private void OnTownPressed()
     {
-        StartCoroutine(Load());
+        StartCoroutine(LoadVillage());
     }
 
-    private IEnumerator Load()
+    private void OnMainMenuPressed()
+    {
+        StartCoroutine(LoadMainMenu());
+    }
+
+    private IEnumerator LoadVillage()
     {
         animator.SetTrigger("Start");
 
@@ -64,5 +69,16 @@ public class PauseManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    private IEnumerator LoadMainMenu()
+    {
+        animator.SetTrigger("Start");
+
+        GetComponent<CanvasGroup>().alpha = 0f;
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
