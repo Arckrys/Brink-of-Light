@@ -44,7 +44,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Lance d'Hotavius",
         "Grimoire de boule de feu",
         "Carte d'Hotavius",
-        "Plume du phoenix"
+        "Plume du phoenix",
+        "Roquette"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -202,6 +203,10 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Plume du phoenix":
                 PlayerScript.MyInstance.IncreaseAdditionalLives();
+                break;
+
+            case "Roquette":
+                PlayerScript.MyInstance.MyRocketBonusDamage += 2f;
                 break;
 
             default:

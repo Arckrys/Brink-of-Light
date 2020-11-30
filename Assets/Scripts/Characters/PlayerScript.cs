@@ -75,7 +75,8 @@ public class PlayerScript : Character
     private bool isProjectilePiercingEnemies = false;
     private float bossBonusDamage = 0;
     private int additionalLives = 0;
-
+    private float projectileCount = 0;
+    private float rocketBonusDamage = 0;
     private int projectilesNumber = 1;
 
     private Coroutine attackCoroutine;
@@ -196,6 +197,8 @@ public class PlayerScript : Character
 
     private void FireProjectile()
     {
+        projectileCount++;
+
         var position = transform.position;
             
         var projectileDirection = GetPlayerToDirection();
@@ -204,6 +207,7 @@ public class PlayerScript : Character
         {
             var randomNumber = Random.Range(0, 100);
             var damageToDeal = attack.MyMaxValue;
+
             var isCrit = false;
 
             if (randomNumber <= critChance.MyMaxValue)
@@ -211,6 +215,10 @@ public class PlayerScript : Character
                 damageToDeal *= critDamage.MyMaxValue;
                 isCrit = true;
             }
+
+            if (projectileCount % 5 == 0)
+                damageToDeal += rocketBonusDamage;
+
 
             //create projectile
             float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
@@ -431,6 +439,19 @@ public class PlayerScript : Character
     public void IncreaseAdditionalLives()
     {
         additionalLives++;
+    }
+
+    public float MyRocketBonusDamage
+    {
+        get
+        {
+            return rocketBonusDamage;
+        }
+
+        set
+        {
+            rocketBonusDamage = value;
+        }
     }
 
 
