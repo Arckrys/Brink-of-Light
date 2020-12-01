@@ -25,6 +25,6 @@ public class ExitManager : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        StartCoroutine(canvasTransition.FadeIn(this.gameObject));
+        StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
     }
 }

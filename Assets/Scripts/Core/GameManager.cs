@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
         menuGraphics.SetActive(false);
         menuAudio.SetActive(false);
         inPause = false;
+
+        if (PlayerPrefs.GetInt("Restart") != 1) return;
+
+        GameObject.Find("CanvasTransition").GetComponent<CanvasGroup>().alpha = 1;
+        
+        StartCoroutine(CanvasTransitionScript.MyInstance.FadeIn(null, true));
+            
+        PlayerPrefs.SetInt("Restart", 0);
     }
     
     void Update()

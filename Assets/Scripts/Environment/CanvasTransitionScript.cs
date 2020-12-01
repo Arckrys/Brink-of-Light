@@ -23,7 +23,7 @@ public class CanvasTransitionScript : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeIn(GameObject exitDoor)
+    public IEnumerator FadeIn(GameObject exitDoor, bool restart)
     {
         isDoingTransition = true;
 
@@ -34,7 +34,14 @@ public class CanvasTransitionScript : MonoBehaviour
             canvasGroup.alpha += 0.1f;
         }
 
-        TransitionToNewRoom(exitDoor);
+        if (!restart)
+        {
+            TransitionToNewRoom(exitDoor);
+        }
+        else
+        {
+            InstantiateNewLevel();
+        }
 
         StartCoroutine(FadeOut());
     }
@@ -51,17 +58,21 @@ public class CanvasTransitionScript : MonoBehaviour
         isDoingTransition = false;
     }
 
+    private void InstantiateNewLevel()
+    {
+        DungeonFloorScript.MyInstance.GenerateNewFloor();
+        Destroy(GameObject.FindGameObjectWithTag("Room"));
+        //position du joueur codée en dur pour l'instant, à changer 
+        PlayerScript.MyInstance.transform.position = new Vector2(4.86f, 0);
+        PlayerScript.MyInstance.SetIsProjectilesDisabled(false);
+    }
+
     private void TransitionToNewRoom(GameObject exitDoor)
     {
         if (exitDoor.CompareTag("DoorNextFloor") || exitDoor.CompareTag("DoorVillage"))
         {
-            DungeonFloorScript.MyInstance.GenerateNewFloor();
-            Destroy(GameObject.FindGameObjectWithTag("Room"));
-            //position du joueur codée en dur pour l'instant, à changer 
-            PlayerScript.MyInstance.transform.position = new Vector2(4.86f, 0);
-            PlayerScript.MyInstance.SetIsProjectilesDisabled(false);
+            InstantiateNewLevel();
         }
-
         else
         {
             //set the current room inactive

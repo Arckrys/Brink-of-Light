@@ -72,6 +72,8 @@ public class MainMenuManager : MonoBehaviour
         
         confirmNewGame.onClick.AddListener(OnConfirmNewGamePressed);
         backNewGame.onClick.AddListener(OnBackNewGamePressed);
+        
+        PlayerPrefs.SetInt("Restart", 0);
     }
     
     // Update is called once per frame

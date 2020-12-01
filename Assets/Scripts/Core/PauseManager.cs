@@ -47,7 +47,7 @@ public class PauseManager : MonoBehaviour
 
     private void OnRestartPressed()
     {
-        //StartCoroutine(GameObject.Find("CanvasTransition").GetComponent<CanvasTransitionScript>().FadeIn(gameObject));
+        StartCoroutine(RestartDungeon());
     }
 
     private void OnTownPressed()
@@ -69,6 +69,19 @@ public class PauseManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private IEnumerator RestartDungeon()
+    {
+        animator.SetTrigger("Start");
+
+        GetComponent<CanvasGroup>().alpha = 0f;
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        PlayerPrefs.SetInt("Restart", 1);
     }
     
     private IEnumerator LoadMainMenu()
