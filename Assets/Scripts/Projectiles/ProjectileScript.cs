@@ -44,12 +44,15 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (spriteRenderer is null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
+            spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        }
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
-
-        spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
-        spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
         collider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 
@@ -298,5 +301,16 @@ public class ProjectileScript : MonoBehaviour
     public void DestroyProjectile()
     {
         Destroy(gameObject);
+    }
+
+    public void SetColor(Color newColor)
+    {
+        if (spriteRenderer is null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
+            spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        }
+
+        spriteRenderer.color = newColor;
     }
 }

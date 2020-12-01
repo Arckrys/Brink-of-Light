@@ -48,7 +48,8 @@ public class ItemsManagerScript : MonoBehaviour
         "Roquette",
         "Crocs de vampire",
         "Flamme éternelle",
-        "Essence"
+        "Essence",
+        "Poudre de métaux"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -222,7 +223,11 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Essence":
                 PlayerScript.MyInstance.IncreaseBurningProjectileProbability();
-                break;                
+                break;
+
+            case "Poudre de métaux":
+                PlayerScript.MyInstance.IncreaseColoredProjectilesLevel();
+                break;
 
             default:
                 break;

@@ -82,6 +82,7 @@ public class PlayerScript : Character
     private int healValueOnSuccessiveHits = 0;
     private int chanceToSpawnCombustible = 0;
     private int burningProbability = 0;
+    private int coloredProjectilesLevel = 0;
 
     private Coroutine attackCoroutine;
 
@@ -222,14 +223,30 @@ public class PlayerScript : Character
 
             //add the rocket bonus damage
             if (projectileCount % 5 == 0)
-                damageToDeal += rocketBonusDamage;
-
-            
+                damageToDeal += rocketBonusDamage;            
 
             //create projectile
             float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
             var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y, -2), Quaternion.identity);
             var projectileScript = newProjectile.GetComponent<ProjectileScript>();
+
+            //change the color and damage of the projectile if player has the item "Poudre de métaux"
+            if (coloredProjectilesLevel > 0)
+            {
+                if (projectileCount % 3 == 2)
+                {
+                    projectileScript.SetColor(new Color(0, 255, 0));
+                    damageToDeal += coloredProjectilesLevel * 0.5f;
+                }
+
+                else if (projectileCount % 3 == 0)
+                {
+                    projectileScript.SetColor(new Color(255, 0, 0));
+                    damageToDeal += coloredProjectilesLevel * 1.5f;
+                }
+            }
+
+            //set various projectile values
             projectileScript.SetDirection(projectileDirection, xPos, position.y);
             projectileScript.MyBaseDamage = damageToDeal;
             projectileScript.MyKnockback = knockback.MyMaxValue;
@@ -238,7 +255,7 @@ public class PlayerScript : Character
             projectileScript.MyBossBonusDamage = bossBonusDamage;
 
             //calculate if the projectile will set the enemies on fire
-            if (burningProbability != 0)
+            if (burningProbability > 0)
             {
                 int randomBurningNumber = Random.Range(0, burningProbability);
                 if (randomBurningNumber == 0)
@@ -528,10 +545,12 @@ public class PlayerScript : Character
 
         else
             burningProbability /= 2;
-
-        print(burningProbability);
     }
 
+    public void IncreaseColoredProjectilesLevel()
+    {
+        coloredProjectilesLevel++;
+    }
 
     /*public float[] getStatMaxValues()
     {

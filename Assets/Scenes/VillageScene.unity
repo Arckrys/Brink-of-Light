@@ -205,7 +205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &40854816
 MonoBehaviour:
@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5094738063621364680, guid: a827e98fe069844db8ea74ecd1cff6f1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5094738063621364680, guid: a827e98fe069844db8ea74ecd1cff6f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1806,7 +1806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020417312246207502, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3020417312615166806, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1854,7 +1854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6605242064253427130, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 6605242064253427130, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.x
