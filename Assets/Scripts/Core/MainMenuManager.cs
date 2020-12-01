@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject menuAudio;
     
     [SerializeField] private GameObject menuGraphics;
+    
+    [SerializeField] private Button newGame;
 
     [SerializeField] private Button settings;
     
@@ -19,9 +22,15 @@ public class MainMenuManager : MonoBehaviour
     
     [SerializeField] private Button back;
 
+    [SerializeField] private GameObject transitionNewGame;
+    
+    [SerializeField] private GameObject canvasMainMenu;
+    
     private bool inMenu;
 
     public bool InMenu => inMenu;
+    
+    private bool inTransition;
 
     private static MainMenuManager _instance;
     
@@ -41,10 +50,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        menuSettings.SetActive(false);
-        menuAudio.SetActive(false);
-        menuGraphics.SetActive(false);
-        
+        newGame.onClick.AddListener(OnNewGamePressed);
         settings.onClick.AddListener(OnSettingsPressed);
         quit.onClick.AddListener(OnQuitPressed);
         
@@ -76,9 +82,42 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    private void OnNewGamePressed()
+    {
+        if (inMenu || inTransition) return;
+        
+        inTransition = true;
+        StartCoroutine(StartNewGame());
+    }
+
+    private IEnumerator StartNewGame()
+    {
+        transitionNewGame.SetActive(true);
+
+        StartCoroutine(FadeOutMainMenu());
+        
+        yield return new WaitForSeconds(2);
+
+        var animator = transitionNewGame.GetComponent<Animator>();
+        animator.SetTrigger("Step");
+    }
+    
+    private IEnumerator FadeOutMainMenu()
+    {
+        var startAlpha = canvasMainMenu.GetComponent<CanvasGroup>().alpha;
+
+        while (startAlpha > 0)
+        {
+            startAlpha -= 0.1f;
+            canvasMainMenu.GetComponent<CanvasGroup>().alpha = startAlpha;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
     private void OnSettingsPressed()
     {
-        if (inMenu) return;
+        if (inMenu || inTransition) return;
         
         inMenu = true;
         menuSettings.SetActive(true);
@@ -86,6 +125,8 @@ public class MainMenuManager : MonoBehaviour
     
     private void OnQuitPressed()
     {
+        if (inMenu || inTransition) return;
+        
         Application.Quit();
     }
     
