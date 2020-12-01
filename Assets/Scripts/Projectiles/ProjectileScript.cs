@@ -25,6 +25,7 @@ public class ProjectileScript : MonoBehaviour
     private float projectileKnockback = 2f;
     private float projectileCritChance = 5f;
     private float bossBonusDamage = 0;
+    private bool isBurning = false;
 
     //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
@@ -43,12 +44,15 @@ public class ProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (spriteRenderer is null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
+            spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        }
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
-
-        spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
-        spriteRenderer.drawMode = SpriteDrawMode.Sliced;
 
         collider = GetComponent<PolygonCollider2D>() as PolygonCollider2D;
 
@@ -56,7 +60,7 @@ public class ProjectileScript : MonoBehaviour
 
         projectileLight = GetComponent<Light2D>();
 
-        initialZ = transform.position.z;
+        initialZ = transform.position.z;        
 
         UpdatePolygonCollider();
 
@@ -273,16 +277,40 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
+    public bool IsBurning
+    {
+        get
+        {
+            return isBurning;
+        }
+
+        set
+        {
+            isBurning = value;
+        }
+    }
+
     private void UpdatePolygonCollider()
     {
         Destroy(GetComponent<PolygonCollider2D>());
         collider = gameObject.AddComponent<PolygonCollider2D>();
         collider.autoTiling = true;
-        collider.isTrigger = true;
+        collider.isTrigger = true;        
     }
 
     public void DestroyProjectile()
     {
         Destroy(gameObject);
+    }
+
+    public void SetColor(Color newColor)
+    {
+        if (spriteRenderer is null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>() as SpriteRenderer;
+            spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        }
+
+        spriteRenderer.color = newColor;
     }
 }

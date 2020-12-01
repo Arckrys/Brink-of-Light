@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5089372748930672042}
   m_Layer: 12
   m_Name: Tomb2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

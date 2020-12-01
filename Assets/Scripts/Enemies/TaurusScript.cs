@@ -22,8 +22,10 @@ public class TaurusScript : BasicEnemyController
         dashCounter = 0;
         stunTimer = 0;
         base.Start();
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
         initialPosition = camera.transform.localPosition;
-        movementSpeed.MyMaxValue = playerGameObject.GetComponent<PlayerScript>().initMovementSpeed + 0.1f;
+        movementSpeed.MyMaxValue = playerGameObject.GetComponent<PlayerScript>().movementSpeed.MyCurrentValue + 0.1f;
     }
 
     protected override void FixedUpdate()

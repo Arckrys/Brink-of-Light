@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 8;
+    private int basicRoomsNumber = 1;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -181,13 +181,12 @@ public class DungeonFloorScript : MonoBehaviour
         if (floorLevel % 2 == 0)
         {
             CreateRandomNode(FloorNode.roomTypeEnum.sellerRoom);
-            print("seller room");
         }
 
         if (floorLevel == 2)
-            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom); //FloorNode.roomTypeEnum.miniBossRoom when done
+            CreateRandomNode(FloorNode.roomTypeEnum.miniBossRoom);
         else if (floorLevel == 4)
-            CreateRandomNode(FloorNode.roomTypeEnum.exitRoom); //FloorNode.roomTypeEnum.bossRoom when done
+            CreateRandomNode(FloorNode.roomTypeEnum.bossRoom);
         else
             CreateRandomNode(FloorNode.roomTypeEnum.exitRoom);
     }
@@ -268,5 +267,15 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = true;
         MinimapScript.MyInstance.ShowFullMap(nodeList);
+    }
+
+    public int GetFloorLevel()
+    {
+        return floorLevel;
+    }
+
+    public int GetDungeonLevel()
+    {
+        return dungeonLevel;
     }
 }

@@ -74,8 +74,15 @@ public class PlayerScript : Character
     private bool isLosingHealthWhenAttacking = true;
     private bool isProjectilePiercingEnemies = false;
     private float bossBonusDamage = 0;
-
+    private int additionalLives = 0;
+    private float projectileCount = 0;
+    private float rocketBonusDamage = 0;
     private int projectilesNumber = 1;
+    private int successiveHit = 0;
+    private int healValueOnSuccessiveHits = 0;
+    private int chanceToSpawnCombustible = 0;
+    private int burningProbability = 0;
+    private int coloredProjectilesLevel = 0;
 
     private Coroutine attackCoroutine;
 
@@ -123,9 +130,25 @@ public class PlayerScript : Character
     // Update is called once per frame
     protected override void Update()
     {
-        GetInput();
+        if (!GameManager.MyInstance.PauseState)
+            GetInput();
 
         HandleLayers();
+
+        if (PlayerCurrentLife <= 0)
+        {
+            if (additionalLives == 0)
+            {
+                GameManager.MyInstance.SetDeathMenu(true);
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                additionalLives--;
+                PlayerCurrentLife = PlayerMaxLife;
+                StartInvincibility(2f);
+            }
+        }
 
         base.Update();
     }
@@ -179,6 +202,8 @@ public class PlayerScript : Character
 
     private void FireProjectile()
     {
+        projectileCount++;
+
         var position = transform.position;
             
         var projectileDirection = GetPlayerToDirection();
@@ -187,6 +212,7 @@ public class PlayerScript : Character
         {
             var randomNumber = Random.Range(0, 100);
             var damageToDeal = attack.MyMaxValue;
+
             var isCrit = false;
 
             if (randomNumber <= critChance.MyMaxValue)
@@ -195,16 +221,48 @@ public class PlayerScript : Character
                 isCrit = true;
             }
 
+            //add the rocket bonus damage
+            if (projectileCount % 5 == 0)
+                damageToDeal += rocketBonusDamage;            
+
             //create projectile
             float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
             var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y, -2), Quaternion.identity);
-            newProjectile.GetComponent<ProjectileScript>().SetDirection(projectileDirection, xPos, position.y);
-            newProjectile.GetComponent<ProjectileScript>().MyBaseDamage = damageToDeal;
-            newProjectile.GetComponent<ProjectileScript>().MyKnockback = knockback.MyMaxValue;
-            newProjectile.GetComponent<ProjectileScript>().MyRange = 1 / range.MyMaxValue;
-            newProjectile.GetComponent<ProjectileScript>().isCrit = isCrit;
-            newProjectile.GetComponent<ProjectileScript>().MyBossBonusDamage = bossBonusDamage;
-            print(bossBonusDamage);
+            var projectileScript = newProjectile.GetComponent<ProjectileScript>();
+
+            //change the color and damage of the projectile if player has the item "Poudre de métaux"
+            if (coloredProjectilesLevel > 0)
+            {
+                if (projectileCount % 3 == 2)
+                {
+                    projectileScript.SetColor(new Color(0, 255, 0));
+                    damageToDeal += coloredProjectilesLevel * 0.5f;
+                }
+
+                else if (projectileCount % 3 == 0)
+                {
+                    projectileScript.SetColor(new Color(255, 0, 0));
+                    damageToDeal += coloredProjectilesLevel * 1.5f;
+                }
+            }
+
+            //set various projectile values
+            projectileScript.SetDirection(projectileDirection, xPos, position.y);
+            projectileScript.MyBaseDamage = damageToDeal;
+            projectileScript.MyKnockback = knockback.MyMaxValue;
+            projectileScript.MyRange = 1 / range.MyMaxValue;
+            projectileScript.isCrit = isCrit;
+            projectileScript.MyBossBonusDamage = bossBonusDamage;
+
+            //calculate if the projectile will set the enemies on fire
+            if (burningProbability > 0)
+            {
+                int randomBurningNumber = Random.Range(0, burningProbability);
+                if (randomBurningNumber == 0)
+                {
+                    projectileScript.IsBurning = true;
+                }
+            }
         }
 
         //player lose one health per shot
@@ -412,6 +470,87 @@ public class PlayerScript : Character
         projectilesNumber++;
     }
 
+    public void IncreaseAdditionalLives()
+    {
+        additionalLives++;
+    }
+
+    public float MyRocketBonusDamage
+    {
+        get
+        {
+            return rocketBonusDamage;
+        }
+
+        set
+        {
+            rocketBonusDamage = value;
+        }
+    }
+
+    public int MySuccessiveHit
+    {
+        get
+        {
+            return successiveHit;
+        }
+
+        set
+        {
+            successiveHit = value;
+        }
+    }
+
+    public int MyHealOnSuccessiveHits
+    {
+        get
+        {
+            return healValueOnSuccessiveHits;
+        }
+
+        set
+        {
+            healValueOnSuccessiveHits = value;
+        }
+    }
+    
+
+    public void HealOnSuccessiveHit()
+    {
+        if (MySuccessiveHit % 10 == 0 && MyHealOnSuccessiveHits > 0)
+        {
+            PlayerCurrentLife += MyHealOnSuccessiveHits;
+            CombatTextManager.MyInstance.CreateText(transform.position, MyHealOnSuccessiveHits.ToString(CultureInfo.InvariantCulture), DamageType.Heal, 1.0f, false);
+        }
+    }
+
+    public void IncreaseCombustibleSpawnProbability()
+    {
+        if (chanceToSpawnCombustible == 0)
+            chanceToSpawnCombustible = 50;
+
+        else
+            chanceToSpawnCombustible /= 2;
+    }
+
+    public int GetChanceToSpawnCombustible()
+    {
+        return chanceToSpawnCombustible;
+    }
+
+    public void IncreaseBurningProjectileProbability()
+    {
+        if (burningProbability == 0)
+            burningProbability = 20;
+
+        else
+            burningProbability /= 2;
+    }
+
+    public void IncreaseColoredProjectilesLevel()
+    {
+        coloredProjectilesLevel++;
+    }
 
     /*public float[] getStatMaxValues()
     {

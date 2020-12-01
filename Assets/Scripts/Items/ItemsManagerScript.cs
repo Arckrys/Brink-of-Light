@@ -18,7 +18,7 @@ public class ItemsManagerScript : MonoBehaviour
 
 
     private enum potionsEnum { none, vitesse, force, lumiere };
-    private potionsEnum potionUsed;
+    private List<potionsEnum> potionUsed;
 
     private AudioSource audio;
 
@@ -43,7 +43,13 @@ public class ItemsManagerScript : MonoBehaviour
         "Sauce piquante",
         "Lance d'Hotavius",
         "Grimoire de boule de feu",
-        "Carte d'Hotavius"
+        "Carte d'Hotavius",
+        "Plume du phoenix",
+        "Roquette",
+        "Crocs de vampire",
+        "Flamme éternelle",
+        "Essence",
+        "Poudre de métaux"
     };
 
     private List<string> itemsConsumableList = new List<string> {
@@ -81,7 +87,7 @@ public class ItemsManagerScript : MonoBehaviour
         canvasGroup = popupPanel.GetComponent<CanvasGroup>();
         itemText = popupPanel.GetComponentInChildren<Text>();
 
-        potionUsed = potionsEnum.none;
+        potionUsed = new List<potionsEnum>();
         //ItemsTest();        
     }
 
@@ -199,6 +205,30 @@ public class ItemsManagerScript : MonoBehaviour
                 DungeonFloorScript.MyInstance.ShowFullMap();
                 break;
 
+            case "Plume du phoenix":
+                PlayerScript.MyInstance.IncreaseAdditionalLives();
+                break;
+
+            case "Roquette":
+                PlayerScript.MyInstance.MyRocketBonusDamage += 2f;
+                break;
+
+            case "Crocs de vampire":
+                PlayerScript.MyInstance.MyHealOnSuccessiveHits += 15;
+                break;
+
+            case "Flamme éternelle":
+                PlayerScript.MyInstance.IncreaseCombustibleSpawnProbability();
+                break;
+
+            case "Essence":
+                PlayerScript.MyInstance.IncreaseBurningProjectileProbability();
+                break;
+
+            case "Poudre de métaux":
+                PlayerScript.MyInstance.IncreaseColoredProjectilesLevel();
+                break;
+
             default:
                 break;
         }
@@ -244,17 +274,17 @@ public class ItemsManagerScript : MonoBehaviour
                 case "Potion de vitesse":
                     PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.75f;
                     PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
-                    potionUsed = potionsEnum.vitesse;
+                    potionUsed.Add(potionsEnum.vitesse);
                     break;
 
                 case "Potion de force":
                     PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
-                    potionUsed = potionsEnum.force;
+                    potionUsed.Add(potionsEnum.force);
                     break;
 
                 case "Potion de lumière":
                     PlayerScript.MyInstance.PlayerMaxLife += 15f;
-                    potionUsed = potionsEnum.lumiere;
+                    potionUsed.Add(potionsEnum.lumiere);
                     break;
 
                 case "Potion de Urbius":
@@ -285,11 +315,16 @@ public class ItemsManagerScript : MonoBehaviour
                     Vector2 playerPosition = PlayerScript.MyInstance.transform.position;
 
                     //if the player is on the bottom half, spawn the combustible toward the top, else toward the bot
-                    float combustibleOffset = 0.8f;
+                    float combustibleOffsetY = 0.8f;
                     if (playerPosition.y > 0)
-                        combustibleOffset = -combustibleOffset;
+                        combustibleOffsetY = -combustibleOffsetY;
 
-                    GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x, playerPosition.y + combustibleOffset), Quaternion.identity);
+                    //same for the x axis
+                    float combustibleOffsetX = 0.8f;
+                    if (transform.position.x > 0)
+                        combustibleOffsetX = -combustibleOffsetX;
+
+                    GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x + combustibleOffsetX, playerPosition.y + combustibleOffsetY), Quaternion.identity);
                     combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     break;
 
@@ -320,26 +355,26 @@ public class ItemsManagerScript : MonoBehaviour
 
     public void RemovePotionEffect()
     {
-        switch(potionUsed)
+        foreach (potionsEnum potionEffect in potionUsed)
         {
-            case potionsEnum.vitesse:
-                PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.75f;
-                PlayerScript.MyInstance.movementSpeed.MyMaxValue -= 0.5f;
-                potionUsed = potionsEnum.vitesse;
-                break;
+            switch (potionEffect)
+            {
+                case potionsEnum.vitesse:
+                    PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.75f;
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue -= 0.5f;
+                    break;
 
-            case potionsEnum.force:
-                PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                potionUsed = potionsEnum.force;
-                break;
+                case potionsEnum.force:
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                    break;
 
-            case potionsEnum.lumiere:
-                PlayerScript.MyInstance.PlayerMaxLife -= 15f;
-                potionUsed = potionsEnum.lumiere;
-                break;
+                case potionsEnum.lumiere:
+                    PlayerScript.MyInstance.PlayerMaxLife -= 15f;
+                    break;
+            }
         }
 
-        potionUsed = potionsEnum.none;
+        potionUsed.Clear();
     }
 
 
@@ -353,7 +388,6 @@ public class ItemsManagerScript : MonoBehaviour
         while(canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += 0.05f;
-            Debug.Log(canvasGroup.alpha);
 
             yield return new WaitForSeconds(.01f);
         }
@@ -363,7 +397,6 @@ public class ItemsManagerScript : MonoBehaviour
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= 0.05f;
-            Debug.Log(canvasGroup.alpha);
 
             yield return new WaitForSeconds(.05f);
         }
