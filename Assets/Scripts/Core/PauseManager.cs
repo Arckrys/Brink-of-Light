@@ -16,6 +16,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button btnTown;
     
     [SerializeField] private Button btnMenu;
+    
+    [SerializeField] private Button btnQuit;
 
     [SerializeField] private Animator animator;
     
@@ -28,6 +30,13 @@ public class PauseManager : MonoBehaviour
         btnRestart.onClick.AddListener(OnRestartPressed);
         btnTown.onClick.AddListener(OnTownPressed);
         btnMenu.onClick.AddListener(OnMainMenuPressed);
+        btnQuit.onClick.AddListener(OnQuitPressed);
+    }
+    
+    private void OnQuitPressed()
+    {
+        PlayerPrefs.SetInt("Restart", 0);
+        Application.Quit();
     }
 
     private static void OnResumePressed()

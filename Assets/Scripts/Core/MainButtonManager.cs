@@ -51,7 +51,7 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (MainMenuManager.MyInstance.InMenu) return;
+        if (MainMenuManager.MyInstance.InMenu || MainMenuManager.MyInstance.InTransition) return;
         
         if (fireCoroutine != null)
         {
@@ -63,6 +63,8 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (MainMenuManager.MyInstance.InTransition) return;
+        
         if (fireCoroutine != null)
         {
             StopCoroutine(fireCoroutine);

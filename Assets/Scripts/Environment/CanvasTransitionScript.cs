@@ -10,6 +10,8 @@ public class CanvasTransitionScript : MonoBehaviour
     private static CanvasTransitionScript _instance;
     public bool isDoingTransition = false;
 
+    [SerializeField] private DungeonFloorScript dungeonFloorScript;
+
     public static CanvasTransitionScript MyInstance
     {
         get

@@ -42,6 +42,8 @@ public class MainMenuManager : MonoBehaviour
     public bool InMenu => inMenu;
     
     private bool inTransition;
+    
+    public bool InTransition => inTransition;
 
     private static MainMenuManager _instance;
     
@@ -101,6 +103,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnBackNewGamePressed()
     {
+        if (inMenu || inTransition) return;
+        
         for (var i = 0; i < GameObject.Find("CanvasSecondMenu").transform.childCount; i++)
         {
             GameObject.Find("CanvasSecondMenu").transform.GetChild(i).gameObject.SetActive(false);
@@ -114,6 +118,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnConfirmNewGamePressed()
     {
+        if (inMenu || inTransition) return;
+        
         inTransition = true;
         StartCoroutine(StartNewGame());
     }
@@ -155,6 +161,7 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
+            inTransition = true;
             StartCoroutine(FadeOutMainMenu());
             StartCoroutine(LoadVillage());
         }
@@ -205,24 +212,34 @@ public class MainMenuManager : MonoBehaviour
     private void OnQuitPressed()
     {
         if (inMenu || inTransition) return;
-        
+
+        inTransition = true;
+        PlayerPrefs.SetInt("Restart", 0);
         Application.Quit();
     }
     
     private void OnAudioPressed()
     {
+        if (inTransition) return;
+
+        inMenu = true;
         menuSettings.SetActive(false);
         menuAudio.SetActive(true);
     }
     
     private void OnGraphicsPressed()
     {
+        if (inTransition) return;
+
+        inMenu = true;
         menuSettings.SetActive(false);
         menuGraphics.SetActive(true);
     }
     
     private void OnBackPressed()
     {
+        if (inTransition) return;
+        
         inMenu = false;
         menuSettings.SetActive(false);
         menuAudio.SetActive(false);

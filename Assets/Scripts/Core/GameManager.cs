@@ -41,16 +41,23 @@ public class GameManager : MonoBehaviour
 
         GameObject.Find("CanvasTransition").GetComponent<CanvasGroup>().alpha = 1;
         
-        StartCoroutine(CanvasTransitionScript.MyInstance.FadeIn(null, true));
+        StartCoroutine(WaitForScene());
             
         PlayerPrefs.SetInt("Restart", 0);
     }
-    
+
     void Update()
     {
         UpdateDoorState();
         
         GetPauseKey();
+    }
+    
+    private IEnumerator WaitForScene()
+    {
+        yield return new WaitForSeconds(1);
+        
+        StartCoroutine(CanvasTransitionScript.MyInstance.FadeIn(null, true));
     }
 
     private void GetPauseKey()
