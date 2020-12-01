@@ -18,7 +18,7 @@ public class ItemsManagerScript : MonoBehaviour
 
 
     private enum potionsEnum { none, vitesse, force, lumiere };
-    private potionsEnum potionUsed;
+    private List<potionsEnum> potionUsed;
 
     private AudioSource audio;
 
@@ -87,7 +87,7 @@ public class ItemsManagerScript : MonoBehaviour
         canvasGroup = popupPanel.GetComponent<CanvasGroup>();
         itemText = popupPanel.GetComponentInChildren<Text>();
 
-        potionUsed = potionsEnum.none;
+        potionUsed = new List<potionsEnum>();
         //ItemsTest();        
     }
 
@@ -274,17 +274,17 @@ public class ItemsManagerScript : MonoBehaviour
                 case "Potion de vitesse":
                     PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.75f;
                     PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
-                    potionUsed = potionsEnum.vitesse;
+                    potionUsed.Add(potionsEnum.vitesse);
                     break;
 
                 case "Potion de force":
                     PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
-                    potionUsed = potionsEnum.force;
+                    potionUsed.Add(potionsEnum.force);
                     break;
 
                 case "Potion de lumière":
                     PlayerScript.MyInstance.PlayerMaxLife += 15f;
-                    potionUsed = potionsEnum.lumiere;
+                    potionUsed.Add(potionsEnum.lumiere);
                     break;
 
                 case "Potion de Urbius":
@@ -355,26 +355,26 @@ public class ItemsManagerScript : MonoBehaviour
 
     public void RemovePotionEffect()
     {
-        switch(potionUsed)
+        foreach (potionsEnum potionEffect in potionUsed)
         {
-            case potionsEnum.vitesse:
-                PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.75f;
-                PlayerScript.MyInstance.movementSpeed.MyMaxValue -= 0.5f;
-                potionUsed = potionsEnum.vitesse;
-                break;
+            switch (potionEffect)
+            {
+                case potionsEnum.vitesse:
+                    PlayerScript.MyInstance.attackSpeed.MyMaxValue -= 0.75f;
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue -= 0.5f;
+                    break;
 
-            case potionsEnum.force:
-                PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                potionUsed = potionsEnum.force;
-                break;
+                case potionsEnum.force:
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                    break;
 
-            case potionsEnum.lumiere:
-                PlayerScript.MyInstance.PlayerMaxLife -= 15f;
-                potionUsed = potionsEnum.lumiere;
-                break;
+                case potionsEnum.lumiere:
+                    PlayerScript.MyInstance.PlayerMaxLife -= 15f;
+                    break;
+            }
         }
 
-        potionUsed = potionsEnum.none;
+        potionUsed.Clear();
     }
 
 

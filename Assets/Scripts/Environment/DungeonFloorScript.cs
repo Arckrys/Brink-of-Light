@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 8;
+    private int basicRoomsNumber = 1;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -19,7 +19,7 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = false;
         nodeList = new List<FloorNode>();
-        floorLevel = 1;
+        floorLevel = 0;
         dungeonLevel = 0;
 
         if(!GameObject.FindGameObjectWithTag("Room"))
@@ -267,5 +267,15 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = true;
         MinimapScript.MyInstance.ShowFullMap(nodeList);
+    }
+
+    public int GetFloorLevel()
+    {
+        return floorLevel;
+    }
+
+    public int GetDungeonLevel()
+    {
+        return dungeonLevel;
     }
 }

@@ -5,14 +5,17 @@ using UnityEngine;
 public class SpawnEnemyScript : MonoBehaviour
 {
 
-    [SerializeField] private int dungeon;
-    [SerializeField] private int level;
+    private int dungeon;
+    private int floor;
 
     private GameObject[] enemyArray;
 
     // Start is called before the first frame update
     void Start()
     {
+        dungeon = DungeonFloorScript.MyInstance.GetDungeonLevel();
+        floor = DungeonFloorScript.MyInstance.GetFloorLevel();
+
         string prefabsPath = "Prefabs/Enemies/Dungeon" + dungeon;
         enemyArray = Resources.LoadAll<GameObject>(prefabsPath);
 
@@ -20,7 +23,7 @@ public class SpawnEnemyScript : MonoBehaviour
         int probabilitySum = 0;
         foreach (GameObject o in enemyArray)
         {
-            int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[level - 1];
+            int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[floor - 1];
 
             //keep only the enemies with a spawn probability higher than zero
             if (enemyProbability > 0)
@@ -35,7 +38,7 @@ public class SpawnEnemyScript : MonoBehaviour
 
         foreach (GameObject o in enemyArray)
         {
-            int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[level - 1];
+            int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[floor - 1];
 
             if (enemyProbability > 0)
             {

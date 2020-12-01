@@ -202,9 +202,10 @@ MonoBehaviour:
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
   projectile: {fileID: 0}
+  isBoss: 0
   levelOneSpawnProbability: 33
   levelTwoSpawnProbability: 33
-  levelThreeSpawnProbability: 12
+  levelThreeSpawnProbability: 13
   levelFourSpawnProbability: 0
   lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   nextWaypointDistance: 1
