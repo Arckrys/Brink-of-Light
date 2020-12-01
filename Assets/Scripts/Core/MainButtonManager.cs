@@ -12,6 +12,11 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
     // Start is called before the first frame update
     private void Start()
     {
+        HideFire();
+    }
+
+    private void HideFire()
+    {
         var tempColor = fire.GetComponent<SpriteRenderer>().color;
         tempColor.a = 0;
         fire.GetComponent<SpriteRenderer>().color = tempColor;
@@ -64,5 +69,17 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
         
         fireCoroutine = StartCoroutine(OffFire());
+    }
+
+    public void OffButton()
+    {
+        HideFire();
+        
+        gameObject.SetActive(false);
+    }
+    
+    public void OnButton()
+    {
+        gameObject.SetActive(true);
     }
 }

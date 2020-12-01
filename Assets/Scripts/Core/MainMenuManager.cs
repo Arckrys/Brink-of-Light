@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -11,6 +12,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject menuGraphics;
     
     [SerializeField] private Button newGame;
+    
+    [SerializeField] private Button resumeGame;
+
+    [SerializeField] private GameObject noSaveText;
 
     [SerializeField] private Button settings;
     
@@ -21,10 +26,16 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button graphics;
     
     [SerializeField] private Button back;
+    
+    [SerializeField] private Button confirmNewGame;
+    
+    [SerializeField] private Button backNewGame;
 
     [SerializeField] private GameObject transitionNewGame;
     
     [SerializeField] private GameObject canvasMainMenu;
+    
+    [SerializeField] private Animator loadAnimator;
     
     private bool inMenu;
 
@@ -51,12 +62,16 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         newGame.onClick.AddListener(OnNewGamePressed);
+        resumeGame.onClick.AddListener(OnResumeGamePressed);
         settings.onClick.AddListener(OnSettingsPressed);
         quit.onClick.AddListener(OnQuitPressed);
         
         audio.onClick.AddListener(OnAudioPressed);
         graphics.onClick.AddListener(OnGraphicsPressed);
         back.onClick.AddListener(OnBackPressed);
+        
+        confirmNewGame.onClick.AddListener(OnConfirmNewGamePressed);
+        backNewGame.onClick.AddListener(OnBackNewGamePressed);
     }
     
     // Update is called once per frame
@@ -82,12 +97,74 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    private void OnBackNewGamePressed()
+    {
+        for (var i = 0; i < GameObject.Find("CanvasSecondMenu").transform.childCount; i++)
+        {
+            GameObject.Find("CanvasSecondMenu").transform.GetChild(i).gameObject.SetActive(false);
+        }
+        
+        for (var i = 0; i < GameObject.Find("CanvasFirstMenu").transform.childCount; i++)
+        {
+            GameObject.Find("CanvasFirstMenu").transform.GetChild(i).gameObject.GetComponent<MainButtonManager>().OnButton();
+        }
+    }
+
+    private void OnConfirmNewGamePressed()
+    {
+        inTransition = true;
+        StartCoroutine(StartNewGame());
+    }
+
     private void OnNewGamePressed()
     {
         if (inMenu || inTransition) return;
         
-        inTransition = true;
-        StartCoroutine(StartNewGame());
+        var saveData = SaveSystem.LoadGame();
+
+        if (saveData == null)
+        {
+            inTransition = true;
+            StartCoroutine(StartNewGame());
+        }
+        else
+        {
+            for (var i = 0; i < GameObject.Find("CanvasFirstMenu").transform.childCount; i++)
+            {
+                GameObject.Find("CanvasFirstMenu").transform.GetChild(i).gameObject.GetComponent<MainButtonManager>().OffButton();
+            }
+            
+            for (var i = 0; i < GameObject.Find("CanvasSecondMenu").transform.childCount; i++)
+            {
+                GameObject.Find("CanvasSecondMenu").transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void OnResumeGamePressed()
+    {
+        if (inMenu || inTransition) return;
+
+        var saveData = SaveSystem.LoadGame();
+        
+        if (saveData == null)
+        {
+            noSaveText.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine(FadeOutMainMenu());
+            StartCoroutine(LoadVillage());
+        }
+    }
+    
+    private IEnumerator LoadVillage()
+    {
+        loadAnimator.SetTrigger("Start");
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("VillageScene");
     }
 
     private IEnumerator StartNewGame()
