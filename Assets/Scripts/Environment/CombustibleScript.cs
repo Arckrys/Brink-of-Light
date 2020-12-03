@@ -31,7 +31,7 @@ public class CombustibleScript : MonoBehaviour
             combustibleAnimator.SetBool("isBurnt", hasHealedPlayer);
     }
 
-    void OnTriggerStay2D(Collider2D other) // Triggered when a rigidBody touches the collider
+    void OnTriggerEnter2D(Collider2D other) // Triggered when a rigidBody touches the collider
     {
         if (other.gameObject.CompareTag("Player") && isLit)
         {

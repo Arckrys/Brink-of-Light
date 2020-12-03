@@ -1691,6 +1691,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 365742743, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: iconSeller
+      value: 
+      objectReference: {fileID: 21300000, guid: e8e601a909eeb0f4bb1244fbe2ced375, type: 3}
+    - target: {fileID: 365742743, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: iconBoss
+      value: 
+      objectReference: {fileID: 21300000, guid: e73f87a939037274997cf365ae9727e2, type: 3}
+    - target: {fileID: 365742743, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: iconItem
+      value: 
+      objectReference: {fileID: 21300000, guid: 9382805853917a74eab78e67adedbfc6, type: 3}
+    - target: {fileID: 365742743, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: iconExit
+      value: 
+      objectReference: {fileID: 21300000, guid: a0bca0fd0de581345a916ee6dac35fe8, type: 3}
     - target: {fileID: 3453829919189244201, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
       propertyPath: m_Name
       value: CanvasPlayer

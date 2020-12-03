@@ -12,6 +12,8 @@ public class MinimapScript : MonoBehaviour
     private List<FloorNode> shownNodes;
     private List<GameObject> displayedRooms;
 
+    [SerializeField] private Sprite iconSeller, iconBoss, iconItem, iconExit;
+
     private void Start()
     {
         shownNodes = new List<FloorNode>();
@@ -40,11 +42,7 @@ public class MinimapScript : MonoBehaviour
         {
             if (!shownNodes.Contains(node))
             {
-                shownNodes.Add(node);
-                GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
-                room.transform.position = room.transform.parent.position;
-                room.transform.position += new Vector3(node.GetCoord().x * 60, node.GetCoord().y * 20, 0);
-                displayedRooms.Add(room);
+                CreateRoom(node);
             }
         }
     }
@@ -56,12 +54,7 @@ public class MinimapScript : MonoBehaviour
 
         if (!shownNodes.Contains(node))
         {
-            shownNodes.Add(node);
-            GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
-            room.transform.position = room.transform.parent.position;
-            room.transform.position += new Vector3(node.GetCoord().x * 60, node.GetCoord().y * 20, 0);
-
-            displayedRooms.Add(room);
+            CreateRoom(node);
         }
         
     }
@@ -92,5 +85,45 @@ public class MinimapScript : MonoBehaviour
             Destroy(room);
         }
         displayedRooms.Clear();
+    }
+
+    private void CreateRoom(FloorNode node)
+    {
+        //add the node to the list of shown rooms
+        shownNodes.Add(node);
+        
+        //create a room on the minimap
+        GameObject room = GameObject.Instantiate(mapRoom, panel.transform);
+        room.transform.position = room.transform.parent.position;
+        room.transform.position += new Vector3(node.GetCoord().x * 60, node.GetCoord().y * 20, 0);
+
+        //handle the icon of specific rooms
+        FloorNode.roomTypeEnum roomType = node.GetRoomType();
+
+        switch (roomType)
+        {
+            case FloorNode.roomTypeEnum.sellerRoom:                
+                room.transform.GetChild(0).GetComponent<Image>().sprite = iconSeller;
+                break;
+
+            case FloorNode.roomTypeEnum.bossRoom:
+            case FloorNode.roomTypeEnum.miniBossRoom:
+                room.transform.GetChild(0).GetComponent<Image>().sprite = iconBoss;
+                break;
+
+            case FloorNode.roomTypeEnum.exitRoom:
+                room.transform.GetChild(0).GetComponent<Image>().sprite = iconExit;
+                break;
+
+            case FloorNode.roomTypeEnum.itemRoom:
+                room.transform.GetChild(0).GetComponent<Image>().sprite = iconItem;
+                break;
+
+            default:
+                Destroy(room.transform.GetChild(0).gameObject);
+                break;
+        }
+
+        displayedRooms.Add(room);
     }
 }
