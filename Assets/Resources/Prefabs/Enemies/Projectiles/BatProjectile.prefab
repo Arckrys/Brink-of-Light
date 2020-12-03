@@ -9,15 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8780724459870775882}
-  - component: {fileID: 3623414686195477103}
   - component: {fileID: 362614153524462737}
   - component: {fileID: 4886186198178629546}
-  - component: {fileID: 823079154534290572}
-  - component: {fileID: 6846747907792633501}
+  - component: {fileID: -2860793365605658528}
+  - component: {fileID: 3623414686195477103}
   - component: {fileID: -6971555998978220469}
-  - component: {fileID: 2599561000322310062}
   m_Layer: 13
-  m_Name: GlacePhenixProjectiles
+  m_Name: BatProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,6 +35,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &362614153524462737
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869541750430091150}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &4886186198178629546
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869541750430091150}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.01621848, y: -0.017942518}
+      - {x: 0.013864271, y: -0.062108103}
+      - {x: -0.021278061, y: -0.027977407}
+      - {x: -0.018624924, y: 0.019394897}
+      - {x: 0.0006546229, y: 0.037632216}
+      - {x: 0.036245175, y: 0.037550952}
+      - {x: 0.03738665, y: 0.0018952973}
+    - - {x: 0.02, y: -0.13}
+      - {x: 0.02, y: -0.13}
+      - {x: 0.02, y: -0.13}
+      - {x: 0.02, y: -0.13}
+--- !u!114 &-2860793365605658528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869541750430091150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764c31bb374c2a34694dc9800b3dc175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 4
+  impactClip: {fileID: 0}
+  isCrit: 0
+  destructionTime: 100
 --- !u!212 &3623414686195477103
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ce68c65397b960448c33cda14688380, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4228c220c6e604240a57db99f8f8a287, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,100 +159,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &362614153524462737
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7869541750430091150}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!60 &4886186198178629546
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7869541750430091150}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 1
-  m_Points:
-    m_Paths:
-    - - {x: 0.033729408, y: -0.07864706}
-      - {x: -0.019990206, y: -0.07903533}
-      - {x: -0.069141276, y: -0.036732886}
-      - {x: -0.071157716, y: 0.048579775}
-      - {x: -0.015247034, y: 0.08115411}
-      - {x: 0.03715992, y: 0.076308995}
-      - {x: 0.07653532, y: 0.041134384}
-      - {x: 0.079438776, y: -0.016732927}
-      - {x: 0.06306935, y: -0.051221173}
-    - - {x: 0.02, y: -0.13}
-      - {x: 0.02, y: -0.13}
-      - {x: 0.02, y: -0.13}
-      - {x: 0.02, y: -0.13}
---- !u!114 &823079154534290572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7869541750430091150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08cc30ddfdba1944bc6c657a77a58be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 4
-  impactClip: {fileID: 8300000, guid: a993e90ebacb1e540ba218a63665eaa3, type: 3}
-  isCrit: 0
-  combustibleGameObject: {fileID: 8108706507450623691, guid: df8ec7bf4da979e46a7047b47f7d1a4f, type: 3}
---- !u!95 &6846747907792633501
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7869541750430091150}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f4f378770a79a374a84d1945643e9a99, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &-6971555998978220469
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,44 +255,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2599561000322310062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7869541750430091150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.713
-  m_Color: {r: 0.2597365, g: 0.52832437, b: 0.9056604, a: 1}
-  m_Intensity: 0.5
-  m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c
-  m_LightCookieSprite: {fileID: 0}
-  m_UseNormalMap: 0
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0.15
-  m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5
-  m_PointLightDistance: 3
-  m_PointLightQuality: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
