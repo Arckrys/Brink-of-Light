@@ -14,6 +14,8 @@ public class MinimapScript : MonoBehaviour
 
     [SerializeField] private Sprite iconSeller, iconBoss, iconItem, iconExit;
 
+    GameObject roomDisplayed;
+
     private void Start()
     {
         shownNodes = new List<FloorNode>();
@@ -42,26 +44,33 @@ public class MinimapScript : MonoBehaviour
         {
             if (!shownNodes.Contains(node))
             {
-                CreateRoom(node);
+                CreateRoom(node, false);
             }
         }
     }
 
-    public void AddRoom(FloorNode node)
+    public void AddRoom(FloorNode node, bool isNeighbour)
     {
         if (shownNodes == null)
             this.Start();
 
         if (!shownNodes.Contains(node))
         {
-            CreateRoom(node);
-        }
-        
+            CreateRoom(node, false);
+
+            if (!isNeighbour)
+            {
+                DisplayNodeNeighbours(node);
+            }
+        }        
     }
 
-    public void UpdateCurrentRoomDisplay(FloorNode currentNode)
+    public void UpdateCurrentRoomDisplay(FloorNode newCurrentNode)
     {
-        foreach (GameObject roomDisplayed in displayedRooms)
+        if (roomDisplayed == null)
+            roomDisplayed = displayedRooms[shownNodes.IndexOf(newCurrentNode)];
+
+        else
         {
             Color newColor = roomDisplayed.GetComponent<Image>().color;
             newColor.g = 255;
@@ -69,12 +78,24 @@ public class MinimapScript : MonoBehaviour
             roomDisplayed.GetComponent<Image>().color = newColor;
         }
 
-        GameObject room = displayedRooms[shownNodes.IndexOf(currentNode)];
+        roomDisplayed = displayedRooms[shownNodes.IndexOf(newCurrentNode)];
 
-        Color newColorRed = room.GetComponent<Image>().color;
+        SetRoomTransparency(roomDisplayed, 255);
+        Color newColorRed = roomDisplayed.GetComponent<Image>().color;
         newColorRed.g = 0;
         newColorRed.b = 0;
-        room.GetComponent<Image>().color = newColorRed;
+        roomDisplayed.GetComponent<Image>().color = newColorRed;
+        DisplayNodeNeighbours(newCurrentNode);
+    }
+
+    //show the new room's neighbours as semi transparent rooms
+    private void DisplayNodeNeighbours(FloorNode node)
+    {        
+        List<FloorNode> neighbourNodes = node.GetNeigbours();
+        foreach (FloorNode neighbour in neighbourNodes)
+        {
+            AddRoom(neighbour, true);
+        }
     }
 
     public void ClearMap()
@@ -87,7 +108,7 @@ public class MinimapScript : MonoBehaviour
         displayedRooms.Clear();
     }
 
-    private void CreateRoom(FloorNode node)
+    private void CreateRoom(FloorNode node, bool isNeighbour)
     {
         //add the node to the list of shown rooms
         shownNodes.Add(node);
@@ -125,5 +146,15 @@ public class MinimapScript : MonoBehaviour
         }
 
         displayedRooms.Add(room);
+
+        if (isNeighbour)
+            SetRoomTransparency(room, 80);
+    }
+
+    private void SetRoomTransparency(GameObject room, float transparencyValue)
+    {
+        Color newColor = room.GetComponent<Image>().color;
+        newColor.a = transparencyValue;
+        room.GetComponent<Image>().color = newColor;
     }
 }

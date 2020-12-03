@@ -58,30 +58,19 @@ public class FloorNode
         }
     }
 
-    /*
-    public string SetRoom()
+    public List<FloorNode> GetNeigbours()
     {
-        //load the correct prefab based on the present neighbour rooms
-        string roomDirections = "Room";
-
+        List<FloorNode> neighbours = new List<FloorNode>();
         if (northNode != null)
-            roomDirections += 'N';
-
+            neighbours.Add(northNode);
         if (eastNode != null)
-            roomDirections += 'E';
-
+            neighbours.Add(eastNode);
         if (southNode != null)
-            roomDirections += 'S';
-
+            neighbours.Add(southNode);
         if (westNode != null)
-            roomDirections += 'W';
-
-        myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
-
-        roomName = roomDirections;
-
-        return roomDirections;
-    }*/
+            neighbours.Add(westNode);
+        return neighbours;
+    }
 
     public void SetRoom(roomTypeEnum roomType, int dungeonLevel)
     {
