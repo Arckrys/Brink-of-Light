@@ -8,26 +8,26 @@ using UnityEngine.UI;
 
 public class EnnemiesProjectileScript : MonoBehaviour
 {
-    private float x, y, spriteScaleX, spriteScaleY, timeTemp = 0;
-    private float xDirection, yDirection;
+    protected float x, y, spriteScaleX, spriteScaleY, timeTemp = 0;
+    protected float xDirection, yDirection;
 
     public float projectileSpeed = 10f;
 
 
-    private float initialZ;
+    protected float initialZ;
 
-    private float projectileBaseDamage = 1f;
-    private float projectileKnockback = 2f;
-    private float projectileCritChance = 5f;
+    protected float projectileBaseDamage = 1f;
+    protected float projectileKnockback = 2f;
+    protected float projectileCritChance = 5f;
 
     protected bool collisionDetected;
 
-    private Light2D projectileLight;
-    private SpriteRenderer spriteRenderer;
-    private PolygonCollider2D collider;
-    private Rigidbody2D rigidbody;
-    private Animator animator;
-    private AudioSource audio;
+    protected Light2D projectileLight;
+    protected SpriteRenderer spriteRenderer;
+    protected PolygonCollider2D collider;
+    protected Rigidbody2D rigidbody;
+    protected Animator animator;
+    protected AudioSource audio;
 
     [SerializeField] private AudioClip impactClip;
 
@@ -60,7 +60,7 @@ public class EnnemiesProjectileScript : MonoBehaviour
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (collisionDetected && rigidbody)
         {
