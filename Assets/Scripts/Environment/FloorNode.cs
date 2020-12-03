@@ -83,7 +83,7 @@ public class FloorNode
         return roomDirections;
     }*/
 
-    public void SetRoom(roomTypeEnum roomType)
+    public void SetRoom(roomTypeEnum roomType, int dungeonLevel)
     {
         string roomDirections = "";
 
@@ -127,7 +127,7 @@ public class FloorNode
         if (westNode != null)
             roomDirections += 'W';
 
-        myRoom = Resources.Load("Prefabs/Environment/Dungeon 1/Rooms/" + roomDirections) as GameObject;
+        myRoom = Resources.Load("Prefabs/Environment/Dungeon " + dungeonLevel + "/Rooms/" + roomDirections) as GameObject;
         roomName = roomDirections;
     }
 

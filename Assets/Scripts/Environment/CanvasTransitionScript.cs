@@ -65,7 +65,7 @@ public class CanvasTransitionScript : MonoBehaviour
         DungeonFloorScript.MyInstance.GenerateNewFloor();
         Destroy(GameObject.FindGameObjectWithTag("Room"));
         //position du joueur codée en dur pour l'instant, à changer 
-        PlayerScript.MyInstance.transform.position = new Vector2(4.86f, 0);
+        PlayerScript.MyInstance.transform.position = new Vector2(5.86f, 0);
         PlayerScript.MyInstance.SetIsProjectilesDisabled(false);
     }
 

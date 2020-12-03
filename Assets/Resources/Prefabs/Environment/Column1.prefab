@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4942237957078436682}
   - component: {fileID: 6712961178228828764}
   - component: {fileID: 2220948227081573139}
+  - component: {fileID: 3434844551257333749}
   m_Layer: 12
   m_Name: Column1
   m_TagString: Obstacle
@@ -121,3 +122,37 @@ PolygonCollider2D:
       - {x: 0.70000005, y: -0.90000004}
       - {x: 0.70000005, y: -0.06666667}
       - {x: 0.6, y: 0.033333335}
+--- !u!114 &3434844551257333749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896527055582466513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000e3023d0e1b5f771743a4cfd39f3e749c
+  m_ShapePath:
+  - {x: -0.6764469, y: -0.79008746, z: 0}
+  - {x: -0.576653, y: -0.8861954, z: 0}
+  - {x: 0.6363125, y: -0.8861954, z: 0}
+  - {x: 0.6999998, y: -0.82541656, z: 0}
+  - {x: 0.6873431, y: -0.15213346, z: 0}
+  - {x: 0.5224743, y: 0.00095915794, z: 0}
+  - {x: 0.5028467, y: 0.6839886, z: 0}
+  - {x: 0.37026167, y: 0.8568201, z: 0}
+  - {x: -0.38038063, y: 0.8488574, z: 0}
+  - {x: -0.50765276, y: 0.6998019, z: 0}
+  - {x: -0.5295472, y: -0.0029661655, z: 0}
+  - {x: -0.6865668, y: -0.1364317, z: 0}
+  m_ShapePathHash: 1918035085
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -221372

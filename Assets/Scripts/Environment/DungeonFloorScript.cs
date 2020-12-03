@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 1;
+    private int basicRoomsNumber = 8;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -54,7 +54,7 @@ public class DungeonFloorScript : MonoBehaviour
 
         foreach (FloorNode node in nodeList)
         {
-            node.SetRoom(node.GetRoomType());
+            node.SetRoom(node.GetRoomType(), dungeonLevel);
             node.CreateRoom();
             node.ActivateRoom(false);
         }
