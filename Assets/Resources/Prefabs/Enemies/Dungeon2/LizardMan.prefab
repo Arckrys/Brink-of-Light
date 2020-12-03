@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7977440032632955670}
   - component: {fileID: 7977440032632955669}
   - component: {fileID: 7977440032632955668}
+  - component: {fileID: 9053021385881066392}
   m_Layer: 10
   m_Name: LizardMan
   m_TagString: Enemy
@@ -202,10 +203,43 @@ MonoBehaviour:
   Grunt: {fileID: 8300000, guid: 192def8a49d0bfa4baed9e238a6fb4a0, type: 3}
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
+  projectile: {fileID: 0}
+  isBoss: 0
   levelOneSpawnProbability: 33
   levelTwoSpawnProbability: 33
   levelThreeSpawnProbability: 12
   levelFourSpawnProbability: 0
+  lootBag: {fileID: 0}
+  nextWaypointDistance: 3
+  repathRate: 0.5
+--- !u!114 &9053021385881066392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977440032632955667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1001 &7256781847691512557
 PrefabInstance:
   m_ObjectHideFlags: 0
