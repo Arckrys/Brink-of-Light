@@ -12,11 +12,6 @@ public class EncyclopedieScript : MonoBehaviour
     private bool isItemShown = true;
     private bool isInCollision = false;
 
-    public void Start()
-    {
-        menuEncyclopedie.SetActive(false);
-    }
-
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
