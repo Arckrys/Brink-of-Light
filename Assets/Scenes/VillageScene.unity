@@ -1238,11 +1238,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4098426713714451643, guid: 1a507ba9481182743bbf7294224faf94, type: 3}
   m_PrefabInstance: {fileID: 2026117210}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1619962428 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3020417310650498466, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-  m_PrefabInstance: {fileID: 3020417311563329295}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1697526461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3453829918885872271, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
@@ -1632,69 +1627,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 428383730906970512, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
+    - target: {fileID: 2334012492510991233, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 428383730906970525, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 2334012492510991233, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 686555396190756334, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: menuGameObject
-      value: 
-      objectReference: {fileID: 1619962428}
-    - target: {fileID: 838994367069773829, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 2334012492657458884, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 838994367069773829, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_Color.g
-      value: 1
+    - target: {fileID: 2334012492657458884, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 838994367069773829, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_Color.b
-      value: 1
+    - target: {fileID: 2334012492657458884, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1009076363952236304, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 1
+    - target: {fileID: 2334012492657458884, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1009076363952236304, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.name
-      value: Igeirus
+    - target: {fileID: 2334012492799513818, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1009076363952236304, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: Bonjour feu follet, voici quelques objets dont tu pourrais avoir besoin.
+    - target: {fileID: 2334012492799513818, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1009076363952236304, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: isSeller
-      value: 1
+    - target: {fileID: 2624253094292450259, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1530459968300132930, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530459968300132930, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.name
-      value: Urbius
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530459968300132930, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: "Hmm ? Tu es int\xE9ress\xE9 par mes potions ? Regarde donc."
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530459968300132930, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: isSeller
-      value: 1
+    - target: {fileID: 2624253094292450259, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020417310869164416, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_Name
       value: VillageRoom
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020417310869164416, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3020417310869164447, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1748,14 +1723,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3020417311089055764, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3020417312246207502, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
-      objectReference: {fileID: 0}
     - target: {fileID: 3020417312615166806, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1768,24 +1735,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5031098771764502420, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.118
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031098771764502420, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.163
-      objectReference: {fileID: 0}
     - target: {fileID: 6605242063346803090, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6605242063346803090, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6605242063346803090, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6605242063451013774, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
@@ -1800,73 +1755,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6605242064253427130, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 6605242064253427130, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.x
+    - target: {fileID: 6839392986347894911, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+    - target: {fileID: 6839392986347894911, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: RazakusMenuScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6768631630170720258, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.name
-      value: Razakus
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: "Bonjour jeune apprenti. M'apportes tu des \xE2mes ?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.data[1]
-      value: Are ya winning son ?
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: dialogue.sentences.Array.data[2]
-      value: Hmpf
-      objectReference: {fileID: 0}
-    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: isSeller
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348877372444695898, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 8348877372444695898, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.124
+    - target: {fileID: 6839392986347894911, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
