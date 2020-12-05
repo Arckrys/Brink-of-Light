@@ -14,6 +14,8 @@ public class DialogueManagerScript : MonoBehaviour
 	private bool dialogueIsOpen = false;
 	private bool sentenceIsOver = false;
 
+	public bool SentenceIsOver => sentenceIsOver;
+
 	private Queue<string> sentences;
 
 	// Use this for initialization

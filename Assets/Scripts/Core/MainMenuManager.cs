@@ -186,6 +186,8 @@ public class MainMenuManager : MonoBehaviour
 
         var animator = transitionNewGame.GetComponent<Animator>();
         animator.SetTrigger("Step");
+        
+        SceneManager.LoadScene("OpeningScene");
     }
     
     private IEnumerator FadeOutMainMenu()
