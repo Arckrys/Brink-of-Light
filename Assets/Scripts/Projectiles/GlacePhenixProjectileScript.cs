@@ -11,6 +11,7 @@ public class GlacePhenixProjectileScript : EnnemiesProjectileScript
 {
 
     public GameObject combustibleGameObject;
+    public int combustibleSpawnRate;
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,7 +25,7 @@ public class GlacePhenixProjectileScript : EnnemiesProjectileScript
             else
             {
                 int rand = Random.Range(0, 91);
-                if (rand < 10)
+                if (rand < combustibleSpawnRate)
                 {
                     //if the projectile is on the bottom half, spawn the combustible toward the top, else toward the bot
                     float combustibleOffsetY = 0.05f;

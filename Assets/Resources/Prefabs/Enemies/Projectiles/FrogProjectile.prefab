@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6846747907792633501}
   - component: {fileID: -6971555998978220469}
   - component: {fileID: 2599561000322310062}
-  m_Layer: 13
+  m_Layer: 10
   m_Name: FrogProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
