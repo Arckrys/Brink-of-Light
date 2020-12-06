@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class GlacePhenixScript : BasicEnemyController
+public class GlacePhenixScript : BasicEnemyController
 {
 
     private bool dashing;

@@ -7,10 +7,11 @@ using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class GlacePhenixProjectileScript : EnnemiesProjectileScript
+public class EgoutorProjectileScript : EnnemiesProjectileScript
 {
 
     public GameObject combustibleGameObject;
+    public GameObject Poison;
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,6 +40,23 @@ public class GlacePhenixProjectileScript : EnnemiesProjectileScript
                     GameObject combustible = Instantiate(combustibleGameObject, new Vector2(transform.position.x + combustibleOffsetX, transform.position.y + combustibleOffsetY), Quaternion.identity);
                     combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                 }
+
+                if (rand > 30)
+                {
+                    //if the projectile is on the bottom half, spawn the combustible toward the top, else toward the bot
+                    float poisonOffsetY = 0.05f;
+                    if (transform.position.y > 0)
+                        poisonOffsetY = -poisonOffsetY;
+
+                    //same for the x axis
+                    float poisonOffsetX = 0.05f;
+                    if (transform.position.x > 0)
+                        poisonOffsetX = -poisonOffsetX;
+
+                    GameObject poison = Instantiate(Poison, new Vector2(transform.position.x + poisonOffsetX, transform.position.y + poisonOffsetY), Quaternion.identity);
+                    poison.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
+                }
+
             }
         }
     }
