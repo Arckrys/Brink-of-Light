@@ -187,6 +187,8 @@ public class MainMenuManager : MonoBehaviour
         var animator = transitionNewGame.GetComponent<Animator>();
         animator.SetTrigger("Step");
         
+        yield return new WaitForSeconds(2);
+        
         SceneManager.LoadScene("OpeningScene");
     }
     
