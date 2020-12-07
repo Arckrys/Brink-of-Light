@@ -77,7 +77,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d5aac0edc101bf448fcbf78c78eddcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20
   levelFourSpawnProbability: 33
-  lootBag: {fileID: 0}
+  lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   nextWaypointDistance: 1
   repathRate: 0.5
   dashDistance: 100
