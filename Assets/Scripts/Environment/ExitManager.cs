@@ -23,6 +23,7 @@ public class ExitManager : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision || gameObject.name != "BorderTilemapNextFloor") return;
 
+        PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
     }
 

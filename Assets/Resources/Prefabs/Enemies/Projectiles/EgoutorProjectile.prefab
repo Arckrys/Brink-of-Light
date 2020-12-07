@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3623414686195477103}
   - component: {fileID: -6971555998978220469}
   - component: {fileID: 2599561000322310062}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: EgoutorProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
