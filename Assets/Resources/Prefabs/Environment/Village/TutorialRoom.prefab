@@ -9756,7 +9756,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06466293}
+  m_Offset: {x: -0.021378517, y: -0.24998927}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9767,7 +9767,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4741936}
+  m_Size: {x: 1.2992992, y: 1.8448462}
   m_EdgeRadius: 0
 --- !u!114 &8577694431632495648
 MonoBehaviour:
@@ -14624,7 +14624,7 @@ MonoBehaviour:
   dialogue:
   - name: Razakus Le Savant
     sentences:
-    - "On va commencer par le d\xE9but. Attaque ce sliime l\xE0 bas. Il bougera pas,
+    - "On va commencer par le d\xE9but. Attaque ce slime l\xE0 bas. Il bougera pas,
       c'est juste un mannequin tr\xE8s r\xE9aliste."
   - name: Razakus Le Savant
     sentences:
@@ -15142,7 +15142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1724348}
+  m_Offset: {x: 0.23516464, y: -0.11268258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15153,7 +15153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3448696}
+  m_Size: {x: 1.4703293, y: 1.9151044}
   m_EdgeRadius: 0
 --- !u!114 &6312775403583066556
 MonoBehaviour:
