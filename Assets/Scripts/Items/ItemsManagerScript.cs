@@ -31,12 +31,14 @@ public class ItemsManagerScript : MonoBehaviour
     private List<string> possessedItems = new List<string>();
     private string consumableItem = null;
 
+    private int numberOfItemsTotalUnlockUrbius = 4;
+    private int numberOfItemsTotalUnlockIgeirus = 3;
+
     //available items
-    private List<string> itemsEquipmentList = new List<string> {        
+    private List<string> itemsEquipmentList = new List<string> {
         "Allumettes",
         "Amulette du dragon",
-        "Anneau du dragon",
-        "Anneau du forgeron",
+        "Anneau du dragon",        
         "Bottes d'Hotavius",
         "Cape de vampire",
         "Lampe à huile d'Hotavius",
@@ -44,27 +46,34 @@ public class ItemsManagerScript : MonoBehaviour
         "Lance d'Hotavius",
         "Grimoire de boule de feu",
         "Carte d'Hotavius",
-        "Plume du phoenix",
-        "Roquette",
+        "Plume du phoenix",        
         "Crocs de vampire",
         "Flamme éternelle",
         "Essence",
-        "Poudre de métaux"
+        "Roquette",
+        "Poudre de métaux",
+        "Anneau du forgeron"
     };
 
     private List<string> itemsConsumableList = new List<string> {
+        "Parchemin de feu",
+        "Parchemin de froid",
+        "Fruit étrange",
+        "Silex",
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
-        "Potion de Urbius",
-        "Parchemin de feu",
-        "Parchemin de froid"
+        "Potion de Urbius"
     };
 
     public List<string> EquipmentItems => itemsEquipmentList;
     
     public List<string> ConsumableItems => itemsConsumableList;
-    
+
+    public int NumberOfBaseConsumableItems => itemsConsumableList.Count - numberOfItemsTotalUnlockUrbius;
+    public int NumberOfBaseEquipmentItems => itemsEquipmentList.Count - numberOfItemsTotalUnlockIgeirus;
+
+
     private static ItemsManagerScript _instance;
 
     public static ItemsManagerScript MyInstance
@@ -109,7 +118,22 @@ public class ItemsManagerScript : MonoBehaviour
 
     public string SelectRandomItem(List<string> itemList)
     {
-        string randomItem = itemList[Random.Range(0, itemList.Count)];
+        int numberOfItemsToUnlock = 0;
+        int numberOfItemsUnlocked = 0;
+
+        if (itemList == itemsConsumableList)
+        {
+            numberOfItemsToUnlock = numberOfItemsTotalUnlockUrbius;
+            numberOfItemsUnlocked = PlayerScript.MyInstance.MyUrbiusLevel;
+        }
+
+        else if (itemList == itemsEquipmentList)
+        {
+            numberOfItemsToUnlock = numberOfItemsTotalUnlockIgeirus;
+            numberOfItemsUnlocked = PlayerScript.MyInstance.MyIgeirusLevel;
+        }
+
+        string randomItem = itemList[Random.Range(numberOfItemsToUnlock - numberOfItemsUnlocked, itemList.Count)];
 
         return randomItem;
     }
