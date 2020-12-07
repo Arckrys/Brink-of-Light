@@ -19,7 +19,6 @@ public class CurrenciesScript : MonoBehaviour
     private Coroutine goldIncrementCoroutine;
     private Coroutine soulsIncrementCoroutine;
     
-
     public static CurrenciesScript MyInstance
     {
         get
@@ -36,11 +35,8 @@ public class CurrenciesScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        soulsToPrint = soulsAmount;
-        goldToPrint = goldAmount;
-        
-        SetSoulsNumber(1505);
-        SetGoldValue(25);
+        SetGoldValue(goldAmount);
+        SetSoulsNumber(soulsAmount);
     }
 
     private IEnumerator GoldIncrement()
@@ -55,8 +51,6 @@ public class CurrenciesScript : MonoBehaviour
 
             yield return new WaitForSeconds(incrementTime);
         }
-
-        StopCoroutine(goldIncrementCoroutine);
     }
     
     private IEnumerator SoulIncrement()
@@ -71,8 +65,6 @@ public class CurrenciesScript : MonoBehaviour
 
             yield return new WaitForSeconds(incrementTime);
         }
-        
-        StopCoroutine(soulsIncrementCoroutine);
     }
 
     public void SetSoulsNumber (int soulsNumber)
@@ -91,9 +83,11 @@ public class CurrenciesScript : MonoBehaviour
     {
         soulsAmount += soulsToAdd;
         
+        SaveSystem.SaveCurrencies();
+        
         if (soulsIncrementCoroutine != null)
         {
-            StopCoroutine(soulsIncrementCoroutine);    
+            StopCoroutine(soulsIncrementCoroutine);
         }
         
         soulsIncrementCoroutine = StartCoroutine(SoulIncrement());
@@ -114,6 +108,8 @@ public class CurrenciesScript : MonoBehaviour
     public void AddGold(int goldToAdd)
     {
         goldAmount += goldToAdd;
+        
+        SaveSystem.SaveCurrencies();
 
         if (goldIncrementCoroutine != null)
         {
@@ -138,5 +134,4 @@ public class CurrenciesScript : MonoBehaviour
         AddSouls(-soulsCost);
         return true;
     }
-
 }

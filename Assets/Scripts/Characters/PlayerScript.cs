@@ -49,8 +49,6 @@ public class PlayerScript : Character
         {
             life.MyMaxValue = value;
             lifeBar.MyMaxValue = value;
-
-            PlayerCurrentLife = PlayerCurrentLife;
         }
     }
     
@@ -124,8 +122,15 @@ public class PlayerScript : Character
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
         if (!isProjectilesDisabled) TimerManager.MyInstance.MyTimer = true;
-        
-        GameManager.MyInstance.LoadGame();
+
+        if (!SaveSystem.DoesSaveExist())
+        {
+            SaveSystem.SaveGame();
+        }
+        else
+        {
+            GameManager.MyInstance.LoadGame();
+        }
     }
 
     // Update is called once per frame

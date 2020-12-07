@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-
-[System.Serializable]
+﻿[System.Serializable]
 public class GameData
 {
     
@@ -13,8 +10,7 @@ public class GameData
 
     public GameData()
     {
-        
-        razakusPurchases = RazakusMenuScript.MyInstance.GetRazakusPurchases();
+        razakusPurchases = RazakusMenuScript.MyInstance ? RazakusMenuScript.MyInstance.GetRazakusPurchases() : null;
 
         PlayerScript playerScript = PlayerScript.MyInstance;
 
@@ -30,8 +26,16 @@ public class GameData
         urbiusLevel = playerScript.MyUrbiusLevel;
         igeirusLevel = playerScript.MyIgeirusLevel;
 
-        currencies[0] = CurrenciesScript.MyInstance.GetGoldValue();
-        currencies[1] = CurrenciesScript.MyInstance.GetSoulsNumber();
+        if (CurrenciesScript.MyInstance)
+        {
+            currencies[0] = CurrenciesScript.MyInstance.GetGoldValue();
+            currencies[1] = CurrenciesScript.MyInstance.GetSoulsNumber();
+        }
+        else
+        {
+            currencies[0] = 0;
+            currencies[1] = 0;
+        }
     }
     
     public double[] GetRazakusPurchases()
@@ -47,6 +51,12 @@ public class GameData
     public int[] GetCurrencies()
     {
         return currencies;
+    }
+
+    public void SetCurrencies(int gold, int souls)
+    {
+        currencies[0] = gold;
+        currencies[1] = souls;
     }
 
     public int GetUrbiusLevel()

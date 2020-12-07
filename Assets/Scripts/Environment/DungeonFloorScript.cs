@@ -7,7 +7,7 @@ public class DungeonFloorScript : MonoBehaviour
     private static DungeonFloorScript _instance;
     private List<FloorNode> nodeList;
 
-    private int basicRoomsNumber = 8;
+    private int basicRoomsNumber = 0;
     private int currentNodeIndex;
 
     private int floorLevel;
@@ -19,8 +19,8 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = false;
         nodeList = new List<FloorNode>();
-        floorLevel = 0;
-        dungeonLevel = 0;
+        floorLevel = 3;
+        dungeonLevel = 2;
 
         if(!GameObject.FindGameObjectWithTag("Room"))
             GenerateNewFloor();
