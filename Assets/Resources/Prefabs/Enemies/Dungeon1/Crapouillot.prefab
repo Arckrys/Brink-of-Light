@@ -170,11 +170,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 1137804995325013972}
-  initLife: 15
+  initLife: 12
   attack: {fileID: 0}
-  initAttack: 5
+  initAttack: 10
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 1.8
+  initMovementSpeed: 2.5
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
@@ -190,7 +190,8 @@ MonoBehaviour:
   Grunt: {fileID: 8300000, guid: 192def8a49d0bfa4baed9e238a6fb4a0, type: 3}
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
-  projectile: {fileID: 7869541750430091150, guid: e2e8162d8277fe9479d268391e754b9c, type: 3}
+  projectile: {fileID: 4726600397429973226, guid: e53b61ec2c351ac45a23dcaa4b87a8b6, type: 3}
+  isBoss: 0
   levelOneSpawnProbability: 0
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20

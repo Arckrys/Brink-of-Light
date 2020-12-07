@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 7293434183744870590}
-  initLife: 20
+  initLife: 25
   attack: {fileID: 0}
   initAttack: 15
   movementSpeed: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   levelTwoSpawnProbability: 33
   levelThreeSpawnProbability: 12
   levelFourSpawnProbability: 0
-  lootBag: {fileID: 0}
+  lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   nextWaypointDistance: 3
   repathRate: 0.5
 --- !u!114 &9053021385881066392

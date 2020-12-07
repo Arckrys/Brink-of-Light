@@ -67,7 +67,7 @@ public class DungeonFloorScript : MonoBehaviour
         else
         {
             MinimapScript.MyInstance.AddRoom(newNode, false);
-        }        
+        }
 
         MinimapScript.MyInstance.UpdateCurrentRoomDisplay(GetCurrentNode());
         currentNodeIndex = 0;
@@ -127,29 +127,29 @@ public class DungeonFloorScript : MonoBehaviour
                 y -= 1;
 
             //if the existing room is a regular room and has no room at the direction chosen, we create the room there
-            if (existingNode.GetNeighbourNode(randomDirection) == null 
-                && !isTileOccupied(x, y) 
+            if (existingNode.GetNeighbourNode(randomDirection) == null
+                && !isTileOccupied(x, y)
                 && existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
             {
                 FloorNode newNode = new FloorNode();
 
                 newNode.SetRoomType(roomType);
-                
+
                 //connect the new room with the existing room
-                CreateLinkBetweenNodes(existingNode, newNode, randomDirection);                
+                CreateLinkBetweenNodes(existingNode, newNode, randomDirection);
 
                 newNode.SetCoord(x, y);
 
                 if (existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
                 {
                     //check if there are rooms existing around the new room and connect them.
-                    //This allow the level to have loops and not look like a tree 
+                    //This allow the level to have loops and not look like a tree
                     ConnectNodeNeighbours(newNode);
                 }
 
                 nodeList.Add(newNode);
                 canBeCreated = true;
-            }            
+            }
         }
     }
 
@@ -166,13 +166,13 @@ public class DungeonFloorScript : MonoBehaviour
         nodeList[0].ActivateRoom(true);
 
         /*destroy all enemy spawners
-        redundant with code in CanvasTransitionScript, probably will be deleted 
+        redundant with code in CanvasTransitionScript, probably will be deleted
         when transition from village to dungeon will be added*/
         GameObject[] enemiesList = GameObject.FindGameObjectsWithTag("EnemySpawn");
         foreach (GameObject enemy in enemiesList)
         {
             Destroy(enemy);
-        }        
+        }
     }
 
     public void AddSpecialRooms()

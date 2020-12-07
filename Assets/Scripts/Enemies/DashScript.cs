@@ -72,8 +72,7 @@ class DashScript : BasicEnemyController
                 if (dashCounter == 0)
                 {
                     gfxAnim.SetBool("Dashing", false);
-                    dashing = false;
-                    gameObject.layer = 10;
+                    dashing = false;                    
                     dashResting = true;
                     dashRestingCounter = dashRestingTime;
                     movementSpeed.MyMaxValue /= dashSpeedMultiplicator;
@@ -93,6 +92,7 @@ class DashScript : BasicEnemyController
                 {
                     Move();
                     dashResting = false;
+                    gameObject.layer = 10;
                 }
 
                 if (dashRestingCounter > 0)

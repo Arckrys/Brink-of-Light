@@ -6,23 +6,45 @@ public class ExitManager : MonoBehaviour
 
     [SerializeField] private GameObject transitionSpawn;
 
-    /*
-    public void UpdatePlayerPosition()
-    {
-        PlayerScript.MyInstance.transform.position = transitionSpawn.transform.position;
-    }*/
+    private bool isInCollision;
 
     private void Start()
     {
         canvasTransition = GameObject.Find("CanvasTransition").GetComponent<CanvasTransitionScript>();
 
+        isInCollision = false;
+
         //StartCoroutine(canvasTransition.FadeOut());
+    }
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.E) || !isInCollision || gameObject.name != "BorderTilemapNextFloor") return;
+
+        PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
+        //if this is a door, the player changes room on contact with the door
+        if (gameObject.name != "BorderTilemapNextFloor")
+            StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
+
+        else
+        {
+            isInCollision = true;
+            PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        isInCollision = false;
+        PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }

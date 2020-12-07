@@ -87,6 +87,7 @@ public class SellerMenuScript : MonoBehaviour
         {
             case NPCName.Igeirus:
                 playerLevel = PlayerScript.MyInstance.MyIgeirusLevel;
+                initEquipmentItems = ItemsManagerScript.MyInstance.NumberOfBaseEquipmentItems;
                 if (IsMaxLevel(playerLevel + initEquipmentItems, ItemsManagerScript.MyInstance.EquipmentItems))
                 {
                     HideAll();
@@ -103,6 +104,7 @@ public class SellerMenuScript : MonoBehaviour
                 break;
             case NPCName.Urbius:
                 playerLevel = PlayerScript.MyInstance.MyUrbiusLevel;
+                initConsumableItems = ItemsManagerScript.MyInstance.NumberOfBaseConsumableItems;
                 if (IsMaxLevel(playerLevel + initConsumableItems, ItemsManagerScript.MyInstance.ConsumableItems))
                 {
                     HideAll();

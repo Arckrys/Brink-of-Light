@@ -46,12 +46,12 @@ public class RazakusMenuScript : MonoBehaviour
     public void Start()
     {   // Data : Name AmountBought/PriceIncreasePerUpgrade/InitialPrice/UpgradeAmount
         RazakusData.Add("Attaque",      new double[] { 0, 50, 50, 0.5 });
-        RazakusData.Add("Vie",          new double[] { 0, 50, 50, 5 });
+        RazakusData.Add("Vie",          new double[] { 0, 50, 50, 10 });
         RazakusData.Add("Portee",       new double[] { 0, 50, 50, 10 });
-        RazakusData.Add("Vitesse",      new double[] { 0, 50, 50, 1 });
-        RazakusData.Add("VitesseAtk",   new double[] { 0, 50, 50, 0.1 });
-        RazakusData.Add("ChanceCrit",   new double[] { 0, 50, 100, 1 });
-        RazakusData.Add("DegatsCrit",   new double[] { 0, 50, 100, 0.1 });
+        RazakusData.Add("Vitesse",      new double[] { 0, 50, 50, 0.5 });
+        RazakusData.Add("VitesseAtk",   new double[] { 0, 50, 50, 0.2 });
+        RazakusData.Add("ChanceCrit",   new double[] { 0, 50, 100, 5 });
+        RazakusData.Add("DegatsCrit",   new double[] { 0, 50, 100, 0.2 });
         RazakusData.Add("Recul",        new double[] { 0, 50, 100, 1 });
 
         StatsAndTexts.Add("Attaque",      System.Tuple.Create(PlayerScript.MyInstance.initAttack, AttaqueButton, AttaqueStat, AttaqueUpgrade));

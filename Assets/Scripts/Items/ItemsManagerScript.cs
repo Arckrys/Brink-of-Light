@@ -31,12 +31,14 @@ public class ItemsManagerScript : MonoBehaviour
     private List<string> possessedItems = new List<string>();
     private string consumableItem = null;
 
+    private int numberOfItemsTotalUnlockUrbius = 4;
+    private int numberOfItemsTotalUnlockIgeirus = 3;
+
     //available items
-    private List<string> itemsEquipmentList = new List<string> {        
+    private List<string> itemsEquipmentList = new List<string> {
         "Allumettes",
         "Amulette du dragon",
-        "Anneau du dragon",
-        "Anneau du forgeron",
+        "Anneau du dragon",        
         "Bottes d'Hotavius",
         "Cape de vampire",
         "Lampe à huile d'Hotavius",
@@ -44,27 +46,34 @@ public class ItemsManagerScript : MonoBehaviour
         "Lance d'Hotavius",
         "Grimoire de boule de feu",
         "Carte d'Hotavius",
-        "Plume du phoenix",
-        "Roquette",
+        "Plume du phoenix",        
         "Crocs de vampire",
         "Flamme éternelle",
         "Essence",
-        "Poudre de métaux"
+        "Roquette",
+        "Poudre de métaux",
+        "Anneau du forgeron"
     };
 
     private List<string> itemsConsumableList = new List<string> {
+        "Parchemin de feu",
+        "Parchemin de froid",
+        "Fruit étrange",
+        "Silex",
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
-        "Potion de Urbius",
-        "Parchemin de feu",
-        "Parchemin de froid"
+        "Potion de Urbius"
     };
 
     public List<string> EquipmentItems => itemsEquipmentList;
     
     public List<string> ConsumableItems => itemsConsumableList;
-    
+
+    public int NumberOfBaseConsumableItems => itemsConsumableList.Count - numberOfItemsTotalUnlockUrbius;
+    public int NumberOfBaseEquipmentItems => itemsEquipmentList.Count - numberOfItemsTotalUnlockIgeirus;
+
+
     private static ItemsManagerScript _instance;
 
     public static ItemsManagerScript MyInstance
@@ -109,7 +118,22 @@ public class ItemsManagerScript : MonoBehaviour
 
     public string SelectRandomItem(List<string> itemList)
     {
-        string randomItem = itemList[Random.Range(0, itemList.Count)];
+        int numberOfItemsToUnlock = 0;
+        int numberOfItemsUnlocked = 0;
+
+        if (itemList == itemsConsumableList)
+        {
+            numberOfItemsToUnlock = numberOfItemsTotalUnlockUrbius;
+            numberOfItemsUnlocked = PlayerScript.MyInstance.MyUrbiusLevel;
+        }
+
+        else if (itemList == itemsEquipmentList)
+        {
+            numberOfItemsToUnlock = numberOfItemsTotalUnlockIgeirus;
+            numberOfItemsUnlocked = PlayerScript.MyInstance.MyIgeirusLevel;
+        }
+
+        string randomItem = itemList[Random.Range(numberOfItemsToUnlock - numberOfItemsUnlocked, itemList.Count)];
 
         return randomItem;
     }
@@ -158,15 +182,16 @@ public class ItemsManagerScript : MonoBehaviour
         {
             //stat modifying items
             case "Allumettes":
-                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;                
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
                 break;
 
             case "Amulette du dragon":
-                PlayerScript.MyInstance.attack.MyMaxValue += 1;
+                PlayerScript.MyInstance.attack.MyMaxValue += 1.5f;
                 break;
 
             case "Anneau du dragon":
-                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 1f;
                 PlayerScript.MyInstance.knockback.MyMaxValue += 2f;
                 break;
 
@@ -181,11 +206,13 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
 
             case "Cape de vampire":
-                PlayerScript.MyInstance.invincibilityTime.MyMaxValue += 0.3f;
+                PlayerScript.MyInstance.invincibilityTime.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
                 break;
 
             case "Lampe à huile d'Hotavius":
                 PlayerScript.MyInstance.PlayerMaxLife += 25f;
+                PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.2f;
                 break;
 
             case "Sauce piquante":
@@ -194,31 +221,48 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Lance d'Hotavius":
                 PlayerScript.MyInstance.IsProjectilePiercing = true;
-                PlayerScript.MyInstance.range.MyMaxValue += 20;
+                PlayerScript.MyInstance.range.MyMaxValue += 30;
+                if (PlayerScript.MyInstance.attack.MyMaxValue < 3)
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                else
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
                 break;
 
             case "Grimoire de boule de feu":
                 PlayerScript.MyInstance.IncreaseProjectileNumber();
+                if (PlayerScript.MyInstance.attack.MyMaxValue < 2)
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                else if (PlayerScript.MyInstance.attack.MyMaxValue < 4)
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
+                else if (PlayerScript.MyInstance.attack.MyMaxValue < 6)
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 1.5f;
+                else
+                    PlayerScript.MyInstance.attack.MyMaxValue -= 2f;
+
                 break;
 
             case "Carte d'Hotavius":
                 DungeonFloorScript.MyInstance.ShowFullMap();
+                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.2f;
                 break;
 
             case "Plume du phoenix":
                 PlayerScript.MyInstance.IncreaseAdditionalLives();
+                PlayerScript.MyInstance.PlayerMaxLife += 10f;
                 break;
 
             case "Roquette":
-                PlayerScript.MyInstance.MyRocketBonusDamage += 2f;
+                PlayerScript.MyInstance.MyRocketBonusDamage += 3f;
                 break;
 
             case "Crocs de vampire":
                 PlayerScript.MyInstance.MyHealOnSuccessiveHits += 15;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
                 break;
 
             case "Flamme éternelle":
                 PlayerScript.MyInstance.IncreaseCombustibleSpawnProbability();
+                PlayerScript.MyInstance.PlayerMaxLife += 15f;
                 break;
 
             case "Essence":
@@ -284,6 +328,7 @@ public class ItemsManagerScript : MonoBehaviour
 
                 case "Potion de lumière":
                     PlayerScript.MyInstance.PlayerMaxLife += 15f;
+                    PlayerScript.MyInstance.PlayerCurrentLife += 15f;
                     potionUsed.Add(potionsEnum.lumiere);
                     break;
 

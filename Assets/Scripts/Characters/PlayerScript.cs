@@ -239,16 +239,16 @@ public class PlayerScript : Character
             //change the color and damage of the projectile if player has the item "Poudre de métaux"
             if (coloredProjectilesLevel > 0)
             {
-                if (projectileCount % 3 == 2)
+                if (projectileCount % 3 == 1)
                 {
                     projectileScript.SetColor(new Color(0, 255, 0));
-                    damageToDeal += coloredProjectilesLevel * 0.5f;
+                    damageToDeal -= coloredProjectilesLevel * 0.5f;
                 }
 
                 else if (projectileCount % 3 == 0)
                 {
                     projectileScript.SetColor(new Color(255, 0, 0));
-                    damageToDeal += coloredProjectilesLevel * 1.5f;
+                    damageToDeal += coloredProjectilesLevel * 1f;
                 }
             }
 

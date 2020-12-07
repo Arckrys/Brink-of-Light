@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2860793365605658528}
   - component: {fileID: 3623414686195477103}
   - component: {fileID: -6971555998978220469}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: BatProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
