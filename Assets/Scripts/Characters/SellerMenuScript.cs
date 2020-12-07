@@ -140,6 +140,7 @@ public class SellerMenuScript : MonoBehaviour
                 {
                     PlayerScript.MyInstance.MyIgeirusLevel += 1;
                     UpdateUI();
+                    GameManager.MyInstance.SaveGame();
                 }
                 break;
             case NPCName.Urbius:
@@ -147,6 +148,7 @@ public class SellerMenuScript : MonoBehaviour
                 {
                     PlayerScript.MyInstance.MyUrbiusLevel += 1;
                     UpdateUI();
+                    GameManager.MyInstance.SaveGame();
                 }
                 break;
             case NPCName.Razakus:

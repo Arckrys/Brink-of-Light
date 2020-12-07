@@ -8,6 +8,8 @@ public class GameData
     private double[] razakusPurchases;
     private float[] playerStatMaxValues = new float[8];
     private int[] currencies = new int[2];
+    private int urbiusLevel;
+    private int igeirusLevel;
 
     public GameData()
     {
@@ -24,6 +26,9 @@ public class GameData
         playerStatMaxValues[5] = playerScript.initCritChance;
         playerStatMaxValues[6] = playerScript.initCritDamage;
         playerStatMaxValues[7] = playerScript.initKnockback;
+
+        urbiusLevel = playerScript.MyUrbiusLevel;
+        igeirusLevel = playerScript.MyIgeirusLevel;
 
         currencies[0] = CurrenciesScript.MyInstance.GetGoldValue();
         currencies[1] = CurrenciesScript.MyInstance.GetSoulsNumber();
@@ -44,4 +49,13 @@ public class GameData
         return currencies;
     }
 
+    public int GetUrbiusLevel()
+    {
+        return urbiusLevel;
+    }
+    
+    public int GetIgeirusLevel()
+    {
+        return igeirusLevel;
+    }
 }

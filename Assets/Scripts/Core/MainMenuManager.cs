@@ -184,6 +184,8 @@ public class MainMenuManager : MonoBehaviour
     {
         chtulo.GetComponent<SpriteRenderer>().sprite = chtuloCasting;
         
+        SaveSystem.DeleteSave();
+        
         transitionNewGame.SetActive(true);
 
         StartCoroutine(FadeOutMainMenu());
@@ -217,6 +219,7 @@ public class MainMenuManager : MonoBehaviour
         
         inMenu = true;
         menuSettings.SetActive(true);
+        noSaveText.SetActive(false);
     }
     
     private void OnQuitPressed()

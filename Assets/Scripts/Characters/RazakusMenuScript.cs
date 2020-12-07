@@ -140,6 +140,7 @@ public class RazakusMenuScript : MonoBehaviour
             player.PlayerMaxLife += value;
             player.PlayerCurrentLife += value;
             UpdateUI(statName, player.initLife += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
     public void OnAttackPressed()
@@ -150,6 +151,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.attack.MyMaxValue += value;
             UpdateUI(statName, player.initAttack += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
     public void OnRangePressed()
@@ -160,6 +162,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.range.MyMaxValue += value;
             UpdateUI(statName, player.initRange += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
     public void OnCritChancePressed()
@@ -170,6 +173,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.critChance.MyMaxValue += value;
             UpdateUI(statName, player.initCritChance += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
     public void OnSpeedPressed()
@@ -180,6 +184,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.movementSpeed.MyMaxValue += value;
             UpdateUI(statName, player.initMovementSpeed += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
 
@@ -190,7 +195,8 @@ public class RazakusMenuScript : MonoBehaviour
         {
             var value = (float) RazakusData[statName][3];
             player.attackSpeed.MyMaxValue += value;
-            UpdateUI(statName, player.initAttackSpeed += value); 
+            UpdateUI(statName, player.initAttackSpeed += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
 
@@ -202,6 +208,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.critDamage.MyMaxValue += value;
             UpdateUI(statName, player.initCritDamage += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
    
@@ -213,6 +220,7 @@ public class RazakusMenuScript : MonoBehaviour
             var value = (float) RazakusData[statName][3];
             player.knockback.MyMaxValue += value;
             UpdateUI(statName, player.initKnockback += value);
+            GameManager.MyInstance.SaveGame();
         }
     }
 }

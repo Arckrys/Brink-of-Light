@@ -37,4 +37,11 @@ public static class SaveSystem
         }
     }
 
+    public static void DeleteSave()
+    {
+        if (!File.Exists(path)) return;
+        
+        var saveFile = new FileInfo(path);
+        saveFile.Delete();
+    }
 }

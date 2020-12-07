@@ -188,13 +188,13 @@ public class GameManager : MonoBehaviour
             playerScript.initCritDamage = playerStatsData[6];
             playerScript.initKnockback = playerStatsData[7];
 
+            playerScript.MyIgeirusLevel = data.GetIgeirusLevel();
+            playerScript.MyUrbiusLevel = data.GetUrbiusLevel();
+
             currenciesData = data.GetCurrencies();
 
             currencyScript.SetGoldValue(currenciesData[0]);
             currencyScript.SetSoulsNumber(currenciesData[1]);
-
-
-            // Save items bought
         }
     }
 }

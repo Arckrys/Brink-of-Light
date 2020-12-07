@@ -123,8 +123,9 @@ public class PlayerScript : Character
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
-        // TODO : Temporaire
         if (!isProjectilesDisabled) TimerManager.MyInstance.MyTimer = true;
+        
+        GameManager.MyInstance.LoadGame();
     }
 
     // Update is called once per frame

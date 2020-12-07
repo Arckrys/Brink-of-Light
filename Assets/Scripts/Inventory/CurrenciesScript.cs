@@ -92,6 +92,8 @@ public class CurrenciesScript : MonoBehaviour
     {
         soulsAmount += soulsToAdd;
         
+        GameManager.MyInstance.SaveGame();
+        
         if (soulsIncrementCoroutine != null)
         {
             StopCoroutine(soulsIncrementCoroutine);    
@@ -115,6 +117,8 @@ public class CurrenciesScript : MonoBehaviour
     public void AddGold(int goldToAdd)
     {
         goldAmount += goldToAdd;
+        
+        GameManager.MyInstance.SaveGame();
 
         if (goldIncrementCoroutine != null)
         {
