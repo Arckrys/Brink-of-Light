@@ -317,15 +317,15 @@ MonoBehaviour:
   life: {fileID: 0}
   initLife: 100
   attack: {fileID: 0}
-  initAttack: 9
+  initAttack: 1
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 8
+  initMovementSpeed: 5
   critChance: {fileID: 0}
-  initCritChance: 25
+  initCritChance: 10
   critDamage: {fileID: 0}
   initCritDamage: 2
   range: {fileID: 0}
-  initRange: 30
+  initRange: 20
   attackSpeed: {fileID: 0}
   initAttackSpeed: 1
   knockback: {fileID: 0}
