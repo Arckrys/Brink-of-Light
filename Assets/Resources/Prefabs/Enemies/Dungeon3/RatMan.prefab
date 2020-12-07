@@ -183,7 +183,7 @@ MonoBehaviour:
   life: {fileID: 8651347890227929860}
   initLife: 35
   attack: {fileID: 0}
-  initAttack: 2
+  initAttack: 30
   movementSpeed: {fileID: 0}
   initMovementSpeed: 1.3
   critChance: {fileID: 0}
@@ -202,6 +202,7 @@ MonoBehaviour:
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
   projectile: {fileID: 0}
+  isBoss: 0
   levelOneSpawnProbability: 0
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20

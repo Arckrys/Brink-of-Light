@@ -185,7 +185,7 @@ MonoBehaviour:
   life: {fileID: 7293434183744870590}
   initLife: 20
   attack: {fileID: 0}
-  initAttack: 3
+  initAttack: 15
   movementSpeed: {fileID: 0}
   initMovementSpeed: 1.5
   critChance: {fileID: 0}

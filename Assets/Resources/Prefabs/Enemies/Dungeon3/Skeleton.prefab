@@ -181,7 +181,7 @@ MonoBehaviour:
   life: {fileID: 1204778695240116569}
   initLife: 35
   attack: {fileID: 0}
-  initAttack: 5
+  initAttack: 30
   movementSpeed: {fileID: 0}
   initMovementSpeed: 1.75
   critChance: {fileID: 0}
@@ -199,10 +199,15 @@ MonoBehaviour:
   Grunt: {fileID: 8300000, guid: 00e46e48444249349806ccc64e75e424, type: 3}
   DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
   knockbackResistance: 0
+  projectile: {fileID: 0}
+  isBoss: 0
   levelOneSpawnProbability: 0
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20
   levelFourSpawnProbability: 33
+  lootBag: {fileID: 0}
+  nextWaypointDistance: 3
+  repathRate: 0.5
 --- !u!1001 &1241309921854946058
 PrefabInstance:
   m_ObjectHideFlags: 0
