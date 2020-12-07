@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OpeningManager : MonoBehaviour
@@ -60,8 +61,18 @@ public class OpeningManager : MonoBehaviour
             else
             {
                 // TODO : Start new scene (TrainingScene)
+                StartCoroutine(EndOpeningScene());
             }
         }
+    }
+
+    private IEnumerator EndOpeningScene()
+    {
+        loadAnimator.SetTrigger("Start");
+    
+        yield return new WaitForSeconds(1);
+        
+        SceneManager.LoadScene("VillageScene");
     }
 
     private IEnumerator ChangeScene()
