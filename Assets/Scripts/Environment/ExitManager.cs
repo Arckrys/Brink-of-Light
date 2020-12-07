@@ -34,7 +34,11 @@ public class ExitManager : MonoBehaviour
         if (gameObject.name != "BorderTilemapNextFloor")
             StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
 
-        isInCollision = true;
+        else
+        {
+            isInCollision = true;
+            PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -42,5 +46,6 @@ public class ExitManager : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         isInCollision = false;
+        PlayerScript.MyInstance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
