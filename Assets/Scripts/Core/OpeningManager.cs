@@ -71,7 +71,7 @@ public class OpeningManager : MonoBehaviour
     
         yield return new WaitForSeconds(1);
         
-        SceneManager.LoadScene("VillageScene");
+        SceneManager.LoadScene("TutorialScene");
     }
 
     private IEnumerator ChangeScene()
