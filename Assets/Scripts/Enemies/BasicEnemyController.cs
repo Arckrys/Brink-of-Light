@@ -135,6 +135,7 @@ public class BasicEnemyController : Character
             var volumeValue = .5f;
             var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
 
+            //on enemy death
             if(life.MyCurrentValue == 0)
             {
                 var position = transform.position;
@@ -148,7 +149,7 @@ public class BasicEnemyController : Character
                     AudioSource.PlayClipAtPoint(DyingSound, position);
                 }
 
-                //create a lootbag on death
+                //create a lootbag
                 //var itemType = Random.Range(0, 2);
                 var itemType = 0;
 
@@ -171,6 +172,14 @@ public class BasicEnemyController : Character
                         GameObject combustible = Instantiate(combustibleGameObject, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                         combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     }
+                }
+
+                //if the enemy is a boss, drop a bonus equipment item
+                if (isBoss)
+                {
+                    var itemScriptInstance = ItemsManagerScript.MyInstance;
+                    itemScriptInstance.CreateEquipmentItem(new Vector2(transform.position.x, transform.position.y + 0.5f), 
+                                                           itemScriptInstance.SelectRandomItem(itemScriptInstance.GetItemsEquipmentList()));
                 }
 
                 Destroy(gameObject);
