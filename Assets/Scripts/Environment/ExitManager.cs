@@ -8,23 +8,39 @@ public class ExitManager : MonoBehaviour
 
     [SerializeField] private GameObject transitionSpawn;
 
-    /*
-    public void UpdatePlayerPosition()
-    {
-        PlayerScript.MyInstance.transform.position = transitionSpawn.transform.position;
-    }*/
+    private bool isInCollision;
 
     private void Start()
     {
         canvasTransition = GameObject.Find("CanvasTransition").GetComponent<CanvasTransitionScript>();
 
+        isInCollision = false;
+
         //StartCoroutine(canvasTransition.FadeOut());
+    }
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(KeyCode.E) || !isInCollision || gameObject.name != "BorderTilemapNextFloor") return;
+
+        StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
+        //if this is a door, the player changes room on contact with the door
+        if (gameObject.name != "BorderTilemapNextFloor")
+            StartCoroutine(canvasTransition.FadeIn(this.gameObject, false));
+
+        isInCollision = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        isInCollision = false;
     }
 }
