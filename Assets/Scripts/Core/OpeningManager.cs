@@ -34,11 +34,10 @@ public class OpeningManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // TODO : Check in transition
         if (!inDialogueTransition && DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
         {
             indexDialogue += 1;
-
+            
             inDialogueTransition = true;
 
             if (indexDialogue < dialogue.Count)
@@ -57,6 +56,10 @@ public class OpeningManager : MonoBehaviour
                     StartCoroutine(FadeOutDialogue());
                     StartCoroutine(ChangeScene());
                 }
+            }
+            else
+            {
+                // TODO : Start new scene (TrainingScene)
             }
         }
     }
@@ -91,6 +94,8 @@ public class OpeningManager : MonoBehaviour
         }
         
         DialogueManagerScript.MyInstance.StartDialogue(dialogue[indexDialogue]);
+        
+        inDialogueTransition = false;
     }
 
     private IEnumerator FadeInDialogue()
