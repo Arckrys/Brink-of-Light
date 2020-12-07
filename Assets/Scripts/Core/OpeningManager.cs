@@ -60,7 +60,6 @@ public class OpeningManager : MonoBehaviour
             }
             else
             {
-                // TODO : Start new scene (TrainingScene)
                 StartCoroutine(EndOpeningScene());
             }
         }

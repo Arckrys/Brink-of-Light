@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 6361579708914774714}
   - component: {fileID: 6268956845540629562}
   - component: {fileID: 1469692588210386350}
-  - component: {fileID: 691995782557367839}
+  - component: {fileID: 3026607112204952854}
   m_Layer: 0
   m_Name: BorderTilemapNextFloor
   m_TagString: DoorNextFloor
@@ -1133,7 +1133,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &691995782557367839
+--- !u!114 &3026607112204952854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1142,10 +1142,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3597021293518659925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8295e011ffc4a4737abdce0ebce661c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 44cb277114a6341f29d011e95a193424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpawn: {fileID: 0}
 --- !u!1 &9200029175462722926
 GameObject:
   m_ObjectHideFlags: 0
@@ -10362,7 +10361,7 @@ GameObject:
   - component: {fileID: 9200029176715042387}
   - component: {fileID: 9200029176715042384}
   - component: {fileID: 9200029176715042385}
-  - component: {fileID: 9200029176715042398}
+  - component: {fileID: 1493428267743187925}
   m_Layer: 0
   m_Name: BorderTilemapDown
   m_TagString: DoorDown
@@ -10663,7 +10662,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &9200029176715042398
+--- !u!114 &1493428267743187925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10672,10 +10671,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9200029176715042396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8295e011ffc4a4737abdce0ebce661c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 44cb277114a6341f29d011e95a193424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpawn: {fileID: 0}
 --- !u!1001 &116770647224423816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11011,7 +11009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3434844551257333749, guid: 8ace9ec4f241e3c49acd1ca6f6b74637, type: 3}
       propertyPath: m_InstanceId
-      value: -1144466
+      value: -140060
       objectReference: {fileID: 0}
     - target: {fileID: 4942237957078436682, guid: 8ace9ec4f241e3c49acd1ca6f6b74637, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11143,7 +11141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3434844551257333749, guid: 8ace9ec4f241e3c49acd1ca6f6b74637, type: 3}
       propertyPath: m_InstanceId
-      value: -1144476
+      value: -140086
       objectReference: {fileID: 0}
     - target: {fileID: 4942237957078436682, guid: 8ace9ec4f241e3c49acd1ca6f6b74637, type: 3}
       propertyPath: m_LocalPosition.x

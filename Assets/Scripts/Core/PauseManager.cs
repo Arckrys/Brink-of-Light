@@ -83,7 +83,7 @@ public class PauseManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("VillageScene");
     }
 
     private IEnumerator RestartDungeon()
