@@ -2,7 +2,7 @@
 
 public enum NPCName {Razakus, Igeirus, Urbius, Talker}
 
-public abstract class VillageNpcScript : MonoBehaviour
+public class VillageNpcScript : MonoBehaviour
 {
     [SerializeField] protected GameObject menuGameObject;
 
