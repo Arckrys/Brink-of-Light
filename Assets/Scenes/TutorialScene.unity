@@ -1950,9 +1950,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 91695556}
     - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: messageFrame
       value: 
       objectReference: {fileID: 6747255494756799481}
+    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[1]
+      value: "On va commencer par le d\xE9but. Attaque ce sliime l\xE0 bas. Il bougera
+        pas, c'est juste un mannequin tr\xE8s r\xE9aliste."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.data[2]
+      value: "Non ? Bon okay, on va continuer un peu. Va chercher cet objet qui vient
+        d'appara\xEEtre."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.data[0]
+      value: "Bravo ! Remarques que tirer te co\xFBte des points de vie. Tu es maintenant
+        pr\xEAt \xE0 commencer ton aventure !"
+      objectReference: {fileID: 0}
     - target: {fileID: 6312775403229837894, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_Name
       value: TutorialRoom
