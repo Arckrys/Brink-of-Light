@@ -741,6 +741,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 365742739}
+  iconSeller: {fileID: 21300000, guid: e8e601a909eeb0f4bb1244fbe2ced375, type: 3}
+  iconBoss: {fileID: 21300000, guid: e73f87a939037274997cf365ae9727e2, type: 3}
+  iconItem: {fileID: 21300000, guid: 9382805853917a74eab78e67adedbfc6, type: 3}
+  iconExit: {fileID: 21300000, guid: a0bca0fd0de581345a916ee6dac35fe8, type: 3}
 --- !u!1 &429705878
 GameObject:
   m_ObjectHideFlags: 0

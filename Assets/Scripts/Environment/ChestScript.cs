@@ -13,6 +13,9 @@ public class ChestScript : MonoBehaviour
     {
         chestAnimator = GetComponent<Animator>();
         isOpen = false;
+
+        if (GameObject.Find("ChestSpawnPoint"))
+            transform.position = GameObject.Find("ChestSpawnPoint").transform.position;
     }
 
     private void Update()

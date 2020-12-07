@@ -210,7 +210,7 @@ MonoBehaviour:
   levelTwoSpawnProbability: 0
   levelThreeSpawnProbability: 20
   levelFourSpawnProbability: 33
-  lootBag: {fileID: 0}
+  lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   nextWaypointDistance: 3
   repathRate: 0.5
 --- !u!114 &-5489504903050497104
