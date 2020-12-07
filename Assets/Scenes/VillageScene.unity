@@ -440,6 +440,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab82a4540fd24ad68a4fc9e3a1b6c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &395064613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6605242063014746241, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+  m_PrefabInstance: {fileID: 3020417311563329295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172eb4ac36ba7b34e999a40d1b3e0324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &403010862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1741,7 +1752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020417312246207502, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 3020417312615166806, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1777,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6605242064253427130, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 6839392986347894911, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMin.y
@@ -1868,6 +1879,10 @@ PrefabInstance:
       propertyPath: townAnimator
       value: 
       objectReference: {fileID: 134041355}
+    - target: {fileID: 4889284226022031980, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: razakusScript
+      value: 
+      objectReference: {fileID: 395064613}
     - target: {fileID: 4889284226022031981, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
       propertyPath: m_Name
       value: GameManager
