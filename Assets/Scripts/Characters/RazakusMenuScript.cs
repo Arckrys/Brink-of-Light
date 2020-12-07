@@ -100,6 +100,7 @@ public class RazakusMenuScript : MonoBehaviour
         {
             RazakusData[statNames[i]][0] = savedData[i];
         }
+        
         InitUI();
     }
 
