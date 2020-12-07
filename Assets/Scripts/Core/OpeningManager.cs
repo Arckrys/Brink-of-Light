@@ -35,7 +35,7 @@ public class OpeningManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!inDialogueTransition && DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
+        if (!inDialogueTransition && DialogueManagerScript.MyInstance.DialogueIsOver) //  && Input.GetKeyDown(KeyCode.E)
         {
             indexDialogue += 1;
             

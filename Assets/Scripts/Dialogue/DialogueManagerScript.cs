@@ -13,8 +13,10 @@ public class DialogueManagerScript : MonoBehaviour
 
 	private bool dialogueIsOpen = false;
 	private bool sentenceIsOver = false;
+	private bool dialogueIsOver = false;
 
 	public bool SentenceIsOver => sentenceIsOver;
+	public bool DialogueIsOver => dialogueIsOver;
 
 	private Queue<string> sentences;
 
@@ -55,6 +57,8 @@ public class DialogueManagerScript : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
 	{
 		dialogueIsOpen = true;
+
+		dialogueIsOver = false;
 
 		nameText.text = dialogue.name;
 
@@ -98,6 +102,7 @@ public class DialogueManagerScript : MonoBehaviour
 	public void EndDialogue()
 	{
 		dialogueIsOpen = false;
+		dialogueIsOver = true;
 		StopCoroutine(TypeSentence(""));
 		panel.SetActive(false);
 	}
