@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 6819894245866123077}
-  initLife: 25
+  initLife: 35
   attack: {fileID: 0}
   initAttack: 20
   movementSpeed: {fileID: 0}

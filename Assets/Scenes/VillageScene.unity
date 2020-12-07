@@ -1052,6 +1052,22 @@ PrefabInstance:
       propertyPath: lifeBar
       value: 
       objectReference: {fileID: 821913537}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: initAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: initMovementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: initCritChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: initRange
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
 --- !u!114 &934289014 stripped

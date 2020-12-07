@@ -438,7 +438,7 @@ PrefabInstance:
       objectReference: {fileID: 603518852}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initAttack
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initMovementSpeed
@@ -455,6 +455,10 @@ PrefabInstance:
     - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
       propertyPath: initKnockback
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: isProjectilesDisabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}

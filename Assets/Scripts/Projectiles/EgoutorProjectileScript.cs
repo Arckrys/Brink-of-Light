@@ -25,7 +25,7 @@ public class EgoutorProjectileScript : EnnemiesProjectileScript
             else
             {
                 int rand = Random.Range(0, 91);
-                if (rand < 10)
+                if (rand < 5)
                 {
                     //if the projectile is on the bottom half, spawn the combustible toward the top, else toward the bot
                     float combustibleOffsetY = 0.05f;
@@ -41,7 +41,7 @@ public class EgoutorProjectileScript : EnnemiesProjectileScript
                     combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                 }
 
-                if (rand > 30)
+                if (rand > 50)
                 {
                     //if the projectile is on the bottom half, spawn the combustible toward the top, else toward the bot
                     float poisonOffsetY = 0.05f;

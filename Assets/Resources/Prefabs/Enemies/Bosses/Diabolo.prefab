@@ -233,7 +233,7 @@ MonoBehaviour:
   attackFrequency: 0.2
   AOEDelay: 100
   SpawnDelay: 1000
-  Bat: {fileID: 0}
+  Bat: {fileID: 1543202275702221276, guid: 19275be4c006459479d295c4e8744098, type: 3}
 --- !u!114 &170743595753762892
 MonoBehaviour:
   m_ObjectHideFlags: 0
