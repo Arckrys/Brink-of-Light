@@ -36,6 +36,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject canvasMainMenu;
     
     [SerializeField] private Animator loadAnimator;
+
+    [SerializeField] private GameObject chtulo;
+
+    [SerializeField] private Sprite chtuloCasting;
     
     private bool inMenu;
 
@@ -178,6 +182,8 @@ public class MainMenuManager : MonoBehaviour
 
     private IEnumerator StartNewGame()
     {
+        chtulo.GetComponent<SpriteRenderer>().sprite = chtuloCasting;
+        
         transitionNewGame.SetActive(true);
 
         StartCoroutine(FadeOutMainMenu());
