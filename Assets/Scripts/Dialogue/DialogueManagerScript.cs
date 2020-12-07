@@ -65,6 +65,7 @@ public class DialogueManagerScript : MonoBehaviour
 			sentences.Enqueue(sentence);
 		}
 		panel.SetActive(true);
+		
 		DisplayNextSentence();
 	}
 
