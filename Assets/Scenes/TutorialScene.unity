@@ -1945,6 +1945,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: Grunt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: DyingSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5484230989233835203, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2001,7 +2009,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8109465169335171380, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1859175358726759061, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
 --- !u!1001 &6747255494756799480
 PrefabInstance:

@@ -176,7 +176,10 @@ public class GameManager : MonoBehaviour
         GameData data = SaveSystem.LoadGame();
         if (data != null)
         {
-            razakusScript.LoadRazakusData(data.GetRazakusPurchases());
+            if (data.GetRazakusPurchases() != null)
+            {
+                razakusScript.LoadRazakusData(data.GetRazakusPurchases());
+            }
 
             playerStatsData = data.GetPlayerStatMaxValues();
             playerScript.initAttack = playerStatsData[0];
@@ -187,6 +190,16 @@ public class GameManager : MonoBehaviour
             playerScript.initCritChance = playerStatsData[5];
             playerScript.initCritDamage = playerStatsData[6];
             playerScript.initKnockback = playerStatsData[7];
+
+            playerScript.attack.MyMaxValue = playerScript.initAttack;
+            playerScript.PlayerCurrentLife = playerScript.initLife;
+            playerScript.PlayerMaxLife = playerScript.initLife;
+            playerScript.range.MyMaxValue = playerScript.initRange;
+            playerScript.movementSpeed.MyMaxValue = playerScript.initMovementSpeed;
+            playerScript.attackSpeed.MyMaxValue = playerScript.initAttackSpeed;
+            playerScript.critChance.MyMaxValue = playerScript.initCritChance;
+            playerScript.critDamage.MyMaxValue = playerScript.initCritDamage;
+            playerScript.knockback.MyMaxValue = playerScript.initKnockback;
 
             playerScript.MyIgeirusLevel = data.GetIgeirusLevel();
             playerScript.MyUrbiusLevel = data.GetUrbiusLevel();

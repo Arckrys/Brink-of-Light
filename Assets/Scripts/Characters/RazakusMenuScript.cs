@@ -86,6 +86,7 @@ public class RazakusMenuScript : MonoBehaviour
     public double[] GetRazakusPurchases()
     {
         double[] purchases = new double[statNames.Length];
+        
         for(int i = 0; i < statNames.Length; i++)
         {
             purchases[i] = RazakusData[statNames[i]][0];

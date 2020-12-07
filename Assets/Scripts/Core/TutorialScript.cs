@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialScript : MonoBehaviour
@@ -27,6 +29,23 @@ public class TutorialScript : MonoBehaviour
         indexDialogue = 0;
         StartCoroutine(FadeInDialogue());
         combustibleScript = spawnerCombu.GetComponent<CombustibleScript>();
+    }
+
+    private void Update()
+    {
+        if (indexDialogue == dialogue.Count - 1 && DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(EndTutorialScene());
+        }
+    }
+    
+    private IEnumerator EndTutorialScene()
+    {
+        GameObject.Find("Crossfade").GetComponent<Animator>().SetTrigger("Start");
+    
+        yield return new WaitForSeconds(1);
+        
+        SceneManager.LoadScene("VillageScene");
     }
 
     public static TutorialScript MyInstance

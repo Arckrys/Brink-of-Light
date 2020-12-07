@@ -18,6 +18,26 @@ public static class SaveSystem
         Debug.Log("Saved");
     }
 
+    public static void SaveCurrencies()
+    {
+        var load = LoadGame();
+        if (load == null) return;
+        
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Create);
+        
+        load.SetCurrencies(CurrenciesScript.MyInstance.GetGoldValue(), CurrenciesScript.MyInstance.GetSoulsNumber());
+            
+        formatter.Serialize(stream, load);
+        stream.Close();
+        Debug.Log("Saved Currencies");
+    }
+
+    public static bool DoesSaveExist()
+    {
+        return File.Exists(path);
+    }
+
     public static GameData LoadGame()
     {
         if(File.Exists(path))

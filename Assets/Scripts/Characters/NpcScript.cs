@@ -21,7 +21,7 @@ public class NpcScript : VillageNpcScript
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
 
-        if (isSeller & sellerDialogueDone)
+        if (isSeller && sellerDialogueDone && DialogueManagerScript.MyInstance.SentenceIsOver)
         {
             isMenuActivated = menuGameObject.activeSelf;
             menuGameObject.SetActive(!menuGameObject.activeSelf);
@@ -56,6 +56,7 @@ public class NpcScript : VillageNpcScript
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
             sellerDialogueDone = true;
         }
 
