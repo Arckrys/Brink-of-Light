@@ -18,11 +18,15 @@ public class OpeningManager : MonoBehaviour
     [SerializeField] private Image ImageLoader;
 
     private int indexDialogue;
+
+    private bool inDialogueTransition;
     
     // Start is called before the first frame update
     private void Start()
     {
         indexDialogue = 0;
+
+        inDialogueTransition = false;
         
         StartCoroutine(FadeInDialogue());
     }
@@ -31,11 +35,11 @@ public class OpeningManager : MonoBehaviour
     private void Update()
     {
         // TODO : Check in transition
-        if (DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
+        if (!inDialogueTransition && DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
         {
             indexDialogue += 1;
 
-            print(indexDialogue);
+            inDialogueTransition = true;
 
             if (indexDialogue < dialogue.Count)
             {
@@ -101,6 +105,8 @@ public class OpeningManager : MonoBehaviour
             
             yield return new WaitForSeconds(0.1f);
         }
+        
+        inDialogueTransition = false;
     }
     
     private IEnumerator FadeOutDialogue()
