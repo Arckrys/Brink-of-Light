@@ -1802,6 +1802,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8051680202073879558, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: "Bonjour jeune apprenti. M'apportes-tu des \xE2mes ?"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
 --- !u!1001 &4889284224785062879

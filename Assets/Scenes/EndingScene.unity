@@ -6355,12 +6355,13 @@ MonoBehaviour:
   dialogue:
     name: Razakus, le savant fou
     sentences:
-    - "F\xE9licitation jeune apprenti, ou devrais-je dire maintenant, chef du village!"
+    - "F\xE9licitations jeune apprenti, ou devrais-je dire maintenant, chef du village
+      !"
     - "Tu as r\xE9ussi \xE0 sauver notre peuple d'une possible fin qui aurait \xE9teint
       \xE0 jamais le peuple des feux follets."
     - "Tu es maintenant libre de continuer et de partir \xE0 l'aventure pour \xE9liminer
-      d'\xE9ventuel ennemis survivants!"
-    - Tous les villageois te remercie!
+      d'\xE9ventuels ennemis survivants !"
+    - Tous les villageois te remercient !
   loadAnimator: {fileID: 1083375579}
 --- !u!4 &325424427
 Transform:

@@ -52341,170 +52341,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!43 &1180326696
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 138
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 48
-    localAABB:
-      m_Center: {x: 0.00671649, y: -0.014687657, z: 0}
-      m_Extent: {x: 0.6932833, y: 0.87150776, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 0000010002000000030001000000040003000500040000000600040005000700060008000900060007000a00060009000a00040006000a000b0004000c000b000a000d000b000c000e000b000d000f000b000e0010000b000f0011000b001000110012000b0013001200110013001400120013001500140013001600150016001300170002001800000000001900050001001a00020003001b00010004001c0003000b001d00040005001e00060006001f000800080020000700070021000900090022000a000a0023000c00120024000b000c0025000d000d0026000e000e0027000f000f002800100010002900110011002a00130014002b00120013002c00170015002d00140016002e00150017002f001600
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 48
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 2112
-    _typelessdata: b8f52f3fe0c81bbe000000006cf47fbf46f899bc0000000000000080b8f52f3fe0c81bbeb8f52f3fe0c81bbe3033333f804e53bf00000000babd30bfe232393f00000080000000803033333f804e53bf3033333f804e53bf7494313fb840fabe000000006cf47fbf46f899bc00000000000000803033333f804e53bfb8f52f3fe0c81bbe480c2b3f1a165bbf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf3033333f804e53bf60e5223fb4dd62bf00000000000000800000803f000000800000008060e5223fb4dd62bf60e5223fb4dd62bf4cdb1a3f70cd9abd0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbee0c0053f00707b3ae0c0053f00707b3a0000000010322ebf56983bbf0000000000000080e0c0053f00707b3ae0c0053f00707b3a90ba003fe0192f3f00000000f6e47fbf034febbc000000000000008090ba003fe0192f3f90ba003fe0192f3fb83d033fbc58af3e00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3a90ba003fe0192f3f0884df3e3839453f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3ff092bd3e90585b3ff092bd3e90585b3f00000000091e4bbf7ed11bbf0000000000000080f092bd3e90585b3ff092bd3e90585b3f805df43cb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf60e5223fb4dd62bf00caa5bba4535a3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3f40c1c2beb84e593f40c1c2beb84e593f000000000fca2d3c50fc7fbf000000800000008040c1c2beb84e593f40c1c2beb84e593f2856e3be783a463f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f88f501bf3826333f88f501bf3826333f0000000076af423fcb3b26bf000000800000008088f501bf3826333f88f501bf3826333ff8c204bfd463b23e0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f689007bf006442bb689007bf006442bb0000000037e07f3f3c18ffbc0000008000000080689007bf006442bb689007bf006442bb889f13bfb4dd62bf00000000fc94313f8364383f0000008000000080889f13bfb4dd62bf889f13bfb4dd62bfa0a91bbf50be8ebd0000000013cc253fa30e43bf0000008000000080689007bf006442bbd8c22fbfc0b40bbe946520bf709056bf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abf889f13bfb4dd62bfa02b2dbf2c434abf0000000026f87f3f8aa07d3c0000008000000080a02b2dbf2c434abfa02b2dbf2c434abf3c772ebf5c30edbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbea02b2dbf2c434abfd8c22fbfc0b40bbe0000000013cc253fa30e43bf0000008000000080d8c22fbfc0b40bbed8c22fbfc0b40bbe7494313fb840fabe000000006cf47fbf46f899bc00000000000000803033333f804e53bfb8f52f3fe0c81bbeb8f52f3fe0c81bbe0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbeb8f52f3fe0c81bbe3033333f804e53bf000000006cf47fbf46f899bc00000000000000803033333f804e53bf3033333f804e53bf480c2b3f1a165bbf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf3033333f804e53bf60e5223fb4dd62bf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf60e5223fb4dd62bf805df43cb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf60e5223fb4dd62bf4cdb1a3f70cd9abd0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbee0c0053f00707b3ae0c0053f00707b3a00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3ae0c0053f00707b3ab83d033fbc58af3e00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3a90ba003fe0192f3f90ba003fe0192f3f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3f90ba003fe0192f3f0884df3e3839453f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3ff092bd3e90585b3ff092bd3e90585b3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3ff092bd3e90585b3f889f13bfb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf889f13bfb4dd62bf00caa5bba4535a3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3f40c1c2beb84e593f40c1c2beb84e593f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f40c1c2beb84e593f2856e3be783a463f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f88f501bf3826333f88f501bf3826333f0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f88f501bf3826333ff8c204bfd463b23e0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f689007bf006442bb689007bf006442bb0000000013cc253fa30e43bf0000008000000080689007bf006442bb689007bf006442bb946520bf709056bf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abf889f13bfb4dd62bfa0a91bbf50be8ebd0000000013cc253fa30e43bf0000008000000080689007bf006442bbd8c22fbfc0b40bbea02b2dbf2c434abf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abfa02b2dbf2c434abf3c772ebf5c30edbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbea02b2dbf2c434abfd8c22fbfc0b40bbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbed8c22fbfc0b40bbe
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.00671649, y: -0.014687657, z: 0}
-    m_Extent: {x: 0.6932833, y: 0.87150776, z: 0}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1193043542
 GameObject:
   m_ObjectHideFlags: 0
@@ -67236,170 +67072,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!43 &1515008218
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 138
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 48
-    localAABB:
-      m_Center: {x: 0.00671649, y: -0.014687657, z: 0}
-      m_Extent: {x: 0.6932833, y: 0.87150776, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 0000010002000000030001000000040003000500040000000600040005000700060008000900060007000a00060009000a00040006000a000b0004000c000b000a000d000b000c000e000b000d000f000b000e0010000b000f0011000b001000110012000b0013001200110013001400120013001500140013001600150016001300170002001800000000001900050001001a00020003001b00010004001c0003000b001d00040005001e00060006001f000800080020000700070021000900090022000a000a0023000c00120024000b000c0025000d000d0026000e000e0027000f000f002800100010002900110011002a00130014002b00120013002c00170015002d00140016002e00150017002f001600
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 48
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 2112
-    _typelessdata: b8f52f3fe0c81bbe000000006cf47fbf46f899bc0000000000000080b8f52f3fe0c81bbeb8f52f3fe0c81bbe3033333f804e53bf00000000babd30bfe232393f00000080000000803033333f804e53bf3033333f804e53bf7494313fb840fabe000000006cf47fbf46f899bc00000000000000803033333f804e53bfb8f52f3fe0c81bbe480c2b3f1a165bbf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf3033333f804e53bf60e5223fb4dd62bf00000000000000800000803f000000800000008060e5223fb4dd62bf60e5223fb4dd62bf4cdb1a3f70cd9abd0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbee0c0053f00707b3ae0c0053f00707b3a0000000010322ebf56983bbf0000000000000080e0c0053f00707b3ae0c0053f00707b3a90ba003fe0192f3f00000000f6e47fbf034febbc000000000000008090ba003fe0192f3f90ba003fe0192f3fb83d033fbc58af3e00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3a90ba003fe0192f3f0884df3e3839453f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3ff092bd3e90585b3ff092bd3e90585b3f00000000091e4bbf7ed11bbf0000000000000080f092bd3e90585b3ff092bd3e90585b3f805df43cb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf60e5223fb4dd62bf00caa5bba4535a3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3f40c1c2beb84e593f40c1c2beb84e593f000000000fca2d3c50fc7fbf000000800000008040c1c2beb84e593f40c1c2beb84e593f2856e3be783a463f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f88f501bf3826333f88f501bf3826333f0000000076af423fcb3b26bf000000800000008088f501bf3826333f88f501bf3826333ff8c204bfd463b23e0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f689007bf006442bb689007bf006442bb0000000037e07f3f3c18ffbc0000008000000080689007bf006442bb689007bf006442bb889f13bfb4dd62bf00000000fc94313f8364383f0000008000000080889f13bfb4dd62bf889f13bfb4dd62bfa0a91bbf50be8ebd0000000013cc253fa30e43bf0000008000000080689007bf006442bbd8c22fbfc0b40bbe946520bf709056bf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abf889f13bfb4dd62bfa02b2dbf2c434abf0000000026f87f3f8aa07d3c0000008000000080a02b2dbf2c434abfa02b2dbf2c434abf3c772ebf5c30edbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbea02b2dbf2c434abfd8c22fbfc0b40bbe0000000013cc253fa30e43bf0000008000000080d8c22fbfc0b40bbed8c22fbfc0b40bbe7494313fb840fabe000000006cf47fbf46f899bc00000000000000803033333f804e53bfb8f52f3fe0c81bbeb8f52f3fe0c81bbe0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbeb8f52f3fe0c81bbe3033333f804e53bf000000006cf47fbf46f899bc00000000000000803033333f804e53bf3033333f804e53bf480c2b3f1a165bbf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf3033333f804e53bf60e5223fb4dd62bf00000000babd30bfe232393f000000800000008060e5223fb4dd62bf60e5223fb4dd62bf805df43cb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf60e5223fb4dd62bf4cdb1a3f70cd9abd0000000010322ebf56983bbf0000000000000080b8f52f3fe0c81bbee0c0053f00707b3ae0c0053f00707b3a00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3ae0c0053f00707b3ab83d033fbc58af3e00000000f6e47fbf034febbc0000000000000080e0c0053f00707b3a90ba003fe0192f3f90ba003fe0192f3f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3f90ba003fe0192f3f0884df3e3839453f00000000091e4bbf7ed11bbf000000000000008090ba003fe0192f3ff092bd3e90585b3ff092bd3e90585b3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3ff092bd3e90585b3f889f13bfb4dd62bf00000000000000800000803f0000008000000080889f13bfb4dd62bf889f13bfb4dd62bf00caa5bba4535a3f000000000fca2d3c50fc7fbf0000008000000080f092bd3e90585b3f40c1c2beb84e593f40c1c2beb84e593f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f40c1c2beb84e593f2856e3be783a463f0000000076af423fcb3b26bf000000800000008040c1c2beb84e593f88f501bf3826333f88f501bf3826333f0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f88f501bf3826333ff8c204bfd463b23e0000000037e07f3f3c18ffbc000000800000008088f501bf3826333f689007bf006442bb689007bf006442bb0000000013cc253fa30e43bf0000008000000080689007bf006442bb689007bf006442bb946520bf709056bf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abf889f13bfb4dd62bfa0a91bbf50be8ebd0000000013cc253fa30e43bf0000008000000080689007bf006442bbd8c22fbfc0b40bbea02b2dbf2c434abf00000000fc94313f8364383f0000008000000080a02b2dbf2c434abfa02b2dbf2c434abf3c772ebf5c30edbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbea02b2dbf2c434abfd8c22fbfc0b40bbe0000000026f87f3f8aa07d3c0000008000000080d8c22fbfc0b40bbed8c22fbfc0b40bbe
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.00671649, y: -0.014687657, z: 0}
-    m_Extent: {x: 0.6932833, y: 0.87150776, z: 0}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1519508109
 GameObject:
   m_ObjectHideFlags: 0
@@ -89919,56 +89591,58 @@ MonoBehaviour:
   - name: Hotavius, le sage du village
     sentences:
     - "L\u2019histoire commence l\xE0 o\xF9 tout n\u2019est que magie et s\xE9r\xE9nit\xE9."
-    - "Alors que mon peuple de feux follets vivaient paisiblement et sous ma protection,
-      je ressenti une \xE9trange sensation encore inconnue."
+    - "Alors que mon peuple de feux follets vivait paisiblement et sous ma protection,
+      je ressentis une \xE9trange sensation encore inconnue."
   - name: Hotavius, le sage du village
     sentences:
-    - "- J'ai besoin de volontaire pour m'accompagner. Une force obscure est en train
-      de se pr\xE9parer \xE0 attaquer mes amis."
+    - "- J'ai besoin de volontaires pour m'accompagner. Une force obscure est en
+      train de se pr\xE9parer \xE0 attaquer mes amis."
     - "- Vous aurez besoin d'un immense courage pour me suivre car je ne sais pas
       si ma magie pourra vous prot\xE9ger."
-    - '- Ne perdons plus un instant et partons sans plus tarder!'
+    - '- Ne perdons plus un instant et partons sans plus tarder !'
   - name: "Arm\xE9e de l'ombre"
     sentences:
-    - "- Nous partirons bient\xF4t conqu\xE9rir le monde soldat de l'ombre! Et cette
-      fois-ci, aucune erreur ne sera commise!"
+    - "- Nous partirons bient\xF4t conqu\xE9rir le monde soldats de l'ombre ! Et
+      cette fois-ci, aucune erreur ne sera commise !"
     - "- La derni\xE8re alliance vient enfin d'\xEAtre scell\xE9e. Alors maintenant,
-      partez r\xE9pandre notre reigne et ensemble, dominont le monde!"
-    - "- N'h\xE9sitez \xE0 \xE9liminer tous ceux qui essayeront de nous r\xE9sister!"
+      partez r\xE9pandre notre reigne et ensemble, dominons le monde !"
+    - "- N'h\xE9sitez pas \xE0 \xE9liminer tous ceux qui essayeront de nous r\xE9sister
+      !"
   - name: Hotavius, le sage du village
     sentences:
     - '- Mes amis, jamais au cours de mon existence je n''avais pu voir une force
       si puissante.'
     - "- Tellement puissante que je doute m\xEAme que ma magie puisse garder ce village
       sain et sauf."
-    - "- Mon jeune apprenti, tu as encore telle de chose \xE0 apprendre... Je sais
+    - "- Mon jeune apprenti, tu as encore tant de choses \xE0 apprendre... Je sais
       que tu voudrais nous aider mais je veux que quelqu'un de confiance puisse survivre..."
     - "- Je sais que Razakus, le ma\xEEtre des inventions, cache un laboratoire \xE0
-      l'arri\xE8re du village ou tu devra te..."
-    - "- Oh non... ils sont d\xE9j\xE0 l\xE0!"
+      l'arri\xE8re du village ou tu devras te..."
+    - "- Oh non... ils sont d\xE9j\xE0 l\xE0 !"
   - name: "Arm\xE9e de l'ombre"
     sentences:
-    - '- C''est la fin pour vous! Soumettez-vous ou mourez!'
+    - '- C''est la fin pour vous ! Soumettez-vous ou mourez !'
   - name: Razakus, le savant fou
     sentences:
-    - "- Enfin r\xE9veill\xE9 apprenti... Tu es presque rest\xE9 assom\xE9 2 jours!"
-    - "- Je me doute que tu dois regrett\xE9 de ne pas \xEAtre rest\xE9 pour les
-      aider mais Hotavius avait raison."
+    - "- Enfin r\xE9veill\xE9 apprenti... Tu es presque rest\xE9 assom\xE9 2 jours
+      !"
+    - "- Je me doute que tu dois regretter de ne pas \xEAtre rest\xE9 pour les aider
+      mais Hotavius avait raison."
     - "- Si je ne t'avais pas sauv\xE9 en te prenant avec moi dans mon labo, qui
-      aurait pu prendre sa place ? Le reste des villageois comptent sur toi maintenant."
-    - "- Une chose que ne t'as jamais r\xE9v\xE9l\xE9 Hotavius est qu'il me pr\xE9pare
+      aurait pu prendre sa place ? Le reste des villageois compte sur toi maintenant."
+    - "- Une chose que ne t'as jamais r\xE9v\xE9l\xE9e Hotavius est qu'il me pr\xE9pare
       \xE0 cette \xE9ventualit\xE9 depuis des lustres."
     - "- Et il est maintenant temps d'utiliser ce que je pr\xE9parais pour aider
       la personne qui sauverait notre peuple. Toi, jeune apprenti."
-    - "- Je vais donc t'apprendre \xE0 utiliser cette appareil que j'appel le Portail
-      Temps qui permet de ramener son porteur \xE0 son lieu de d\xE9part."
-    - "- Il sera tr\xE8s important qu'il ne tombe pas entre de mauvaise main!"
-    - "- Je sais que toutes ces informations peuvent \xEAtre invraisemblablent, mais
+    - "- Je vais donc t'apprendre \xE0 utiliser cette appareil que j'appelle le Portail
+      Temps, qui permet de ramener son porteur \xE0 son lieu de d\xE9part."
+    - "- Il sera tr\xE8s important qu'il ne tombe pas entre de mauvaises mains !"
+    - "- Je sais que toutes ces informations peuvent \xEAtre invraisemblables, mais
       il ne reste pas une seconde \xE0 perdre pour reconstruire notre village."
-    - "- Je vois que tu es pr\xEAt pour l'aventure! Je reconnais l\xE0 bien l'apprenti
+    - "- Je vois que tu es pr\xEAt pour l'aventure ! Je reconnais l\xE0 bien l'apprenti
       d'Hotavius. Courageux et impatient \xE0 la fois."
     - "- Mais avant de te laisser partir, il est important que les d\xE9gats que
-      es subits pendant l'attaque ne t'ai pas fait perdre de souvenir sur ta formation."
+      as subis pendant l'attaque ne t'ont pas fait perdre de souvenirs sur ta formation."
     - "- Commen\xE7ons sans plus tarder!"
   loadAnimator: {fileID: 1172253878}
   flashAnimator: {fileID: 2115500223}

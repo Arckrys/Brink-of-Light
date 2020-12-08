@@ -179,11 +179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 9200981803002473807}
-  initLife: 20
+  initLife: 25
   attack: {fileID: 0}
   initAttack: 15
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 1.3
+  initMovementSpeed: 3
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   nextWaypointDistance: 1
   repathRate: 0.5
   dashDistance: 100
-  dashSpeedMultiplicator: 4
+  dashSpeedMultiplicator: 2
   dashRestingTime: 50
 --- !u!114 &4731591255112170153
 MonoBehaviour:
