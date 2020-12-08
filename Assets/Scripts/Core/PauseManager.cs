@@ -33,7 +33,8 @@ public class PauseManager : MonoBehaviour
         btnRestart.onClick.AddListener(OnRestartPressed);
         btnTown.onClick.AddListener(OnTownPressed);
         btnMenu.onClick.AddListener(OnMainMenuPressed);
-        btnQuit.onClick.AddListener(OnQuitPressed);
+        if (btnQuit != null)
+            btnQuit.onClick.AddListener(OnQuitPressed);
     }
 
     private void OnQuitPressed()
