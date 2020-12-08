@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 0
-  healingValue: 25
+  healingValue: 20
   isDestroyedAfterFire: 1
 --- !u!60 &1045188374
 PolygonCollider2D:

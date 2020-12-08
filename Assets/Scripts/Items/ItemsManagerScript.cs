@@ -34,6 +34,10 @@ public class ItemsManagerScript : MonoBehaviour
     private int numberOfItemsTotalUnlockUrbius = 4;
     private int numberOfItemsTotalUnlockIgeirus = 3;
 
+    private bool bonusSetDragon = false;
+    private bool bonusSetVampire = false;
+    private bool bonusSetHotavius = false;
+
     //available items
     private List<string> itemsEquipmentList = new List<string> {
         "Allumettes",
@@ -97,23 +101,12 @@ public class ItemsManagerScript : MonoBehaviour
         itemText = popupPanel.GetComponentInChildren<Text>();
 
         potionUsed = new List<potionsEnum>();
-        //ItemsTest();        
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
             UseConsumableItem();
-    }
-
-    private void ItemsTest()
-    {
-        CreateEquipmentItem(new Vector3(4, 3, 0), "Lampe à huile d'Hotavius");
-        CreateEquipmentItem(new Vector3(-2, 3, 0), SelectRandomItem(itemsEquipmentList));
-        CreateEquipmentItem(new Vector3(4, -3, 0), SelectRandomItem(itemsEquipmentList));
-        CreateEquipmentItem(new Vector3(-2, -3, 0), SelectRandomItem(itemsEquipmentList));
-        CreateConsumableItem(new Vector3(1, 3, 0), "Parchemin de feu");
-        CreateConsumableItem(new Vector3(1, -3, 0), "Parchemin de froid");
     }
 
     public string SelectRandomItem(List<string> itemList)
@@ -290,7 +283,8 @@ public class ItemsManagerScript : MonoBehaviour
         audio.Play();
 
         possessedItems.Add(itemName);
-        
+        CheckForBonusSet();
+
         InventoryManager.MyInstance.AddItem(itemName);
     }
 
@@ -449,6 +443,33 @@ public class ItemsManagerScript : MonoBehaviour
         popupPanel.SetActive(false);
         yield return null;
     }
+
+    private void CheckForBonusSet()
+    {
+        if (possessedItems.Contains("Amulette du dragon") 
+            && possessedItems.Contains("Anneau du dragon")
+            && bonusSetDragon == false)
+        {
+            bonusSetDragon = true;
+            PlayerScript.MyInstance.attack.MyMaxValue += 1f;
+        }
+
+        if (bonusSetHotavius == false
+            && possessedItems.Contains("Lampe à huile d'Hotavius")
+            && possessedItems.Contains("Bottes d'Hotavius")
+            && possessedItems.Contains("Lance d'Hotavius")
+            && possessedItems.Contains("Carte d'Hotavius"))
+        {
+            bonusSetHotavius = true;
+            CreateEquipmentItem(PlayerScript.MyInstance.transform.position, SelectRandomItem(GetItemsEquipmentList()));
+        }
+
+        if (bonusSetVampire == false
+            && possessedItems.Contains("Cape de vampire")
+            && possessedItems.Contains("Crocs de vampire"))
+        {
+            bonusSetVampire = true;
+            PlayerScript.MyInstance.MyProjectileCost -= 0.5f;
+        }
+    }
 }
-
-

@@ -126,10 +126,12 @@ public class DungeonFloorScript : MonoBehaviour
             if (randomDirection == FloorNode.directionEnum.south)
                 y -= 1;
 
-            //if the existing room is a regular room and has no room at the direction chosen, we create the room there
+            //if the existing room is a regular room, is not occupied, has no room at the direction chosen
+            //and does not exceed one of the maximum coordinate, we create the room there
             if (existingNode.GetNeighbourNode(randomDirection) == null
                 && !isTileOccupied(x, y)
-                && existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular)
+                && existingNode.GetRoomType() == FloorNode.roomTypeEnum.regular
+                && x < 4 && x > -4 && y < 4 && y > -4)
             {
                 FloorNode newNode = new FloorNode();
 

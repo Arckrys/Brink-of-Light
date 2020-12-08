@@ -56,12 +56,14 @@ public class MinimapScript : MonoBehaviour
 
         if (!shownNodes.Contains(node))
         {
-            CreateRoom(node, false);
-
             if (!isNeighbour)
             {
                 DisplayNodeNeighbours(node);
+                CreateRoom(node, false);
             }
+
+            else
+                CreateRoom(node, true);
         }        
     }
 
@@ -80,7 +82,7 @@ public class MinimapScript : MonoBehaviour
 
         roomDisplayed = displayedRooms[shownNodes.IndexOf(newCurrentNode)];
 
-        SetRoomTransparency(roomDisplayed, 255);
+        SetRoomTransparency(roomDisplayed, 0.6f);
         Color newColorRed = roomDisplayed.GetComponent<Image>().color;
         newColorRed.g = 0;
         newColorRed.b = 0;
@@ -148,7 +150,7 @@ public class MinimapScript : MonoBehaviour
         displayedRooms.Add(room);
 
         if (isNeighbour)
-            SetRoomTransparency(room, 80);
+            SetRoomTransparency(room, 0.3f);
     }
 
     private void SetRoomTransparency(GameObject room, float transparencyValue)

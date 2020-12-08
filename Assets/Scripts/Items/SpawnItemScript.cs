@@ -56,16 +56,16 @@ public class SpawnItemScript : MonoBehaviour
             //change the item's price
             if (isEquipment)
             {
-                itemPrice = 25;
+                itemPrice = 100;
             }
 
             else
             {
                 if (itemSpawned.GetComponent<Item>().GetName() == "Silex")
-                    itemPrice = 15;
+                    itemPrice = 35;
 
                 else
-                    itemPrice = 10;
+                    itemPrice = 50;
             }
 
             itemSpawned.GetComponent<Item>().SetIsItemSold(true, itemPrice);

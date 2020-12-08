@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 1
+  healingValue: 20
   isDestroyedAfterFire: 0
 --- !u!1 &2712794076456102572
 GameObject:

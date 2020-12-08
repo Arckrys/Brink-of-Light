@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLit: 1
-  healingValue: 25
+  healingValue: 20
   isDestroyedAfterFire: 0
 --- !u!61 &1397782687493720835
 BoxCollider2D:

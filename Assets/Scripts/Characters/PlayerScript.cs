@@ -275,6 +275,8 @@ public class PlayerScript : Character
         if (isLosingHealthWhenAttacking)
             PlayerCurrentLife -= projectileCost;
 
+        print(projectileCost);
+
         if (mouseLookCoroutine != null)
         {
             StopMouseLook();
@@ -519,7 +521,19 @@ public class PlayerScript : Character
             healValueOnSuccessiveHits = value;
         }
     }
-    
+
+    public float MyProjectileCost
+    {
+        get
+        {
+            return projectileCost;
+        }
+
+        set
+        {
+            projectileCost = value;
+        }
+    }
 
     public void HealOnSuccessiveHit()
     {
@@ -533,10 +547,10 @@ public class PlayerScript : Character
     public void IncreaseCombustibleSpawnProbability()
     {
         if (chanceToSpawnCombustible == 0)
-            chanceToSpawnCombustible = 50;
+            chanceToSpawnCombustible = 25;
 
-        else
-            chanceToSpawnCombustible /= 2;
+        else if (chanceToSpawnCombustible - 5 > 0)
+            chanceToSpawnCombustible -= 5;
     }
 
     public int GetChanceToSpawnCombustible()
@@ -549,8 +563,8 @@ public class PlayerScript : Character
         if (burningProbability == 0)
             burningProbability = 20;
 
-        else
-            burningProbability /= 2;
+        else if (burningProbability - 5 > 0)
+            burningProbability -= 5;
     }
 
     public void IncreaseColoredProjectilesLevel()
