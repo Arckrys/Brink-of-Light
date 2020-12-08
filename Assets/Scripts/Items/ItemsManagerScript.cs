@@ -63,7 +63,6 @@ public class ItemsManagerScript : MonoBehaviour
         "Parchemin de feu",
         "Parchemin de froid",
         "Fruit étrange",
-        "Silex",
         "Potion de vitesse",
         "Potion de force",
         "Potion de lumière",
@@ -126,7 +125,7 @@ public class ItemsManagerScript : MonoBehaviour
             numberOfItemsUnlocked = PlayerScript.MyInstance.MyIgeirusLevel;
         }
 
-        string randomItem = itemList[Random.Range(numberOfItemsToUnlock - numberOfItemsUnlocked, itemList.Count)];
+        string randomItem = itemList[Random.Range(0, itemList.Count - numberOfItemsToUnlock + numberOfItemsUnlocked)];
 
         return randomItem;
     }
