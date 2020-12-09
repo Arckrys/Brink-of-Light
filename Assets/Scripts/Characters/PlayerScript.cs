@@ -121,8 +121,6 @@ public class PlayerScript : Character
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
-        if (!isProjectilesDisabled) TimerManager.MyInstance.MyTimer = true;
-
         if (!SaveSystem.DoesSaveExist())
         {
             SaveSystem.SaveGame();
@@ -155,6 +153,8 @@ public class PlayerScript : Character
                 StartInvincibility(2f);
             }
         }
+        
+        TimerManager.MyInstance.MyTimer = !isProjectilesDisabled;
 
         base.Update();
     }

@@ -32,7 +32,7 @@ public class TimerManager : MonoBehaviour
         {
             isTimerOn = value;
 
-            timeInSeconds = 0;
+            timeInSeconds = !value ? 0 : timeInSeconds;
         }
     }
     
