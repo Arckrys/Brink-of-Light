@@ -1158,6 +1158,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1490317445, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.66992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341476727830074204, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341476727830074204, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3453829919189244201, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
       propertyPath: m_Name
       value: CanvasPlayer
@@ -1250,6 +1262,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3453829919733534290, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+      propertyPath: statText
+      value: 
+      objectReference: {fileID: 1960221553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
 --- !u!1 &1432413178 stripped
@@ -1418,6 +1434,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a2d429bc19e74576bbbc10d05c12dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1960221553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2341476727830074204, guid: 6160c553b12b1425785645b788ee6e75, type: 3}
+  m_PrefabInstance: {fileID: 1379484529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2025267982 stripped

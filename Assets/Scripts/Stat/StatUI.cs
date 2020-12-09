@@ -11,7 +11,9 @@ public class StatUI : StatManager
     [SerializeField] private bool scalable;
 
     [SerializeField] private bool filled;
-    
+
+    [SerializeField] private Text statText;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -43,6 +45,11 @@ public class StatUI : StatManager
         if (filled && content && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
         {
             content.fillAmount = MyCurrentValue / MyMaxValue;
+        }
+
+        if (statText)
+        {
+            statText.text = MyCurrentValue + "/" + MyMaxValue;
         }
         
         base.UpdateUIStat();
