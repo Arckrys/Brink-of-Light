@@ -340,7 +340,6 @@ GameObject:
   - component: {fileID: 866845506859457940}
   - component: {fileID: 6049590176859003273}
   - component: {fileID: 8109465169335171380}
-  - component: {fileID: 1859175358726759061}
   m_Layer: 0
   m_Name: BorderTilemapDown
   m_TagString: DoorVillage
@@ -635,25 +634,12 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &1859175358726759061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531834500192281618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8295e011ffc4a4737abdce0ebce661c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transitionSpawn: {fileID: 0}
 --- !u!1 &541379965112865944
 GameObject:
   m_ObjectHideFlags: 0
@@ -9997,8 +9983,8 @@ MonoBehaviour:
   initKnockback: 0
   stoppingDistance: 0
   detectionRadius: 0
-  Grunt: {fileID: 8300000, guid: 3484662e3e15f7b4e8c83ffa1e9ac5d7, type: 3}
-  DyingSound: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
+  Grunt: {fileID: 0}
+  DyingSound: {fileID: 0}
   knockbackResistance: 0
   projectile: {fileID: 0}
   isBoss: 0
@@ -14624,11 +14610,11 @@ MonoBehaviour:
   dialogue:
   - name: Razakus Le Savant
     sentences:
-    - "On va commencer par le d\xE9but. Attaque ce slime l\xE0 bas. Il bougera pas,
-      c'est juste un mannequin tr\xE8s r\xE9aliste."
+    - "On va commencer par le d\xE9but. Attaque ce slime l\xE0 bas. Il ne bougera
+      pas, c'est juste un mannequin tr\xE8s r\xE9aliste."
   - name: Razakus Le Savant
     sentences:
-    - "Bravo ! Remarques que tirer te co\xFBte des points de vie. Tu es maintenant
+    - "Bravo ! Remarque que tirer te co\xFBte des points de vie. Tu es maintenant
       pr\xEAt \xE0 commencer ton aventure !"
     - ...
     - "Non ? Bon okay, on va continuer un peu. Va chercher cet objet qui vient d'appara\xEEtre."
@@ -14643,17 +14629,17 @@ MonoBehaviour:
     sentences:
     - "Bien. Les objets d'\xE9quipement s'affichent dans ton inventaire, sur cette
       \xE9trange bande \xE0 gauche qu'on appelle interface."
-    - "Ils te rendront plus fort jusqu'\xE0 ce que tu ne meurre. Donc essaie de ne
-      pas mourrir."
+    - Ils te rendront plus fort mais tout sera perdu si tu meurs.
     - "Tu as pu voir que tu n'as plus toute ta vie. L'objet d'\xE9quipement a augment\xE9
-      tes points de vie."
+      tes points de vie maximum."
     - "En tant que feu follet, tu absorbes l'\xE9nergie des sources de lumi\xE8re
-      pour r\xE9tablir ta luminosit\xE9. Vas y, essaie."
+      pour r\xE9tablir ta luminosit\xE9. Vas-y, essaie d'abosrber la b\xFBche en
+      feu."
   - name: Razakus Le Savant
     sentences:
     - "Bravo. J'ai finalement termin\xE9, tu sais tout ce dont tu auras besoin. Pars
       \xE0 l'aventure maintenant, et sauve le village des feux follets !"
-    - Moi je te laisse, faudrait pas que je ruine ton immersion
+    - Moi je te laisse, faudrait pas que je ruine ton immersion.
   spawnerEquip: {fileID: 6219093397767049034}
   spawnerConso: {fileID: 6219093397100281412}
   spawnerCombu: {fileID: 2818288354092513621}
@@ -17726,11 +17712,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8180a7b5b8125f45b1a82cb7394eefc, type: 3}
---- !u!224 &8581341491457636341 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5363578804135657126, guid: c8180a7b5b8125f45b1a82cb7394eefc, type: 3}
-  m_PrefabInstance: {fileID: 4429376131253586259}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4393948651015953152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 108718726322983507, guid: c8180a7b5b8125f45b1a82cb7394eefc, type: 3}
@@ -17742,6 +17723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab82a4540fd24ad68a4fc9e3a1b6c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8581341491457636341 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5363578804135657126, guid: c8180a7b5b8125f45b1a82cb7394eefc, type: 3}
+  m_PrefabInstance: {fileID: 4429376131253586259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4776504819968155072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18040,14 +18026,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffab28489bd138948a943b29329eb28f, type: 3}
---- !u!1 &6219093397100281412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 132244545908278718, guid: ffab28489bd138948a943b29329eb28f, type: 3}
-  m_PrefabInstance: {fileID: 6312775402309499898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6219093397100281413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 132244545908278719, guid: ffab28489bd138948a943b29329eb28f, type: 3}
+  m_PrefabInstance: {fileID: 6312775402309499898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6219093397100281412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 132244545908278718, guid: ffab28489bd138948a943b29329eb28f, type: 3}
   m_PrefabInstance: {fileID: 6312775402309499898}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7885217631247376728

@@ -1957,14 +1957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: Grunt
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: DyingSound
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5484230989233835203, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1973,36 +1965,6 @@ PrefabInstance:
       propertyPath: messageFrame
       value: 
       objectReference: {fileID: 6747255494756799481}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
-      value: "On va commencer par le d\xE9but. Attaque ce slime l\xE0 bas. Il ne
-        bougera pas, c'est juste un mannequin tr\xE8s r\xE9aliste."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[1].sentences.Array.data[0]
-      value: "Bravo ! Remarque que tirer te co\xFBte des points de vie. Tu es maintenant
-        pr\xEAt \xE0 commencer ton aventure !"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[3].sentences.Array.data[1]
-      value: "Ils te rendront plus fort jusqu'\xE0 ce que tu ne meures. Donc essaie
-        de ne pas mourir."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[3].sentences.Array.data[2]
-      value: "Tu as pu voir que tu n'as plus toute ta vie. L'objet d'\xE9quipement
-        a augment\xE9 tes points de vie maximum."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[3].sentences.Array.data[3]
-      value: "En tant que feu follet, tu absorbes l'\xE9nergie des sources de lumi\xE8re
-        pour r\xE9tablir ta luminosit\xE9. Vas-y, essaie d'abosrber la b\xFBche en
-        feu."
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312775402971539641, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: dialogue.Array.data[4].sentences.Array.data[1]
-      value: Moi je te laisse, faudrait pas que je ruine ton immersion.
-      objectReference: {fileID: 0}
     - target: {fileID: 6312775403229837894, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_Name
       value: TutorialRoom
@@ -2051,12 +2013,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8109465169335171380, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1859175358726759061, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
 --- !u!1001 &6747255494756799480
 PrefabInstance:
