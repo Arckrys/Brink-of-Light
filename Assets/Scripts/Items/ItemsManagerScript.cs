@@ -214,23 +214,28 @@ public class ItemsManagerScript : MonoBehaviour
             case "Lance d'Hotavius":
                 PlayerScript.MyInstance.IsProjectilePiercing = true;
                 PlayerScript.MyInstance.range.MyMaxValue += 30;
-                if (PlayerScript.MyInstance.attack.MyMaxValue < 3)
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                else
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
+                if (PlayerScript.MyInstance.attack.MyMaxValue > 1)
+                {
+                    if (PlayerScript.MyInstance.attack.MyMaxValue < 3)
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                    else
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
+                }
                 break;
 
             case "Grimoire de boule de feu":
                 PlayerScript.MyInstance.IncreaseProjectileNumber();
-                if (PlayerScript.MyInstance.attack.MyMaxValue < 2)
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                else if (PlayerScript.MyInstance.attack.MyMaxValue < 4)
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
-                else if (PlayerScript.MyInstance.attack.MyMaxValue < 6)
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 1.5f;
-                else
-                    PlayerScript.MyInstance.attack.MyMaxValue -= 2f;
-
+                if (PlayerScript.MyInstance.attack.MyMaxValue > 1)
+                {
+                    if (PlayerScript.MyInstance.attack.MyMaxValue < 2)
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
+                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 4)
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
+                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 6)
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 1.5f;
+                    else
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 2f;
+                }
                 break;
 
             case "Carte d'Hotavius":

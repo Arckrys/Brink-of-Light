@@ -16,6 +16,8 @@ public class StatManager : MonoBehaviour
             {
                 MyCurrentValue = value;
             }
+
+            UpdateUIStat();
         }
     }
     
