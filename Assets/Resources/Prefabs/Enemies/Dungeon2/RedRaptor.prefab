@@ -188,7 +188,7 @@ MonoBehaviour:
   movementSpeed: {fileID: 0}
   initMovementSpeed: 3.5
   critChance: {fileID: 0}
-  initCritChance: 5
+  initCritChance: 0
   critDamage: {fileID: 0}
   initCritDamage: 0
   range: {fileID: 0}
