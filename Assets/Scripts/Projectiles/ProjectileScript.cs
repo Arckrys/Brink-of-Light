@@ -106,7 +106,7 @@ public class ProjectileScript : MonoBehaviour
 
             if (volume)
             {
-                audio.volume = 1-Math.Abs(volumeValue)/80;
+                audio.volume = 0.1f-Math.Abs(volumeValue)/80;
             }
             
             audio.clip = impactClip;

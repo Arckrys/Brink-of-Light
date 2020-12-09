@@ -331,7 +331,7 @@ public class ItemsManagerScript : MonoBehaviour
                     break;
 
                 case "Potion de Urbius":
-                    StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartInvincibility(10f));
+                    StartCoroutine(PlayerScript.MyInstance.GetComponent<PlayerScript>().StartInvincibility(8f));
                     break;
 
                 case "Parchemin de froid":

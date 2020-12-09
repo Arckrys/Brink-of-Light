@@ -651,6 +651,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5094738063621364687, guid: a827e98fe069844db8ea74ecd1cff6f1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1670103393
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a827e98fe069844db8ea74ecd1cff6f1, type: 3}
 --- !u!114 &600990249 stripped
@@ -1777,6 +1781,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3020417311089055764, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3020417312246207502, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.000061035156
@@ -1799,6 +1807,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6605242063346803090, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605242063346803090, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6605242063451013774, guid: 1baab0b6792c3b942bbfe9d551988f26, type: 3}
