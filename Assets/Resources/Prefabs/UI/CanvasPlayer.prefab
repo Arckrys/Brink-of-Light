@@ -5811,7 +5811,7 @@ MonoBehaviour:
   variableStat: 1
   scalable: 0
   filled: 1
-  statText: {fileID: 0}
+  statText: {fileID: 2341476727830074204}
 --- !u!1 &3453829919845302566
 GameObject:
   m_ObjectHideFlags: 0
