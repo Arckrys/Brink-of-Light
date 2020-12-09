@@ -17,7 +17,8 @@ public class StatManager : MonoBehaviour
                 MyCurrentValue = value;
             }
 
-            UpdateUIStat();
+            if (MyCurrentValue > 0 && value > 0)
+                UpdateUIStat();
         }
     }
     
