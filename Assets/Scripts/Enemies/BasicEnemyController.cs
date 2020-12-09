@@ -61,6 +61,11 @@ public class BasicEnemyController : Character
         randomDirection.y = (Random.Range(-10, 11));
 
         canvasGroupLifeBar = transform.Find("EnemyLifeCanvas").GetComponent<CanvasGroup>();
+        if (isBoss)
+        {
+            canvasGroupLifeBar.alpha = 1f;
+        }
+        
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         UpdatePathWander();
@@ -122,7 +127,10 @@ public class BasicEnemyController : Character
             life.MyCurrentValue -= damageReceived;
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(), DamageType.Damage, 1.0f, isCrit);
 
-            ShowLifeBar();
+            if (!isBoss)
+            {
+                ShowLifeBar();
+            }
 
             playerDetected = true;
             if(knockbackIntensity - knockbackResistance > 0)
