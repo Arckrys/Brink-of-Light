@@ -55,7 +55,7 @@ public class GameData
 
     public void SetCurrencies(int gold, int souls)
     {
-        currencies[0] = gold;
+        //currencies[0] = gold;
         currencies[1] = souls;
     }
 

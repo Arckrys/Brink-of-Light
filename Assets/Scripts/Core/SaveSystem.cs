@@ -4,7 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    static string path = Application.persistentDataPath + "/BrinkOfLight.save";
+    //static string path = Application.persistentDataPath + "/BrinkOfLight.save";
+    static string path = "./BrinkOfLight.save";
 
     public static void SaveGame()
     {
