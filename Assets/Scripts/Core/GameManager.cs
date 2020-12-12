@@ -71,11 +71,6 @@ public class GameManager : MonoBehaviour
 
     public void EditPauseState(bool state)
     {
-        if (Time.timeScale == 1)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-
         if (!state && (menuGraphics.activeSelf || menuAudio.activeSelf))
         {
             menuGraphics.SetActive(state);
@@ -86,6 +81,10 @@ public class GameManager : MonoBehaviour
         {
             inPause = state;
             menuPause.SetActive(state);
+            if (Time.timeScale == 1)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
         }
     }
 
