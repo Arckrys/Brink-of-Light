@@ -176,11 +176,11 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 25
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 2
+  initMovementSpeed: 4
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
-  initCritDamage: 0
+  initCritDamage: 1
   range: {fileID: 0}
   initRange: 50
   attackSpeed: {fileID: 0}

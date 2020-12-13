@@ -191,7 +191,7 @@ MonoBehaviour:
   critChance: {fileID: 0}
   initCritChance: 0
   critDamage: {fileID: 0}
-  initCritDamage: 0
+  initCritDamage: 1
   range: {fileID: 0}
   initRange: 5
   attackSpeed: {fileID: 0}

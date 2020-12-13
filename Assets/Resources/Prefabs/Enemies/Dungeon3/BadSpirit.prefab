@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6008514023222817222}
   - component: {fileID: 3711256340856928852}
   - component: {fileID: 8049097857008703508}
+  - component: {fileID: -8642190061735309884}
   m_Layer: 10
   m_Name: BadSpirit
   m_TagString: Enemy
@@ -206,11 +207,11 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 30
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 2
+  initMovementSpeed: 4
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
-  initCritDamage: 0
+  initCritDamage: 1
   range: {fileID: 0}
   initRange: 50
   attackSpeed: {fileID: 0}
@@ -232,6 +233,34 @@ MonoBehaviour:
   nextWaypointDistance: 1
   repathRate: 0.5
   attackFrequency: 0.2
+--- !u!114 &-8642190061735309884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656487939632305643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1001 &8507748713956682323
 PrefabInstance:
   m_ObjectHideFlags: 0
