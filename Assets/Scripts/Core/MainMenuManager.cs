@@ -40,6 +40,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject chtulo;
 
     [SerializeField] private Sprite chtuloCasting;
+
+    [SerializeField] private AudioManager audioManager;
+
+    [SerializeField] private MusicManager musicManager;
     
     private bool inMenu;
 
@@ -78,7 +82,9 @@ public class MainMenuManager : MonoBehaviour
         
         confirmNewGame.onClick.AddListener(OnConfirmNewGamePressed);
         backNewGame.onClick.AddListener(OnBackNewGamePressed);
-        
+
+        LoadPlayerSettings();
+
         PlayerPrefs.SetInt("Restart", 0);
     }
     
@@ -88,6 +94,10 @@ public class MainMenuManager : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.Escape) || !inMenu) return;
 
         UpdateMenu();
+    }
+
+    private void LoadPlayerSettings() {
+        audioManager.InitMasterVolume();
     }
 
     public void UpdateMenu()
@@ -182,6 +192,8 @@ public class MainMenuManager : MonoBehaviour
 
     private IEnumerator StartNewGame()
     {
+        musicManager.SetCurrentMusic("cinematic");
+
         chtulo.GetComponent<SpriteRenderer>().sprite = chtuloCasting;
         
         SaveSystem.DeleteSave();

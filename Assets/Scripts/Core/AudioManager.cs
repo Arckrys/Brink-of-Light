@@ -17,11 +17,16 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        currentVolume = GetVolume();
-        SetVolume(currentVolume);
+        InitMasterVolume();
         
         volume.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
         back.onClick.AddListener(OnBackPressed);
+    }
+
+    public void InitMasterVolume()
+    {
+        currentVolume = GetVolume();
+        SetVolume(currentVolume);
     }
     
     private void OnBackPressed()
@@ -37,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
     private float GetVolume()
     {
-        return PlayerPrefs.GetFloat(AudioMaster, audioMixer.GetFloat("Volume", out var volumeValue) ? volumeValue : 40f);
+        return PlayerPrefs.GetFloat(AudioMaster, audioMixer.GetFloat("Volume", out var volumeValue) ? volumeValue : -25f);
     }
 
     private void SetVolume(float value)
