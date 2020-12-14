@@ -93,7 +93,7 @@ public class DialogueManagerScript : MonoBehaviour
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			yield return new WaitForSeconds(0.02f);
+			yield return new WaitForSeconds(0.015f);
 		}
 		sentenceIsOver = true;
 

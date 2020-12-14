@@ -207,7 +207,7 @@ MonoBehaviour:
   attack: {fileID: 0}
   initAttack: 20
   movementSpeed: {fileID: 0}
-  initMovementSpeed: 2
+  initMovementSpeed: 2.5
   critChance: {fileID: 0}
   initCritChance: 5
   critDamage: {fileID: 0}
@@ -232,9 +232,9 @@ MonoBehaviour:
   lootBag: {fileID: 8945563715381800602, guid: eac38e6625a24419e888876d8279ccb9, type: 3}
   nextWaypointDistance: 3
   repathRate: 0.5
-  dashDistance: 50
+  dashDistance: 40
   dashSpeedMultiplicator: 3
-  dashRestingTime: 20
+  dashRestingTime: 5
   attackFrequency: 0.2
 --- !u!114 &6824529287788322330
 MonoBehaviour:
