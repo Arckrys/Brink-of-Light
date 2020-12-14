@@ -47,7 +47,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.652
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.5
   m_LightVolumeOpacity: 0.244
   m_ApplyToSortingLayers: 00000000e3023d0e1b5f77179f3e749c43a4cfd3
   m_LightCookieSprite: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4889284226022031979}
-  - component: {fileID: 1254267402}
+  - component: {fileID: 4889284224785062881}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -104,7 +104,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1254267402
+--- !u!114 &4889284224785062881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,30 +113,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4889284226022031981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06bcf3bc267ac4dd5ac6a705a340adbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 01d1b95282bef0a4893490fed96b6a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSettings: {fileID: 0}
-  menuAudio: {fileID: 0}
-  menuGraphics: {fileID: 0}
-  newGame: {fileID: 0}
-  resumeGame: {fileID: 0}
-  noSaveText: {fileID: 0}
-  settings: {fileID: 0}
-  quit: {fileID: 0}
-  audio: {fileID: 0}
-  graphics: {fileID: 0}
-  back: {fileID: 0}
-  confirmNewGame: {fileID: 0}
-  backNewGame: {fileID: 0}
-  transitionNewGame: {fileID: 0}
-  canvasMainMenu: {fileID: 0}
-  loadAnimator: {fileID: 0}
-  chtulo: {fileID: 0}
-  chtuloCasting: {fileID: 4483278083094085680, guid: 0dbebc7b7dd0543689386e3eafc73905, type: 3}
-  audioManager: {fileID: 0}
-  graphManager: {fileID: 0}
-  musicManager: {fileID: 0}
+  closeDoors: {fileID: 0}
+  openDoors: {fileID: 0}
+  chestPrefab: {fileID: 5029205384024540948, guid: cce38df88cc91764aa2988e73aefdc72, type: 3}
+  menuPause: {fileID: 2855537676016985080, guid: 51af923e62b80417a9852528982a78c6, type: 3}
+  menuGraphics: {fileID: 689466908266692837, guid: b1afca9e89fdd44469c54c7d13f475d7, type: 3}
+  menuAudio: {fileID: 1582383164465045859, guid: 73c87ee1f9f2a4333abb51eec88c1b2a, type: 3}
+  menuMort: {fileID: 4098426713714451643, guid: 1a507ba9481182743bbf7294224faf94, type: 3}
 --- !u!1 &4889284226335711151
 GameObject:
   m_ObjectHideFlags: 0
