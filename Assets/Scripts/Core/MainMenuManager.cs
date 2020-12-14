@@ -42,6 +42,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Sprite chtuloCasting;
 
     [SerializeField] private AudioManager audioManager;
+    
+    [SerializeField] private GraphManager graphManager;
 
     [SerializeField] private MusicManager musicManager;
     
@@ -98,6 +100,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void LoadPlayerSettings() {
         audioManager.InitMasterVolume();
+        graphManager.InitGraphics();
     }
 
     public void UpdateMenu()

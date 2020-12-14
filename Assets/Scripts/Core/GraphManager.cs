@@ -42,19 +42,14 @@ public class GraphManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        currentFullscreenState = GetFullscreen();
-        SetFullscreen(currentFullscreenState);
+        InitGraphics();
 
         foreach (var t in Screen.resolutions)
         {
             resolutions.Add(t.width + "x" + t.height);
         }
         var (width, height) = GetResolution();
-        SetResolution(width, height);
         currentResolutionIndex = resolutions.IndexOf(width + "x" + height);
-
-        currentGraphicIndex = GetGraphics();
-        SetGraphics(currentGraphicIndex);
 
         fullscreen.onClick.AddListener(OnFullscreenPressed);
         nextResolution.onClick.AddListener(OnNextResolutionPressed);
@@ -63,6 +58,18 @@ public class GraphManager : MonoBehaviour
         previousGraphics.onClick.AddListener(OnPreviousGraphicPressed);
         apply.onClick.AddListener(OnApplyPressed);
         back.onClick.AddListener(OnBackPressed);
+    }
+
+    public void InitGraphics()
+    {
+        currentFullscreenState = GetFullscreen();
+        SetFullscreen(currentFullscreenState);
+        
+        var (width, height) = GetResolution();
+        SetResolution(width, height);
+
+        currentGraphicIndex = GetGraphics();
+        SetGraphics(currentGraphicIndex);
     }
 
     private void OnApplyPressed()
