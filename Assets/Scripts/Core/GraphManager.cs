@@ -81,10 +81,9 @@ public class GraphManager : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(currentGraphicIndex);
 
-        Screen.fullScreen = currentFullscreenState;
-
+        var mode = currentFullscreenState ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed;
         var resolution = resolutions[currentResolutionIndex].Split('x');
-        Screen.SetResolution(int.Parse(resolution[0]), int.Parse(resolution[1]), Screen.fullScreen);
+        Screen.SetResolution(int.Parse(resolution[0]), int.Parse(resolution[1]), mode);
     }
 
     private void OnBackPressed()
