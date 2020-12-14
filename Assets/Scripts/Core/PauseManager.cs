@@ -61,6 +61,7 @@ public class PauseManager : MonoBehaviour
     private void OnRestartPressed()
     {
         StartCoroutine(RestartDungeon());
+
         Time.timeScale = 1;
     }
 
@@ -79,6 +80,8 @@ public class PauseManager : MonoBehaviour
     private IEnumerator LoadVillage()
     {
         animator.SetTrigger("Start");
+
+        MusicManager.MyInstance.SetCurrentMusic("village");
 
         GetComponent<CanvasGroup>().alpha = 0f;
 
@@ -103,6 +106,8 @@ public class PauseManager : MonoBehaviour
     private IEnumerator LoadMainMenu()
     {
         animator.SetTrigger("Start");
+
+        MusicManager.MyInstance.SetCurrentMusic("village");
 
         GetComponent<CanvasGroup>().alpha = 0f;
 
