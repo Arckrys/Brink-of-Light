@@ -44,7 +44,7 @@ public class MinimapScript : MonoBehaviour
         {
             if (!shownNodes.Contains(node))
             {
-                CreateRoom(node, false);
+                CreateRoom(node, true);
             }
         }
     }
