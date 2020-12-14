@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4098426713714451620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   btnRestart: {fileID: 8246807920140706582}
   btnTown: {fileID: 8246807920241387222}
   btnMenu: {fileID: 8246807920355580546}
+  btnQuit: {fileID: 0}
   animator: {fileID: 0}
 --- !u!225 &7656746644818710509
 CanvasGroup:

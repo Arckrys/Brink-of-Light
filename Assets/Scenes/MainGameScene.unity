@@ -142,6 +142,22 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4889284224785062881, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: menuMort
+      value: 
+      objectReference: {fileID: 123885145}
+    - target: {fileID: 4889284224785062881, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: menuPause
+      value: 
+      objectReference: {fileID: 980010790}
+    - target: {fileID: 4889284224785062881, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: menuAudio
+      value: 
+      objectReference: {fileID: 1553401693}
+    - target: {fileID: 4889284224785062881, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
+      propertyPath: menuGraphics
+      value: 
+      objectReference: {fileID: 1597559593}
     - target: {fileID: 4889284226022031979, guid: 77fb7abd1a8402044b353fc76e859a1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0191226
