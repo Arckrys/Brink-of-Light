@@ -15,6 +15,14 @@ public class FloorNode
 
     private int myX, myY;
 
+    public DungeonFloorScript DungeonFloorScript
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void SetNeighbourNode(directionEnum direction, FloorNode node)
     {
         switch (direction)
