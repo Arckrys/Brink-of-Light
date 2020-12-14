@@ -62,6 +62,7 @@ public class DistanceScript : BasicEnemyController
                     shoot(player.position - transform.position);
                     attackResting = true;
                     attackRestingCounter = (int)((1 / attackFrequency) * 10);
+                    gameObject.layer = 13;
 
                 }
             }
@@ -72,6 +73,7 @@ public class DistanceScript : BasicEnemyController
                     Move();
                     attackResting = false;
                     gfxAnim.SetBool("Attacking", false);
+                    gameObject.layer = 10;
                 }
 
                 if (attackRestingCounter > 0)
