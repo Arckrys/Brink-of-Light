@@ -248,7 +248,7 @@ public class BasicEnemyController : Character
     }
 
     /// <summary>
-    /// Permet aux ennemies de tirer des projectiles dans une direction voulu
+    /// Permet aux ennemies de tirer des projectiles "basics" dans une direction voulu
     /// </summary>
     /// <param name="direction">Direction du projectile</param>
     protected void FireProjectileAtDirection(Vector2 direction)
@@ -269,6 +269,35 @@ public class BasicEnemyController : Character
 
         //create projectile
         var newProjectile = Instantiate(projectile, new Vector3(position.x, position.y, -2), Quaternion.identity);
+        newProjectile.GetComponent<EnnemiesProjectileScript>().SetDirection(projectileDirection, position.x, position.y);
+        newProjectile.GetComponent<EnnemiesProjectileScript>().MyBaseDamage = damageToDeal;
+        newProjectile.GetComponent<EnnemiesProjectileScript>().MyKnockback = knockback.MyMaxValue;
+        newProjectile.GetComponent<EnnemiesProjectileScript>().isCrit = isCrit;
+    }
+
+    /// <summary>
+    /// variante de FireProjectileAtDirection permettant de choisir le projectile à envoyer (dans le cas de plusieurs projectiles)
+    /// </summary>
+    /// <param name="direction">direction du tir</param>
+    /// <param name="myProjectile">GameObject du projectile à tirer</param>
+    protected void FireProjectileAtDirection(Vector2 direction, GameObject myProjectile)
+    {
+        var position = transform.position;
+
+        var projectileDirection = direction;
+
+        var randomNumber = Random.Range(0, 100);
+        var damageToDeal = attack.MyMaxValue;
+        var isCrit = false;
+
+        if (randomNumber <= critChance.MyMaxValue)
+        {
+            damageToDeal *= critDamage.MyMaxValue;
+            isCrit = true;
+        }
+
+        //create projectile
+        var newProjectile = Instantiate(myProjectile, new Vector3(position.x, position.y, -2), Quaternion.identity);
         newProjectile.GetComponent<EnnemiesProjectileScript>().SetDirection(projectileDirection, position.x, position.y);
         newProjectile.GetComponent<EnnemiesProjectileScript>().MyBaseDamage = damageToDeal;
         newProjectile.GetComponent<EnnemiesProjectileScript>().MyKnockback = knockback.MyMaxValue;

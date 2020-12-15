@@ -5,8 +5,8 @@ using UnityEngine;
 public class BouncingProjectiles : EnnemiesProjectileScript
 {
     public int bounceTimes;
-    private int bounceCounter;
-    private Vector2 direction;
+    protected int bounceCounter;
+    protected Vector2 direction;
 
     protected override void Start()
     {
@@ -27,22 +27,27 @@ public class BouncingProjectiles : EnnemiesProjectileScript
             }
             else
             {
-                if (bounceCounter == bounceTimes)
-                {
-                    collisionDetected = true;
-                }
-                else
-                {
-                    Vector2 collision =  other.ClosestPoint(transform.position);
-                    Vector2 normal = ((Vector2)transform.position - collision).normalized;
-                    direction = Vector2.Reflect(direction, normal);
-                    xDirection = direction.x;
-                    yDirection = direction.y;
-                    bounceCounter++;
-                }
+                bounce(other);
             }
         }
 
 
+    }
+
+    protected virtual void bounce(Collider2D other)
+    {
+        if (bounceCounter == bounceTimes)
+        {
+            collisionDetected = true;
+        }
+        else
+        {
+            Vector2 collision = other.ClosestPoint(transform.position);
+            Vector2 normal = ((Vector2)transform.position - collision).normalized;
+            direction = Vector2.Reflect(direction, normal);
+            xDirection = direction.x;
+            yDirection = direction.y;
+            bounceCounter++;
+        }
     }
 }

@@ -8,7 +8,8 @@ public class DiaboloScript : DistanceScript
     private int AOEtimer;
     public int SpawnDelay;
     private int Spawntimer;
-    public GameObject Bat;
+    public GameObject EnnemyToSpawn;
+    public GameObject ProjectileToFire;
 
     protected override void Start()
     {
@@ -20,9 +21,9 @@ public class DiaboloScript : DistanceScript
     protected override void shoot(Vector2 direction)
     {
 
-        FireProjectileAtDirection(direction);
-        FireProjectileAtDirection(Rotate(direction, -30f));
-        FireProjectileAtDirection(Rotate(direction, 30f));
+        FireProjectileAtDirection(direction,ProjectileToFire);
+        FireProjectileAtDirection(Rotate(direction, -30f), ProjectileToFire);
+        FireProjectileAtDirection(Rotate(direction, 30f), ProjectileToFire);
 
     }
 
@@ -49,7 +50,7 @@ public class DiaboloScript : DistanceScript
         if(Spawntimer > SpawnDelay)
         {
             Spawntimer = 0;
-            GameObject combustible = Instantiate(Bat, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            GameObject combustible = Instantiate(EnnemyToSpawn, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
         }
         AOEtimer++;
