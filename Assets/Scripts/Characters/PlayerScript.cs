@@ -275,8 +275,6 @@ public class PlayerScript : Character
         if (isLosingHealthWhenAttacking)
             PlayerCurrentLife -= projectileCost;
 
-        print(projectileCost);
-
         if (mouseLookCoroutine != null)
         {
             StopMouseLook();
