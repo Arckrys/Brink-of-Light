@@ -1253,6 +1253,10 @@ PrefabInstance:
       propertyPath: initRange
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8502234294414699551, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
+      propertyPath: isLifeUnlimited
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57cb1c153adb174d904942f4ef7ed70, type: 3}
 --- !u!114 &934289014 stripped
@@ -1945,6 +1949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: Grunt
+      value: 
+      objectReference: {fileID: 8300000, guid: 3484662e3e15f7b4e8c83ffa1e9ac5d7, type: 3}
+    - target: {fileID: 4767875335060727891, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: DyingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6937b856bed7fc84caaa7b0d1ede2500, type: 3}
     - target: {fileID: 5484230989233835203, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2008,6 +2020,10 @@ PrefabInstance:
     - target: {fileID: 6312775403435534838, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312775403435534839, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5206537bf603b98479bc6eacf37b885d, type: 3}

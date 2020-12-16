@@ -38,6 +38,8 @@ public class PlayerScript : Character
     [SerializeField] private StatUI lifeBar;
 
     [SerializeField] private bool isProjectilesDisabled;
+    
+    [SerializeField] private bool isLifeUnlimited;
 
     private bool isInMenu = false;
 
@@ -141,7 +143,7 @@ public class PlayerScript : Character
 
         if (PlayerCurrentLife <= 0)
         {
-            if (additionalLives == 0)
+            if (additionalLives == 0 && !isLifeUnlimited)
             {
                 GameManager.MyInstance.SetDeathMenu(true);
                 this.gameObject.SetActive(false);
@@ -419,11 +421,12 @@ public class PlayerScript : Character
     public void ReceiveDmgFromProjectile(float damageReceived)
     {
         invinsibleCoroutine = StartCoroutine(StartInvincibility());
-        print("touched");
+        
         PlayerCurrentLife -= damageReceived;
 
         CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
     }
+    
     public void SetIsInMenu(bool b)
     {
         isInMenu = b;
