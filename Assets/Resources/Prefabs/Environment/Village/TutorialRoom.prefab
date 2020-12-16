@@ -14610,8 +14610,12 @@ MonoBehaviour:
   dialogue:
   - name: Razakus Le Savant
     sentences:
-    - "On va commencer par le d\xE9but. Attaque ce slime l\xE0 bas. Il ne bougera
-      pas, c'est juste un mannequin tr\xE8s r\xE9aliste."
+    - "On va commencer par le d\xE9but. Tu peux te d\xE9placer avec [Z] [Q] [S] [D]
+      ou les fl\xE8ches directionnelles."
+    - "Tu peux aussi tirer des boules de feu impressionnantes avec [clic gauche].
+      Attention, \xE7a te co\xFBte des points de vie."
+    - "Attaque ce slime l\xE0 bas. Il ne bougera pas, c'est juste un mannequin tr\xE8s
+      r\xE9aliste."
   - name: Razakus Le Savant
     sentences:
     - "Bravo ! Remarque que tirer te co\xFBte des points de vie. Tu es maintenant
@@ -15039,7 +15043,7 @@ Transform:
   m_GameObject: {fileID: 6312775403435534839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.77, y: 0.97, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.45, z: 1}
   m_Children: []
   m_Father: {fileID: 6312775402971539642}
   m_RootOrder: 6

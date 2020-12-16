@@ -10,6 +10,7 @@ public class MusicManager : MonoBehaviour
     private AudioClip dungeonTwoClip;
     private AudioClip dungeonThreeClip;
     private AudioClip cinematicClip;
+    private AudioClip deathClip;
 
     private AudioSource source;
 
@@ -39,12 +40,14 @@ public class MusicManager : MonoBehaviour
         dungeonOneClip = Resources.Load<AudioClip>("Sounds/Music/Dungeon1");
         dungeonTwoClip = Resources.Load<AudioClip>("Sounds/Music/Dungeon2");
         dungeonThreeClip = Resources.Load<AudioClip>("Sounds/Music/Dungeon3");
+        deathClip = Resources.Load<AudioClip>("Sounds/Music/Death");
 
         musicData.Add("village", villageClip);
         musicData.Add("cinematic", cinematicClip);
         musicData.Add("dungeon1", dungeonOneClip);
         musicData.Add("dungeon2", dungeonTwoClip);
         musicData.Add("dungeon3", dungeonThreeClip);
+        musicData.Add("death", deathClip);
 
         source = GetComponent<AudioSource>();
     }
@@ -60,6 +63,7 @@ public class MusicManager : MonoBehaviour
             return;
     
         currentMusic = musicKey;
+        StopAllCoroutines();
         StartCoroutine(ChangeMusic(musicKey));
     }
 

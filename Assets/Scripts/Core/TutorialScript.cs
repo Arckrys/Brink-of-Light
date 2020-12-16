@@ -90,14 +90,6 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Spell"))
-            print("spell");
-        interacted = true;
-        Debug.Log("Helllllo");
-    }*/
-
     public void TriggerEnnemy()
     {
         if(indexDialogue == 0)
