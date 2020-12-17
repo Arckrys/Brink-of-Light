@@ -15,7 +15,7 @@ public class ProjectileScript : MonoBehaviour
     public float projectileSpeed = 10f;
     public float projectileShrinkFrequency = 0.1f;
 
-    //variable used to change range
+    //variable used to change range, making the projectile shrink faster as it gets smaller
     public float projectileShrinkAcceleration = 1.1f;
 
     private float initialZ;
@@ -27,7 +27,6 @@ public class ProjectileScript : MonoBehaviour
     private float bossBonusDamage = 0;
     private bool isBurning = false;
 
-    //ratio used to shrink the projectile into a square
     private float heightWidthRatio;
 
     private Light2D projectileLight;
@@ -67,29 +66,15 @@ public class ProjectileScript : MonoBehaviour
         //allow the projectile to shrink and update its current damage right after its creation
         timeTemp = projectileShrinkFrequency;
 
-        /*         
-        float hitboxX, hitboxY;
-        float hitboxYReduction = 0.80f;
-        //change hitbox size of boxcollider
-        hitboxX = spriteRenderer.bounds.size.x / transform.localScale.x;
-        hitboxY = hitboxYReduction * spriteRenderer.bounds.size.y / transform.localScale.y;
-        Vector3 newSize = new Vector3(hitboxX, hitboxY, 0);
-        collider.size = newSize;
-        
-        //change hitbox center
-        collider.offset = new Vector2(0, (hitboxYReduction - 1) * spriteRenderer.bounds.size.y / transform.localScale.y);
-        */
-
         heightWidthRatio = spriteRenderer.bounds.size.y / spriteRenderer.bounds.size.x;
     }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+        //when the projectile has collided with an object its supposed to collide with and still has a rigidbody
         if (GetComponent<ProjectileCollisionScript>().IsCollisionDetected() && rigidbody)
         {
-            //set the fireball as a square since explosion uses square sprites
             float explosionScale = 0.7f;
             transform.localScale = new Vector3(transform.localScale.x * explosionScale, transform.localScale.x * explosionScale, 0);
 
@@ -98,8 +83,7 @@ public class ProjectileScript : MonoBehaviour
             Destroy(rigidbody);
             Destroy(collider);
 
-            //play the blast audio clip
-            
+            //play the blast audio clip            
             var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
             var volumeValue = .5f;
             var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
@@ -124,6 +108,7 @@ public class ProjectileScript : MonoBehaviour
 
             timeTemp += Time.deltaTime;
 
+            //when the projectile has to shrink
             if (timeTemp > projectileShrinkFrequency)
             {
                 spriteScaleX = transform.localScale.x;
@@ -142,6 +127,7 @@ public class ProjectileScript : MonoBehaviour
                     transform.localScale = newScale;
                     timeTemp = 0;
 
+                    //update the projectile's light
                     if(newX < 1.5 && newY < 1.5)
                     {
                         projectileLight.pointLightOuterRadius = System.Math.Max(0, projectileLight.pointLightOuterRadius - 0.2f);
@@ -164,6 +150,7 @@ public class ProjectileScript : MonoBehaviour
                     projectileCurrentDamage = newDamage;
                 }
 
+                //destroy projectile when it becomes too small
                 else
                 {
                     Destroy(gameObject);
@@ -177,8 +164,10 @@ public class ProjectileScript : MonoBehaviour
         }  
     }
 
+    //set the direction of the projectile based on it's target point
     public void SetDirection(Vector2 direction, float initialX, float initialY)
     {
+        //update position
         x = initialX;
         y = initialY;
 
@@ -186,7 +175,6 @@ public class ProjectileScript : MonoBehaviour
 
         xDirection = direction.x;
         yDirection = direction.y;
-
         
         //change the projectile's rotation to match the direction
         Vector2 baseVector = new Vector2(0, 1);

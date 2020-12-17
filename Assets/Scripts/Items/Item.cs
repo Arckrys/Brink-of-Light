@@ -7,7 +7,6 @@ public class Item : MonoBehaviour
     protected string itemName;
     protected Sprite itemSprite;
     protected bool isItemSold = false;
-    protected bool canBuyItem = false;
     protected int myGoldCost;
 
     public virtual void SetName(string itemName)

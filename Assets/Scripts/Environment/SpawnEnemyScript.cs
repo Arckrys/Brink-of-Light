@@ -16,6 +16,7 @@ public class SpawnEnemyScript : MonoBehaviour
         dungeon = DungeonFloorScript.MyInstance.GetDungeonLevel();
         floor = DungeonFloorScript.MyInstance.GetFloorLevel();
 
+        //get all the enemy prefabs of the current dungeon
         string prefabsPath = "Prefabs/Enemies/Dungeon" + dungeon;
         enemyArray = Resources.LoadAll<GameObject>(prefabsPath);
 
@@ -32,10 +33,12 @@ public class SpawnEnemyScript : MonoBehaviour
             }
         }
 
+        //get a random number in the range of the sum of spawn probabilites
         int randomInt = Random.Range(0, probabilitySum);
 
         probabilitySum = 0;
 
+        //we go through the array of spawnable enemies, adding their probabilities to a new sum each time.
         foreach (GameObject o in enemyArray)
         {
             int enemyProbability = o.GetComponent<BasicEnemyController>().GetSpawnProbabilities()[floor - 1];
@@ -44,6 +47,8 @@ public class SpawnEnemyScript : MonoBehaviour
             {
                 probabilitySum += enemyProbability;
 
+                //if the random number is inferior to the sum of probabilites, then spawn the current enemy of the foreach
+                //and attach it to the room
                 if (randomInt < probabilitySum)
                 {
                     GameObject enemy = Instantiate(o, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);

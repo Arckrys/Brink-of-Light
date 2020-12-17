@@ -21,34 +21,30 @@ public class SpawnItemScript : MonoBehaviour
         ItemsManagerScript itemManagerScript = itemManagerGameObject.GetComponent<ItemsManagerScript>();
         List<string> myItemList;
 
-
+        //get the correct items list
         if (isEquipment)
         {
             myItemList = itemManagerScript.GetItemsEquipmentList();
-
-            if (specificItemName != "")
-                itemSpawned = itemManagerScript.CreateEquipmentItem(transform.position, specificItemName);
-
-            else
-                itemSpawned = itemManagerScript.CreateEquipmentItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
-        }           
-
+        }          
         else
         {
-            myItemList = itemManagerScript.GetItemsConsumableList();
-
-            if (specificItemName != "")
-                itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, specificItemName);
-
-            else
-                itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
+            myItemList = itemManagerScript.GetItemsConsumableList();            
         }
+
+        //if a name is specified, spawn the requested item
+        if (specificItemName != "")
+            itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, specificItemName);
+        //if no name is specified, spawn a random item
+        else
+            itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
 
         itemSpawned.transform.SetParent(this.transform);
 
 
+        //if we want the item to be sold in a shop
         if (isItemSold)
         {
+            //set the text showing the price
             priceText = Instantiate(itemPriceGameObject, transform).GetComponent<Text>();
             priceText.transform.SetParent(gameObject.transform.GetChild(0).transform);
             priceText.transform.position = new Vector2(transform.position.x, transform.position.y - 0.6f);
