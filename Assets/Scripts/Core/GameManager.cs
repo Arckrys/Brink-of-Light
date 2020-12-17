@@ -65,8 +65,9 @@ public class GameManager : MonoBehaviour
     private void GetPauseKey()
     {
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
-        
-        EditPauseState(!inPause);
+
+        if (!PlayerScript.MyInstance.GetIsInMenu())
+            EditPauseState(!inPause);
     }
 
     public void EditPauseState(bool state)
