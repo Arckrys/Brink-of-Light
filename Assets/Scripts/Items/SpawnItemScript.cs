@@ -25,18 +25,24 @@ public class SpawnItemScript : MonoBehaviour
         if (isEquipment)
         {
             myItemList = itemManagerScript.GetItemsEquipmentList();
+            //if a name is specified, spawn the requested item
+            if (specificItemName != "")
+                itemSpawned = itemManagerScript.CreateEquipmentItem(transform.position, specificItemName);
+            //if no name is specified, spawn a random item
+            else
+                itemSpawned = itemManagerScript.CreateEquipmentItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
         }          
         else
         {
-            myItemList = itemManagerScript.GetItemsConsumableList();            
+            myItemList = itemManagerScript.GetItemsConsumableList();
+            if (specificItemName != "")
+                itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, specificItemName);
+            //if no name is specified, spawn a random item
+            else
+                itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
         }
 
-        //if a name is specified, spawn the requested item
-        if (specificItemName != "")
-            itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, specificItemName);
-        //if no name is specified, spawn a random item
-        else
-            itemSpawned = itemManagerScript.CreateConsumableItem(transform.position, itemManagerScript.SelectRandomItem(myItemList));
+        
 
         itemSpawned.transform.SetParent(this.transform);
 
