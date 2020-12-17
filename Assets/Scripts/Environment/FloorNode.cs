@@ -9,6 +9,7 @@ public class FloorNode
 
     private FloorNode northNode, eastNode, southNode, westNode;
 
+    //this GameObject stores the room prefab of this node
     private GameObject myRoom;
     private string roomName;
     private roomTypeEnum myType;
@@ -23,6 +24,7 @@ public class FloorNode
         }
     }
 
+    //keep a FloorNode as neighbour in a specific direction
     public void SetNeighbourNode(directionEnum direction, FloorNode node)
     {
         switch (direction)
@@ -45,6 +47,7 @@ public class FloorNode
         }
     }
 
+    //return the neighbour FloorNode at the direction
     public FloorNode GetNeighbourNode(directionEnum direction)
     {
         switch (direction)
@@ -66,6 +69,7 @@ public class FloorNode
         }
     }
 
+    //return all FloorNode neighbours of this FloorNode
     public List<FloorNode> GetNeigbours()
     {
         List<FloorNode> neighbours = new List<FloorNode>();
@@ -80,10 +84,12 @@ public class FloorNode
         return neighbours;
     }
 
+    //get the correct name of the room based on the room type and neighbours
     public void SetRoom(roomTypeEnum roomType, int dungeonLevel)
     {
         string roomDirections = "";
 
+        //start with the room type
         switch (roomType)
         {
             case roomTypeEnum.itemRoom:
@@ -112,6 +118,7 @@ public class FloorNode
                 break;
         }
 
+        //then add neighbours
         if (northNode != null)
             roomDirections += 'N';
 
@@ -124,6 +131,7 @@ public class FloorNode
         if (westNode != null)
             roomDirections += 'W';
 
+        //load the correct prefab in a GameObject
         myRoom = Resources.Load("Prefabs/Environment/Dungeon " + dungeonLevel + "/Rooms/" + roomDirections) as GameObject;
         roomName = roomDirections;
     }

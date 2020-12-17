@@ -19,16 +19,13 @@ public class ItemConsumableScript : Item
     {
         string colliderName = other.gameObject.name;
 
+        //when colliding with the player
         if (colliderName == "Player" && timeSincePickup > 1f)
         {
-            if (isItemSold)
+            //if the item is to be bought and the player has enough gold to do so, of if the item is not sold
+            if ((isItemSold && PlayerScript.MyInstance.GetComponent<CurrenciesScript>().PurchaseForGold(myGoldCost)) || !isItemSold)
             {
-                if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().PurchaseForGold(myGoldCost))
-                    canBuyItem = true;
-            }
-
-            if ((isItemSold && canBuyItem) || !isItemSold)
-            {
+                //destroy the price text
                 if (isItemSold)
                 {
                     transform.parent.gameObject.GetComponent<SpawnItemScript>().DestroyPriceText();
@@ -36,6 +33,7 @@ public class ItemConsumableScript : Item
 
                 isItemSold = false;
 
+                //display the consumable item on the UI
                 Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
                 image.sprite = itemSprite;
                 Color tempColor = image.color;
@@ -46,8 +44,10 @@ public class ItemConsumableScript : Item
 
                 ItemsManagerScript itemsManager = GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>();
 
+                //if the player has no consumable item held
                 if (itemsManager.PlayerConsumableItem == null)
                 {
+                    //get the new item and destroy the prefab of the object
                     itemsManager.PlayerConsumableItem = itemName;
                     SetName(itemsManager.PlayerConsumableItem);
                     Destroy(gameObject);

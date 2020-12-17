@@ -18,6 +18,8 @@ public class ItemsManagerScript : MonoBehaviour
 
 
     private enum potionsEnum { none, vitesse, force, lumiere };
+
+    //list of potions currently affecting the player
     private List<potionsEnum> potionUsed;
 
     private AudioSource audio;
@@ -38,7 +40,7 @@ public class ItemsManagerScript : MonoBehaviour
     private bool bonusSetVampire = false;
     private bool bonusSetHotavius = false;
 
-    //available items
+    //available items list
     private List<string> itemsEquipmentList = new List<string> {
         "Allumettes",
         "Amulette du dragon",
@@ -104,15 +106,20 @@ public class ItemsManagerScript : MonoBehaviour
 
     void Update()
     {
+        //consume the consumable item held by the player by pressing spacebar
         if (Input.GetKeyDown(KeyCode.Space))
             UseConsumableItem();
     }
 
+    //select a random item, according to the unlocked items by the player
     public string SelectRandomItem(List<string> itemList)
     {
+        //total number of items that can be unlocked by the npc
         int numberOfItemsToUnlock = 0;
+        //number of items currently unlocked by the player
         int numberOfItemsUnlocked = 0;
 
+        //get the correct numbers 
         if (itemList == itemsConsumableList)
         {
             numberOfItemsToUnlock = numberOfItemsTotalUnlockUrbius;
@@ -125,6 +132,7 @@ public class ItemsManagerScript : MonoBehaviour
             numberOfItemsUnlocked = PlayerScript.MyInstance.MyIgeirusLevel;
         }
 
+        //get a random item in the range of unlocked items
         string randomItem = itemList[Random.Range(0, itemList.Count - numberOfItemsToUnlock + numberOfItemsUnlocked)];
 
         return randomItem;
@@ -140,6 +148,7 @@ public class ItemsManagerScript : MonoBehaviour
         return itemsConsumableList;
     }
 
+    //create a prefab item based on the given name and position
     public GameObject CreateEquipmentItem(Vector3 position, string itemName)
     {
         GameObject newItem = Instantiate(itemEquipmentGameObject, position, Quaternion.identity);
@@ -156,6 +165,7 @@ public class ItemsManagerScript : MonoBehaviour
         return newItem;
     }
 
+    //check if the player already possess the item
     public bool IsItemPossessed(string name)
     {
         bool isPossesed = false;
@@ -166,13 +176,13 @@ public class ItemsManagerScript : MonoBehaviour
         return isPossesed;
     }
 
+    //apply the modifications of the given equipment item
     public void ApplyItemModifications(string itemName)
     {
         bool alreadyPossesed = IsItemPossessed(itemName);
 
         switch (itemName)
-        {
-            //stat modifying items
+        {            
             case "Allumettes":
                 PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;
                 PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
@@ -274,6 +284,7 @@ public class ItemsManagerScript : MonoBehaviour
                 break;
         }
 
+        //play a sound when picking up an item
         var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
         var volumeValue = .5f;
         var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
@@ -286,10 +297,12 @@ public class ItemsManagerScript : MonoBehaviour
         audio.clip = equipmentPickupClip;
         audio.Play();
 
+        //add the item to the player's inventory
         possessedItems.Add(itemName);
-        CheckForBonusSet();
-
         InventoryManager.MyInstance.AddItem(itemName);
+
+        //apply set bonus if the player has specific items
+        CheckForBonusSet();        
     }
 
     public string PlayerConsumableItem
@@ -305,6 +318,7 @@ public class ItemsManagerScript : MonoBehaviour
         }
     }
 
+    //apply the temporary modifications of the given consumable item
     public void UseConsumableItem()
     {      
         if (consumableItem != null)
@@ -316,6 +330,7 @@ public class ItemsManagerScript : MonoBehaviour
                 case "Potion de vitesse":
                     PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.75f;
                     PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
+                    //keep track of the consumed potions to be able to revert their effects when leaving the room
                     potionUsed.Add(potionsEnum.vitesse);
                     break;
 
@@ -367,6 +382,7 @@ public class ItemsManagerScript : MonoBehaviour
                     if (transform.position.x > 0)
                         combustibleOffsetX = -combustibleOffsetX;
 
+                    //spawn the combustible item
                     GameObject combustible = Instantiate(combustibleGameObject, new Vector2(playerPosition.x + combustibleOffsetX, playerPosition.y + combustibleOffsetY), Quaternion.identity);
                     combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     break;
@@ -375,6 +391,7 @@ public class ItemsManagerScript : MonoBehaviour
                     break;
             }
             
+            //play a sound when consuming an item
             var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
             var volumeValue = .5f;
             var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
@@ -389,6 +406,7 @@ public class ItemsManagerScript : MonoBehaviour
 
             consumableItem = null;
 
+            //set the consumable item image in the UI transparent when consuming it
             Image image = GameObject.Find("ConsumableItemUI").GetComponent<Image>();
             Color tempColor = image.color;
             tempColor.a = 0f;
@@ -396,6 +414,7 @@ public class ItemsManagerScript : MonoBehaviour
         }
     }
 
+    //revert the temporary effects of potions
     public void RemovePotionEffect()
     {
         foreach (potionsEnum potionEffect in potionUsed)
@@ -420,7 +439,7 @@ public class ItemsManagerScript : MonoBehaviour
         potionUsed.Clear();
     }
 
-
+    //pop-up showing the item's name when picking it up
     public IEnumerator FadingItemPopup(string itemName)
     {
 
@@ -448,8 +467,11 @@ public class ItemsManagerScript : MonoBehaviour
         yield return null;
     }
 
+    //apply various bonuses to the player if he possesses some specific items
+    //the player can activate all bonuses in the same run, but only once each
     private void CheckForBonusSet()
     {
+        //dragon set
         if (possessedItems.Contains("Amulette du dragon") 
             && possessedItems.Contains("Anneau du dragon")
             && bonusSetDragon == false)
@@ -458,6 +480,7 @@ public class ItemsManagerScript : MonoBehaviour
             PlayerScript.MyInstance.attack.MyMaxValue += 1f;
         }
 
+        //hotavius set
         if (bonusSetHotavius == false
             && possessedItems.Contains("Lampe à huile d'Hotavius")
             && possessedItems.Contains("Bottes d'Hotavius")
@@ -468,6 +491,7 @@ public class ItemsManagerScript : MonoBehaviour
             CreateEquipmentItem(PlayerScript.MyInstance.transform.position, SelectRandomItem(GetItemsEquipmentList()));
         }
 
+        //vampire set
         if (bonusSetVampire == false
             && possessedItems.Contains("Cape de vampire")
             && possessedItems.Contains("Crocs de vampire"))

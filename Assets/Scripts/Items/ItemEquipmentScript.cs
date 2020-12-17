@@ -15,25 +15,22 @@ public class ItemEquipmentScript : Item
         UpdatePolygonCollider();
     }
 
-
     void OnTriggerEnter2D(Collider2D other)
     {
+        //when colliding with the player
         if (other.gameObject.name == "Player")
         {
-            if (isItemSold)
+            //if the item is to be bought and the player has enough gold to do so, of if the item is not sold
+            if((PlayerScript.MyInstance.GetComponent<CurrenciesScript>().PurchaseForGold(myGoldCost) && isItemSold) || !isItemSold) 
             {
-                if (PlayerScript.MyInstance.GetComponent<CurrenciesScript>().PurchaseForGold(myGoldCost))
-                    canBuyItem = true;
-            }
-
-            if((canBuyItem && isItemSold) || !isItemSold) 
-            {
+                //destroy the game object
                 Destroy(gameObject);
                 GameObject.Find("ItemManager").GetComponent<ItemsManagerScript>().ApplyItemModifications(itemName);
 
-                // TODO Start Item Name Popup coroutine
+                //Start Item Name Popup coroutine
                 ItemsManagerScript.MyInstance.StartCoroutine("FadingItemPopup", itemName);
 
+                //destroy the price text
                 if (isItemSold)
                 {
                     transform.parent.gameObject.GetComponent<SpawnItemScript>().DestroyPriceText();
