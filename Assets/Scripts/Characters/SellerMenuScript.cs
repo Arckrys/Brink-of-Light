@@ -79,6 +79,7 @@ public class SellerMenuScript : MonoBehaviour
         description.gameObject.SetActive(true);
     }
 
+    // Display the right menu, Igeirus or Urbius
     public void UpdateUI()
     {
         var playerLevel = 0;
@@ -133,6 +134,7 @@ public class SellerMenuScript : MonoBehaviour
         return CurrenciesScript.MyInstance.PurchaseForSouls(value);
     }
 
+    // Apply purchases made in Igeirus and Urbius' menus
     private void OnUpdatePressed()
     {
         switch (sellerName)

@@ -14,6 +14,7 @@ public class VillageNpcScript : MonoBehaviour
 
     protected bool isInCollision;
 
+    // Display an NPC's name above their head when the player is near
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;

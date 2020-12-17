@@ -97,6 +97,7 @@ public class PlayerScript : Character
     private static readonly int X = Animator.StringToHash("x");
     private static readonly int Y = Animator.StringToHash("y");
     
+    // Allows us to get the PlayerScript's instance from any script
     public static PlayerScript MyInstance
     {
         get
@@ -141,6 +142,7 @@ public class PlayerScript : Character
 
         HandleLayers();
 
+        // Checks if the player died
         if (PlayerCurrentLife <= 0)
         {
             if (additionalLives == 0 && !isLifeUnlimited)
@@ -161,6 +163,7 @@ public class PlayerScript : Character
         base.Update();
     }
 
+    // Gathers the player's directionnal input into the direction vector and mouse left click
     private void GetInput()
     {
         direction = Vector2.zero;
@@ -312,6 +315,7 @@ public class PlayerScript : Character
         }
     }
 
+    // Makes the player look in the direction they're shooting
     private IEnumerator StartMouseLook()
     {
         isLookingMouse = true;
@@ -350,6 +354,7 @@ public class PlayerScript : Character
         }
     }
     
+    // Called when taking damage
     private IEnumerator StartInvincibility()
     {
         isInvincible = true;
@@ -402,6 +407,7 @@ public class PlayerScript : Character
         movementAnimator.SetLayerWeight(movementAnimator.GetLayerIndex(layerName), 1);
     }
 
+    // Called when the player's collider overlaps with another
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (isInvincible) return;
@@ -437,12 +443,14 @@ public class PlayerScript : Character
         return isInMenu;
     }
 
+    // Set the player's light intensity
     public void SetPlayerLighting(float radius)
     {
         light2D.pointLightOuterRadius = radius;
         light2D.pointLightInnerRadius = radius / 10;
     }
 
+    // Prevents the player from shooting, used in the village
     public void SetIsProjectilesDisabled(bool b)
     {
         isProjectilesDisabled = b;
@@ -572,20 +580,5 @@ public class PlayerScript : Character
     {
         coloredProjectilesLevel++;
     }
-
-    /*public float[] getStatMaxValues()
-    {
-        float[] playerStatMaxValues = new float[8];
-        playerStatMaxValues[0] = PlayerScript.MyInstance.attack.MyMaxValue;
-        playerStatMaxValues[1] = PlayerScript.MyInstance.life.MyMaxValue;
-        playerStatMaxValues[2] = PlayerScript.MyInstance.range.MyMaxValue;
-        playerStatMaxValues[3] = PlayerScript.MyInstance.movementSpeed.MyMaxValue;
-        playerStatMaxValues[4] = PlayerScript.MyInstance.attackSpeed.MyMaxValue;
-        playerStatMaxValues[5] = PlayerScript.MyInstance.critChance.MyMaxValue;
-        playerStatMaxValues[6] = PlayerScript.MyInstance.critDamage.MyMaxValue;
-        playerStatMaxValues[7] = PlayerScript.MyInstance.knockback.MyMaxValue;
-
-        return playerStatMaxValues;
-    }*/
 
 }

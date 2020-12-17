@@ -51,6 +51,7 @@ public abstract class Character : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
 
+        // Initialize player current stats based on their initial values
         life.Initialized(initLife, initLife);
         InitStatField(ref attack, initAttack, false);
         InitStatField(ref movementSpeed, initMovementSpeed, false);
@@ -64,6 +65,7 @@ public abstract class Character : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        // Update character's hitbox when changing direction
         if (isChangingDirection > 0)
         {
             UpdatePolygonCollider();
@@ -71,6 +73,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    // FixedUpdate is called at a constant rate, regardless of the user's machine
     protected virtual void FixedUpdate()
     {
         Move();
@@ -86,6 +89,7 @@ public abstract class Character : MonoBehaviour
         stat.Initialized(initValue, initValue, false);
     }
 
+    // Moves the character around according to its direction and speed attributes
     protected void Move()
     {
         myRigidbody.velocity = direction.normalized * movementSpeed.MyCurrentValue;
@@ -106,6 +110,7 @@ public abstract class Character : MonoBehaviour
         animator.SetBool("Idle", false);
     }
 
+    // Plays the proper animation given a direction
     protected void FaceDirection(Vector2 newDir, Animator animator)
     {
         
@@ -162,6 +167,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    // Coroutine used to deal damage over time to the character
     public IEnumerator StartDamageOnTime(float frequency, int maxTick, float damage)
     {
         isTakingDamageOnTime = true;

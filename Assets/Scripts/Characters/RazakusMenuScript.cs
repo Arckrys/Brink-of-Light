@@ -13,6 +13,7 @@ public class RazakusMenuScript : MonoBehaviour
 
     private string[] statNames = new string[] { "Attaque", "Vie", "Portee", "Vitesse", "VitesseAtk", "ChanceCrit", "DegatsCrit", "Recul" };
 
+    // Text displayed on purchase buttons
     [SerializeField] private Text AttaqueButton;
     [SerializeField] private Text VieButton;
     [SerializeField] private Text PorteeButton;
@@ -22,6 +23,7 @@ public class RazakusMenuScript : MonoBehaviour
     [SerializeField] private Text DegatsCritButton;
     [SerializeField] private Text ReculButton;
 
+    // Text by the stat name, shows current stat's value
     [SerializeField] private Text AttaqueStat;
     [SerializeField] private Text VieStat;
     [SerializeField] private Text PorteeStat;
@@ -31,6 +33,7 @@ public class RazakusMenuScript : MonoBehaviour
     [SerializeField] private Text DegatsCritStat;
     [SerializeField] private Text ReculStat;
 
+    // Text next to the button, shows upgrade's value
     [SerializeField] private Text AttaqueUpgrade;
     [SerializeField] private Text VieUpgrade;
     [SerializeField] private Text PorteeUpgrade;
@@ -44,7 +47,8 @@ public class RazakusMenuScript : MonoBehaviour
 
 
     public void Start()
-    {   // Data : Name AmountBought/PriceIncreasePerUpgrade/InitialPrice/UpgradeAmount
+    {   
+        // Data : Name AmountBought/PriceIncreasePerUpgrade/InitialPrice/UpgradeAmount
         RazakusData.Add("Attaque",      new double[] { 0, 50, 50, 0.5 });
         RazakusData.Add("Vie",          new double[] { 0, 50, 50, 10 });
         RazakusData.Add("Portee",       new double[] { 0, 50, 50, 10 });
@@ -54,6 +58,8 @@ public class RazakusMenuScript : MonoBehaviour
         RazakusData.Add("DegatsCrit",   new double[] { 0, 50, 100, 0.2 });
         RazakusData.Add("Recul",        new double[] { 0, 50, 100, 1 });
 
+        // Dictionnary used to link stat's name with dynamic objects needed
+        // Data : Name    StatValue/ButtonText/StatText/UpgradeText
         StatsAndTexts.Add("Attaque",      System.Tuple.Create(PlayerScript.MyInstance.initAttack, AttaqueButton, AttaqueStat, AttaqueUpgrade));
         StatsAndTexts.Add("Vie",          System.Tuple.Create(PlayerScript.MyInstance.initLife, VieButton, VieStat, VieUpgrade));
         StatsAndTexts.Add("Portee",       System.Tuple.Create(PlayerScript.MyInstance.initRange, PorteeButton, PorteeStat, PorteeUpgrade));
@@ -83,6 +89,7 @@ public class RazakusMenuScript : MonoBehaviour
         }
     }
 
+    // Returns an array containing the amount of purchases for each stat
     public double[] GetRazakusPurchases()
     {
         double[] purchases = new double[statNames.Length];
@@ -94,6 +101,7 @@ public class RazakusMenuScript : MonoBehaviour
         return purchases;
     }
 
+    // Updates Razakys menu given purchases data
     public void LoadRazakusData(double[] savedData)
     {
         for (int i = 0; i < statNames.Length; i++)
@@ -104,6 +112,7 @@ public class RazakusMenuScript : MonoBehaviour
         InitUI();
     }
 
+    // Reads the RazakusData dictionnary to initialize the menu
     public void InitUI()
     {
         UpdateUI("Attaque", player.initAttack, true);
@@ -116,6 +125,7 @@ public class RazakusMenuScript : MonoBehaviour
         UpdateUI("Recul", player.initKnockback, true);
     }
     
+    // Updates one of the menu's line given the stat name and value 
     private void UpdateUI(string statName, float statValue, bool init = false)
     {
         if (!init)
@@ -128,11 +138,13 @@ public class RazakusMenuScript : MonoBehaviour
         StatsAndTexts[statName].Item4.text = "+" + RazakusData[statName][3];
     }
 
+    // Computes the price of the upgrade bought and decreases souls
     private bool PurchaseSouls(string statName)
     {
         return CurrenciesScript.MyInstance.PurchaseForSouls((int)(RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]));
     }
 
+    // The following methods are linked to ingame buttons
     public void OnHealthPressed()
     {
         const string statName = "Vie";

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class NpcScript : VillageNpcScript
 {
-    private GameManager game;
     private SellerMenuScript seller;
 
     [SerializeField] private Dialogue dialogue;
@@ -13,7 +12,6 @@ public class NpcScript : VillageNpcScript
 
     private void Start()
     {
-        game = GameManager.MyInstance;
         seller = menuGameObject.GetComponent<SellerMenuScript>();
     }
 
@@ -21,6 +19,7 @@ public class NpcScript : VillageNpcScript
     {
         if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
 
+        // Activates the seller's menu
         if (isSeller && sellerDialogueDone && DialogueManagerScript.MyInstance.SentenceIsOver)
         {
             isMenuActivated = menuGameObject.activeSelf;
@@ -28,6 +27,7 @@ public class NpcScript : VillageNpcScript
             PlayerScript.MyInstance.SetIsInMenu(!PlayerScript.MyInstance.GetIsInMenu());
         }
 
+        // Triggers the NPC's dialogue and updates seller's menu
         if (!isMenuActivated)
         {
             switch (SellerName)
