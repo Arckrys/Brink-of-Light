@@ -393,7 +393,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2479522953273161067}
   m_HandleRect: {fileID: 2479522953273161066}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -443,13 +443,14 @@ RectTransform:
   - {fileID: 9057123491868308618}
   - {fileID: 9057123491601692294}
   - {fileID: 9057123492205737563}
+  - {fileID: 4628417743779966598}
   m_Father: {fileID: 2479522952672068173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 951.72534}
+  m_SizeDelta: {x: 0, y: 1001.7253}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2479522953548179911
 GameObject:
@@ -607,7 +608,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2479522954182292997}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2310482
+  m_Size: 0.2195157
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -644,7 +645,7 @@ RectTransform:
   m_Father: {fileID: 2479522954410383677}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7689518}
+  m_AnchorMin: {x: 0, y: 0.7804843}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3861,7 +3862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 438.86267
+      value: 463.8627
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3869,7 +3870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3894,6 +3895,15 @@ PrefabInstance:
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Attention \xE0 ce qu'il ne vous mordille pas le mollet, si vous en
+        avez un."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
@@ -4011,6 +4021,137 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4598807432676049830, guid: 483a1f28e9b9e334abc4f4d7a7cc4afb, type: 3}
   m_PrefabInstance: {fileID: 4982720972991869382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5151621080320195145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2479522953487960690}
+    m_Modifications:
+    - target: {fileID: 523910116428780750, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Name
+      value: MobEncyclopedie (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -472.3379
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -949.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Mauvais Esprit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Il m'a jet\xE9 une mal\xE9diction : je suis terroris\xE9 par les balles
+        rebondissantes."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2674619395250646065, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+--- !u!224 &4628417743779966598 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+  m_PrefabInstance: {fileID: 5151621080320195145}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5538384605812660299
 PrefabInstance:
@@ -4334,7 +4475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 327.74255
+      value: 352.74252
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4342,7 +4483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6757
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4383,6 +4524,14 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: Crapaud
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Ses bulles paraissent inoffensives mais sont en r\xE9alit\xE9 corrosives."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -4456,7 +4605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -222.85742
+      value: -197.8574
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4464,7 +4613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4502,6 +4651,24 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: 'Zombie
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Plut\xF4t rapide pour un zombie, mais pas tr\xE8s malin."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1880763209359424529, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123491120872372 stripped
@@ -4570,7 +4737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.6573486
+      value: 23.342636
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4578,7 +4745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4618,12 +4785,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
-      value: "Homme L\xE9zard"
+      value: 'Slime
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Ces flaques de poison ont pris vie pour une raison inconnue.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8982123509210149129, guid: 45c75eafadcae4449b025f767a62ab4c, type: 3}
+      objectReference: {fileID: -2055008003363216766, guid: b0041c7d94867b644832a39e0339fe17, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123491007011383 stripped
@@ -4811,7 +4988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 273.1427
+      value: 298.14273
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4819,7 +4996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.67566
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4860,6 +5037,14 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: Loup sombre
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Un loup avec des cornes sur la t\xEAte, c'est forc\xE9ment dangereux."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -4933,7 +5118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 382.94263
+      value: 407.94263
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4941,7 +5126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4970,6 +5155,15 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: Aigle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Son bec peut faire mal lorsqu'on le re\xE7oit \xE0 45km/h en pleine
+        face."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -5043,7 +5237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -278.85742
+      value: -363
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5051,7 +5245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5089,6 +5283,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Squelette
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Comme un zombie avec la chair en moins, pourtant il est plus fort ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3081212464156720553, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123491601692294 stripped
@@ -5394,7 +5604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 108.14258
+      value: 133.1426
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5402,7 +5612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5445,6 +5655,14 @@ PrefabInstance:
       value: 'Raptor
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Apparemment les dinosaures ont \xE9vit\xE9 l'extinction dans ces \xE9gouts."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -5518,7 +5736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 217.94263
+      value: 242.94263
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5526,7 +5744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5567,6 +5785,14 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: Aigle sombre
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "D\xE8s que vous le voyez foncer sur vous, il est trop tard."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -5759,7 +5985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.05725
+      value: -88.05719
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5767,7 +5993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5810,6 +6036,15 @@ PrefabInstance:
       value: 'Homme Salamandre
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Le grand fr\xE8re de l'Homme L\xE9zard, c'est vrai qu'ils ont un air
+        de famille."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -5883,7 +6118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -443.85742
+      value: -418.5
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5891,7 +6126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5929,6 +6164,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Homme-Rat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Les rats sont plus forts que les souris \xE0 la bagarre, visiblement."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3563134898435998910, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123492205737563 stripped
@@ -6233,7 +6484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.65747
+      value: -142.65749
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6241,7 +6492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6279,6 +6530,23 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Chauve-souris
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Gare \xE0 ses dents ac\xE9r\xE9es qu'elle envoie. Combien elle en a
+        d'ailleurs ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7439930520059991335, guid: b0041c7d94867b644832a39e0339fe17, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123492041705078 stripped
@@ -6347,7 +6615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388.65747
+      value: -307.9
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6355,7 +6623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6393,6 +6661,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Fant\xF4me"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Je ne sais pas comment il est mort, mais son esprit est f\xE2ch\xE9."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -327465663309502750, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123491868308618 stripped
@@ -6580,7 +6864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -334.05737
+      value: -252.6
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6588,7 +6872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6626,6 +6910,24 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: 'Homme-Souris
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Le garde par excellence du ch\xE2teau de Litochronox."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5516189764444355636, guid: f6c556e5544954b4cafcd7f9f2d3c186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
 --- !u!224 &9057123492851037025 stripped
@@ -6813,7 +7115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -57.85736
+      value: -32.85733
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6821,7 +7123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.6758
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6864,6 +7166,15 @@ PrefabInstance:
       value: 'Raptor Rouge
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Ce raptor est plus rapide qu'un gu\xE9pard. Peut-\xEAtre. Je n'ai pas
+        chronom\xE9tr\xE9."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -7174,7 +7485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 53.542664
+      value: 78.542694
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7182,7 +7493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.67584
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7223,6 +7534,14 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: "Homme L\xE9zard\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: "Ces cr\xE9atures humano\xEFdes n'appr\xE9cient pas vraiment la lumi\xE8re."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
@@ -7296,7 +7615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 163.34277
+      value: 188.3428
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7304,7 +7623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -896.6758
+      value: -946.67584
       objectReference: {fileID: 0}
     - target: {fileID: 523910116428780751, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7345,6 +7664,14 @@ PrefabInstance:
     - target: {fileID: 2222217703102658459, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Text
       value: Crapouillot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_Text
+      value: Trois bulles qui piquent pour le prix d'une.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894619683817435255, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7628959428258629583, guid: 39566cc96161b7140b5e943eafdbd49c, type: 3}
       propertyPath: m_Sprite
