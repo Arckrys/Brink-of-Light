@@ -231,30 +231,31 @@ public class DungeonFloorScript : MonoBehaviour
                 //connect the regular room only to other regular rooms
                 if (node.GetRoomType() == FloorNode.roomTypeEnum.regular)
                 {
-                    FloorNode.directionEnum direction = FloorNode.directionEnum.north;
+                    FloorNode.directionEnum direction;
 
                     if (node.GetCoord().x == baseNode.GetCoord().x + 1 && node.GetCoord().y == baseNode.GetCoord().y)
                     {
                         direction = FloorNode.directionEnum.east;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
                     }
 
                     if (node.GetCoord().x == baseNode.GetCoord().x - 1 && node.GetCoord().y == baseNode.GetCoord().y)
                     {
                         direction = FloorNode.directionEnum.west;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
                     }
 
                     if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y + 1)
                     {
                         direction = FloorNode.directionEnum.north;
+                        CreateLinkBetweenNodes(baseNode, node, direction);
                     }
 
                     if (node.GetCoord().x == baseNode.GetCoord().x && node.GetCoord().y == baseNode.GetCoord().y - 1)
                     {
                         direction = FloorNode.directionEnum.south;
-                        
-                    }
-
-                    CreateLinkBetweenNodes(baseNode, node, direction);
+                        CreateLinkBetweenNodes(baseNode, node, direction);
+                    }                    
                 }
             }
         }
