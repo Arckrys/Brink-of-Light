@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f4c557bf892c34a881edb05193e76b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 4
+  projectileSpeed: 6
   impactClip: {fileID: 8300000, guid: a993e90ebacb1e540ba218a63665eaa3, type: 3}
   isCrit: 0
 --- !u!95 &6846747907792633501
