@@ -271,7 +271,8 @@ public class DungeonFloorScript : MonoBehaviour
             dungeonLevel++;
 
             //start dungeon's music
-            MusicManager.MyInstance.SetCurrentMusic("dungeon" + dungeonLevel);
+            if(MusicManager.MyInstance != null)
+                MusicManager.MyInstance.SetCurrentMusic("dungeon" + dungeonLevel);
         }
             
         print("Current floor : " + floorLevel);

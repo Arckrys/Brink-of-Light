@@ -109,7 +109,8 @@ public class GameManager : MonoBehaviour
     // Launch death menu
     public void SetDeathMenu(bool state)
     {
-        MusicManager.MyInstance.SetCurrentMusic("death");
+        if(MusicManager.MyInstance != null)
+            MusicManager.MyInstance.SetCurrentMusic("death");
         
         menuMort.SetActive(state);
     }

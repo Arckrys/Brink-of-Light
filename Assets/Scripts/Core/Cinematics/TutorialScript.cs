@@ -29,8 +29,8 @@ public class TutorialScript : MonoBehaviour
         indexDialogue = 0;
 
         StartCoroutine(FadeInDialogue());
-
-        MusicManager.MyInstance.SetCurrentMusic("village");
+        if (MusicManager.MyInstance != null)
+            MusicManager.MyInstance.SetCurrentMusic("village");
 
         combustibleScript = spawnerCombu.GetComponent<CombustibleScript>();
     }

@@ -88,8 +88,8 @@ public class PauseManager : MonoBehaviour
     private IEnumerator LoadVillage()
     {
         animator.SetTrigger("Start");
-
-        MusicManager.MyInstance.SetCurrentMusic("village");
+        if (MusicManager.MyInstance != null)
+            MusicManager.MyInstance.SetCurrentMusic("village");
 
         GetComponent<CanvasGroup>().alpha = 0f;
 
@@ -117,7 +117,8 @@ public class PauseManager : MonoBehaviour
     {
         animator.SetTrigger("Start");
 
-        MusicManager.MyInstance.SetCurrentMusic("village");
+        if (MusicManager.MyInstance != null)
+            MusicManager.MyInstance.SetCurrentMusic("village");
 
         GetComponent<CanvasGroup>().alpha = 0f;
 
