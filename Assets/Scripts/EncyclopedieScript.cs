@@ -14,14 +14,16 @@ public class EncyclopedieScript : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.E) || !isInCollision) return;
-
-        menuEncyclopedie.SetActive(!menuEncyclopedie.activeSelf);
-        PlayerScript.MyInstance.SetIsInMenu(!PlayerScript.MyInstance.GetIsInMenu());
+        if(isInCollision && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape) && PlayerScript.MyInstance.GetIsInMenu()))
+        {
+            menuEncyclopedie.SetActive(!menuEncyclopedie.activeSelf);
+            PlayerScript.MyInstance.SetIsInMenu(!PlayerScript.MyInstance.GetIsInMenu());
+        }
+        
 
     }
 
-
+    // Sets isInCollision boolean to true when player is near Encyclopedia
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
@@ -31,6 +33,7 @@ public class EncyclopedieScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
     }
 
+    // Sets isInCollision boolean to false when player goes away
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
