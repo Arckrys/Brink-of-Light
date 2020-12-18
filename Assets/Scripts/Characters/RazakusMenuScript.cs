@@ -11,6 +11,8 @@ public class RazakusMenuScript : MonoBehaviour
     private readonly Dictionary<string, dynamic> StatsAndTexts = new Dictionary<string, dynamic>();
     private static RazakusMenuScript _instance;
 
+    private bool hasBeenInit = false;
+
     private string[] statNames = new string[] { "Attaque", "Vie", "Portee", "Vitesse", "VitesseAtk", "ChanceCrit", "DegatsCrit", "Recul" };
 
     // Text displayed on purchase buttons
@@ -47,7 +49,10 @@ public class RazakusMenuScript : MonoBehaviour
 
 
     public void Start()
-    {   
+    {
+        if (hasBeenInit)
+            return;
+
         // Data : Name AmountBought/PriceIncreasePerUpgrade/InitialPrice/UpgradeAmount
         RazakusData.Add("Attaque",      new double[] { 0, 50, 50, 0.5 });
         RazakusData.Add("Vie",          new double[] { 0, 50, 50, 10 });
@@ -74,6 +79,8 @@ public class RazakusMenuScript : MonoBehaviour
         InitUI();
 
         gameObject.SetActive(false);
+
+        hasBeenInit = true;
     }
 
     public static RazakusMenuScript MyInstance
@@ -101,12 +108,18 @@ public class RazakusMenuScript : MonoBehaviour
         return purchases;
     }
 
-    // Updates Razakys menu given purchases data
+    // Updates Razakus menu given purchases data
     public void LoadRazakusData(double[] savedData)
     {
+        if (!hasBeenInit) 
+        {
+            Start();
+        }
+
         for (int i = 0; i < statNames.Length; i++)
         {
-            RazakusData[statNames[i]][0] = savedData[i];
+            if(savedData != null)
+                RazakusData[statNames[i]][0] = savedData[i];
         }
         
         InitUI();
