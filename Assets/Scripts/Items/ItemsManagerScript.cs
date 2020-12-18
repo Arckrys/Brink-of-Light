@@ -361,7 +361,7 @@ public class ItemsManagerScript : MonoBehaviour
                     enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
                     {
-                        StartCoroutine(enemy.GetComponent<Character>().StartDamageOnTime(1f, 10, 1f));
+                        StartCoroutine(enemy.GetComponent<BasicEnemyController>().StartDamageOnTime(1f, 10, 1f));
                     }
                     break;
 

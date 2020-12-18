@@ -40,8 +40,6 @@ public abstract class Character : MonoBehaviour
 
     protected Vector2 direction;
 
-    private Coroutine damageOnTimeCoroutine;
-    private bool isTakingDamageOnTime;
     private int isChangingDirection;
 
     protected bool IsMoving => direction.x != 0 || direction.y != 0;
@@ -169,43 +167,5 @@ public abstract class Character : MonoBehaviour
                 }
             }
         }
-    }
-
-    // Coroutine used to deal damage over time to the character
-    public IEnumerator StartDamageOnTime(float frequency, int maxTick, float damage)
-    {
-        isTakingDamageOnTime = true;
-        int tick = 0;
-
-        // Dealing 'maxTick' times the 'damage' to the character
-        while (isTakingDamageOnTime)
-        {
-            life.MyCurrentValue -= damage;
-
-            if (gameObject.GetComponent<BasicEnemyController>() != null)
-            {
-                life.MyCurrentValue -= damage;
-                gameObject.GetComponent<BasicEnemyController>().ShowLifeBar();
-            }
-            else if (gameObject.GetComponent<PlayerScript>() != null)
-            {
-                PlayerScript.MyInstance.PlayerCurrentLife -= damage;
-            }
-
-            // Show floating text (damage value)
-            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(CultureInfo.InvariantCulture), DamageType.DamageOnTime, 1.0f, false);
-
-            // In the case enemies or player dies
-            if ((gameObject.GetComponent<BasicEnemyController>() != null && life.MyCurrentValue == 0) || (gameObject.GetComponent<PlayerScript>() != null && PlayerScript.MyInstance.PlayerCurrentLife == 0))
-            {
-                Destroy(gameObject);
-            }
-
-            tick++;
-            if (tick == maxTick)
-                isTakingDamageOnTime = false;
-
-            yield return new WaitForSeconds(frequency);
-        }
-    }
+    }    
 }

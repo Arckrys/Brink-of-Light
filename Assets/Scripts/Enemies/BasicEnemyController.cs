@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Pathfinding;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
+using System.Globalization;
 
 public class BasicEnemyController : Character
 {
@@ -36,6 +37,9 @@ public class BasicEnemyController : Character
     [SerializeField] private GameObject lootBag;
 
     GameObject combustibleGameObject;
+
+    private Coroutine damageOnTimeCoroutine;
+    private bool isTakingDamageOnTime;
 
     public float nextWaypointDistance = 3f;
     Path path;
@@ -146,51 +150,7 @@ public class BasicEnemyController : Character
             //on enemy death
             if(life.MyCurrentValue == 0)
             {
-                var position = transform.position;
-
-                if (volume)
-                {
-                    AudioSource.PlayClipAtPoint(DyingSound, position, 1-Math.Abs(volumeValue)/80);
-                }
-                else
-                {
-                    AudioSource.PlayClipAtPoint(DyingSound, position);
-                }
-
-                //create a lootbag
-                //var itemType = Random.Range(0, 2);
-                var itemType = 0;
-
-                string randomConsumableItem = null;
-                int consumableItemProbability = Random.Range(0, 25);
-
-                if (consumableItemProbability == 0)
-                    randomConsumableItem = RandomItemDrop(itemType);
-
-                var loot = Instantiate(lootBag, position, Quaternion.identity);
-                loot.transform.parent = this.transform.parent;
-                loot.GetComponent<LootManager>().CreateBag(randomConsumableItem, itemType, Random.Range(0, 3), Random.Range(0, 6));
-
-                //chance to create a combustible on death if the player has the item "Flamme éternelle"
-                if (PlayerScript.MyInstance.GetChanceToSpawnCombustible() != 0)
-                {
-                    int combustibleProbability = Random.Range(0, PlayerScript.MyInstance.GetChanceToSpawnCombustible());
-                    if (combustibleProbability == 0)
-                    {                        
-                        GameObject combustible = Instantiate(combustibleGameObject, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                        combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
-                    }
-                }
-
-                //if the enemy is a boss, drop a bonus equipment item
-                if (isBoss)
-                {
-                    var itemScriptInstance = ItemsManagerScript.MyInstance;
-                    itemScriptInstance.CreateEquipmentItem(new Vector2(transform.position.x, transform.position.y + 0.5f), 
-                                                           itemScriptInstance.SelectRandomItem(itemScriptInstance.GetItemsEquipmentList()));
-                }
-
-                Destroy(gameObject);
+                EnemyDie();
             }
             else
             {
@@ -431,5 +391,98 @@ public class BasicEnemyController : Character
                 levelTwoSpawnProbability, 
                 levelThreeSpawnProbability, 
                 levelFourSpawnProbability };
+    }
+
+
+    // Coroutine used to deal damage over time to the character
+    public IEnumerator StartDamageOnTime(float frequency, int maxTick, float damage)
+    {
+        isTakingDamageOnTime = true;
+        int tick = 0;
+
+        // Dealing 'maxTick' times the 'damage' to the character
+        while (isTakingDamageOnTime)
+        {
+            life.MyCurrentValue -= damage;
+
+            if (gameObject.GetComponent<BasicEnemyController>() != null)
+            {
+                life.MyCurrentValue -= damage;
+                gameObject.GetComponent<BasicEnemyController>().ShowLifeBar();
+            }
+            else if (gameObject.GetComponent<PlayerScript>() != null)
+            {
+                PlayerScript.MyInstance.PlayerCurrentLife -= damage;
+            }
+
+            // Show floating text (damage value)
+            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(CultureInfo.InvariantCulture), DamageType.DamageOnTime, 1.0f, false);
+
+            // In the case enemies or player dies
+            if ((gameObject.GetComponent<BasicEnemyController>() != null && life.MyCurrentValue == 0) || (gameObject.GetComponent<PlayerScript>() != null && PlayerScript.MyInstance.PlayerCurrentLife == 0))
+            {
+                EnemyDie();
+            }
+
+            tick++;
+            if (tick == maxTick)
+                isTakingDamageOnTime = false;
+
+            yield return new WaitForSeconds(frequency);
+        }
+    }
+
+
+    private void EnemyDie()
+    {
+        var position = transform.position;
+
+        var mixer = Resources.Load("Sounds/AudioMixer") as AudioMixer;
+        var volumeValue = .5f;
+        var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
+
+        if (volume)
+        {
+            AudioSource.PlayClipAtPoint(DyingSound, position, 1 - Math.Abs(volumeValue) / 80);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(DyingSound, position);
+        }
+
+        //create a lootbag
+        //var itemType = Random.Range(0, 2);
+        var itemType = 0;
+
+        string randomConsumableItem = null;
+        int consumableItemProbability = Random.Range(0, 25);
+
+        if (consumableItemProbability == 0)
+            randomConsumableItem = RandomItemDrop(itemType);
+
+        var loot = Instantiate(lootBag, position, Quaternion.identity);
+        loot.transform.parent = this.transform.parent;
+        loot.GetComponent<LootManager>().CreateBag(randomConsumableItem, itemType, Random.Range(0, 3), Random.Range(0, 6));
+
+        //chance to create a combustible on death if the player has the item "Flamme éternelle"
+        if (PlayerScript.MyInstance.GetChanceToSpawnCombustible() != 0)
+        {
+            int combustibleProbability = Random.Range(0, PlayerScript.MyInstance.GetChanceToSpawnCombustible());
+            if (combustibleProbability == 0)
+            {
+                GameObject combustible = Instantiate(combustibleGameObject, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                combustible.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
+            }
+        }
+
+        //if the enemy is a boss, drop a bonus equipment item
+        if (isBoss)
+        {
+            var itemScriptInstance = ItemsManagerScript.MyInstance;
+            itemScriptInstance.CreateEquipmentItem(new Vector2(transform.position.x, transform.position.y + 0.5f),
+                                                   itemScriptInstance.SelectRandomItem(itemScriptInstance.GetItemsEquipmentList()));
+        }
+
+        Destroy(gameObject);
     }
 }

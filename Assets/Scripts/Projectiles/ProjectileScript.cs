@@ -88,9 +88,11 @@ public class ProjectileScript : MonoBehaviour
             var volumeValue = .5f;
             var volume = !(mixer is null) && mixer.GetFloat("Volume", out volumeValue);
 
+            var position = transform.position;
+
             if (volume)
             {
-                audio.volume = 0.1f-Math.Abs(volumeValue)/80;
+                AudioSource.PlayClipAtPoint(impactClip, position, 1 - Math.Abs(volumeValue));
             }
             
             audio.clip = impactClip;
