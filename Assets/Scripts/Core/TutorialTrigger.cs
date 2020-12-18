@@ -9,6 +9,7 @@ public class TutorialTrigger : MonoBehaviour
     
     [SerializeField] private TriggerType triggerType;
 
+    // Launch trigger event depend on the type of trigger
     private void OnTriggerEnter2D(Collider2D other)
     {
         switch (triggerType)

@@ -32,7 +32,6 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         cinematicClip = Resources.Load<AudioClip>("Sounds/Music/Cinematic");
@@ -57,6 +56,7 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    // Start new music
     public void SetCurrentMusic(string musicKey)
     {
         if (currentMusic == musicKey)
@@ -67,6 +67,7 @@ public class MusicManager : MonoBehaviour
         StartCoroutine(ChangeMusic(musicKey));
     }
 
+    // Switch between music with fade out/in effect
     private IEnumerator ChangeMusic(string musicKey)
     {
         while(source.volume > 0)

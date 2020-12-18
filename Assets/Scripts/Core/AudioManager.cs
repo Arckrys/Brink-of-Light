@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
         SetVolume(currentVolume);
     }
     
+    // Go back to pause menu
     private void OnBackPressed()
     {
         if (GameManager.MyInstance) GameManager.MyInstance.SetAudioMenu(false);
@@ -40,11 +41,13 @@ public class AudioManager : MonoBehaviour
         SetVolume(volume.value);
     }
 
+    // Reads value stored in player preferences
     private float GetVolume()
     {
         return PlayerPrefs.GetFloat(AudioMaster, audioMixer.GetFloat("Volume", out var volumeValue) ? volumeValue : -25f);
     }
 
+    // Apply the new volume and save it
     private void SetVolume(float value)
     {
         audioMixer.SetFloat("Volume", value);

@@ -10,6 +10,7 @@ public class StatField : StatManager
     {
         if (statValue)
         {
+            // Update stat text
             statValue.text = MyCurrentValue.ToString(CultureInfo.InvariantCulture);
         }
         

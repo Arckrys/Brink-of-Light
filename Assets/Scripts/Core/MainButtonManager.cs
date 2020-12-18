@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.Rendering.Universal;
 
+// Manage buttons animation in main menu
 public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private GameObject fire;
@@ -23,6 +24,7 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
         fire.GetComponent<Light2D>().intensity = 0;
     }
     
+    // Fade out animation on fire sprite
     private IEnumerator OffFire()
     {
         var tempColor = fire.GetComponent<SpriteRenderer>().color;
@@ -36,6 +38,7 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
         StopCoroutine(fireCoroutine);
     }
 
+    // Fade in animation on fire sprite
     private IEnumerator OnFire()
     {
         var tempColor = fire.GetComponent<SpriteRenderer>().color;
@@ -58,6 +61,7 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
             StopCoroutine(fireCoroutine);
         }
         
+        // Start animation when mouse hover a button
         fireCoroutine = StartCoroutine(OnFire());
     }
     
@@ -70,6 +74,7 @@ public class MainButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
             StopCoroutine(fireCoroutine);
         }
         
+        // Stop animation when mouse leave a button
         fireCoroutine = StartCoroutine(OffFire());
     }
 

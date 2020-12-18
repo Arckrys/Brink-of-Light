@@ -12,6 +12,7 @@ public class StatManager : MonoBehaviour
         {
             maxValue = value;
 
+            // If this stat is not like life (had variation which need two separated value)
             if (!variableStat)
             {
                 MyCurrentValue = value;
@@ -28,6 +29,7 @@ public class StatManager : MonoBehaviour
 
         set
         {
+            // Set properly the stat value by taking care of min and max values
             if (value > MyMaxValue)
             {
                 currentValue = MyMaxValue;

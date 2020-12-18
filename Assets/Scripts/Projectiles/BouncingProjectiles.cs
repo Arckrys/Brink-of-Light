@@ -19,7 +19,6 @@ public class BouncingProjectiles : EnnemiesProjectileScript
     {
         if (!(other.gameObject.tag.Equals("Enemy") || other.gameObject.tag.Equals("Spell") || other.gameObject.tag.Equals("Projectile")))
         {
-            
             if (other.gameObject.tag.Equals("Player"))
             {
                 collisionDetected = true;
@@ -30,8 +29,6 @@ public class BouncingProjectiles : EnnemiesProjectileScript
                 bounce(other);
             }
         }
-
-
     }
 
     protected virtual void bounce(Collider2D other)

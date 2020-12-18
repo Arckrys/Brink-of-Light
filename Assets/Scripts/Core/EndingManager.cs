@@ -23,6 +23,7 @@ public class EndingManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Go to next dialogue or launch fade effet
         if (DialogueManagerScript.MyInstance.SentenceIsOver && Input.GetKeyDown(KeyCode.E))
         {
             indexDialogue += 1;
@@ -34,6 +35,7 @@ public class EndingManager : MonoBehaviour
         }
     }
     
+    // Launch fade effect and switch to village scene
     private IEnumerator EndEndingScene()
     {
         loadAnimator.SetTrigger("Start");
@@ -43,6 +45,7 @@ public class EndingManager : MonoBehaviour
         SceneManager.LoadScene("VillageScene");
     }
     
+    // Go to next dialogue with fade effect between
     private IEnumerator FadeInDialogue()
     {
         yield return new WaitForSeconds(1);

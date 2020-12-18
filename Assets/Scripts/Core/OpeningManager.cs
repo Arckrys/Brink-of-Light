@@ -35,6 +35,7 @@ public class OpeningManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Switch between dialogues and scenes
         if (!inDialogueTransition && DialogueManagerScript.MyInstance.DialogueIsOver) //  && Input.GetKeyDown(KeyCode.E)
         {
             indexDialogue += 1;
@@ -65,6 +66,7 @@ public class OpeningManager : MonoBehaviour
         }
     }
 
+    // End opening scene and switch to tutorial scene
     private IEnumerator EndOpeningScene()
     {
         loadAnimator.SetTrigger("Start");
@@ -74,6 +76,7 @@ public class OpeningManager : MonoBehaviour
         SceneManager.LoadScene("TutorialScene");
     }
 
+    // Change scene to continue history
     private IEnumerator ChangeScene()
     {
         loadAnimator.SetTrigger("Start");
@@ -91,6 +94,7 @@ public class OpeningManager : MonoBehaviour
         StartCoroutine(FadeInDialogue());
     }
 
+    // Provokes a flash type animation for the arrival of the enemies
     private IEnumerator FlashScene()
     {
         flashAnimator.SetTrigger("Start");
@@ -108,6 +112,7 @@ public class OpeningManager : MonoBehaviour
         inDialogueTransition = false;
     }
 
+    // Show dialogues
     private IEnumerator FadeInDialogue()
     {
         yield return new WaitForSeconds(1);
@@ -124,6 +129,7 @@ public class OpeningManager : MonoBehaviour
         inDialogueTransition = false;
     }
     
+    // Hide dialogues
     private IEnumerator FadeOutDialogue()
     {
         while (messageFrame.GetComponent<CanvasGroup>().alpha > 0)

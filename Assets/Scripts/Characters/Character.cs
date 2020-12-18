@@ -81,11 +81,13 @@ public abstract class Character : MonoBehaviour
 
     protected void InitStatField(ref StatField stat, float initValue, bool variable)
     {
+        // Add missing component if variable is null
         if (!stat)
         {
             stat = gameObject.AddComponent<StatField>();
         }
         
+        // Initiate character stat
         stat.Initialized(initValue, initValue, false);
     }
 
@@ -95,12 +97,13 @@ public abstract class Character : MonoBehaviour
         myRigidbody.velocity = direction.normalized * movementSpeed.MyCurrentValue;
     }
 
+    // Recreate character collider
     private void UpdatePolygonCollider()
     {
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
     }
-
+    
     private void ResetAnimator(Animator animator)
     {
         animator.SetBool("FacingRight", false);
@@ -113,7 +116,7 @@ public abstract class Character : MonoBehaviour
     // Plays the proper animation given a direction
     protected void FaceDirection(Vector2 newDir, Animator animator)
     {
-        
+        // When not moving
         if (newDir.x == 0 && newDir.y == 0)
         {
             if (!animator.GetBool("Idle"))
@@ -125,6 +128,7 @@ public abstract class Character : MonoBehaviour
         }
         else
         {
+            // Compute the angle to get the right animation (orientation) to play
             var angle = Mathf.Atan2(newDir.y, newDir.x) * Mathf.Rad2Deg;
             
             if (angle < 40 && angle > -40)
@@ -173,6 +177,7 @@ public abstract class Character : MonoBehaviour
         isTakingDamageOnTime = true;
         int tick = 0;
 
+        // Dealing 'maxTick' times the 'damage' to the character
         while (isTakingDamageOnTime)
         {
             life.MyCurrentValue -= damage;
@@ -187,8 +192,10 @@ public abstract class Character : MonoBehaviour
                 PlayerScript.MyInstance.PlayerCurrentLife -= damage;
             }
 
+            // Show floating text (damage value)
             CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(CultureInfo.InvariantCulture), DamageType.DamageOnTime, 1.0f, false);
 
+            // In the case enemies or player dies
             if ((gameObject.GetComponent<BasicEnemyController>() != null && life.MyCurrentValue == 0) || (gameObject.GetComponent<PlayerScript>() != null && PlayerScript.MyInstance.PlayerCurrentLife == 0))
             {
                 Destroy(gameObject);

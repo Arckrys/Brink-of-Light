@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CanvasTransitionScript.MyInstance.FadeIn(null, true));
     }
 
+    // Starts pause menu when pressing ECHAP key (and fix time)
     private void GetPauseKey()
     {
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
@@ -72,12 +73,14 @@ public class GameManager : MonoBehaviour
 
     public void EditPauseState(bool state)
     {
+        // Switch between menus
         if (!state && (menuGraphics.activeSelf || menuAudio.activeSelf))
         {
             menuGraphics.SetActive(state);
             menuAudio.SetActive(state);
             menuPause.SetActive(!state);
         }
+        // Fix time if menu is opened
         else
         {
             inPause = state;
@@ -89,18 +92,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Switch to graphic menu
     public void SetGraphicMenu(bool state)
     {
         menuPause.SetActive(!state);
         menuGraphics.SetActive(state);
     }
 
+    // Switch to audio menu
     public void SetAudioMenu(bool state)
     {
         menuPause.SetActive(!state);
         menuAudio.SetActive(state);
     }
 
+    // Launch death menu
     public void SetDeathMenu(bool state)
     {
         MusicManager.MyInstance.SetCurrentMusic("death");
@@ -110,20 +116,22 @@ public class GameManager : MonoBehaviour
 
     private void UpdateDoorState()
     {
+        // When all enemies are killed and there is an exit door
         if (closeDoors != null && openDoors != null && !enemiesAllKilled)
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
             {
+                // Open all doors
                 closeDoors.SetActive(false);
                 openDoors.SetActive(true);
                 enemiesAllKilled = true;
 
                 if (DungeonFloorScript.MyInstance.GetCurrentNode().GetRoomType() == FloorNode.roomTypeEnum.regular)
                 {
+                    // Instantiate chest in room
                     int randomInt = Random.Range(0, 15);
                     if (randomInt == 0)
                     {
-                        print("spawning chest");
                         GameObject chest = Instantiate(chestPrefab);
                         chest.transform.parent = GameObject.FindGameObjectWithTag("Room").transform;
                     }
@@ -131,11 +139,11 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                // Close all doors
                 closeDoors.SetActive(true);
                 openDoors.SetActive(false);
             }
         }
-
         else
         {
             FindRoomDoors();
@@ -173,6 +181,7 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveGame();
     }
 
+    // Load a backup
     public void LoadGame()
     {
         GameData data = SaveSystem.LoadGame();

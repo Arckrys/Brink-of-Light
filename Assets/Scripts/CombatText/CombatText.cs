@@ -22,11 +22,13 @@ public class CombatText : MonoBehaviour
         Move();
     }
 
+    // Animates combat text
     private void Move()
     {
         transform.Translate(Vector2.up * (speed * Time.deltaTime));
     }
 
+    // Hides (fade effect) the combat text 
     private IEnumerator FadeOut()
     {
         var startAlpha = text.color.a;

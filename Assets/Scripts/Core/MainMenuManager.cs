@@ -98,11 +98,13 @@ public class MainMenuManager : MonoBehaviour
         UpdateMenu();
     }
 
+    // Set audio and graphic
     private void LoadPlayerSettings() {
         audioManager.InitMasterVolume();
         graphManager.InitGraphics();
     }
 
+    // Switch between menus
     public void UpdateMenu()
     {
         if (menuAudio.activeSelf || menuGraphics.activeSelf)
@@ -122,17 +124,20 @@ public class MainMenuManager : MonoBehaviour
     {
         if (inMenu || inTransition) return;
         
+        // Hide confirm menu (showing before starting new game)
         for (var i = 0; i < GameObject.Find("CanvasSecondMenu").transform.childCount; i++)
         {
             GameObject.Find("CanvasSecondMenu").transform.GetChild(i).gameObject.SetActive(false);
         }
         
+        // Show main menu
         for (var i = 0; i < GameObject.Find("CanvasFirstMenu").transform.childCount; i++)
         {
             GameObject.Find("CanvasFirstMenu").transform.GetChild(i).gameObject.GetComponent<MainButtonManager>().OnButton();
         }
     }
 
+    // Start transition when starting new game
     private void OnConfirmNewGamePressed()
     {
         if (inMenu || inTransition) return;
@@ -147,11 +152,13 @@ public class MainMenuManager : MonoBehaviour
         
         var saveData = SaveSystem.LoadGame();
 
+        // Start transition when starting new game
         if (saveData == null)
         {
             inTransition = true;
             StartCoroutine(StartNewGame());
         }
+        // Show confirm menu (to erase save) before starting menu
         else
         {
             for (var i = 0; i < GameObject.Find("CanvasFirstMenu").transform.childCount; i++)
@@ -166,6 +173,7 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    // Launches the game with the saved data
     private void OnResumeGamePressed()
     {
         if (inMenu || inTransition) return;
@@ -193,6 +201,7 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("VillageScene");
     }
 
+    // Start music, delete save and witch to introduction scene
     private IEnumerator StartNewGame()
     {
         musicManager.SetCurrentMusic("cinematic");
@@ -215,6 +224,7 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("OpeningScene");
     }
     
+    // Fade out main menu
     private IEnumerator FadeOutMainMenu()
     {
         var startAlpha = canvasMainMenu.GetComponent<CanvasGroup>().alpha;
@@ -228,6 +238,7 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    // Show settings
     private void OnSettingsPressed()
     {
         if (inMenu || inTransition) return;
@@ -237,6 +248,7 @@ public class MainMenuManager : MonoBehaviour
         noSaveText.SetActive(false);
     }
     
+    // Leave game
     private void OnQuitPressed()
     {
         if (inMenu || inTransition) return;
@@ -246,6 +258,7 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
     
+    // Show audio settings
     private void OnAudioPressed()
     {
         if (inTransition) return;
@@ -255,6 +268,7 @@ public class MainMenuManager : MonoBehaviour
         menuAudio.SetActive(true);
     }
     
+    // Show graphic settings
     private void OnGraphicsPressed()
     {
         if (inTransition) return;

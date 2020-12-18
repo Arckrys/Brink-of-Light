@@ -38,7 +38,6 @@ public class DialogueManagerScript : MonoBehaviour
 		}
     }
 
-
     public static DialogueManagerScript MyInstance
 	{
 		get
@@ -87,6 +86,7 @@ public class DialogueManagerScript : MonoBehaviour
 		StartCoroutine(TypeSentence(sentence));
 	}
 
+	// Launch typing text animation
 	IEnumerator TypeSentence(string sentence)
 	{
 		dialogueText.text = "";
@@ -96,9 +96,9 @@ public class DialogueManagerScript : MonoBehaviour
 			yield return new WaitForSeconds(0.015f);
 		}
 		sentenceIsOver = true;
-
 	}
 
+	// Hide dialogue
 	public void EndDialogue()
 	{
 		dialogueIsOpen = false;

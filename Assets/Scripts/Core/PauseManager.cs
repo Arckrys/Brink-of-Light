@@ -37,27 +37,32 @@ public class PauseManager : MonoBehaviour
             btnQuit.onClick.AddListener(OnQuitPressed);
     }
 
+    // Leave game
     private void OnQuitPressed()
     {
         PlayerPrefs.SetInt("Restart", 0);
         Application.Quit();
     }
 
+    // Hide pause menu
     private static void OnResumePressed()
     {
         GameManager.MyInstance.EditPauseState(false);
     }
 
+    // Show video settings
     private static void OnVideoPressed()
     {
         GameManager.MyInstance.SetGraphicMenu(true);
     }
 
+    // Show audio settings
     private static void OnAudioPressed()
     {
         GameManager.MyInstance.SetAudioMenu(true);
     }
 
+    // Restart dungeon
     private void OnRestartPressed()
     {
         StartCoroutine(RestartDungeon());
@@ -65,18 +70,21 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // Go back to town
     private void OnTownPressed()
     {
         Time.timeScale = 1;
         StartCoroutine(LoadVillage());
     }
 
+    // Go to main menu
     private void OnMainMenuPressed()
     {
         Time.timeScale = 1;
         StartCoroutine(LoadMainMenu());
     }
 
+    // Load town scene
     private IEnumerator LoadVillage()
     {
         animator.SetTrigger("Start");
@@ -90,6 +98,7 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene("VillageScene");
     }
 
+    // Leave dungeon and instantiate a new one
     private IEnumerator RestartDungeon()
     {
         animator.SetTrigger("Start");
@@ -103,6 +112,7 @@ public class PauseManager : MonoBehaviour
         PlayerPrefs.SetInt("Restart", 1);
     }
 
+    // Show main menu
     private IEnumerator LoadMainMenu()
     {
         animator.SetTrigger("Start");

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+// Class to determine the seller's menu to be displayed and initiated
 public class NpcScript : VillageNpcScript
 {
     private SellerMenuScript seller;
@@ -18,7 +19,8 @@ public class NpcScript : VillageNpcScript
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.E) && (!Input.GetKeyDown(KeyCode.Escape) || !PlayerScript.MyInstance.GetIsInMenu()) || !isInCollision) return;
-
+        // When player is in collision with seller and pressing E or ECHAP (when menu is already opened)
+        
         // Activates the seller's menu
         if (isSeller && sellerDialogueDone && DialogueManagerScript.MyInstance.SentenceIsOver)
         {
@@ -60,9 +62,9 @@ public class NpcScript : VillageNpcScript
             sellerDialogueDone = true;
         }
     }
+    
     public void TriggerDialogue()
     {
         DialogueManagerScript.MyInstance.StartDialogue(dialogue);
     }
-
 }

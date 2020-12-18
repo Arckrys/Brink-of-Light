@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Class for Urbius and Igeirus menus
 public class SellerMenuScript : MonoBehaviour
 {
     [SerializeField] private Text title;
@@ -56,6 +57,7 @@ public class SellerMenuScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    // Gets max level according to items available in the collection
     private bool IsMaxLevel(int currentLevel, ICollection items)
     {
         return currentLevel == items.Count;
@@ -79,7 +81,7 @@ public class SellerMenuScript : MonoBehaviour
         description.gameObject.SetActive(true);
     }
 
-    // Display the right menu, Igeirus or Urbius
+    // Update and display the right menu, Igeirus or Urbius
     public void UpdateUI()
     {
         var playerLevel = 0;

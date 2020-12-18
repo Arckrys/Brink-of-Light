@@ -7,6 +7,7 @@ public static class SaveSystem
     //static string path = Application.persistentDataPath + "/BrinkOfLight.save";
     static string path = "./BrinkOfLight.save";
 
+    // Save game data
     public static void SaveGame()
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -19,6 +20,7 @@ public static class SaveSystem
         Debug.Log("Saved");
     }
 
+    // Save only currencies
     public static void SaveCurrencies()
     {
         var load = LoadGame();
@@ -39,6 +41,7 @@ public static class SaveSystem
         return File.Exists(path);
     }
 
+    // Load a backup
     public static GameData LoadGame()
     {
         if(File.Exists(path))

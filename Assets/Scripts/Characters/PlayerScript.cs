@@ -124,6 +124,7 @@ public class PlayerScript : Character
 
         InitStatField(ref invincibilityTime, initInvincibilityTime, false);
 
+        // Verifies the existence of a backup
         if (!SaveSystem.DoesSaveExist())
         {
             SaveSystem.SaveGame();
@@ -152,12 +153,14 @@ public class PlayerScript : Character
             }
             else
             {
+                // Removes an extra life and establishes temporary invincibility
                 additionalLives--;
                 PlayerCurrentLife = PlayerMaxLife;
                 StartInvincibility(2f);
             }
         }
         
+        // Start timer when in dungeon
         TimerManager.MyInstance.MyTimer = !isProjectilesDisabled;
 
         base.Update();
@@ -292,10 +295,12 @@ public class PlayerScript : Character
 
     private void HandleLayers()
     {
+        // Walking animation when moving
         if (IsMoving || isLookingMouse)
         {
             ActivateLayer("Walk Layer");
 
+            // Uses the direction of the mouse when player is shooting
             if (isLookingMouse)
             {
                 var newDir = GetPlayerToDirection().normalized;
@@ -309,6 +314,7 @@ public class PlayerScript : Character
                 movementAnimator.SetFloat(Y, direction.y);
             }
         }
+        // IDLE animation when static
         else
         {
             ActivateLayer("Idle Layer");
@@ -385,6 +391,7 @@ public class PlayerScript : Character
         }
     }
 
+    // Player don't takes damage while invincible
     public IEnumerator StartNotLosingHealthWhenAttacking(float secondsOfInvincibility)
     {
         isLosingHealthWhenAttacking = false;
@@ -395,8 +402,8 @@ public class PlayerScript : Character
 
         yield break;
     }
-
-
+    
+    // Active the correct layer depend on 'layerName'
     private void ActivateLayer(string layerName)
     {
         for (var i = 0; i < movementAnimator.layerCount; i++)
@@ -416,14 +423,15 @@ public class PlayerScript : Character
         {
             invinsibleCoroutine = StartCoroutine(StartInvincibility());
 
+            // Inflicts collision damage
             var damageReceived = collision.gameObject.GetComponent<BasicEnemyController>().attack.MyMaxValue;
             PlayerCurrentLife -= damageReceived;
 
             CombatTextManager.MyInstance.CreateText(transform.position, damageReceived.ToString(CultureInfo.InvariantCulture), DamageType.Player, 1.0f, false);
         }
-
     }
 
+    // Inflicts collision damage from projectile
     public void ReceiveDmgFromProjectile(float damageReceived)
     {
         invinsibleCoroutine = StartCoroutine(StartInvincibility());

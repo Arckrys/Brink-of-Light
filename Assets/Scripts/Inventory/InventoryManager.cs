@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
         return isFull;
     }
 
+    // Add item to inventory and load sprite
     public void AddItem(string itemName)
     {
         if (IsInventoryFull()) return;

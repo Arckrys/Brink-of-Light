@@ -144,7 +144,7 @@ public class RazakusMenuScript : MonoBehaviour
         return CurrenciesScript.MyInstance.PurchaseForSouls((int)(RazakusData[statName][0] * RazakusData[statName][1] + RazakusData[statName][2]));
     }
 
-    // The following methods are linked to ingame buttons
+    // The following methods are linked to ingame buttons to update stats and save new data
     public void OnHealthPressed()
     {
         const string statName = "Vie";

@@ -22,7 +22,8 @@ public class CombatTextManager : MonoBehaviour
     [SerializeField] private GameObject combatTextPrefab;
     
     private static readonly int Crit = Animator.StringToHash("crit");
-
+    
+    // Creates the combat text to display above the character
     public void CreateText(Vector2 position, string text, DamageType type, float offset, bool crit)
     {
         position.y += offset;
@@ -32,6 +33,7 @@ public class CombatTextManager : MonoBehaviour
 
         var operation = string.Empty;
 
+        // According to the type of damage, change tex color
         switch (type)
         {
             case DamageType.Damage:
@@ -62,6 +64,7 @@ public class CombatTextManager : MonoBehaviour
         
         temp.color = Color.yellow;
 
+        // Plays zooming animation for critic damage
         temp.GetComponent<Animator>().SetBool(Crit, true);
     }
 }

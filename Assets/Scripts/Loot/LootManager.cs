@@ -10,6 +10,7 @@ public class LootManager : MonoBehaviour
 
     private int goldAmount;
 
+    // Pick up currencies and/or item in loot bag
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

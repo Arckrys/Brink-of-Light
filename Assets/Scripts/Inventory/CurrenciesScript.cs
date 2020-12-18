@@ -39,6 +39,7 @@ public class CurrenciesScript : MonoBehaviour
         SetSoulsNumber(soulsAmount);
     }
 
+    // Starts the animation that incremented gold
     private IEnumerator GoldIncrement()
     {
         var incrementTime = Math.Abs(baseIncrementTime / Math.Abs(goldAmount - goldToPrint));
@@ -53,6 +54,7 @@ public class CurrenciesScript : MonoBehaviour
         }
     }
     
+    // Starts the animation that incremented souls
     private IEnumerator SoulIncrement()
     {
         var incrementTime = Math.Abs(baseIncrementTime / Math.Abs(soulsAmount - soulsToPrint));

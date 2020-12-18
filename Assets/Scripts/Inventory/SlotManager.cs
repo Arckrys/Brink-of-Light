@@ -13,6 +13,7 @@ public class SlotManager : MonoBehaviour
 
     public bool MySlotValidity => isAvailable;
 
+    // Update slot with sprite
     public void UpdateSlot(Sprite sprite, string name, bool available)
     {
         var image = slotImage.GetComponent<Image>();

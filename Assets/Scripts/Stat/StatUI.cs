@@ -27,6 +27,7 @@ public class StatUI : StatManager
     {
         const float tolerance = 0.01f;
         
+        // For element which need zooming effect
         if (scalable)
         {
             var scale = transform.localScale;
@@ -42,11 +43,13 @@ public class StatUI : StatManager
             }
         }
         
+        // Update filled bar
         if (filled && content && Math.Abs(content.fillAmount - MyCurrentValue / MyMaxValue) > tolerance)
         {
             content.fillAmount = MyCurrentValue / MyMaxValue;
         }
 
+        // Update stat text
         if (statText)
         {
             statText.text = MyCurrentValue + "/" + MyMaxValue;
@@ -63,7 +66,5 @@ public class StatUI : StatManager
         // Outer radius is between 4 and 8
         // Inner radius is between 0.4 and 0.8
         playerScript.SetPlayerLighting(scale.x * 4 + 4);
-        
-
     }
 }

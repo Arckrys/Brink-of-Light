@@ -19,6 +19,7 @@ public class ExitEndManager : MonoBehaviour
         StartCoroutine(LoadEndingScene());
     }
     
+    // Load ending scene at the end of the game
     private IEnumerator LoadEndingScene()
     {
         loadAnimator.SetTrigger("Start");

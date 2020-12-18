@@ -1,13 +1,13 @@
 ﻿[System.Serializable]
 public class GameData
 {
-    
     private double[] razakusPurchases;
     private float[] playerStatMaxValues = new float[8];
     private int[] currencies = new int[2];
     private int urbiusLevel;
     private int igeirusLevel;
 
+    // Initiate data to save (stats, seller purchases and currencies)
     public GameData()
     {
         razakusPurchases = RazakusMenuScript.MyInstance ? RazakusMenuScript.MyInstance.GetRazakusPurchases() : null;

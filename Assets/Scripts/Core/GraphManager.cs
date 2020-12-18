@@ -44,6 +44,7 @@ public class GraphManager : MonoBehaviour
     {
         InitGraphics();
 
+        // Get all supported resolutions
         foreach (var t in Screen.resolutions)
         {
             resolutions.Add(t.width + "x" + t.height);
@@ -60,6 +61,7 @@ public class GraphManager : MonoBehaviour
         back.onClick.AddListener(OnBackPressed);
     }
 
+    // Loading of graphic settings according to user preferences
     public void InitGraphics()
     {
         currentFullscreenState = GetFullscreen();
@@ -84,6 +86,7 @@ public class GraphManager : MonoBehaviour
         ApplyChanges();
     }
 
+    // Applies the graphic settings
     private void ApplyChanges()
     {
         QualitySettings.SetQualityLevel(currentGraphicIndex);
@@ -93,12 +96,13 @@ public class GraphManager : MonoBehaviour
         Screen.SetResolution(int.Parse(resolution[0]), int.Parse(resolution[1]), mode);
     }
 
+    // Go back to pause menu
     private void OnBackPressed()
     {
         if (GameManager.MyInstance) GameManager.MyInstance.SetGraphicMenu(false);
         else MainMenuManager.MyInstance.UpdateMenu();
     }
-
+    
     private void OnFullscreenPressed()
     {
         currentFullscreenState = !currentFullscreenState;
@@ -106,6 +110,7 @@ public class GraphManager : MonoBehaviour
         UpdateFullscreenCheckbox(currentFullscreenState);
     }
     
+    // Navigation between definitions
     private void OnNextGraphicPressed()
     {
         if (currentGraphicIndex + 1 < graphics.Count)
@@ -120,6 +125,7 @@ public class GraphManager : MonoBehaviour
         UpdateGraphicText(graphics[currentGraphicIndex]);
     }
     
+    // Navigation between definitions
     private void OnPreviousGraphicPressed()
     {
         if (currentGraphicIndex - 1 >= 0)
@@ -134,6 +140,7 @@ public class GraphManager : MonoBehaviour
         UpdateGraphicText(graphics[currentGraphicIndex]);
     }
 
+    // Navigation between resolutions
     private void OnNextResolutionPressed()
     {
         if (currentResolutionIndex + 1 < resolutions.Count)
@@ -148,6 +155,7 @@ public class GraphManager : MonoBehaviour
         UpdateResolutionText(resolutions[currentResolutionIndex]);
     }
     
+    // Navigation between resolutions
     private void OnPreviousResolutionPressed()
     {
         if (currentResolutionIndex - 1 >= 0)
@@ -162,11 +170,13 @@ public class GraphManager : MonoBehaviour
         UpdateResolutionText(resolutions[currentResolutionIndex]);
     }
 
+    // Get full screen value from user preferences
     private bool GetFullscreen()
     {
         return PlayerPrefs.GetInt(FullScreenPlayerPrefKey, Screen.fullScreen ? 1 : 0) == 1;
     }
     
+    // Set full screen value in user preferences
     private void SetFullscreen(bool isFullscreen)
     {
         PlayerPrefs.SetInt(FullScreenPlayerPrefKey, isFullscreen ? 1 : 0);
@@ -181,6 +191,7 @@ public class GraphManager : MonoBehaviour
         fullscreenState.color = tempColor;
     }
     
+    // Get resolution values from user preferences
     private (int width, int height) GetResolution()
     {
         var width = PlayerPrefs.GetInt(ResolutionWidthPlayerPrefKey, Screen.currentResolution.width);
@@ -189,6 +200,7 @@ public class GraphManager : MonoBehaviour
         return (width, height);
     }
 
+    // Set resolution values in user preferences
     private void SetResolution(int width, int height)
     {
         PlayerPrefs.SetInt(ResolutionWidthPlayerPrefKey, width);
@@ -202,11 +214,13 @@ public class GraphManager : MonoBehaviour
         txtResolution.text = resolution;
     }
 
+    // Get graphic value from user preferences
     private int GetGraphics()
     {
         return PlayerPrefs.GetInt(Graphics, QualitySettings.GetQualityLevel());
     }
 
+    // Set graphic value in user preferences
     private void SetGraphics(int graphic)
     {
         PlayerPrefs.SetInt(Graphics, graphic);

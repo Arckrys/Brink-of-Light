@@ -43,6 +43,7 @@ public class TutorialScript : MonoBehaviour
         }
     }
     
+    // Load town scene
     private IEnumerator EndTutorialScene()
     {
         GameObject.Find("Crossfade").GetComponent<Animator>().SetTrigger("Start");
@@ -65,7 +66,7 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
-
+    // Show dialogues
     private IEnumerator FadeInDialogue()
     {
         yield return new WaitForSeconds(1);
@@ -80,6 +81,7 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
+    // Hide dialogues
     private IEnumerator FadeOutDialogue()
     {
         while (messageFrame.GetComponent<CanvasGroup>().alpha > 0)
@@ -90,6 +92,7 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
+    // When training mob is hit, go to next step
     public void TriggerEnnemy()
     {
         if(indexDialogue == 0)
@@ -100,6 +103,7 @@ public class TutorialScript : MonoBehaviour
         } 
     }
 
+    // When consumable is triggered, go to next step
     public void TriggerConsumable()
     {
         if (indexDialogue == 1)
@@ -110,6 +114,7 @@ public class TutorialScript : MonoBehaviour
         }
     }
 
+    // When equipment is triggered, go to next step
     public void TriggerEquipment()
     {
         if (indexDialogue == 2)
@@ -121,6 +126,8 @@ public class TutorialScript : MonoBehaviour
 
         }
     }
+    
+    // When combustible is triggered, go to next step
     public void TriggerCombustible()
     {
         if (indexDialogue == 3)
