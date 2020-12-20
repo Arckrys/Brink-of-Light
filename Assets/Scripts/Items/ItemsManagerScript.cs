@@ -185,35 +185,39 @@ public class ItemsManagerScript : MonoBehaviour
         {            
             case "Allumettes":
                 PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.5f;
-                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.2f;
                 break;
 
             case "Amulette du dragon":
-                PlayerScript.MyInstance.attack.MyMaxValue += 1.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 1.2f;
                 break;
 
             case "Anneau du dragon":
                 PlayerScript.MyInstance.attack.MyMaxValue += 1f;
-                PlayerScript.MyInstance.knockback.MyMaxValue += 2f;
+                PlayerScript.MyInstance.knockback.MyMaxValue += 0.5f;
                 break;
 
             case "Anneau du forgeron":
-                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
-                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.4f;
+                if (PlayerScript.MyInstance.movementSpeed.MyMaxValue < 10f)
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.5f;
                 PlayerScript.MyInstance.PlayerMaxLife += 10f;
                 break;
 
             case "Bottes d'Hotavius":
-                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
+                if (PlayerScript.MyInstance.movementSpeed.MyMaxValue < 10f)
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue += 1f;
+                else
+                    PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.2f;
                 break;
 
             case "Cape de vampire":
-                PlayerScript.MyInstance.invincibilityTime.MyMaxValue += 0.5f;
-                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.invincibilityTime.MyMaxValue += 0.2f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.4f;
                 break;
 
             case "Lampe à huile d'Hotavius":
-                PlayerScript.MyInstance.PlayerMaxLife += 25f;
+                PlayerScript.MyInstance.PlayerMaxLife += 40f;
                 PlayerScript.MyInstance.attackSpeed.MyMaxValue += 0.2f;
                 break;
 
@@ -223,13 +227,18 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Lance d'Hotavius":
                 PlayerScript.MyInstance.IsProjectilePiercing = true;
-                PlayerScript.MyInstance.range.MyMaxValue += 30;
+                PlayerScript.MyInstance.range.MyMaxValue += 40;
                 if (PlayerScript.MyInstance.attack.MyMaxValue > 1)
                 {
                     if (PlayerScript.MyInstance.attack.MyMaxValue < 3)
-                        PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                    else
                         PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
+                    else
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 2f;
+                }
+
+                if (PlayerScript.MyInstance.knockback.MyMaxValue > 1)
+                {
+                    PlayerScript.MyInstance.knockback.MyMaxValue = 1;                 
                 }
                 break;
 
@@ -239,23 +248,28 @@ public class ItemsManagerScript : MonoBehaviour
                 {
                     if (PlayerScript.MyInstance.attack.MyMaxValue < 2)
                         PlayerScript.MyInstance.attack.MyMaxValue -= 0.5f;
-                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 4)
+                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 3)
                         PlayerScript.MyInstance.attack.MyMaxValue -= 1f;
-                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 6)
+                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 4)
                         PlayerScript.MyInstance.attack.MyMaxValue -= 1.5f;
-                    else
+                    else if (PlayerScript.MyInstance.attack.MyMaxValue < 6)
                         PlayerScript.MyInstance.attack.MyMaxValue -= 2f;
+                    else
+                        PlayerScript.MyInstance.attack.MyMaxValue -= 3f;
                 }
                 break;
 
             case "Carte d'Hotavius":
                 DungeonFloorScript.MyInstance.ShowFullMap();
-                PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.2f;
+                if (PlayerScript.MyInstance.movementSpeed.MyMaxValue < 10f)
+                    PlayerScript.MyInstance.movementSpeed.MyMaxValue += 0.2f;
+                else
+                    PlayerScript.MyInstance.attack.MyMaxValue += 0.2f;
                 break;
 
             case "Plume du phoenix":
                 PlayerScript.MyInstance.IncreaseAdditionalLives();
-                PlayerScript.MyInstance.PlayerMaxLife += 10f;
+                PlayerScript.MyInstance.PlayerMaxLife += 15f;
                 break;
 
             case "Roquette":
@@ -264,7 +278,7 @@ public class ItemsManagerScript : MonoBehaviour
 
             case "Crocs de vampire":
                 PlayerScript.MyInstance.MyHealOnSuccessiveHits += 15;
-                PlayerScript.MyInstance.attack.MyMaxValue += 0.5f;
+                PlayerScript.MyInstance.attack.MyMaxValue += 0.3f;
                 break;
 
             case "Flamme éternelle":
