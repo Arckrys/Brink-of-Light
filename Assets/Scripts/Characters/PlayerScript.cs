@@ -218,7 +218,7 @@ public class PlayerScript : Character
     {
         projectileCount++;
 
-        var position = transform.position + new Vector3(0,-0.32f);
+        var position = transform.position + new Vector3(0,-0.20f);
             
         var projectileDirection = GetPlayerToDirection();
 
@@ -241,7 +241,7 @@ public class PlayerScript : Character
 
             //create projectile
             float xPos = position.x + (-(float)projectilesNumber/2 + 0.5f + i)/2;
-            var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y - 0.32f, -2), Quaternion.identity);
+            var newProjectile = Instantiate(projectile, new Vector3(xPos, position.y - 0.20f, -2), Quaternion.identity);
             var projectileScript = newProjectile.GetComponent<ProjectileScript>();
 
             //change the color and damage of the projectile if player has the item "Poudre de métaux"
