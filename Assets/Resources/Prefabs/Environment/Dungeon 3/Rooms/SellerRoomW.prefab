@@ -4303,8 +4303,8 @@ GameObject:
   - component: {fileID: 6828787007553027778}
   - component: {fileID: 6828787007553027789}
   m_Layer: 0
-  m_Name: BorderTilemapRight
-  m_TagString: DoorRight
+  m_Name: BorderTilemapLeft
+  m_TagString: DoorLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4697,7 +4697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6828787007689568972}
   m_Layer: 0
-  m_Name: SpawnRight
+  m_Name: SpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
