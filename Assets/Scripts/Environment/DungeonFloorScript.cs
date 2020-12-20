@@ -19,8 +19,8 @@ public class DungeonFloorScript : MonoBehaviour
     {
         isMapRevealed = false;
         nodeList = new List<FloorNode>();
-        floorLevel = 3;
-        dungeonLevel = 1;
+        floorLevel = 0;
+        dungeonLevel = 0;
 
         //if there is no room in the scene, generate a dungeon floor
         if(!GameObject.FindGameObjectWithTag("Room"))
