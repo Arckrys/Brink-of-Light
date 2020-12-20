@@ -19,6 +19,15 @@ public class MusicManager : MonoBehaviour
 
     private static MusicManager _instance;
 
+    private void Awake()
+    {
+        if(_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+    }
+
     public static MusicManager MyInstance
     {
         get
@@ -49,11 +58,6 @@ public class MusicManager : MonoBehaviour
         musicData.Add("death", deathClip);
 
         source = GetComponent<AudioSource>();
-    }
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
     }
 
     // Start new music

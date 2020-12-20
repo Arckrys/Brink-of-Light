@@ -23,6 +23,8 @@ public class ExitEndManager : MonoBehaviour
     private IEnumerator LoadEndingScene()
     {
         loadAnimator.SetTrigger("Start");
+
+        MusicManager.MyInstance.SetCurrentMusic("village");
     
         yield return new WaitForSeconds(1);
         
