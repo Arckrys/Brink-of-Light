@@ -212,7 +212,7 @@ MonoBehaviour:
   nextWaypointDistance: 1
   repathRate: 0.5
   dashDistance: 70
-  dashSpeedMultiplicator: 3
+  dashSpeedMultiplicator: 2
   dashRestingTime: 100
 --- !u!114 &-8111842520241801148
 MonoBehaviour:

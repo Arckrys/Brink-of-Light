@@ -208,8 +208,8 @@ GameObject:
   - component: {fileID: 8502234294414699551}
   - component: {fileID: 5267086061324552191}
   - component: {fileID: 950590215}
-  - component: {fileID: 950590217}
   - component: {fileID: 468377441}
+  - component: {fileID: 197918243376801817}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -337,6 +337,7 @@ MonoBehaviour:
   levelUrbius: 0
   lifeBar: {fileID: 0}
   isProjectilesDisabled: 1
+  isLifeUnlimited: 0
   projectile: {fileID: 7869541750430091150, guid: f6fd79de9763cee4cb7fd015cbccce54, type: 3}
   mouseTimeDirection: 1
 --- !u!114 &5267086061324552191
@@ -374,48 +375,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &950590217
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502234294414699539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.075, y: 0.1}
-    newSize: {x: 0.6, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.032425463, y: 0.0045205243}
-      - {x: -0.032271095, y: -0.019950226}
-      - {x: -0.027957812, y: -0.020408027}
-      - {x: -0.027728891, y: -0.02972132}
-      - {x: -0.0231867, y: -0.029263519}
-      - {x: -0.022499999, y: -0.04472132}
-      - {x: -0.017042203, y: -0.04495022}
-      - {x: -0.01718525, y: -0.04953502}
-      - {x: 0.01727109, y: -0.049492426}
-      - {x: 0.0175, y: -0.045179125}
-      - {x: 0.022042185, y: -0.045179125}
-      - {x: 0.022042189, y: -0.03540802}
-      - {x: 0.0275, y: -0.035636924}
-      - {x: 0.0275, y: -0.024950221}
-      - {x: 0.0325, y: -0.025179124}
-      - {x: 0.0325, y: 0.0045618247}
-      - {x: 0.0005430133, y: 0.00468072}
 --- !u!114 &468377441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,3 +416,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!58 &197918243376801817
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502234294414699539}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.027742028}
+  serializedVersion: 2
+  m_Radius: 0.0324929
